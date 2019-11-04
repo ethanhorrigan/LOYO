@@ -1,0 +1,6768 @@
+[
+  {
+    "begin_at": "2019-10-27T14:53:12Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-27T18:18:44Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-27T14:53:12Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T15:32:04Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211111,
+        "length": 2061,
+        "match_id": 549411,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-27T15:47:32Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T16:37:44Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211112,
+        "length": 2662,
+        "match_id": 549411,
+        "position": 2,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1453,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-27T16:52:00Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T17:28:27Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211113,
+        "length": 1864,
+        "match_id": 549411,
+        "position": 3,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-27T17:43:05Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T18:18:44Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211114,
+        "length": 1822,
+        "match_id": 549411,
+        "position": 4,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 549411,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-27T14:38:12Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/549411"
+    },
+    "live_url": "https://www.twitch.tv/lck_korea",
+    "match_type": "best_of",
+    "modified_at": "2019-10-27T18:18:45Z",
+    "name": "Quarterfinal 4: DWG vs G2",
+    "number_of_games": 5,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "DWG",
+          "id": 1453,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+          "name": "DAMWON Gaming",
+          "slug": "damwon-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 3,
+        "team_id": 88
+      },
+      {
+        "score": 1,
+        "team_id": 1453
+      }
+    ],
+    "scheduled_at": "2019-10-27T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "2019-10-27-e825d3cd-2125-450e-bd4c-70a975137286",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-26T10:00:00Z",
+      "end_at": "2019-11-10T17:00:00Z",
+      "id": 2530,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:16:03Z",
+      "name": "Playoffs",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-playoffs",
+      "winner_id": null,
+      "winner_type": null
+    },
+    "tournament_id": 2530,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "G2",
+      "id": 88,
+      "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+      "name": "G2 Esports",
+      "slug": "g2-esports"
+    },
+    "winner_id": 88
+  },
+  {
+    "begin_at": "2019-10-27T11:10:24Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-27T14:19:12Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-27T11:10:24Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T11:45:30Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211106,
+        "length": 1749,
+        "match_id": 549410,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-27T12:00:01Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T12:33:51Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211107,
+        "length": 1648,
+        "match_id": 549410,
+        "position": 2,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-27T12:49:12Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T13:26:43Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211108,
+        "length": 1909,
+        "match_id": 549410,
+        "position": 3,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 114,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-27T13:41:10Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-27T14:19:13Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211109,
+        "length": 1914,
+        "match_id": 549410,
+        "position": 4,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 549410,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-27T10:55:24Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/549410"
+    },
+    "live_url": "https://www.twitch.tv/lck_korea",
+    "match_type": "best_of",
+    "modified_at": "2019-10-27T14:19:13Z",
+    "name": "Quarterfinal 3: SKT vs SPY",
+    "number_of_games": 5,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "T1",
+          "id": 126061,
+          "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+          "name": "T1",
+          "slug": "t1"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 3,
+        "team_id": 126061
+      },
+      {
+        "score": 1,
+        "team_id": 114
+      }
+    ],
+    "scheduled_at": "2019-10-27T11:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "2019-10-27",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-26T10:00:00Z",
+      "end_at": "2019-11-10T17:00:00Z",
+      "id": 2530,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:16:03Z",
+      "name": "Playoffs",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-playoffs",
+      "winner_id": null,
+      "winner_type": null
+    },
+    "tournament_id": 2530,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "T1",
+      "id": 126061,
+      "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+      "name": "T1",
+      "slug": "t1"
+    },
+    "winner_id": 126061
+  },
+  {
+    "begin_at": "2019-10-26T14:17:29Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-26T17:21:16Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-26T14:17:29Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T14:49:47Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211101,
+        "length": 1568,
+        "match_id": 549409,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-26T15:05:07Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T15:36:07Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211102,
+        "length": 1469,
+        "match_id": 549409,
+        "position": 2,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-26T15:50:29Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T16:24:05Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211103,
+        "length": 1617,
+        "match_id": 549409,
+        "position": 3,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 394,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-26T16:38:29Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T17:21:17Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211104,
+        "length": 2153,
+        "match_id": 549409,
+        "position": 4,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 549409,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-26T14:02:29Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/549409"
+    },
+    "live_url": "https://www.twitch.tv/lck_korea",
+    "match_type": "best_of",
+    "modified_at": "2019-10-26T17:21:18Z",
+    "name": "Quarterfinal 2: FPX vs FNC",
+    "number_of_games": 5,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FNC",
+          "id": 394,
+          "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+          "name": "Fnatic",
+          "slug": "fnatic"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 3,
+        "team_id": 1568
+      },
+      {
+        "score": 1,
+        "team_id": 394
+      }
+    ],
+    "scheduled_at": "2019-10-26T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "2019-10-26-1ea525e7-91f2-43ba-80f3-fdb6bbadbcbb",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-26T10:00:00Z",
+      "end_at": "2019-11-10T17:00:00Z",
+      "id": 2530,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:16:03Z",
+      "name": "Playoffs",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-playoffs",
+      "winner_id": null,
+      "winner_type": null
+    },
+    "tournament_id": 2530,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FPX",
+      "id": 1568,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+      "name": "FunPlus Phoenix",
+      "slug": "funplus-phoenix"
+    },
+    "winner_id": 1568
+  },
+  {
+    "begin_at": "2019-10-26T10:15:36Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-26T13:39:47Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-26T10:15:36Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T11:01:45Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211096,
+        "length": 2633,
+        "match_id": 549408,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 411,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-26T11:16:44Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T11:57:07Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211097,
+        "length": 2080,
+        "match_id": 549408,
+        "position": 2,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 411,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-26T12:11:35Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T12:54:11Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211098,
+        "length": 2193,
+        "match_id": 549408,
+        "position": 3,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      },
+      {
+        "begin_at": "2019-10-26T13:08:37Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-26T13:39:48Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211099,
+        "length": 1542,
+        "match_id": 549408,
+        "position": 4,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 411,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 549408,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-26T10:00:36Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/549408"
+    },
+    "live_url": "https://www.twitch.tv/lck_korea",
+    "match_type": "best_of",
+    "modified_at": "2019-10-26T13:39:49Z",
+    "name": "Quarterfinal 1: GRF vs IG",
+    "number_of_games": 5,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "IG",
+          "id": 411,
+          "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+          "name": "Invictus Gaming",
+          "slug": "invictus-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 3,
+        "team_id": 411
+      },
+      {
+        "score": 1,
+        "team_id": 1452
+      }
+    ],
+    "scheduled_at": "2019-10-26T10:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "2019-10-26",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-26T10:00:00Z",
+      "end_at": "2019-11-10T17:00:00Z",
+      "id": 2530,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:16:03Z",
+      "name": "Playoffs",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-playoffs",
+      "winner_id": null,
+      "winner_type": null
+    },
+    "tournament_id": 2530,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "IG",
+      "id": 411,
+      "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+      "name": "Invictus Gaming",
+      "slug": "invictus-gaming"
+    },
+    "winner_id": 411
+  },
+  {
+    "begin_at": "2019-10-20T16:41:05Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-20T17:12:59Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-20T16:41:05Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-20T17:13:00Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211077,
+        "length": 1447,
+        "match_id": 548789,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 411,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548789,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-20T16:26:05Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548789"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-20T17:13:00Z",
+    "name": "IG vs TL",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "IG",
+          "id": 411,
+          "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+          "name": "Invictus Gaming",
+          "slug": "invictus-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "TL",
+          "id": 390,
+          "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+          "name": "Team Liquid",
+          "slug": "liquid"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 411
+      },
+      {
+        "score": 0,
+        "team_id": 390
+      }
+    ],
+    "scheduled_at": "2019-10-20T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "invictus-gaming-vs-team-liquid-2019-10-20",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "IG",
+      "id": 411,
+      "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+      "name": "Invictus Gaming",
+      "slug": "invictus-gaming"
+    },
+    "winner_id": 411
+  },
+  {
+    "begin_at": "2019-10-20T15:49:23Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-20T16:23:23Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-20T15:49:23Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-20T16:23:24Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211076,
+        "length": 1770,
+        "match_id": 548788,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1453,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548788,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-20T15:34:23Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548788"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-20T16:23:24Z",
+    "name": "DWG vs AHQ",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "DWG",
+          "id": 1453,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+          "name": "DAMWON Gaming",
+          "slug": "damwon-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "AHQ",
+          "id": 415,
+          "image_url": "https://cdn.pandascore.co/images/team/image/415/ahq-e-sports-club-g4xr3guv.png",
+          "name": "ahq e-Sports Club",
+          "slug": "ahq-e-sports-club"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1453
+      },
+      {
+        "score": 0,
+        "team_id": 415
+      }
+    ],
+    "scheduled_at": "2019-10-20T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "ahq-e-sports-club-vs-damwon-gaming-2019-10-20",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "DWG",
+      "id": 1453,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+      "name": "DAMWON Gaming",
+      "slug": "damwon-gaming"
+    },
+    "winner_id": 1453
+  },
+  {
+    "begin_at": "2019-10-20T14:55:00Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-20T15:31:54Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-20T14:55:00Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-20T15:31:54Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211075,
+        "length": 1925,
+        "match_id": 548787,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1453,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548787,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-20T14:40:00Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548787"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-20T15:50:20Z",
+    "name": "DWG vs IG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "DWG",
+          "id": 1453,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+          "name": "DAMWON Gaming",
+          "slug": "damwon-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "IG",
+          "id": 411,
+          "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+          "name": "Invictus Gaming",
+          "slug": "invictus-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1453
+      },
+      {
+        "score": 0,
+        "team_id": 411
+      }
+    ],
+    "scheduled_at": "2019-10-20T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "invictus-gaming-vs-damwon-gaming-2019-10-20",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "DWG",
+      "id": 1453,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+      "name": "DAMWON Gaming",
+      "slug": "damwon-gaming"
+    },
+    "winner_id": 1453
+  },
+  {
+    "begin_at": "2019-10-20T13:59:46Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-20T14:37:27Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-20T13:59:47Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-20T14:37:27Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211074,
+        "length": 1857,
+        "match_id": 548786,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 390,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548786,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-20T13:44:46Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548786"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-20T14:37:27Z",
+    "name": "TL vs AHQ",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "TL",
+          "id": 390,
+          "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+          "name": "Team Liquid",
+          "slug": "liquid"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "AHQ",
+          "id": 415,
+          "image_url": "https://cdn.pandascore.co/images/team/image/415/ahq-e-sports-club-g4xr3guv.png",
+          "name": "ahq e-Sports Club",
+          "slug": "ahq-e-sports-club"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 390
+      },
+      {
+        "score": 0,
+        "team_id": 415
+      }
+    ],
+    "scheduled_at": "2019-10-20T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "team-liquid-vs-ahq-e-sports-club-2019-10-20",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "TL",
+      "id": 390,
+      "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+      "name": "Team Liquid",
+      "slug": "liquid"
+    },
+    "winner_id": 390
+  },
+  {
+    "begin_at": "2019-10-20T13:03:24Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-20T13:42:28Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-20T13:03:24Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-20T13:42:29Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211073,
+        "length": 1938,
+        "match_id": 548785,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1453,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548785,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-20T12:48:24Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548785"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-20T13:42:29Z",
+    "name": " TL vs DWG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "TL",
+          "id": 390,
+          "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+          "name": "Team Liquid",
+          "slug": "liquid"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "DWG",
+          "id": 1453,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+          "name": "DAMWON Gaming",
+          "slug": "damwon-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1453
+      },
+      {
+        "score": 0,
+        "team_id": 390
+      }
+    ],
+    "scheduled_at": "2019-10-20T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "team-liquid-vs-damwon-gaming-2019-10-20",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "DWG",
+      "id": 1453,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+      "name": "DAMWON Gaming",
+      "slug": "damwon-gaming"
+    },
+    "winner_id": 1453
+  },
+  {
+    "begin_at": "2019-10-20T12:05:26Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-20T12:46:01Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-20T12:05:27Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-20T12:46:01Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211072,
+        "length": 1956,
+        "match_id": 548784,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 411,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548784,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-20T11:50:26Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548784"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-20T12:46:02Z",
+    "name": "AHQ vs IG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "AHQ",
+          "id": 415,
+          "image_url": "https://cdn.pandascore.co/images/team/image/415/ahq-e-sports-club-g4xr3guv.png",
+          "name": "ahq e-Sports Club",
+          "slug": "ahq-e-sports-club"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "IG",
+          "id": 411,
+          "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+          "name": "Invictus Gaming",
+          "slug": "invictus-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 411
+      },
+      {
+        "score": 0,
+        "team_id": 415
+      }
+    ],
+    "scheduled_at": "2019-10-20T12:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "ahq-e-sports-club-vs-invictus-gaming-2019-10-20",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "IG",
+      "id": 411,
+      "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+      "name": "Invictus Gaming",
+      "slug": "invictus-gaming"
+    },
+    "winner_id": 411
+  },
+  {
+    "begin_at": "2019-10-19T17:01:37Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-19T17:39:42Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-19T17:01:38Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-19T17:39:42Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211071,
+        "length": 1945,
+        "match_id": 548783,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 394,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548783,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-19T16:46:37Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548783"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-19T17:39:42Z",
+    "name": "FNC vs RNG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "FNC",
+          "id": 394,
+          "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+          "name": "Fnatic",
+          "slug": "fnatic"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "RNG",
+          "id": 74,
+          "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+          "name": "Royal Never Give Up",
+          "slug": "royal-never-give-up"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 394
+      },
+      {
+        "score": 0,
+        "team_id": 74
+      }
+    ],
+    "scheduled_at": "2019-10-19T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "fnatic-vs-royal-never-give-up-2019-10-19",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FNC",
+      "id": 394,
+      "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+      "name": "Fnatic",
+      "slug": "fnatic"
+    },
+    "winner_id": 394
+  },
+  {
+    "begin_at": "2019-10-19T16:04:09Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-19T16:44:08Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-19T16:04:10Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-19T16:44:09Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211070,
+        "length": 1986,
+        "match_id": 548782,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548782,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-19T15:49:09Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548782"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-19T16:44:09Z",
+    "name": " T1 vs CG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "T1",
+          "id": 126061,
+          "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+          "name": "T1",
+          "slug": "t1"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "CG",
+          "id": 1536,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1536/clutch-gaming.png",
+          "name": "Clutch Gaming",
+          "slug": "clutch-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 126061
+      },
+      {
+        "score": 0,
+        "team_id": 1536
+      }
+    ],
+    "scheduled_at": "2019-10-19T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "t1-vs-clutch-gaming-2019-10-19",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "T1",
+      "id": 126061,
+      "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+      "name": "T1",
+      "slug": "t1"
+    },
+    "winner_id": 126061
+  },
+  {
+    "begin_at": "2019-10-19T15:11:05Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-19T15:46:23Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-19T15:11:05Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-19T15:46:23Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211069,
+        "length": 1780,
+        "match_id": 548781,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 74,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548781,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-19T14:56:05Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548781"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-19T15:46:23Z",
+    "name": "CG vs RNG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "CG",
+          "id": 1536,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1536/clutch-gaming.png",
+          "name": "Clutch Gaming",
+          "slug": "clutch-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "RNG",
+          "id": 74,
+          "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+          "name": "Royal Never Give Up",
+          "slug": "royal-never-give-up"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 74
+      },
+      {
+        "score": 0,
+        "team_id": 1536
+      }
+    ],
+    "scheduled_at": "2019-10-19T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "royal-never-give-up-vs-clutch-gaming-2019-10-19",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "RNG",
+      "id": 74,
+      "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+      "name": "Royal Never Give Up",
+      "slug": "royal-never-give-up"
+    },
+    "winner_id": 74
+  },
+  {
+    "begin_at": "2019-10-19T14:19:33Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-19T14:53:19Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-19T14:19:33Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-19T14:53:20Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211068,
+        "length": 1617,
+        "match_id": 548780,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 394,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548780,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-19T14:04:33Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548780"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-19T14:53:21Z",
+    "name": "T1 vs FNC",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "T1",
+          "id": 126061,
+          "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+          "name": "T1",
+          "slug": "t1"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FNC",
+          "id": 394,
+          "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+          "name": "Fnatic",
+          "slug": "fnatic"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 394
+      },
+      {
+        "score": 0,
+        "team_id": 126061
+      }
+    ],
+    "scheduled_at": "2019-10-19T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "t1-vs-fnatic-2019-10-19",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FNC",
+      "id": 394,
+      "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+      "name": "Fnatic",
+      "slug": "fnatic"
+    },
+    "winner_id": 394
+  },
+  {
+    "begin_at": "2019-10-19T13:07:07Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-19T14:02:03Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-19T13:07:08Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-19T14:02:03Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211067,
+        "length": 2919,
+        "match_id": 548779,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 394,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548779,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-19T12:52:07Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548779"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-19T14:11:38Z",
+    "name": "CG vs FNC",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "CG",
+          "id": 1536,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1536/clutch-gaming.png",
+          "name": "Clutch Gaming",
+          "slug": "clutch-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FNC",
+          "id": 394,
+          "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+          "name": "Fnatic",
+          "slug": "fnatic"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 394
+      },
+      {
+        "score": 0,
+        "team_id": 1536
+      }
+    ],
+    "scheduled_at": "2019-10-19T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "fnatic-vs-clutch-gaming-2019-10-19",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FNC",
+      "id": 394,
+      "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+      "name": "Fnatic",
+      "slug": "fnatic"
+    },
+    "winner_id": 394
+  },
+  {
+    "begin_at": "2019-10-19T12:07:33Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-19T12:49:55Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-19T12:07:33Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-19T12:49:55Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211066,
+        "length": 2130,
+        "match_id": 548778,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548778,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-19T11:52:33Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548778"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-19T12:52:55Z",
+    "name": "RNG vs T1",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "RNG",
+          "id": 74,
+          "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+          "name": "Royal Never Give Up",
+          "slug": "royal-never-give-up"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "T1",
+          "id": 126061,
+          "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+          "name": "T1",
+          "slug": "t1"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 126061
+      },
+      {
+        "score": 0,
+        "team_id": 74
+      }
+    ],
+    "scheduled_at": "2019-10-19T12:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "royal-never-give-up-vs-t1-2019-10-19",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "T1",
+      "id": 126061,
+      "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+      "name": "T1",
+      "slug": "t1"
+    },
+    "winner_id": 126061
+  },
+  {
+    "begin_at": "2019-10-18T18:22:13Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T18:56:53Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T18:22:14Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T18:56:53Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211133,
+        "length": 1709,
+        "match_id": 549811,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 549811,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T18:07:13Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/549811"
+    },
+    "live_url": "https://www.twitch.tv/lck_korea",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T18:59:27Z",
+    "name": "Tiebreaker: G2 vs GRF",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1452
+      },
+      {
+        "score": 0,
+        "team_id": 88
+      }
+    ],
+    "scheduled_at": "2019-10-18T19:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "g2-esports-vs-griffin-2019-10-18-446c0412-dd26-45d2-98d7-26f095a063fb",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GRF",
+      "id": 1452,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+      "name": "Griffin",
+      "slug": "griffin"
+    },
+    "winner_id": 1452
+  },
+  {
+    "begin_at": "2019-10-18T17:28:36Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T18:02:50Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T17:28:36Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T18:02:50Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211065,
+        "length": 1639,
+        "match_id": 548777,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548777,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T17:13:36Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548777"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T18:09:30Z",
+    "name": "G2 vs GRF",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1452
+      },
+      {
+        "score": 0,
+        "team_id": 88
+      }
+    ],
+    "scheduled_at": "2019-10-18T18:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "g2-esports-vs-griffin-2019-10-18",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GRF",
+      "id": 1452,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+      "name": "Griffin",
+      "slug": "griffin"
+    },
+    "winner_id": 1452
+  },
+  {
+    "begin_at": "2019-10-18T16:36:26Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T17:10:59Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T16:36:26Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T17:11:00Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211064,
+        "length": 1676,
+        "match_id": 548776,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1097,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548776,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T16:21:26Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548776"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T17:14:30Z",
+    "name": "HKA vs C9",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "HKA",
+          "id": 80,
+          "image_url": "https://cdn.pandascore.co/images/team/image/80/Hong_Kong_Attitudelogo_square.png",
+          "name": "Hong Kong Attitude",
+          "slug": "hongkong-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "C9",
+          "id": 1097,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+          "name": "Cloud9",
+          "slug": "cloud9"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1097
+      },
+      {
+        "score": 0,
+        "team_id": 80
+      }
+    ],
+    "scheduled_at": "2019-10-18T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "cloud9-vs-hong-kong-attitude-2019-10-18",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "C9",
+      "id": 1097,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+      "name": "Cloud9",
+      "slug": "cloud9"
+    },
+    "winner_id": 1097
+  },
+  {
+    "begin_at": "2019-10-18T15:40:14Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T16:18:35Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T15:40:15Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T16:18:35Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211063,
+        "length": 1917,
+        "match_id": 548775,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548775,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T15:25:14Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548775"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T16:20:00Z",
+    "name": "C9 vs G2",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "C9",
+          "id": 1097,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+          "name": "Cloud9",
+          "slug": "cloud9"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 88
+      },
+      {
+        "score": 0,
+        "team_id": 1097
+      }
+    ],
+    "scheduled_at": "2019-10-18T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "cloud9-vs-g2-esports-2019-10-18",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "G2",
+      "id": 88,
+      "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+      "name": "G2 Esports",
+      "slug": "g2-esports"
+    },
+    "winner_id": 88
+  },
+  {
+    "begin_at": "2019-10-18T14:56:09Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T15:22:52Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T14:56:10Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T15:22:52Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211062,
+        "length": 1808,
+        "match_id": 548774,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548774,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T14:41:09Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548774"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T15:30:02Z",
+    "name": "HKA vs GRF",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "HKA",
+          "id": 80,
+          "image_url": "https://cdn.pandascore.co/images/team/image/80/Hong_Kong_Attitudelogo_square.png",
+          "name": "Hong Kong Attitude",
+          "slug": "hongkong-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1452
+      },
+      {
+        "score": 0,
+        "team_id": 80
+      }
+    ],
+    "scheduled_at": "2019-10-18T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "griffin-vs-hong-kong-attitude-2019-10-18",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GRF",
+      "id": 1452,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+      "name": "Griffin",
+      "slug": "griffin"
+    },
+    "winner_id": 1452
+  },
+  {
+    "begin_at": "2019-10-18T13:53:34Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T14:29:54Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T13:53:34Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T14:29:55Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211061,
+        "length": 1782,
+        "match_id": 548773,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548773,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T13:38:34Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548773"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T14:33:31Z",
+    "name": " G2 vs HKA",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "HKA",
+          "id": 80,
+          "image_url": "https://cdn.pandascore.co/images/team/image/80/Hong_Kong_Attitudelogo_square.png",
+          "name": "Hong Kong Attitude",
+          "slug": "hongkong-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 88
+      },
+      {
+        "score": 0,
+        "team_id": 80
+      }
+    ],
+    "scheduled_at": "2019-10-18T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "g2-esports-vs-hong-kong-attitude-2019-10-18",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "G2",
+      "id": 88,
+      "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+      "name": "G2 Esports",
+      "slug": "g2-esports"
+    },
+    "winner_id": 88
+  },
+  {
+    "begin_at": "2019-10-18T13:05:14Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-18T13:34:55Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-18T13:05:14Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-18T13:34:56Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211060,
+        "length": 1435,
+        "match_id": 548772,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548772,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-18T12:50:14Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548772"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-18T13:34:57Z",
+    "name": "GRF vs C9",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "C9",
+          "id": 1097,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+          "name": "Cloud9",
+          "slug": "cloud9"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1452
+      },
+      {
+        "score": 0,
+        "team_id": 1097
+      }
+    ],
+    "scheduled_at": "2019-10-18T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "griffin-vs-cloud9-2019-10-18",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GRF",
+      "id": 1452,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+      "name": "Griffin",
+      "slug": "griffin"
+    },
+    "winner_id": 1452
+  },
+  {
+    "begin_at": "2019-10-17T18:30:09Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T19:15:59Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T18:30:09Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T19:15:59Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211131,
+        "length": 2336,
+        "match_id": 549794,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 549794,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T18:15:09Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/549794"
+    },
+    "live_url": "https://www.twitch.tv/lck_korea",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T19:22:48Z",
+    "name": "Tiebreaker: SPY vs FPX",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1568
+      },
+      {
+        "score": 0,
+        "team_id": 114
+      }
+    ],
+    "scheduled_at": "2019-10-17T19:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "splyce-vs-funplus-phoenix-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FPX",
+      "id": 1568,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+      "name": "FunPlus Phoenix",
+      "slug": "funplus-phoenix"
+    },
+    "winner_id": 1568
+  },
+  {
+    "begin_at": "2019-10-17T17:38:33Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T18:11:04Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T17:38:33Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T18:11:05Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211059,
+        "length": 1431,
+        "match_id": 548771,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548771,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T17:23:33Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548771"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T18:17:24Z",
+    "name": "FPX vs JT",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "JT",
+          "id": 228,
+          "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+          "name": "J Team",
+          "slug": "j-team"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1568
+      },
+      {
+        "score": 0,
+        "team_id": 228
+      }
+    ],
+    "scheduled_at": "2019-10-17T18:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "funplus-phoenix-vs-j-team-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FPX",
+      "id": 1568,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+      "name": "FunPlus Phoenix",
+      "slug": "funplus-phoenix"
+    },
+    "winner_id": 1568
+  },
+  {
+    "begin_at": "2019-10-17T16:39:32Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T17:18:44Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T16:39:32Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T17:18:44Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211058,
+        "length": 1989,
+        "match_id": 548770,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 114,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548770,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T16:24:32Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548770"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T17:21:21Z",
+    "name": "SPY vs GAM",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GAM",
+          "id": 124414,
+          "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+          "name": "GAM Esports",
+          "slug": "gam-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 114
+      },
+      {
+        "score": 0,
+        "team_id": 124414
+      }
+    ],
+    "scheduled_at": "2019-10-17T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "gam-esports-vs-splyce-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "SPY",
+      "id": 114,
+      "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+      "name": "Splyce",
+      "slug": "splyce"
+    },
+    "winner_id": 114
+  },
+  {
+    "begin_at": "2019-10-17T15:42:41Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T16:22:11Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T15:42:41Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T16:22:12Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211057,
+        "length": 2056,
+        "match_id": 548769,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 114,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548769,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T15:27:41Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548769"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T16:22:12Z",
+    "name": "SPY vs FPX",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 114
+      },
+      {
+        "score": 0,
+        "team_id": 1568
+      }
+    ],
+    "scheduled_at": "2019-10-17T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "funplus-phoenix-vs-splyce-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "SPY",
+      "id": 114,
+      "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+      "name": "Splyce",
+      "slug": "splyce"
+    },
+    "winner_id": 114
+  },
+  {
+    "begin_at": "2019-10-17T14:51:52Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T15:25:12Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T14:51:53Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T15:25:12Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211078,
+        "length": 1609,
+        "match_id": 548790,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 228,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548790,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T14:36:52Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548790"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T15:26:36Z",
+    "name": "GAM vs JT",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GAM",
+          "id": 124414,
+          "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+          "name": "GAM Esports",
+          "slug": "gam-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "JT",
+          "id": 228,
+          "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+          "name": "J Team",
+          "slug": "j-team"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 228
+      },
+      {
+        "score": 0,
+        "team_id": 124414
+      }
+    ],
+    "scheduled_at": "2019-10-17T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "gam-esports-vs-j-team-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "JT",
+      "id": 228,
+      "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+      "name": "J Team",
+      "slug": "j-team"
+    },
+    "winner_id": 228
+  },
+  {
+    "begin_at": "2019-10-17T13:58:31Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T14:33:19Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T13:58:31Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T14:33:19Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211056,
+        "length": 1709,
+        "match_id": 548768,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 114,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548768,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T13:43:31Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548768"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T13:58:31Z",
+    "name": " JT vs SPY",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "JT",
+          "id": 228,
+          "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+          "name": "J Team",
+          "slug": "j-team"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 114
+      },
+      {
+        "score": 0,
+        "team_id": 228
+      }
+    ],
+    "scheduled_at": "2019-10-17T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "j-team-vs-splyce-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "SPY",
+      "id": 114,
+      "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+      "name": "Splyce",
+      "slug": "splyce"
+    },
+    "winner_id": 114
+  },
+  {
+    "begin_at": "2019-10-17T13:05:20Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-17T13:40:50Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-17T13:05:21Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-17T13:40:50Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211055,
+        "length": 1719,
+        "match_id": 548767,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548767,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-17T12:50:20Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548767"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-17T13:43:13Z",
+    "name": "GAM vs FPX",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GAM",
+          "id": 124414,
+          "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+          "name": "GAM Esports",
+          "slug": "gam-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1568
+      },
+      {
+        "score": 0,
+        "team_id": 124414
+      }
+    ],
+    "scheduled_at": "2019-10-17T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "gam-esports-vs-funplus-phoenix-2019-10-17",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FPX",
+      "id": 1568,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+      "name": "FunPlus Phoenix",
+      "slug": "funplus-phoenix"
+    },
+    "winner_id": 1568
+  },
+  {
+    "begin_at": "2019-10-15T18:08:06Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-15T18:45:02Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-15T18:08:06Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-15T18:45:02Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211090,
+        "length": 1837,
+        "match_id": 548806,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548806,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-15T17:53:06Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548806"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-15T18:08:06Z",
+    "name": "HKA vs G2",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "HKA",
+          "id": 80,
+          "image_url": "https://cdn.pandascore.co/images/team/image/80/Hong_Kong_Attitudelogo_square.png",
+          "name": "Hong Kong Attitude",
+          "slug": "hongkong-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 88
+      },
+      {
+        "score": 0,
+        "team_id": 80
+      }
+    ],
+    "scheduled_at": "2019-10-15T18:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "g2-esports-vs-hong-kong-attitude-2019-10-15",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "G2",
+      "id": 88,
+      "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+      "name": "G2 Esports",
+      "slug": "g2-esports"
+    },
+    "winner_id": 88
+  },
+  {
+    "begin_at": "2019-10-15T17:01:35Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-15T17:50:55Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-15T17:01:36Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-15T17:50:55Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211054,
+        "length": 2608,
+        "match_id": 548766,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548766,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-15T16:46:35Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548766"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-15T17:54:06Z",
+    "name": "C9 vs GRF",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "C9",
+          "id": 1097,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+          "name": "Cloud9",
+          "slug": "cloud9"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1452
+      },
+      {
+        "score": 0,
+        "team_id": 1097
+      }
+    ],
+    "scheduled_at": "2019-10-15T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "cloud9-vs-griffin-2019-10-15",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GRF",
+      "id": 1452,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+      "name": "Griffin",
+      "slug": "griffin"
+    },
+    "winner_id": 1452
+  },
+  {
+    "begin_at": "2019-10-15T15:53:01Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-15T16:44:30Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-15T15:53:01Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-15T16:44:31Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211089,
+        "length": 2681,
+        "match_id": 548805,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 228,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548805,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-15T15:38:01Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548805"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-15T16:49:37Z",
+    "name": "SPY vs JT",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "JT",
+          "id": 228,
+          "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+          "name": "J Team",
+          "slug": "j-team"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 228
+      },
+      {
+        "score": 0,
+        "team_id": 114
+      }
+    ],
+    "scheduled_at": "2019-10-15T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "j-team-vs-splyce-2019-10-15",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "JT",
+      "id": 228,
+      "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+      "name": "J Team",
+      "slug": "j-team"
+    },
+    "winner_id": 228
+  },
+  {
+    "begin_at": "2019-10-15T14:58:59Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-15T15:35:45Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-15T14:58:59Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-15T15:35:45Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211053,
+        "length": 1413,
+        "match_id": 548765,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548765,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-15T14:43:59Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548765"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-15T14:58:59Z",
+    "name": "FPX vs GAM",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GAM",
+          "id": 124414,
+          "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+          "name": "GAM Esports",
+          "slug": "gam-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1568
+      },
+      {
+        "score": 0,
+        "team_id": 124414
+      }
+    ],
+    "scheduled_at": "2019-10-15T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "funplus-phoenix-vs-gam-esports-2019-10-15",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FPX",
+      "id": 1568,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+      "name": "FunPlus Phoenix",
+      "slug": "funplus-phoenix"
+    },
+    "winner_id": 1568
+  },
+  {
+    "begin_at": "2019-10-15T14:05:59Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-15T14:41:52Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-15T14:06:00Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-15T14:41:52Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211088,
+        "length": 1570,
+        "match_id": 548804,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548804,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-15T13:50:59Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548804"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-15T14:48:26Z",
+    "name": "CG vs T1",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "CG",
+          "id": 1536,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1536/clutch-gaming.png",
+          "name": "Clutch Gaming",
+          "slug": "clutch-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "T1",
+          "id": 126061,
+          "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+          "name": "T1",
+          "slug": "t1"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 126061
+      },
+      {
+        "score": 0,
+        "team_id": 1536
+      }
+    ],
+    "scheduled_at": "2019-10-15T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "t1-vs-clutch-gaming-2019-10-15",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "T1",
+      "id": 126061,
+      "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+      "name": "T1",
+      "slug": "t1"
+    },
+    "winner_id": 126061
+  },
+  {
+    "begin_at": "2019-10-15T13:05:20Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-15T13:47:26Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-15T13:05:20Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-15T13:47:26Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211052,
+        "length": 2181,
+        "match_id": 548764,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 74,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548764,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-15T12:50:20Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548764"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-15T13:05:20Z",
+    "name": "RNG vs FNC",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "RNG",
+          "id": 74,
+          "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+          "name": "Royal Never Give Up",
+          "slug": "royal-never-give-up"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FNC",
+          "id": 394,
+          "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+          "name": "Fnatic",
+          "slug": "fnatic"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 74
+      },
+      {
+        "score": 0,
+        "team_id": 394
+      }
+    ],
+    "scheduled_at": "2019-10-15T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "royal-never-give-up-vs-fnatic-2019-10-15",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "RNG",
+      "id": 74,
+      "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+      "name": "Royal Never Give Up",
+      "slug": "royal-never-give-up"
+    },
+    "winner_id": 74
+  },
+  {
+    "begin_at": "2019-10-14T18:20:31Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-14T18:50:01Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-14T18:20:31Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-14T18:50:01Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211051,
+        "length": 1477,
+        "match_id": 548763,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548763,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-14T18:05:31Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548763"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-14T18:20:31Z",
+    "name": "G2 vs C9",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "C9",
+          "id": 1097,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+          "name": "Cloud9",
+          "slug": "cloud9"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 88
+      },
+      {
+        "score": 0,
+        "team_id": 1097
+      }
+    ],
+    "scheduled_at": "2019-10-14T18:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "g2-esports-vs-cloud9-2019-10-14",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "G2",
+      "id": 88,
+      "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+      "name": "G2 Esports",
+      "slug": "g2-esports"
+    },
+    "winner_id": 88
+  },
+  {
+    "begin_at": "2019-10-14T17:17:17Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-14T18:01:36Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-14T17:17:18Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-14T18:01:36Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211087,
+        "length": 2271,
+        "match_id": 548802,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1452,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548802,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-14T17:02:17Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548802"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-14T17:17:18Z",
+    "name": "GRF vs HKA",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "HKA",
+          "id": 80,
+          "image_url": "https://cdn.pandascore.co/images/team/image/80/Hong_Kong_Attitudelogo_square.png",
+          "name": "Hong Kong Attitude",
+          "slug": "hongkong-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1452
+      },
+      {
+        "score": 0,
+        "team_id": 80
+      }
+    ],
+    "scheduled_at": "2019-10-14T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "griffin-vs-hong-kong-attitude-2019-10-14",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GRF",
+      "id": 1452,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+      "name": "Griffin",
+      "slug": "griffin"
+    },
+    "winner_id": 1452
+  },
+  {
+    "begin_at": "2019-10-14T16:12:57Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-14T16:59:48Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-14T16:12:57Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-14T16:59:48Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211050,
+        "length": 2346,
+        "match_id": 548762,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 124414,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548762,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-14T15:57:57Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548762"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-14T16:12:57Z",
+    "name": "JT vs GAM",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "JT",
+          "id": 228,
+          "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+          "name": "J Team",
+          "slug": "j-team"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "GAM",
+          "id": 124414,
+          "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+          "name": "GAM Esports",
+          "slug": "gam-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 124414
+      },
+      {
+        "score": 0,
+        "team_id": 228
+      }
+    ],
+    "scheduled_at": "2019-10-14T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "j-team-vs-gam-esports-2019-10-14",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "GAM",
+      "id": 124414,
+      "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+      "name": "GAM Esports",
+      "slug": "gam-esports"
+    },
+    "winner_id": 124414
+  },
+  {
+    "begin_at": "2019-10-14T15:15:02Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-14T15:55:11Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-14T15:15:02Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-14T15:55:11Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211086,
+        "length": 2093,
+        "match_id": 548798,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1568,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548798,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-14T15:00:02Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548798"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-14T15:15:02Z",
+    "name": "FPX vs SPY",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1568
+      },
+      {
+        "score": 0,
+        "team_id": 114
+      }
+    ],
+    "scheduled_at": "2019-10-14T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "funplus-phoenix-vs-splyce-2019-10-14",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FPX",
+      "id": 1568,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+      "name": "FunPlus Phoenix",
+      "slug": "funplus-phoenix"
+    },
+    "winner_id": 1568
+  },
+  {
+    "begin_at": "2019-10-14T14:09:15Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-14T14:57:08Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-14T14:09:15Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-14T14:57:08Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211049,
+        "length": 2522,
+        "match_id": 548761,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 390,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548761,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-14T13:54:15Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548761"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-14T14:09:15Z",
+    "name": "AHQ vs TL",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "AHQ",
+          "id": 415,
+          "image_url": "https://cdn.pandascore.co/images/team/image/415/ahq-e-sports-club-g4xr3guv.png",
+          "name": "ahq e-Sports Club",
+          "slug": "ahq-e-sports-club"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "TL",
+          "id": 390,
+          "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+          "name": "Team Liquid",
+          "slug": "liquid"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 390
+      },
+      {
+        "score": 0,
+        "team_id": 415
+      }
+    ],
+    "scheduled_at": "2019-10-14T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "ahq-e-sports-club-vs-team-liquid-2019-09-01",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "TL",
+      "id": 390,
+      "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+      "name": "Team Liquid",
+      "slug": "liquid"
+    },
+    "winner_id": 390
+  },
+  {
+    "begin_at": "2019-10-14T13:05:46Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-14T13:50:41Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-14T13:05:47Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-14T13:50:41Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211085,
+        "length": 2294,
+        "match_id": 548797,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1453,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548797,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-14T12:50:46Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548797"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-14T13:05:51Z",
+    "name": "IG vs DWG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "IG",
+          "id": 411,
+          "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+          "name": "Invictus Gaming",
+          "slug": "invictus-gaming"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "DWG",
+          "id": 1453,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+          "name": "DAMWON Gaming",
+          "slug": "damwon-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1453
+      },
+      {
+        "score": 0,
+        "team_id": 411
+      }
+    ],
+    "scheduled_at": "2019-10-14T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "invictus-gaming-vs-damwon-gaming-2019-10-14",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "DWG",
+      "id": 1453,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+      "name": "DAMWON Gaming",
+      "slug": "damwon-gaming"
+    },
+    "winner_id": 1453
+  },
+  {
+    "begin_at": "2019-10-13T17:06:38Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-13T18:00:10Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-13T17:06:38Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-13T18:00:10Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211084,
+        "length": 2822,
+        "match_id": 548796,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1097,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548796,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-13T16:51:38Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548796"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-13T17:06:38Z",
+    "name": "C9 vs HKA",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "C9",
+          "id": 1097,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+          "name": "Cloud9",
+          "slug": "cloud9"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "HKA",
+          "id": 80,
+          "image_url": "https://cdn.pandascore.co/images/team/image/80/Hong_Kong_Attitudelogo_square.png",
+          "name": "Hong Kong Attitude",
+          "slug": "hongkong-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1097
+      },
+      {
+        "score": 0,
+        "team_id": 80
+      }
+    ],
+    "scheduled_at": "2019-10-13T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "cloud9-vs-hong-kong-attitude-2019-10-13",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "C9",
+      "id": 1097,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1097/cloud9-gnd9b0gn.png",
+      "name": "Cloud9",
+      "slug": "cloud9"
+    },
+    "winner_id": 1097
+  },
+  {
+    "begin_at": "2019-10-13T16:10:30Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-13T16:45:24Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-13T16:10:31Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-13T16:45:24Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211048,
+        "length": 1788,
+        "match_id": 548760,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 88,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548760,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-13T15:55:30Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548760"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-13T16:10:30Z",
+    "name": "GRF vs G2",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GRF",
+          "id": 1452,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1452/Griffinlogo_square.png",
+          "name": "Griffin",
+          "slug": "griffin"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "G2",
+          "id": 88,
+          "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+          "name": "G2 Esports",
+          "slug": "g2-esports"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 88
+      },
+      {
+        "score": 0,
+        "team_id": 1452
+      }
+    ],
+    "scheduled_at": "2019-10-13T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "griffin-vs-g2-esports-2019-10-13",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2526,
+      "league_id": 297,
+      "modified_at": "2019-10-19T11:42:23Z",
+      "name": "Group A",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-a",
+      "winner_id": 1452,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2526,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "G2",
+      "id": 88,
+      "image_url": "https://cdn.pandascore.co/images/team/image/88/g2-esports.png",
+      "name": "G2 Esports",
+      "slug": "g2-esports"
+    },
+    "winner_id": 88
+  },
+  {
+    "begin_at": "2019-10-13T15:17:51Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-13T15:49:31Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-13T15:17:51Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-13T15:49:31Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211083,
+        "length": 1656,
+        "match_id": 548795,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 1453,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548795,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-13T15:02:51Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548795"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-13T15:51:48Z",
+    "name": "AHQ vs DWG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "AHQ",
+          "id": 415,
+          "image_url": "https://cdn.pandascore.co/images/team/image/415/ahq-e-sports-club-g4xr3guv.png",
+          "name": "ahq e-Sports Club",
+          "slug": "ahq-e-sports-club"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "DWG",
+          "id": 1453,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+          "name": "DAMWON Gaming",
+          "slug": "damwon-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 1453
+      },
+      {
+        "score": 0,
+        "team_id": 415
+      }
+    ],
+    "scheduled_at": "2019-10-13T15:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "ahq-e-sports-club-vs-damwon-gaming-2019-10-13",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": true,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "DWG",
+      "id": 1453,
+      "image_url": "https://cdn.pandascore.co/images/team/image/1453/_.png",
+      "name": "DAMWON Gaming",
+      "slug": "damwon-gaming"
+    },
+    "winner_id": 1453
+  },
+  {
+    "begin_at": "2019-10-13T14:15:52Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-13T14:56:07Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-13T14:15:52Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-13T14:56:07Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211047,
+        "length": 2027,
+        "match_id": 548759,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 411,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548759,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-13T14:00:52Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548759"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-13T15:02:12Z",
+    "name": "TL vs IG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "TL",
+          "id": 390,
+          "image_url": "https://cdn.pandascore.co/images/team/image/390/liquid.png",
+          "name": "Team Liquid",
+          "slug": "liquid"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "IG",
+          "id": 411,
+          "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+          "name": "Invictus Gaming",
+          "slug": "invictus-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 411
+      },
+      {
+        "score": 0,
+        "team_id": 390
+      }
+    ],
+    "scheduled_at": "2019-10-13T14:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "team-liquid-vs-invictus-gaming-2019-10-13",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2529,
+      "league_id": 297,
+      "modified_at": "2019-10-20T17:15:43Z",
+      "name": "Group D",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-d",
+      "winner_id": 1453,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2529,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "IG",
+      "id": 411,
+      "image_url": "https://cdn.pandascore.co/images/team/image/411/invictus-gaming.png",
+      "name": "Invictus Gaming",
+      "slug": "invictus-gaming"
+    },
+    "winner_id": 411
+  },
+  {
+    "begin_at": "2019-10-13T13:12:43Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-13T13:57:15Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-13T13:12:44Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-13T13:57:15Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211082,
+        "length": 2344,
+        "match_id": 548794,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 394,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548794,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-13T12:57:43Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548794"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-13T13:12:44Z",
+    "name": "FNC vs CG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "FNC",
+          "id": 394,
+          "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+          "name": "Fnatic",
+          "slug": "fnatic"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "CG",
+          "id": 1536,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1536/clutch-gaming.png",
+          "name": "Clutch Gaming",
+          "slug": "clutch-gaming"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 394
+      },
+      {
+        "score": 0,
+        "team_id": 1536
+      }
+    ],
+    "scheduled_at": "2019-10-13T13:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "fnatic-vs-clutch-gaming-2019-10-13",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "FNC",
+      "id": 394,
+      "image_url": "https://cdn.pandascore.co/images/team/image/394/Fnaticlogo-square.png",
+      "name": "Fnatic",
+      "slug": "fnatic"
+    },
+    "winner_id": 394
+  },
+  {
+    "begin_at": "2019-10-13T12:05:41Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-13T12:54:35Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-13T12:05:42Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-13T12:54:35Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211046,
+        "length": 2564,
+        "match_id": 548758,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 126061,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548758,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-13T11:50:41Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548758"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-13T13:07:49Z",
+    "name": "T1 vs RNG",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "T1",
+          "id": 126061,
+          "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+          "name": "T1",
+          "slug": "t1"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "RNG",
+          "id": 74,
+          "image_url": "https://cdn.pandascore.co/images/team/image/74/royal-never-give-up-cyacqft1.png",
+          "name": "Royal Never Give Up",
+          "slug": "royal-never-give-up"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 126061
+      },
+      {
+        "score": 0,
+        "team_id": 74
+      }
+    ],
+    "scheduled_at": "2019-10-13T12:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "t1-vs-royal-never-give-up-2019-10-13",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2528,
+      "league_id": 297,
+      "modified_at": "2019-10-19T17:45:12Z",
+      "name": "Group C",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-c",
+      "winner_id": 126061,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2528,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "T1",
+      "id": 126061,
+      "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+      "name": "T1",
+      "slug": "t1"
+    },
+    "winner_id": 126061
+  },
+  {
+    "begin_at": "2019-10-12T17:41:05Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-12T18:17:15Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-12T17:41:05Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-12T18:17:15Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211081,
+        "length": 1828,
+        "match_id": 548793,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 114,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548793,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-12T17:26:05Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548793"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-12T17:41:05Z",
+    "name": "GAM vs SPY",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "GAM",
+          "id": 124414,
+          "image_url": "https://cdn.pandascore.co/images/team/image/124414/Adonis_Marineslogo_square.png",
+          "name": "GAM Esports",
+          "slug": "gam-esports"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "SPY",
+          "id": 114,
+          "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+          "name": "Splyce",
+          "slug": "splyce"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 114
+      },
+      {
+        "score": 0,
+        "team_id": 124414
+      }
+    ],
+    "scheduled_at": "2019-10-12T17:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "gam-esports-vs-splyce-2019-10-12",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "SPY",
+      "id": 114,
+      "image_url": "https://cdn.pandascore.co/images/team/image/114/Splycelogo_square.png",
+      "name": "Splyce",
+      "slug": "splyce"
+    },
+    "winner_id": 114
+  },
+  {
+    "begin_at": "2019-10-12T16:30:42Z",
+    "detailed_stats": true,
+    "draw": false,
+    "end_at": "2019-10-12T17:14:55Z",
+    "forfeit": false,
+    "games": [
+      {
+        "begin_at": "2019-10-12T16:30:42Z",
+        "detailed_stats": true,
+        "end_at": "2019-10-12T17:14:55Z",
+        "finished": true,
+        "forfeit": false,
+        "id": 211045,
+        "length": 2199,
+        "match_id": 548757,
+        "position": 1,
+        "status": "finished",
+        "video_url": null,
+        "winner": {
+          "id": 228,
+          "type": "Team"
+        },
+        "winner_type": "Team"
+      }
+    ],
+    "id": 548757,
+    "league": {
+      "id": 297,
+      "image_url": "https://cdn.pandascore.co/images/league/image/297/worlds-2at6ye9m.png",
+      "live_supported": true,
+      "modified_at": "2019-02-26T09:47:55Z",
+      "name": "World Championship",
+      "slug": "league-of-legends-world-championship",
+      "url": null
+    },
+    "league_id": 297,
+    "live": {
+      "opens_at": "2019-10-12T16:15:42Z",
+      "supported": true,
+      "url": "wss://live.pandascore.co/matches/548757"
+    },
+    "live_url": "https://player.twitch.tv/?channel=riotgames",
+    "match_type": "best_of",
+    "modified_at": "2019-10-12T17:19:54Z",
+    "name": "JT vs FPX",
+    "number_of_games": 1,
+    "opponents": [
+      {
+        "opponent": {
+          "acronym": "JT",
+          "id": 228,
+          "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+          "name": "J Team",
+          "slug": "j-team"
+        },
+        "type": "Team"
+      },
+      {
+        "opponent": {
+          "acronym": "FPX",
+          "id": 1568,
+          "image_url": "https://cdn.pandascore.co/images/team/image/1568/funplus-phoenix.png",
+          "name": "FunPlus Phoenix",
+          "slug": "funplus-phoenix"
+        },
+        "type": "Team"
+      }
+    ],
+    "results": [
+      {
+        "score": 1,
+        "team_id": 228
+      },
+      {
+        "score": 0,
+        "team_id": 1568
+      }
+    ],
+    "scheduled_at": "2019-10-12T16:00:00Z",
+    "serie": {
+      "begin_at": "2019-10-01T22:00:00Z",
+      "description": null,
+      "end_at": "2019-11-09T23:00:00Z",
+      "full_name": "2019",
+      "id": 1839,
+      "league_id": 297,
+      "modified_at": "2019-09-23T14:30:08Z",
+      "name": null,
+      "prizepool": null,
+      "season": null,
+      "slug": "league-of-legends-world-championship-2019",
+      "winner_id": null,
+      "winner_type": null,
+      "year": 2019
+    },
+    "serie_id": 1839,
+    "slug": "j-team-vs-funplus-phoenix-2019-10-12",
+    "status": "finished",
+    "tournament": {
+      "begin_at": "2019-10-11T22:00:00Z",
+      "end_at": "2019-11-09T23:00:00Z",
+      "id": 2527,
+      "league_id": 297,
+      "modified_at": "2019-10-17T19:24:44Z",
+      "name": "Group B",
+      "prizepool": null,
+      "serie_id": 1839,
+      "slug": "league-of-legends-world-championship-2019-group-b",
+      "winner_id": 1568,
+      "winner_type": "Team"
+    },
+    "tournament_id": 2527,
+    "videogame": {
+      "id": 1,
+      "name": "LoL",
+      "slug": "league-of-legends"
+    },
+    "videogame_version": {
+      "current": false,
+      "name": "9.19.1"
+    },
+    "winner": {
+      "acronym": "JT",
+      "id": 228,
+      "image_url": "https://cdn.pandascore.co/images/team/image/228/j-team.png",
+      "name": "J Team",
+      "slug": "j-team"
+    },
+    "winner_id": 228
+  }
+]

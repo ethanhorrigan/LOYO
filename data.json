@@ -1,0 +1,22 @@
+{
+  "current_team": {
+    "acronym": "T1",
+    "id": 126061,
+    "image_url": "https://cdn.pandascore.co/images/team/image/126061/t_oscq04.png",
+    "name": "T1",
+    "slug": "t1"
+  },
+  "current_videogame": {
+    "id": 1,
+    "name": "LoL",
+    "slug": "league-of-legends"
+  },
+  "first_name": "Lee",
+  "hometown": "South Korea",
+  "id": 585,
+  "image_url": "https://cdn.pandascore.co/images/player/image/585/220px-SKT_Faker_2019_Split_2.png",
+  "last_name": "Sang-hyeok",
+  "name": "Faker",
+  "role": "mid",
+  "slug": "faker"
+}
