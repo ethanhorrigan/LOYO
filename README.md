@@ -24,3 +24,5 @@
 
 - **Option 2**
     - 👯 Clone this repo to your local machine using `https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation`
+    - pip install cassiopeia
+    - pip install riotwatcher
