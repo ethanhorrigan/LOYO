@@ -12,6 +12,8 @@ my_region = 'euw1'
 
 # all objects are returned (by default) as a dict
 # lets see if I got diamond yet (I probably didn't)
+
+# Convert Roman Numerals to INT
 def roman_to_int(s):
     rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     int_val = 0
