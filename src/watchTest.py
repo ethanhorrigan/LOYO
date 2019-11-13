@@ -4,6 +4,7 @@ import json
 watcher = RiotWatcher('RGAPI-e350fdee-f812-4982-a0f8-d8a91dfde6e3')
 
 players = ['Horro', 'Obi Sean Kenobi', 'Zethose', 'PadraigL99', 'Tommy Shlug', 'Farrago Jerry', 'Communism', 'MacCionaodha', 'BigDaddyHoulihan', 'BigHaus']
+mmr = {'PLATINUM3': 1920, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'SILVER4': 1220, 'SILVER2': 1360, 'GOLD3': 1640}
 my_region = 'euw1'
 
 
@@ -12,6 +13,7 @@ my_region = 'euw1'
 
 # all objects are returned (by default) as a dict
 # lets see if I got diamond yet (I probably didn't)
+rankStr = ''
 
 # Convert Roman Numerals to INT
 def roman_to_int(s):
@@ -29,6 +31,9 @@ for x in range(len(players)):
     summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
     rank = summonerData[1]['rank']
     rankToInt = roman_to_int(rank)
+    rankStr = summonerData[1]['tier'] + str(rankToInt)
+    if rankStr == mmr.values()[x]:
+        print(mmr.values()[x])
     print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
 
 
