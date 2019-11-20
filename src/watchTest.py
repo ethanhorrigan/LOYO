@@ -1,5 +1,6 @@
 from riotwatcher import RiotWatcher, ApiError
-from player.player import Player
+from player import Player
+from numpy import allclose
 import json
 
 watcher = RiotWatcher('RGAPI-6758d4f4-e43a-44d2-9067-08759e83971d')
@@ -10,11 +11,6 @@ mmr = {'PLATINUM3': 1920, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4
 my_region = 'euw1'
 
 registered = []
-
-mmrJson = json.dumps(mmr)
-
-with open('mmr.json', 'w') as json_file:
-    json.dump(mmr, json_file, sort_keys=True, indent=2)
 
 rankStr = ''
 
@@ -74,10 +70,56 @@ for x in range(len(players)):
     print(p.getRank())
     print(p.getMMR())
 
-for x in range(len(registered)):
-    print(registered[x])
+# for x in range(len(registered)):
+#     print(registered[x])
 
-summonerData = json.dumps(summonerData)
+
+# https://stackoverflow.com/questions/13602170/how-do-i-find-the-difference-between-two-values-without-knowing-which-is-larger
+def buildTeam(p):
+    diff = 10000
+    team1 = []
+    team2 = []
+    tmpPlayers = []
+    mmrArray = []
+    count = 0
+    totalMMR = 0
+    teamCount = 0
+    running = 1
+
+    for x in range(len(p)):
+        tmpPlayers.append(p[x])
+        mmrArray.append(tmpPlayers[x].getMMR())
+        totalMMR += tmpPlayers[x].getMMR()
+
+
+    mmrArray.sort()
+
+    goalMMR = totalMMR / 2
+    goalPlayer = goalMMR / 5
+    print("TOTAL MMR: {total}, GOAL MMR: {goal}, GOAL PLAYER MMR: {p} ".format(total=totalMMR, goal=goalMMR, p=goalPlayer))
+
+    for s in range(len(tmpPlayers)):
+        if(tmpPlayers[s].getMMR() == mmrArray[count]):
+            team1.append(tmpPlayers[s])
+            mmrArray.remove(mmrArray[count])
+            teamCount+=1
+        else:
+            count+=1
+            team2.append(tmpPlayers[s])
+        teamCount+=1
+
+        if(teamCount == 10):
+            break
+
+    for i in range(len(team1)):
+        print("[TEAM 1] {name}".format(name=team1[i].getSummonerName()))
+
+    for j in range(len(team2)):
+        print("[TEAM 2] {name}".format(name=team2[j].getSummonerName()))
+
+buildTeam(registered)
+
+
 
 
 
