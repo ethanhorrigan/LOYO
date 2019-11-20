@@ -3,7 +3,7 @@ from player import Player
 from numpy import allclose
 import json
 
-watcher = RiotWatcher('RGAPI-6758d4f4-e43a-44d2-9067-08759e83971d')
+watcher = RiotWatcher('RGAPI-eac3dfc6-5076-48cf-a8eb-da21f2ae4434')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 players = ['Horro', 'Obi Sean Kenobi', 'Zethose', 'PadraigL99', 'Tommy Shlug', 'Farrago Jerry', 'Communism', 'MacCionaodha', 'BigDaddyHoulihan', 'BigHaus']
@@ -13,7 +13,6 @@ my_region = 'euw1'
 registered = []
 
 rankStr = ''
-
 
 # Convert Roman Numerals to INT
 def roman_to_int(s):
@@ -91,25 +90,29 @@ def buildTeam(p):
         mmrArray.append(tmpPlayers[x].getMMR())
         totalMMR += tmpPlayers[x].getMMR()
 
-
     mmrArray.sort()
 
     goalMMR = totalMMR / 2
     goalPlayer = goalMMR / 5
     print("TOTAL MMR: {total}, GOAL MMR: {goal}, GOAL PLAYER MMR: {p} ".format(total=totalMMR, goal=goalMMR, p=goalPlayer))
 
-    for s in range(len(tmpPlayers)):
-        if(tmpPlayers[s].getMMR() == mmrArray[count]):
-            team1.append(tmpPlayers[s])
-            mmrArray.remove(mmrArray[count])
-            teamCount+=1
-        else:
-            count+=1
-            team2.append(tmpPlayers[s])
-        teamCount+=1
+    m = mmrArray[:len(mmrArray)//2]
+    w = mmrArray[len(mmrArray)//2:]
+    print("m: {m}".format(m=m))
+    print("w: {w}".format(w=w))
+        # print(w[s].getMMR)
 
-        if(teamCount == 10):
-            break
+        # if(tmpPlayers[s].getMMR() == mmrArray[count]):
+        #     team1.append(tmpPlayers[s])
+        #     mmrArray.remove(mmrArray[count])
+        #     teamCount+=1
+        # else:
+        #     count+=1
+        #     team2.append(tmpPlayers[s])
+        # teamCount+=1
+
+        # if(teamCount == 10):
+        #     break
 
     for i in range(len(team1)):
         print("[TEAM 1] {name}".format(name=team1[i].getSummonerName()))
@@ -117,11 +120,23 @@ def buildTeam(p):
     for j in range(len(team2)):
         print("[TEAM 2] {name}".format(name=team2[j].getSummonerName()))
 
+# https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
+# is_stable = False
+# while is_stable == False:
+#         is_stable = True
+#         for b in B:
+#             is_paired = False # whether b has a pair which b ranks <= to n
+#             for n in range(1, len(B) + 1):
+#                 a = rankings[(b, n)]
+#                 a_partner, a_n = partners[a]
+#                 if a_partner == b:
+#                     if is_paired:
+#                         is_stable = False
+#                         partners[a] = (rankings[(a, a_n + 1)], a_n + 1)
+#                     else:
+#                         is_paired = True
+
 buildTeam(registered)
-
-
-
-
 
 with open('ranked.json', 'w') as json_file:
     json.dump(summonerData, json_file, sort_keys=True, indent=2)
