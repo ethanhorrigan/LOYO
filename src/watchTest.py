@@ -100,6 +100,19 @@ def buildTeam(p):
     w = mmrArray[len(mmrArray)//2:]
     print("m: {m}".format(m=m))
     print("w: {w}".format(w=w))
+    print("mmr array : {a}".format(a=mmrArray))
+
+    tc = 0
+    for i in range(len(mmrArray)):
+        if(tc == 0):
+            team1.append(mmrArray[i])
+        if(tc == 1):
+            team2.append(mmrArray[i])
+            tc = 0
+        tc+=1
+
+    print("team1: {t1}".format(t1=team1))
+
         # print(w[s].getMMR)
 
         # if(tmpPlayers[s].getMMR() == mmrArray[count]):
@@ -114,17 +127,17 @@ def buildTeam(p):
         # if(teamCount == 10):
         #     break
 
-    for i in range(len(team1)):
-        print("[TEAM 1] {name}".format(name=team1[i].getSummonerName()))
+    # for i in range(len(team1)):
+    #     print("[TEAM 1] {name}".format(name=team1[i].getSummonerName()))
 
-    for j in range(len(team2)):
-        print("[TEAM 2] {name}".format(name=team2[j].getSummonerName()))
+    # for j in range(len(team2)):
+    #     print("[TEAM 2] {name}".format(name=team2[j].getSummonerName()))
 
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
-# is_stable = False
+is_stable = False
 # while is_stable == False:
 #         is_stable = True
-#         for b in B:
+#         for b in W:
 #             is_paired = False # whether b has a pair which b ranks <= to n
 #             for n in range(1, len(B) + 1):
 #                 a = rankings[(b, n)]
