@@ -3,7 +3,7 @@ from player import Player
 from numpy import allclose
 import json
 
-watcher = RiotWatcher('RGAPI-eac3dfc6-5076-48cf-a8eb-da21f2ae4434')
+watcher = RiotWatcher('RGAPI-a10d0baa-5e83-44e1-a146-f38ea137a3b4')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 players = ['Horro', 'Obi Sean Kenobi', 'Zethose', 'PadraigL99', 'Tommy Shlug', 'Farrago Jerry', 'Communism', 'MacCionaodha', 'BigDaddyHoulihan', 'BigHaus']
