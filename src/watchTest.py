@@ -1,6 +1,7 @@
 from riotwatcher import RiotWatcher, ApiError
 from player import Player
 from numpy import allclose
+import utils as u
 import json
 
 watcher = RiotWatcher('RGAPI-a10d0baa-5e83-44e1-a146-f38ea137a3b4')
@@ -37,7 +38,7 @@ for x in range(len(players)):
 
     if(summonerData[count]['queueType'] == QUEUE_TYPE):
         rank = summonerData[count]['rank']
-        rankToInt = roman_to_int(rank)
+        rankToInt = u.romanToInt(rank)
         rankStr = summonerData[count]['tier'] + str(rankToInt)
         # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[count]['tier'], rank=rankToInt))
         # print(summonerData[count]['queueType'])

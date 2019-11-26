@@ -2,11 +2,12 @@
 class Player:
     
     # Method to create object (Constructor)
-    def __init__(self, summonerName, rank, mmr):
+    def __init__(self, summonerName, rank, mmr, position):
          
         self.summonerName= summonerName
         self.rank = rank
         self.mmr = mmr
+        self.position = position
 
     def getSummonerName(self):        
         return self.summonerName
@@ -25,6 +26,12 @@ class Player:
 
     def setMMR(self, mmr):
         self.mmr = mmr
+
+    def getPosition(self):
+        return self.position
+    
+    def setPosition(self, position):
+        self.position = position
 
     def __str__(self):
         return 'Player(name='+self.summonerName+', rank='+self.rank+', mmr='+str(self.mmr)+' )'    
