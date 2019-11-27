@@ -198,7 +198,10 @@ for b in range(len(team2)):
     print("Team 2: [{team}]".format(team=team2[b]))
 
 with open('teams.json', 'w') as json_file:
-    json.dump(teamObject, json_file, sort_keys=True, indent=2)
+    json.dump(team1, json_file, sort_keys=True, indent=2)
+
+with open('teams.json', 'w') as json_file:
+    json.dump(team2, json_file, sort_keys=True, indent=2)
 
 try:
     response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')
