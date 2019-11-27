@@ -1,19 +1,27 @@
 from riotwatcher import RiotWatcher, ApiError
 from player import Player
+from team import Team
 from numpy import allclose
+import numpy as np
 import utils as u
 import json
 
-watcher = RiotWatcher('RGAPI-a10d0baa-5e83-44e1-a146-f38ea137a3b4')
+watcher = RiotWatcher('RGAPI-b7e1156c-3aaa-404d-8750-612765121c82')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 players = ['Horro', 'Obi Sean Kenobi', 'Zethose', 'PadraigL99', 'Tommy Shlug', 'Farrago Jerry', 'Communism', 'MacCionaodha', 'BigDaddyHoulihan', 'BigHaus']
-mmr = {'PLATINUM3': 1920, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640}
+mmr = {'PLATINUM3': 1990, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640}
 my_region = 'euw1'
 
 registered = []
+teamObject = []
 
 rankStr = ''
+
+team1 = []
+team2 = []
+tmpPlayers = []
+mmrArray = []
 
 # Convert Roman Numerals to INT
 def roman_to_int(s):
@@ -26,9 +34,6 @@ def roman_to_int(s):
             int_val += rom_val[s[i]]
     return int_val
 
-# horro = watcher.summoner.by_name(my_region, "Horro")
-# roles = watcher.league.positions_by_summoner(my_region, horro['id'])
-
 
 for x in range(len(players)):
     print("--------------")
@@ -40,18 +45,13 @@ for x in range(len(players)):
         rank = summonerData[count]['rank']
         rankToInt = u.romanToInt(rank)
         rankStr = summonerData[count]['tier'] + str(rankToInt)
-        # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[count]['tier'], rank=rankToInt))
-        # print(summonerData[count]['queueType'])
     else:
         while (summonerData[count]['queueType'] != QUEUE_TYPE):
-            # print(count)
             count+=1
             if(summonerData[count]['queueType'] == QUEUE_TYPE):
                 rank = summonerData[count]['rank']
                 rankToInt = roman_to_int(rank)
                 rankStr = summonerData[count]['tier'] + str(rankToInt)
-                # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[count]['tier'], rank=rankToInt))
-                # print(summonerData[count]['queueType'])
                 count = 0
                 break
         count = 0      
@@ -70,72 +70,106 @@ for x in range(len(players)):
     print(p.getRank())
     print(p.getMMR())
 
-# for x in range(len(registered)):
-#     print(registered[x])
-
+# This function returns the difference in MMR beween two players
+def getDifference(player1, player2):
+    diff = 0
+    if(player1 >= player2):
+        diff = abs(player1 - player2)
+    if(player2 >= player1):
+        diff = abs(player2 - player1)
+    return diff
 
 # https://stackoverflow.com/questions/13602170/how-do-i-find-the-difference-between-two-values-without-knowing-which-is-larger
-def buildTeam(p):
-    diff = 10000
-    team1 = []
-    team2 = []
-    tmpPlayers = []
-    mmrArray = []
-    count = 0
-    totalMMR = 0
-    teamCount = 0
-    running = 1
+def buildArrays(p):
+    tmpDiff = []
 
-    for x in range(len(p)):
+    for x in range(0, len(p), 1):
         tmpPlayers.append(p[x])
         mmrArray.append(tmpPlayers[x].getMMR())
-        totalMMR += tmpPlayers[x].getMMR()
+        if(x != 0):
+            tmpDiff.append(abs(mmrArray[x-1] - mmrArray[x]))
 
-    mmrArray.sort()
+    print(tmpDiff)
+    
 
-    goalMMR = totalMMR / 2
-    goalPlayer = goalMMR / 5
-    print("TOTAL MMR: {total}, GOAL MMR: {goal}, GOAL PLAYER MMR: {p} ".format(total=totalMMR, goal=goalMMR, p=goalPlayer))
+    with open('ranked.json', 'w') as json_file:
+        json.dump(mmrArray, json_file, sort_keys=True, indent=2)
 
-    m = mmrArray[:len(mmrArray)//2]
-    w = mmrArray[len(mmrArray)//2:]
-    print("m: {m}".format(m=m))
-    print("w: {w}".format(w=w))
-    print("mmr array : {a}".format(a=mmrArray))
 
-    tc = 0
-    for i in range(len(mmrArray)):
-        if(tc == 0):
-            team1.append(mmrArray[i])
-        if(tc == 1):
-            team2.append(mmrArray[i])
-            tc = 0
-        tc+=1
 
-    print("team1: {t1}".format(t1=team1))
+def matchMaking():
+    matching = True
+    unmatched = registered[:]
+    mmrCopy = mmrArray[:]
+    unmatchedPlayers = len(unmatched)
+    mmrCopyLength = len(mmrCopy)
+    toMatch = 1
+    while matching:
+        
+        currentPlayer = unmatched[unmatchedPlayers-1]
 
-        # print(w[s].getMMR)
+        player1 = currentPlayer.getSummonerName()
+        player2 = unmatched[toMatch-1].getSummonerName() 
 
-        # if(tmpPlayers[s].getMMR() == mmrArray[count]):
-        #     team1.append(tmpPlayers[s])
-        #     mmrArray.remove(mmrArray[count])
-        #     teamCount+=1
-        # else:
-        #     count+=1
-        #     team2.append(tmpPlayers[s])
-        # teamCount+=1
 
-        # if(teamCount == 10):
-        #     break
+        currDiff = getDifference(currentPlayer.getMMR(), unmatched[toMatch-1].getMMR())
+        print("Difference between Player {player1} and {player2} is {diff}".format(player1=player1, player2=player2, diff=currDiff))
 
-    # for i in range(len(team1)):
-    #     print("[TEAM 1] {name}".format(name=team1[i].getSummonerName()))
+        if(player1 != player2):
+                # Delete from array so player cannot match with itselfs
+                currIndex = unmatched.index(currentPlayer)
+                tmpPlayer = currentPlayer
+                mmrCopy.pop(currIndex)
+                #Find the best match
+                bestMatch = mmrCopy[np.abs(np.array(mmrCopy) - currentPlayer.getMMR()).argmin()]
+                print("Best Match : {match}".format(match=bestMatch))
+                #find the index of the best match in the mmrArray
+                newIndex = mmrCopy.index(bestMatch)
+                print("Index of Best Match in MMR ARRAY: {index}".format(index=newIndex))
+                #find the index of the best match in the players array
+                getPlayer = unmatched[newIndex].getSummonerName()
+                print("Index of Best Match in Player ARRAY: {index}".format(index=getPlayer))
+                #find the index of the best match in the unmatched array
+                indexUnmatched = 0
+                for j in range(0, len(unmatched), 1):
+                    if(getPlayer == unmatched[j].getSummonerName()):
+                        indexUnmatched = j
+                        break
+                print("Index of Best Match in Unmatched Array: {index}".format(index=indexUnmatched))
+                #remove best match from unmatched array
+                #append both players to teams
+                team1.append(currentPlayer.getSummonerName())
+                print("Team 2 Pending : {pending}".format(pending=unmatched[indexUnmatched].getSummonerName()))
+                team2.append(unmatched[indexUnmatched].getSummonerName())
+                unmatched.pop(currIndex)
+                unmatched.pop(indexUnmatched)
+                mmrCopy.pop(newIndex)
+                unmatchedPlayers-=2
+                mmrCopyLength-=1
+                
+        for a in range(len(team1)):
+            print("Team 1: [{team}]".format(team=team1[a]))
 
-    # for j in range(len(team2)):
-    #     print("[TEAM 2] {name}".format(name=team2[j].getSummonerName()))
+        for b in range(len(team2)):
+            print("Team 2: [{team}]".format(team=team2[b]))
 
+        if(player1 == player2):
+            if(len(team1) > len(team2)):
+                team2.append(currentPlayer)
+                toMatch+=1
+            else:
+                team1.append(currentPlayer)
+                toMatch+=1
+        #End Matching
+        if(unmatchedPlayers == 0):
+            matching = False
+
+        print("Unmatched Players {unmatched}.".format(unmatched=unmatchedPlayers))
+  
+
+
+# def gsa():
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
-is_stable = False
 # while is_stable == False:
 #         is_stable = True
 #         for b in W:
@@ -150,11 +184,21 @@ is_stable = False
 #                     else:
 #                         is_paired = True
 
-buildTeam(registered)
+buildArrays(registered)
+matchMaking()
 
-with open('ranked.json', 'w') as json_file:
-    json.dump(summonerData, json_file, sort_keys=True, indent=2)
+for a in range(len(team1)):
+    # t = Team(1, team1[a].getSummonerName(), team1[a].getRank(), team1[a].getMMR())
+    # teamObject.append(t)
+    print("Team 1: [{team}]".format(team=team1[a]))
 
+for b in range(len(team2)):
+    # t2 = Team(2, team2[b].getSummonerName(), team2[b].getRank(), team2[b].getMMR())
+    # teamObject.append(t2)
+    print("Team 2: [{team}]".format(team=team2[b]))
+
+with open('teams.json', 'w') as json_file:
+    json.dump(teamObject, json_file, sort_keys=True, indent=2)
 
 try:
     response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')

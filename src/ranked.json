@@ -1,32 +1,12 @@
 [
-  {
-    "freshBlood": false,
-    "hotStreak": false,
-    "inactive": false,
-    "leagueId": "ceac1020-3bab-11e9-947f-c81f66db01ef",
-    "leaguePoints": 57,
-    "losses": 6,
-    "queueType": "RANKED_FLEX_SR",
-    "rank": "I",
-    "summonerId": "i8-ac5Jhf_gE7VyZR4HFc3epGsIV7DV4FdEaB9g0AjsBJlpP",
-    "summonerName": "BigHaus",
-    "tier": "BRONZE",
-    "veteran": false,
-    "wins": 16
-  },
-  {
-    "freshBlood": false,
-    "hotStreak": false,
-    "inactive": false,
-    "leagueId": "909a6a30-d33f-11e9-9a19-c81f66dd2a8f",
-    "leaguePoints": 57,
-    "losses": 54,
-    "queueType": "RANKED_SOLO_5x5",
-    "rank": "II",
-    "summonerId": "i8-ac5Jhf_gE7VyZR4HFc3epGsIV7DV4FdEaB9g0AjsBJlpP",
-    "summonerName": "BigHaus",
-    "tier": "GOLD",
-    "veteran": false,
-    "wins": 130
-  }
+  1990,
+  1710,
+  1640,
+  1640,
+  1570,
+  1640,
+  2270,
+  1640,
+  1640,
+  1710
 ]
