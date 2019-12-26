@@ -1,10 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+/* HTTP Services */
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+
+/* App Components*/
 import { SummonerComponent } from './summoner/summoner.component';
+import { TeamsComponent } from './teams/teams.component';
 
 const appRoutes: Routes = [
   { path: 'summoner', component: SummonerComponent }
@@ -14,7 +19,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SummonerComponent
+    SummonerComponent,
+    TeamsComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -22,7 +28,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

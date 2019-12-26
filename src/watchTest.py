@@ -6,11 +6,11 @@ import numpy as np
 import utils as u
 import json
 
-watcher = RiotWatcher('RGAPI-b7e1156c-3aaa-404d-8750-612765121c82')
+watcher = RiotWatcher('RGAPI-04037bd1-c2bc-4598-beb4-95181074153d')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
-players = ['Horro', 'Obi Sean Kenobi', 'Zethose', 'PadraigL99', 'Tommy Shlug', 'Farrago Jerry', 'Communism', 'MacCionaodha', 'BigDaddyHoulihan', 'BigHaus']
-mmr = {'PLATINUM3': 1990, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640}
+players = ['Horro', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Zethose', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
+mmr = {'PLATINUM3': 1990, 'DIAMOND1': 2840, 'PLATINUM1': 2130, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640, 'PLATINUM4': 1920, 'GOLD1': 1780, 'SILVER1': 1430, 'DIAMOND3': 2340}
 my_region = 'euw1'
 
 registered = []
@@ -33,6 +33,7 @@ def roman_to_int(s):
         else:
             int_val += rom_val[s[i]]
     return int_val
+
 
 
 for x in range(len(players)):

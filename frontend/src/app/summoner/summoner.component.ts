@@ -1,3 +1,4 @@
+import { APIServiceService } from '../apiservice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summoner.component.scss']
 })
 export class SummonerComponent implements OnInit {
+  albums;
 
-  constructor() { }
+  constructor(
+    private apiService: APIServiceService
+  ) { }
 
   ngOnInit() {
+    this.albums = this.apiService.getAlbums();
   }
 
 }
