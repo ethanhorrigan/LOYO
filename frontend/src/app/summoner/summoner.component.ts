@@ -1,5 +1,9 @@
 import { APIServiceService } from '../apiservice.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { debug } from 'util';
+import { Summoner } from "./Summoner";
+import { PlayersResponse } from "./PlayerResponse";
 
 @Component({
   selector: 'app-summoner',
@@ -7,14 +11,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summoner.component.scss']
 })
 export class SummonerComponent implements OnInit {
-  albums;
+  summ;
+  url = ' http://127.0.0.1:5002/players';
+  res = [];
+  public summoners: Summoner[];
 
   constructor(
-    private apiService: APIServiceService
+    private apiService: APIServiceService,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
-    this.albums = this.apiService.getAlbums();
+    this.http.get<PlayersResponse>(this.url).subscribe(result  => {
+      this.summoners = result.players;
+      console.log(result);
+      console.log(this.summoners);
+    }, error => console.error(error));
+    
   }
 
 }

@@ -35,6 +35,10 @@ def roman_to_int(s):
     return int_val
 
 
+def getPlayerDetails(player):
+    details = watcher.summoner.by_name(my_region, player)
+
+
 
 for x in range(len(players)):
     print("--------------")

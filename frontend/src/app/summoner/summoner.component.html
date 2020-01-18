@@ -1,23 +1,4 @@
-
-
-<p>Player Details!</p>
-<p>Name</p>
-<p>MMR</p>
-<p>Points</p>
-<p>Standings</p>
-
-
-  <div class="container">
-    <router-outlet>
-        <head>
-            <meta charset="utf-8">
-            <title>Albums</title>
-            <base href="/">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="icon" type="image/x-icon" href="favicon.ico">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-          </head>
-        
+<div class="container">    
         <p>Player Details!</p>
         <p>Name</p>
         <p>MMR</p>
@@ -25,18 +6,19 @@
         <p>Standings</p>
         
         <div>
-            <h3>Albums collection</h3>
+            <h3>Players collectionss</h3>
             <div class="row">
-              <div class="col-sm-4" *ngFor="let album of albums | async">
+              <div class="col-sm-4" *ngFor="let summoner of summoners">
                 <div class="card">
                   <div class="card-body">
-                    <a>{{album.title}}</a>
-                    <a>test</a>
-                    <a routerLink="photos/{{album.id}}">{{album.title}}</a>
+                    <a>{{summoner.Summoner_Name}}</a>
+                    <a>{{summoner.Rank}}</a>
+                    <a>{{summoner.Tier}}</a>
+                    <a>{{summoner.MMR}}</a>
+                    <a>{{summoner.Points}}</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-    </router-outlet>
   </div>
