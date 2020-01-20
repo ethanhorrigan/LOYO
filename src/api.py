@@ -54,12 +54,7 @@ class Players(Resource):
         query = conn.execute("select Summoner_Name, Rank, Tier, MMR, Points from players")
         result = {'players':[dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return result
-    def post(self):
-        conn = db_connect.connect() # connect to the db
-#         query = conn.execute("INSERT INTO players(Summoner_ID, Summoner_Name, Rank, Tier, League_MMR, MMR, Points)"
-# VALUES(1, 'Pancakes', 75, 'OK');")
-        # result = {'players':[dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
-        return result        
+      
 
 class Employees(Resource):
     def get(self):
