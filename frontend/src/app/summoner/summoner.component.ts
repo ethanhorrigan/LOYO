@@ -1,9 +1,10 @@
-import { APIServiceService } from '../apiservice.service';
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { debug } from 'util';
 import { Summoner } from "./Summoner";
 import { PlayersResponse } from "./PlayerResponse";
+import { APIServiceService } from '../apiservice.service';
 
 @Component({
   selector: 'app-summoner',

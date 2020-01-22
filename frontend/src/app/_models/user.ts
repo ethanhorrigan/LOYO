@@ -4,5 +4,5 @@ export class User {
     username: string;
     summonerName: string;
     password: string;
-    authdata?: string;
+    token: string;
 }
