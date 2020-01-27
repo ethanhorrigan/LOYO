@@ -1,20 +1,18 @@
 <div class="container">    
-        <p>Player Details!</p>
-        <p>Name</p>
-        <p>MMR</p>
-        <p>Points</p>
-        <p>Standings</p>
         
         <div>
-            <h3>Players collectionss</h3>
+            <h3>Players Collection</h3>
             <div class="row">
               <div class="col-sm-4" *ngFor="let summoner of summoners">
                 <div class="card">
                   <div class="card-body">
                     <a>{{summoner.Summoner_Name}}</a>
-                    <a>{{summoner.Rank}}</a>
+                    <br>
+                    <a>{{summoner.Rank}} </a>
                     <a>{{summoner.Tier}}</a>
+                    <br>
                     <a>{{summoner.MMR}}</a>
+                    <br>
                     <a>{{summoner.Points}}</a>
                   </div>
                 </div>
