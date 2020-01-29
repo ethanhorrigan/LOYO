@@ -20,12 +20,18 @@ class Players(Resource):
       
 
 class Users(Resource):
-    def post(self):
+    def get(self):
+        conn = db_connect.connect() # connect to database
+        query = conn.execute("select * from users") # This line performs query and returns json result
+        return {'users': [i[0] for i in query.cursor.fetchall()]} # Fetches first column that is Employee ID
+    def post(self, username, summonerName, password, token):
+        print("entered post")
         conn = db_connect.connect() # connect to the db
-        cur = conn.cursor()
-        cur.execute("INSERT INTO users(firstName, lastName, username, password) values(?, ?, ?, ?)")
-        return cur.lastrowid
-
+        cursor = conn.cursor()
+        query = """INSERT INTO users (username, summonerName, password, token) VALUES (?, ?, ?, ?);"""
+        data_tuple = (username, summonerName, password, token)
+        cursor.execute(query, data_tuple)
+        conn.commit()
 class Employees(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database

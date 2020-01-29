@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../_models';
 
@@ -8,9 +8,11 @@ export class UserService {
 
     getAll() {
         return this.http.get<User[]>(`http://127.0.0.1:5002/users`);
+        //return this.http.get('http://127.0.0.1:5002/players');
     }
 
     register(user: User) {
+        console.log(user);
         return this.http.post(`http://127.0.0.1:5002/users/register`, user);
     }
 

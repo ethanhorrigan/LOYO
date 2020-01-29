@@ -30,3 +30,7 @@
 ## Average MMR
 
 ![MMR](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/research/MMR.PNG)
+
+## Change Log
+
+- 29/01/2020 - Changed Database from SQLIte to MongoDB

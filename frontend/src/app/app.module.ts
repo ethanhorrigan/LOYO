@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* App Components*/
 import { SummonerComponent } from './summoner/summoner.component';
 import { TeamsComponent } from './teams/teams.component';
-import { NewuserComponent } from './newuser/newuser.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -25,9 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     SummonerComponent,
     TeamsComponent,
-    NewuserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     RouterModule.forRoot(
