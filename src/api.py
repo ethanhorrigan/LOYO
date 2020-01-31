@@ -14,10 +14,15 @@ CORS(app)
 class Players(Resource):
     def get(self):
         conn = db_connect.connect() # connect to the db
-        query = conn.execute("select Summoner_Name, Rank, Tier, MMR, Points from players")
+        query = conn.execute("select summonerName, rank, tier, wins, losses, primaryRole, secondaryRole from players")
         result = {'players':[dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return result
-      
+class PlayerStandings(Resource):
+    def get(self):
+        conn = db_connect.connect() # connect to the db
+        query = conn.execute("SELECT * FROM Players ORDER BY wins DESC;")
+        result = {'players':[dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
+        return result
 
 class Users(Resource):
     def get(self):
@@ -55,6 +60,7 @@ class Employees_Name(Resource):
         
 
 api.add_resource(Players, '/players') # Route_1
+api.add_resource(PlayerStandings, '/playerstandings') # Route_1
 api.add_resource(Employees, '/employees') # Route_1
 api.add_resource(Tracks, '/tracks') # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3

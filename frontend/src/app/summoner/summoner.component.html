@@ -6,14 +6,15 @@
               <div class="col-sm-4" *ngFor="let summoner of summoners">
                 <div class="card">
                   <div class="card-body">
-                    <a>{{summoner.Summoner_Name}}</a>
+                    <a>{{summoner.summonerName}}</a>
                     <br>
-                    <a>{{summoner.Rank}} </a>
-                    <a>{{summoner.Tier}}</a>
+                    <a>{{summoner.rank}} </a>
+                    <a>{{summoner.tier}}</a>
                     <br>
-                    <a>{{summoner.MMR}}</a>
+                    <a>Wins: {{summoner.wins}} </a>
+                    <a>Losses: {{summoner.losses}}</a>
                     <br>
-                    <a>{{summoner.Points}}</a>
+                    <a>{{summoner.primaryRole}}/{{summoner.secondaryRole}}</a>
                   </div>
                 </div>
               </div>

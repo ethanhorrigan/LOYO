@@ -13,6 +13,8 @@ import { SummonerComponent } from './summoner/summoner.component';
 import { TeamsComponent } from './teams/teams.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
+import { GamesComponent } from './games/games.component';
 
 const appRoutes: Routes = [
   { path: 'summoner', component: SummonerComponent }
@@ -26,6 +28,8 @@ const appRoutes: Routes = [
     TeamsComponent,
     LoginComponent,
     RegisterComponent,
+    LeaderboardsComponent,
+    GamesComponent,
   ],
   imports: [
     RouterModule.forRoot(

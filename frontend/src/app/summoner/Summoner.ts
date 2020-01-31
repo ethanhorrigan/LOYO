@@ -3,6 +3,10 @@ export interface Summoner {
     rank : string;
     tier : number;
     mmr : number;
-    points : number;
+    wins : number;
+    losses : number;
+    gamesPlayed : number;
+    primaryRole : string;
+    secondaryRole : string;
   }
   

@@ -34,3 +34,6 @@
 ## Change Log
 
 - 29/01/2020 - Changed Database from SQLIte to MongoDB
+- 30/01/2020 - Connected to monogoDB through mongoose
+- 31/01/2020 - Refactored all tables in the database
+- 31/01/2020 - Leaderboards added (Server-Side & Client-Side)

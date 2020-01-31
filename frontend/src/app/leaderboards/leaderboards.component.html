@@ -1,0 +1,29 @@
+
+<!-- main row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table-bordered table-hover">
+                <thead>
+                    <tr class="camper">
+                        <th>#</th>
+                        <th>Name</th>
+                        <th class="number" ng-click="sortData('recent')">
+                            Wins
+                        </th> 
+                        <th class="number" ng-click="sortData('alltime')">
+                            Losses
+                        </th>
+                    </tr>
+                </thead>
+      
+                <tbody *ngFor="let summoner of summoners; index as i;">
+                    <tr class="camper">
+                        <td>{{i+1}}</td>
+                        <td class="name">{{summoner.summonerName}}</td>
+                        <td class="number">{{summoner.wins}}</td>
+                        <td class="number">{{summoner.losses}}</td>
+                    </tr>
+                </tbody>
+            </table>	
+        </div>
+    </div>
