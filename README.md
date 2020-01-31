@@ -37,3 +37,6 @@
 - 30/01/2020 - Connected to monogoDB through mongoose
 - 31/01/2020 - Refactored all tables in the database
 - 31/01/2020 - Leaderboards added (Server-Side & Client-Side)
+- 31/01/2020 - In order to recieve tournament codes from Riot, the matches that are created must be prized. to combat this, i will create a points system, where players
+recieve points from winning games. These points can then be spent to purchase in-game rewards.
+Submission for tournament codes: http://competitive.euw.leagueoflegends.com/competitive/prized/submit-tournament

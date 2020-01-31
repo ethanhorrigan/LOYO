@@ -19,7 +19,7 @@
                 <tbody *ngFor="let summoner of summoners; index as i;">
                     <tr class="camper">
                         <td>{{i+1}}</td>
-                        <td class="name">{{summoner.summonerName}}</td>
+                        <td class="name"><img class="summoner-avatar" src="http://avatar.leagueoflegends.com/euw/{{summoner.summonerName | lowercase}}.png"><img>{{summoner.summonerName}}</td>
                         <td class="number">{{summoner.wins}}</td>
                         <td class="number">{{summoner.losses}}</td>
                     </tr>
