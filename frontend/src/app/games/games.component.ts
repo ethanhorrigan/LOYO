@@ -12,4 +12,10 @@ export class GamesComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  today = new Date();
+  //time: number = Date.now();
+  time = this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
+
+  timeTillGame = 19.00 - this.today.getHours()
 }
