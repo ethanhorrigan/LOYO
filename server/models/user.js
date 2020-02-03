@@ -5,6 +5,8 @@ const Schema = mongoose.Schema
 const userSchema = new Schema ({
     email: String,
     summonerName: String,
+    primaryRole: String,
+    secondaryRole: String,
     password: String
 })
 

@@ -38,6 +38,8 @@ def roman_to_int(s):
 def getPlayerDetails(player):
     details = watcher.summoner.by_name(my_region, player)
 
+def getPlayerMMR(player):
+    # TODO: Get Player MMR
 
 
 for x in range(len(players)):
