@@ -40,3 +40,5 @@
 - 31/01/2020 - In order to recieve tournament codes from Riot, the matches that are created must be prized. to combat this, i will create a points system, where players
 recieve points from winning games. These points can then be spent to purchase in-game rewards.
 Submission for tournament codes: http://competitive.euw.leagueoflegends.com/competitive/prized/submit-tournament
+- 02/02/2020 - Registration changed from SQLite to MongoDB
+- 03/02/2020 - Added Angular Material
