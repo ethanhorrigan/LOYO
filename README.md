@@ -42,3 +42,4 @@ recieve points from winning games. These points can then be spent to purchase in
 Submission for tournament codes: http://competitive.euw.leagueoflegends.com/competitive/prized/submit-tournament
 - 02/02/2020 - Registration changed from SQLite to MongoDB
 - 03/02/2020 - Added Angular Material
+- 03/02/2020 - .gitpod.yml
