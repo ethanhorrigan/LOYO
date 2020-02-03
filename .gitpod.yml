@@ -1,0 +1,4 @@
+tasks:
+  - init: npm install -g @angular/cli
+    command: npm update
+  - init: pip install flask
