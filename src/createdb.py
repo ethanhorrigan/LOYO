@@ -24,27 +24,30 @@ c = conn.cursor()
 #     )
 #     ''')
 
-c.execute('''
-INSERT INTO Players 
-(summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
-VALUES
-('Tommy Shlug', 'Silver', '4', '1220', 0, 0, 0, 'Top', 'ADC')''')
+# c.execute('''
+# INSERT INTO Players 
+# (summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
+# VALUES
+# ('Tommy Shlug', 'Silver', '4', '1220', 0, 0, 0, 'Top', 'ADC')''')
 
-c.execute('''
-INSERT INTO Players 
-(summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
-VALUES
-('Communism', 'Platinum', '4', '1920', 0, 0, 0, 'Top', 'Mid')''')
+# c.execute('''
+# INSERT INTO Players 
+# (summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
+# VALUES
+# ('Communism', 'Platinum', '4', '1920', 0, 0, 0, 'Top', 'Mid')''')
 
-c.execute('''
-INSERT INTO Players 
-(summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
-VALUES
-('Thrasius123', 'Silver', '3', '1290', 0, 0, 0, 'Mid', 'ADC')''')
+# c.execute('''
+# INSERT INTO Players 
+# (summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
+# VALUES
+# ('Thrasius123', 'Silver', '3', '1290', 0, 0, 0, 'Mid', 'ADC')''')
 
-c.execute('''
-INSERT INTO Players 
-(summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
-VALUES
-('Zethose', 'Silver', '2', '1360', 0, 0, 0, 'Support', 'ADC')''')
+# c.execute('''
+# INSERT INTO Players 
+# (summonerName, rank, tier, mmr, wins, losses, gamesPlayed, primaryRole, secondaryRole)
+# VALUES
+# ('Zethose', 'Silver', '2', '1360', 0, 0, 0, 'Support', 'ADC')''')
+
+c.execute('''DROP TABLE IF EXISTS Lobby''')
+c.execute('''CREATE TABLE Lobby([generated_id] INTEGER PRIMARY KEY,[username] text, [summonerName] text)''')
 conn.commit()

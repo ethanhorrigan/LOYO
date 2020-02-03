@@ -1,6 +1,6 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../_models';
+import { User, TempUser } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -9,6 +9,11 @@ export class UserService {
     getAll() {
         return this.http.get<User[]>(`http://127.0.0.1:5002/users`);
         //return this.http.get('http://127.0.0.1:5002/players');
+    }
+
+    addToLobby(user: string) {
+        console.log("UserService: AddToLobby")
+        return this.http.post(`http://127.0.0.1:5002/lobby`, user);
     }
 
     register(user: User) {

@@ -5,3 +5,7 @@ export class User {
     password: string;
     token: string;
 }
+
+export class TempUser {
+    summonerName: string;
+}

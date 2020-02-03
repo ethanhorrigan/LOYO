@@ -23,6 +23,12 @@ class PlayerStandings(Resource):
         query = conn.execute("SELECT * FROM Players ORDER BY wins DESC;")
         result = {'players':[dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return result
+class Lobby(Resource):
+    def post(self):
+        print("Called")
+        # FirstName = request.json['FirstName']
+        print(request.json)
+        return request.json
 
 class Users(Resource):
     def get(self):
@@ -60,7 +66,8 @@ class Employees_Name(Resource):
         
 
 api.add_resource(Players, '/players') # Route_1
-api.add_resource(PlayerStandings, '/playerstandings') # Route_1
+api.add_resource(PlayerStandings, '/playerstandings') # Route_2
+api.add_resource(Lobby, '/lobby') # Route_3
 api.add_resource(Employees, '/employees') # Route_1
 api.add_resource(Tracks, '/tracks') # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
