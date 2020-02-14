@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    role: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -31,7 +32,8 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             username: ['', Validators.required],
             summonerName: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            role: ['', Validators.required]
         });
     }
 
@@ -43,9 +45,9 @@ export class RegisterComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
+            console.log("error in register form");
             return;
         }
-
         this.loading = true;
         this.userService.register(this.registerForm.value)
             .pipe(first())
@@ -60,5 +62,9 @@ export class RegisterComponent implements OnInit {
 
     getUsers() {
         this.userService.getAll();
+    }
+
+    getRole(event: any) {
+        this.role = event.target.value
     }
 }

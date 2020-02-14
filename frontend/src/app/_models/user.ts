@@ -3,7 +3,7 @@ export class User {
     username: string;
     summonerName: string;
     password: string;
-    token: string;
+    role: string;
 }
 
 export class TempUser {

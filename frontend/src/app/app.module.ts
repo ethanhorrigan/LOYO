@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Materials */
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon'
 
 /* App Components*/
 import { SummonerComponent } from './summoner/summoner.component';
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     MatButtonModule,
+    MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule

@@ -43,3 +43,7 @@ Submission for tournament codes: http://competitive.euw.leagueoflegends.com/comp
 - 02/02/2020 - Registration changed from SQLite to MongoDB
 - 03/02/2020 - Added Angular Material
 - 03/02/2020 - .gitpod.yml
+
+## Dissertation links
+
+https://medium.com/@SoftwareDevelopmentCommunity/what-is-service-oriented-architecture-fa894d11a7ec

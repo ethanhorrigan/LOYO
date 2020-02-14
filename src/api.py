@@ -25,8 +25,9 @@ class PlayerStandings(Resource):
         return result
 class Lobby(Resource):
     def post(self):
-        print("Called")
-        # FirstName = request.json['FirstName']
+        conn = db_connect.connect() # connect to the db
+        SummonerName = request.json['SummonerName']
+        conn.execute("insert into Lobby values(null,'{0}')".format(SummonerName))
         print(request.json)
         return request.json
 
@@ -35,14 +36,16 @@ class Users(Resource):
         conn = db_connect.connect() # connect to database
         query = conn.execute("select * from users") # This line performs query and returns json result
         return {'users': [i[0] for i in query.cursor.fetchall()]} # Fetches first column that is Employee ID
-    def post(self, username, summonerName, password, token):
-        print("entered post")
+    def post(self):
         conn = db_connect.connect() # connect to the db
-        cursor = conn.cursor()
-        query = """INSERT INTO users (username, summonerName, password, token) VALUES (?, ?, ?, ?);"""
-        data_tuple = (username, summonerName, password, token)
-        cursor.execute(query, data_tuple)
+        Username = request.json['username']
+        SummonerName = request.json['summonerName']
+        Password = request.json['password']
+        role = request.json['role']
+        conn.execute("INSERT INTO users  VALUES ({0}, {1}, {2}, {3})".format(Username, SummonerName, Password, role))
         conn.commit()
+        print(request.json)
+        return request.json
 class Employees(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database
@@ -71,7 +74,7 @@ api.add_resource(Lobby, '/lobby') # Route_3
 api.add_resource(Employees, '/employees') # Route_1
 api.add_resource(Tracks, '/tracks') # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
-api.add_resource(Users, '/users/register') # Route_4
+api.add_resource(Users, '/users') # Route_4
 
 
 if __name__ == '__main__':

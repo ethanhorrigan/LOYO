@@ -1,11 +1,36 @@
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div>
+    <div class="sidebar">
+        <div class="global-bar">
 
-<a href="/summoner">Players </a>
-<a href="/games">Play </a>
-<a href="/leaderboards">leaderboards </a>
-<a href="/teams">Teams </a>
-<a href="#">Logout </a>
+            <a class="sidebar-item" href="/summoner">
+                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                Players
+            </a>
+            <a class="sidebar-item" href="/games">
+                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                Play
+            </a>
+            <a class="sidebar-item" href="/leaderboards">
+                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                Leaderboards
+            </a>
+            <a class="sidebar-item" href="/teams">
+                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                Profile
+            </a>
+            <a class="sidebar-item" href="#">
+                <mat-icon class="sidebar-icon">shop</mat-icon>
+                Store
+            </a>
+            <a class="sidebar-item" href="#">
+                <mat-icon class="sidebar-icon">input</mat-icon>
+                Logout
+            </a>
+        </div>
+    </div>
 
-<router-outlet></router-outlet>
 
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>

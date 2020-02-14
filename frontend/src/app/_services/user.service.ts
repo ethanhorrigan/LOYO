@@ -18,7 +18,7 @@ export class UserService {
 
     register(user: User) {
         console.log(user);
-        return this.http.post(`http://127.0.0.1:5002/users/register`, user);
+        return this.http.post(`http://127.0.0.1:5002/users`, user);
     }
 
     delete(id: number) {
