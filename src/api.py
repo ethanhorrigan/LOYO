@@ -42,8 +42,7 @@ class Users(Resource):
         SummonerName = request.json['summonerName']
         Password = request.json['password']
         role = request.json['role']
-        conn.execute("INSERT INTO users  VALUES ({0}, {1}, {2}, {3})".format(Username, SummonerName, Password, role))
-        conn.commit()
+        conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(Username, SummonerName, Password, role))
         print(request.json)
         return request.json
 class Employees(Resource):
