@@ -45,6 +45,16 @@ class Users(Resource):
         conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(Username, SummonerName, Password, role))
         print(request.json)
         return request.json
+class UsersName(Resource):
+    def get(self, username):
+        conn = db_connect.connect()
+        query = conn.execute("select * from Users where username ='%s' "  %str(username))
+        userData = str(query)
+        if userData==None:
+            return "Username taken"
+        result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
+        response = jsonify(result)
+        return response
 class Employees(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database
@@ -74,6 +84,7 @@ api.add_resource(Employees, '/employees') # Route_1
 api.add_resource(Tracks, '/tracks') # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
 api.add_resource(Users, '/users') # Route_4
+api.add_resource(UsersName, '/users/<username>') # Route_3
 
 
 if __name__ == '__main__':

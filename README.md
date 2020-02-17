@@ -43,6 +43,13 @@ Submission for tournament codes: http://competitive.euw.leagueoflegends.com/comp
 - 02/02/2020 - Registration changed from SQLite to MongoDB
 - 03/02/2020 - Added Angular Material
 - 03/02/2020 - .gitpod.yml
+- 16/02/2020 - user authentication
+
+## Helpful Project Links
+
+- https://www.spiderposts.com/2019/07/04/flask-sqlalchemy-tutorial-login-system-with-python/
+- https://stackoverflow.com/questions/48775478/flask-user-login-check-if-user-exists
+
 
 ## Dissertation links
 

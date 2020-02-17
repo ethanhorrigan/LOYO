@@ -19,14 +19,18 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(username, password) {
-        return this.http.post<any>(`http://127.0.0.1:5002/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
+    // login(username, password) {
+    //     return this.http.post<any>(`http://127.0.0.1:5002/users/authenticate`, { username, password })
+    //         .pipe(map(user => {
+    //             // store user details and jwt token in local storage to keep user logged in between page refreshes
+    //             localStorage.setItem('currentUser', JSON.stringify(user));
+    //             this.currentUserSubject.next(user);
+    //             return user;
+    //         }));
+    // }
+
+    login(username: string) {
+        return this.http.get(`http://127.0.0.1:5002/users/${username}`);
     }
 
     logout() {

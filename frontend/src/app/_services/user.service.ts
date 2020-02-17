@@ -24,4 +24,6 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(`http://127.0.0.1:5002/users/${id}`);
     }
+
+
 }
