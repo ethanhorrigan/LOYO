@@ -47,13 +47,15 @@ class Users(Resource):
         return request.json
 class UsersName(Resource):
     def get(self, username):
-        conn = db_connect.connect()
-        query = conn.execute("select * from Users where username ='%s' "  %str(username))
-        userData = str(query)
-        if userData==None:
-            return "Username taken"
-        result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
-        response = jsonify(result)
+        conn = db_connect.connect() 
+        query = conn.execute("select username from Users where username= ?", (username))
+        getResult = query.fetchone()
+        print("query: {q}".format(q=query))
+        if getResult is None:
+            return True
+        else:
+            result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
+            response = jsonify(result)
         return response
 class Employees(Resource):
     def get(self):

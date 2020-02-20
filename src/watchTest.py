@@ -6,10 +6,10 @@ import numpy as np
 import utils as u
 import json
 
-watcher = RiotWatcher('RGAPI-04037bd1-c2bc-4598-beb4-95181074153d')
+watcher = RiotWatcher('RGAPI-cac82673-17ac-4752-b71e-9749abd2f8d5')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
-players = ['Horro', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Zethose', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
+players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
 mmr = {'PLATINUM3': 1990, 'DIAMOND1': 2840, 'PLATINUM1': 2130, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640, 'PLATINUM4': 1920, 'GOLD1': 1780, 'SILVER1': 1430, 'DIAMOND3': 2340}
 my_region = 'euw1'
 
@@ -36,10 +36,7 @@ def roman_to_int(s):
 
 
 def getPlayerDetails(player):
-    details = watcher.summoner.by_name(my_region, player)
-
-def getPlayerMMR(player):
-    # TODO: Get Player MMR
+    return watcher.summoner.by_name(my_region, player)
 
 
 for x in range(len(players)):
@@ -61,7 +58,8 @@ for x in range(len(players)):
                 rankStr = summonerData[count]['tier'] + str(rankToInt)
                 count = 0
                 break
-        count = 0      
+    count = 0      
+    print("Count: {count}".format(count=count))
 
     # print(rankStr)
     # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))

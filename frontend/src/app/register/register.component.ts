@@ -49,15 +49,18 @@ export class RegisterComponent implements OnInit {
             return;
         }
         this.loading = true;
-        this.userService.register(this.registerForm.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigate(['/login']);
-                },
-                error => {
-                    this.loading = false;
-                });
+
+        // this.userService.login(this.f.username.value);
+        // this.userService.login(this.f.username.value
+            this.userService.register(this.registerForm.value)
+                .pipe(first())
+                .subscribe(
+                    data => {
+                        this.router.navigate(['/login']);
+                    },
+                    error => {
+                        this.loading = false;
+                    });
     }
 
     getUsers() {

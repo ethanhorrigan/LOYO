@@ -25,5 +25,8 @@ export class UserService {
         return this.http.delete(`http://127.0.0.1:5002/users/${id}`);
     }
 
+    login(username: string) {
+        return this.http.get(`http://127.0.0.1:5002/users/${username}`);
+    }
 
 }
