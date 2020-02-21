@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { UserService } from '../_services/user.service';
 import { AuthenticationService } from '../_services/authentication.service';
+import { debug } from 'util';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    usernameTaken = false;
+    summonerTaken = false;
     role: string;
 
     constructor(
@@ -50,13 +53,26 @@ export class RegisterComponent implements OnInit {
         }
         this.loading = true;
 
+        
         // this.userService.login(this.f.username.value);
-        // this.userService.login(this.f.username.value
+        //this.userService.login(this.f.username.value);
             this.userService.register(this.registerForm.value)
                 .pipe(first())
                 .subscribe(
                     data => {
-                        this.router.navigate(['/login']);
+                        if(data = "UT") {
+                            this.usernameTaken = true;
+                            console.log(this.usernameTaken)
+                        }
+
+                        if(data = "ST") {
+                            this.summonerTaken = true;
+                            console.log(this.usernameTaken)
+                        }
+                        if(data = "OK" && this.usernameTaken == false && this.summonerTaken == false) {
+                            this.router.navigate(['/login']);
+                        }
+                        console.log(data);
                     },
                     error => {
                         this.loading = false;

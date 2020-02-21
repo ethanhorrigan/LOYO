@@ -34,7 +34,7 @@ class Lobby(Resource):
 class Users(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database
-        query = conn.execute("select * from users") # This line performs query and returns json result
+        query = conn.execute("select username from users") # This line performs query and returns json result
         return {'users': [i[0] for i in query.cursor.fetchall()]} # Fetches first column that is Employee ID
     def post(self):
         conn = db_connect.connect() # connect to the db
@@ -42,7 +42,26 @@ class Users(Resource):
         SummonerName = request.json['summonerName']
         Password = request.json['password']
         role = request.json['role']
-        conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(Username, SummonerName, Password, role))
+
+        # first check if username exists
+        query = conn.execute("select username from Users where username= ?", (Username))
+        # print(query.cursor.fetchall())
+        qResult = query.cursor.fetchone()
+        print(qResult)
+        if qResult is not None:
+            return "UT"
+
+        # check if summoner name exists
+        query2 = conn.execute("select summonerName from Users where summonerName= ?", (SummonerName))
+        qResult2 = query2.cursor.fetchone()
+        if qResult2 is not None:
+            return "ST"
+
+        # if both pass, register user
+        if qResult is None and qResult2 is None:
+            conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(Username, SummonerName, Password, role))
+            return "OK"
+        
         print(request.json)
         return request.json
 class UsersName(Resource):

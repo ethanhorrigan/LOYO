@@ -5,6 +5,7 @@
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="usernameTaken" class="error-message">Username is taken</div>
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <div *ngIf="f.username.errors.required">Username is required</div>
         </div>
@@ -12,6 +13,7 @@
     <div class="form-group">
         <label for="summonerName">Summoner Name</label>
         <input type="text" formControlName="summonerName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.summonerName.errors }" />
+        <div *ngIf="summonerTaken" class="error-message">Summoner Name is taken</div>
         <div *ngIf="submitted && f.summonerName.errors" class="invalid-feedback">
             <div *ngIf="f.summonerName.errors.required">Summoner Name is required</div>
         </div>
