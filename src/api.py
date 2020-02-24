@@ -68,14 +68,14 @@ class UsersName(Resource):
     def get(self, username):
         conn = db_connect.connect() 
         query = conn.execute("select username from Users where username= ?", (username))
-        getResult = query.fetchone()
-        print("query: {q}".format(q=query))
+        getResult = query.cursor.fetchone()
+        print(getResult)
         if getResult is None:
-            return True
-        else:
-            result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
-            response = jsonify(result)
-        return response
+            print("test")
+            return "TEST"
+
+            
+        return "taken"
 class Employees(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database

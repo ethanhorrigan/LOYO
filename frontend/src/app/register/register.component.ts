@@ -6,11 +6,11 @@ import { UserService } from '../_services/user.service';
 import { AuthenticationService } from '../_services/authentication.service';
 import { debug } from 'util';
 
-
 @Component({
     styleUrls: ['./register.component.scss'],
     templateUrl: 'register.component.html'
 })
+
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     usernameTaken = false;
     summonerTaken = false;
     role: string;
+    nameOnChange: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -40,6 +41,27 @@ export class RegisterComponent implements OnInit {
         });
     }
 
+    onFieldChange(str: string) {
+        
+    }
+
+    onUsernameChange() {
+        
+        console.log(this.f.username.value)
+        this.userService.login(this.f.username.value).subscribe( data => {
+            console.log(data);
+            if(data = "taken") {
+                this.usernameTaken = true;
+            }
+            if(data = "TEST") {
+                
+                this.usernameTaken = false;
+            }
+        });
+        console.log("check user api called")
+        return this.nameOnChange = this.f.username.value;
+    }
+
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
@@ -52,8 +74,6 @@ export class RegisterComponent implements OnInit {
             return;
         }
         this.loading = true;
-
-        
         // this.userService.login(this.f.username.value);
         //this.userService.login(this.f.username.value);
             this.userService.register(this.registerForm.value)
