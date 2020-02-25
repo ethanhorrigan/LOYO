@@ -44,6 +44,7 @@ Submission for tournament codes: http://competitive.euw.leagueoflegends.com/comp
 - 03/02/2020 - Added Angular Material
 - 03/02/2020 - .gitpod.yml
 - 16/02/2020 - user authentication
+- 20/02/2020 - Retrieve Summoner Data
 
 ## Helpful Project Links
 

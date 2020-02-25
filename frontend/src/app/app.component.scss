@@ -4,7 +4,8 @@
     max-width:250px;
     display:flex;
     flex-direction:column;
-    background-color:#28303f;
+    // background-color:#28303f;
+    background-color: #021421;
     align-items: center;
     z-index:1048;
     position:fixed;
@@ -57,4 +58,5 @@ mat-icon {
     width: calc(100vw - 220px);
     margin-left: 250px;
     overflow-y: scroll;
+    background-color: #051622;
 }

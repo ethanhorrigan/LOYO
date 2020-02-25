@@ -41,10 +41,6 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    onFieldChange(str: string) {
-        
-    }
-
     onUsernameChange() {
         
         console.log(this.f.username.value)

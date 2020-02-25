@@ -1,47 +1,64 @@
-<h2>Register</h2>
 
-<div class="main-form">
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" [(ngModel)]="usernameInput" (change)="onUsernameChange()" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-            <div *ngIf="usernameTaken" class="error-message">The username {{nameOnChange}} is already taken.</div>
-            <div *ngIf="!usernameTaken" class="available-message">The username {{nameOnChange}} is available.</div>
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="summonerName">Summoner Name</label>
-        <input type="text" formControlName="summonerName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.summonerName.errors }" />
-        <div *ngIf="summonerTaken" class="error-message">Summoner Name is taken</div>
-        <div *ngIf="submitted && f.summonerName.errors" class="invalid-feedback">
-            <div *ngIf="f.summonerName.errors.required">Summoner Name is required</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="radio" class="form-control" formControlName="role" value="top" (change)="getRole($event)" checked> Top<br>
-        <input type="radio" class="form-control" formControlName="role" value="jungle" (change)="getRole($event)" checked> Jungle<br>
-        <input type="radio" class="form-control" formControlName="role" value="mid" (change)="getRole($event)" checked> Mid<br>
-        <input type="radio" class="form-control" formControlName="role" value="adc" (change)="getRole($event)" checked> ADC<br>
-        <input type="radio" class="form-control" formControlName="role" value="support" (change)="getRole($event)" checked> Support<br>
-        <p>You selected: {{role}}</p>
-    </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
-            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-            Register
-        </button>
-        <a routerLink="/login" class="btn btn-link">Cancel</a>
-    </div>
+<div class="register-page">
+    <h2>Register</h2>
+    <div class="main-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" [(ngModel)]="usernameInput" (change)="onUsernameChange()"
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="usernameTaken" class="error-message">The username {{nameOnChange}} is already taken.</div>
+                <div *ngIf="!usernameTaken" class="available-message">The username {{nameOnChange}} is available.</div>
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="summonerName">Summoner Name</label>
+                <input type="text" formControlName="summonerName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.summonerName.errors }" />
+                <div *ngIf="summonerTaken" class="error-message">Summoner Name is taken</div>
+                <div *ngIf="submitted && f.summonerName.errors" class="invalid-feedback">
+                    <div *ngIf="f.summonerName.errors.required">Summoner Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="radio-btn">
+                    <input type="radio" class="form-control" formControlName="role" value="Top"
+                        (change)="getRole($event)" checked>
+                    Top
+                    <input type="radio" class="form-control" formControlName="role" value="Jungle"
+                        (change)="getRole($event)" checked>
+                    Jungle
+                    <input type="radio" class="form-control" formControlName="role" value="Mid"
+                        (change)="getRole($event)" checked>
+                    Mid
+                    <input type="radio" class="form-control" formControlName="role" value="Adc"
+                        (change)="getRole($event)" checked>
+                    ADC
+                    <input type="radio" class="form-control" formControlName="role" value="Support"
+                        (change)="getRole($event)" checked>
+                    Support
+                </div>
+                <p>You selected: {{role}}</p>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+                <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
 
-</form>
+        </form>
+    </div>
 </div>
