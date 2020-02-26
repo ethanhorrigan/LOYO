@@ -48,6 +48,8 @@ Submission for tournament codes: http://competitive.euw.leagueoflegends.com/comp
 - 26/02/2020 - Riot API Key Problem
 Production App:
 Register your project to apply for a Production API Key with access to the Standard APIs and/or Tournaments API. A Production API key requires a working prototype. Production API keys are not for testing purposes. You may submit an application in the planning stage of your project, but your application for a production key won’t be approved until your project is ready for public consumption. Work in progress should be tested using your demo key.
+- 26/02/2020 - Observables in Typescript are asynchronous, this causes many issues with user authentication to solve this problem i used
+ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatmap)
 
 ## Helpful Project Links
 
