@@ -6,7 +6,7 @@ import numpy as np
 import utils as u
 import json
 
-watcher = RiotWatcher('RGAPI-885692d5-e5cc-4a8b-84d4-77907afa3339')
+watcher = RiotWatcher('RGAPI-9d36d02c-6124-4314-9e0d-b67c5a9280fe')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
@@ -36,7 +36,18 @@ def roman_to_int(s):
 
 class Summoner():
     def getPlayerDetails(self):
-        return watcher.summoner.by_name(my_region, self)
+        try:
+            response = watcher.summoner.by_name(my_region, self)
+        except ApiError as err:
+            if err.response.status_code == 429:
+                print('We should retry in {} seconds.'.format(err.response.headers['Retry-After']))
+                print('this retry-after is handled by default by the RiotWatcher library')
+                print('future requests wait until the retry-after time passes')
+            elif err.response.status_code == 404:
+                print('Summoner name not found.')
+            else:
+                raise
+        return response
 
 def sortSummoners():
     for x in range(len(players)):

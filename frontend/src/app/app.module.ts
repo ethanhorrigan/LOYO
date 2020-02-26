@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Materials */
 import {MatButtonModule} from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon'
 
 /* App Components*/
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatRadioModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule

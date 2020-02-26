@@ -15,15 +15,17 @@ h2, label, input, p {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.radio-btn {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-    background-color: brown;
-    text-align: left;
-  }
+input[type=radio] {
+    position: absolute;
+    display: none;
+}
 
-  select {
+mat-radio-button {
+    color: white;
+    margin: 10px;
+}
+
+select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -34,6 +36,10 @@ h2, label, input, p {
     background: #2c3e50;
     background-image: none;
   }
+
+.aria-label {
+    color: white;
+}
 
 .main-form {
     margin: 0 auto;

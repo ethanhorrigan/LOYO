@@ -32,24 +32,14 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="radio-btn">
-                    <input type="radio" class="form-control" formControlName="role" value="Top"
-                        (change)="getRole($event)" checked>
-                    Top
-                    <input type="radio" class="form-control" formControlName="role" value="Jungle"
-                        (change)="getRole($event)" checked>
-                    Jungle
-                    <input type="radio" class="form-control" formControlName="role" value="Mid"
-                        (change)="getRole($event)" checked>
-                    Mid
-                    <input type="radio" class="form-control" formControlName="role" value="Adc"
-                        (change)="getRole($event)" checked>
-                    ADC
-                    <input type="radio" class="form-control" formControlName="role" value="Support"
-                        (change)="getRole($event)" checked>
-                    Support
-                </div>
-                <p>You selected: {{role}}</p>
+                <mat-radio-group [(ngModel)]="selection" formControlName="role" aria-label="Select an option">
+                    <mat-radio-button value="Top" (change)="getRole($event)">Top</mat-radio-button>
+                    <mat-radio-button value="Jungle" (change)="getRole($event)">Jungle</mat-radio-button>
+                    <mat-radio-button value="Mid" (change)="getRole($event)" >Mid</mat-radio-button>
+                    <mat-radio-button value="Adc" (change)="getRole($event)">ADC</mat-radio-button>
+                    <mat-radio-button value="Support" (change)="getRole($event)">Support</mat-radio-button>
+                  </mat-radio-group>
+                <p>You selected: {{selection}}</p>
             </div>
             <div class="form-group">
                 <button [disabled]="loading" class="btn btn-primary">

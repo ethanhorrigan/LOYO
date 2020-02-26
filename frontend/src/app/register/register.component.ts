@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     summonerTaken = false;
     role: string;
     nameOnChange: string;
+    selection: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -100,6 +101,6 @@ export class RegisterComponent implements OnInit {
     }
 
     getRole(event: any) {
-        this.role = event.target.value
+        this.role = this.selection
     }
 }
