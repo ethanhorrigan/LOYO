@@ -6,7 +6,7 @@ import numpy as np
 import utils as u
 import json
 
-watcher = RiotWatcher('RGAPI-cac82673-17ac-4752-b71e-9749abd2f8d5')
+watcher = RiotWatcher('RGAPI-885692d5-e5cc-4a8b-84d4-77907afa3339')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
@@ -34,46 +34,46 @@ def roman_to_int(s):
             int_val += rom_val[s[i]]
     return int_val
 
+class Summoner():
+    def getPlayerDetails(self):
+        return watcher.summoner.by_name(my_region, self)
 
-def getPlayerDetails(player):
-    return watcher.summoner.by_name(my_region, player)
+def sortSummoners():
+    for x in range(len(players)):
+        print("--------------")
+        count = 0
+        playerDetails = watcher.summoner.by_name(my_region, players[x])
+        summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
 
+        if(summonerData[count]['queueType'] == QUEUE_TYPE):
+            rank = summonerData[count]['rank']
+            rankToInt = u.romanToInt(rank)
+            rankStr = summonerData[count]['tier'] + str(rankToInt)
+        else:
+            while (summonerData[count]['queueType'] != QUEUE_TYPE):
+                count+=1
+                if(summonerData[count]['queueType'] == QUEUE_TYPE):
+                    rank = summonerData[count]['rank']
+                    rankToInt = roman_to_int(rank)
+                    rankStr = summonerData[count]['tier'] + str(rankToInt)
+                    count = 0
+                    break
+        count = 0      
+        print("Count: {count}".format(count=count))
 
-for x in range(len(players)):
-    print("--------------")
-    count = 0
-    playerDetails = watcher.summoner.by_name(my_region, players[x])
-    summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
+        # print(rankStr)
+        # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
+        print("{name}'s ID = {id}".format(name=playerDetails['name'], id=playerDetails['id']))
+        for key in mmr:
+            if(key == rankStr):
+                tmpMMR = mmr[key]
+                # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
 
-    if(summonerData[count]['queueType'] == QUEUE_TYPE):
-        rank = summonerData[count]['rank']
-        rankToInt = u.romanToInt(rank)
-        rankStr = summonerData[count]['tier'] + str(rankToInt)
-    else:
-        while (summonerData[count]['queueType'] != QUEUE_TYPE):
-            count+=1
-            if(summonerData[count]['queueType'] == QUEUE_TYPE):
-                rank = summonerData[count]['rank']
-                rankToInt = roman_to_int(rank)
-                rankStr = summonerData[count]['tier'] + str(rankToInt)
-                count = 0
-                break
-    count = 0      
-    print("Count: {count}".format(count=count))
-
-    # print(rankStr)
-    # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
-    print("{name}'s ID = {id}".format(name=playerDetails['name'], id=playerDetails['id']))
-    for key in mmr:
-        if(key == rankStr):
-            tmpMMR = mmr[key]
-            # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
-
-    p = Player(playerDetails['name'], rankStr, tmpMMR)
-    registered.append(p)
-    print(p.getSummonerName())
-    print(p.getRank())
-    print(p.getMMR())
+        p = Player(playerDetails['name'], rankStr, tmpMMR)
+        registered.append(p)
+        print(p.getSummonerName())
+        print(p.getRank())
+        print(p.getMMR())
 
 # This function returns the difference in MMR beween two players
 def getDifference(player1, player2):
@@ -99,8 +99,6 @@ def buildArrays(p):
 
     with open('ranked.json', 'w') as json_file:
         json.dump(mmrArray, json_file, sort_keys=True, indent=2)
-
-
 
 def matchMaking():
     matching = True
@@ -173,24 +171,10 @@ def matchMaking():
   
 
 
-# def gsa():
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
-# while is_stable == False:
-#         is_stable = True
-#         for b in W:
-#             is_paired = False # whether b has a pair which b ranks <= to n
-#             for n in range(1, len(B) + 1):
-#                 a = rankings[(b, n)]
-#                 a_partner, a_n = partners[a]
-#                 if a_partner == b:
-#                     if is_paired:
-#                         is_stable = False
-#                         partners[a] = (rankings[(a, a_n + 1)], a_n + 1)
-#                     else:
-#                         is_paired = True
 
-buildArrays(registered)
-matchMaking()
+# buildArrays(registered)
+# matchMaking()
 
 for a in range(len(team1)):
     # t = Team(1, team1[a].getSummonerName(), team1[a].getRank(), team1[a].getMMR())

@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from json import dumps
 from flask_cors import CORS
 import json
+from watchTest import Summoner
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
 app = Flask(__name__)
@@ -31,6 +32,7 @@ class Lobby(Resource):
         print(request.json)
         return request.json
 
+
 class Users(Resource):
     def get(self):
         conn = db_connect.connect() # connect to database
@@ -42,7 +44,7 @@ class Users(Resource):
         SummonerName = request.json['summonerName']
         Password = request.json['password']
         role = request.json['role']
-
+        getSummoner(SummonerName)
         # first check if username exists
         query = conn.execute("select username from Users where username= ?", (Username))
         # print(query.cursor.fetchall())
@@ -107,6 +109,17 @@ api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
 api.add_resource(Users, '/users') # Route_4
 api.add_resource(UsersName, '/users/<username>') # Route_3
 
+# Methods
+def getSummoner(player):
+        # Connect to the database
+        # conn = db_connect.connect()
+        # Search for the Summoner
+        summonerDetails = Summoner.getPlayerDetails(player)
+        print(summonerDetails)
+        # Check if the Summoner Exists
+        # Return Summoner Data
+        # Retrieve SummonerID
+        # Insert SummonerID Into USERS Table for the given summoner
 
 if __name__ == '__main__':
      app.run(port='5002')
