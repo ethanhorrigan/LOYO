@@ -42,30 +42,35 @@ class Users(Resource):
         conn = db_connect.connect() # connect to the db
         Username = request.json['username']
         SummonerName = request.json['summonerName']
+        print("SummonerName: {0}".format(SummonerName))
         Password = request.json['password']
         role = request.json['role']
         getSummoner(SummonerName)
         # first check if username exists
-        query = conn.execute("select username from Users where username= ?", (Username))
+        query = conn.execute("select COUNT(username) from Users where username= ?", (Username))
         # print(query.cursor.fetchall())
         qResult = query.cursor.fetchone()
-        print(qResult)
-        if qResult is not None:
-            return "UT"
-
+        status = ""
+        # print(qResult)
+        if qResult != '(0,)':
+            print("Username Taken")
+            status = "UT"
         # check if summoner name exists
-        query2 = conn.execute("select summonerName from Users where summonerName= ?", (SummonerName))
-        qResult2 = query2.cursor.fetchone()
-        if qResult2 is not None:
-            return "ST"
+        query2 = conn.execute("select COUNT(summonerName) from Users where summonerName= ?", (SummonerName))
+        qResult2 = query2.cursor.fetchall()
+        print(qResult2[0][0])
+        if qResult2 != '(0,)':
+            # print("Summonername Taken")
+            status = "ST"
 
         # if both pass, register user
-        if qResult is None and qResult2 is None:
+        else:
+            # print("Registration Valid")
             conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(Username, SummonerName, Password, role))
-            return "OK"
-        
-        print(request.json)
-        return request.json
+            status = "OK"
+            print(request.json)
+
+        return status
 class UsersName(Resource):
     def get(self, username):
         conn = db_connect.connect() 
@@ -115,7 +120,7 @@ def getSummoner(player):
         # conn = db_connect.connect()
         # Search for the Summoner
         summonerDetails = Summoner.getPlayerDetails(player)
-        print(summonerDetails)
+        # print(summonerDetails)
         # Check if the Summoner Exists
         # Return Summoner Data
         # Retrieve SummonerID

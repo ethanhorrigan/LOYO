@@ -50,8 +50,7 @@ export class RegisterComponent implements OnInit {
             if(data = "taken") {
                 this.usernameTaken = true;
             }
-            if(data = "TEST") {
-                
+            if(data = "TEST") {     
                 this.usernameTaken = false;
             }
         });
@@ -79,15 +78,16 @@ export class RegisterComponent implements OnInit {
                     data => {
                         if(data = "UT") {
                             this.usernameTaken = true;
-                            console.log(this.usernameTaken)
+                            console.log("Username Taken: "+ this.usernameTaken)
                         }
 
                         if(data = "ST") {
                             this.summonerTaken = true;
-                            console.log(this.usernameTaken)
+                            console.log("Summoner Name Taken: " + this.usernameTaken)
                         }
-                        if(data = "OK" && this.usernameTaken == false && this.summonerTaken == false) {
-                            this.router.navigate(['/login']);
+                        if(data = "OK") {
+                            console.log("Data is ok")
+                            // this.router.navigate(['/login']);
                         }
                         console.log(data);
                     },

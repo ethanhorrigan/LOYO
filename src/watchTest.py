@@ -203,14 +203,14 @@ with open('teams.json', 'w') as json_file:
 with open('teams.json', 'w') as json_file:
     json.dump(team2, json_file, sort_keys=True, indent=2)
 
-try:
-    response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')
-except ApiError as err:
-    if err.response.status_code == 429:
-        print('We should retry in {} seconds.'.format(err.response.headers['Retry-After']))
-        print('this retry-after is handled by default by the RiotWatcher library')
-        print('future requests wait until the retry-after time passes')
-    elif err.response.status_code == 404:
-        print('Summoner with that ridiculous name not found.')
-    else:
-        raise
+# try:
+#     response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')
+# except ApiError as err:
+#     if err.response.status_code == 429:
+#         print('We should retry in {} seconds.'.format(err.response.headers['Retry-After']))
+#         print('this retry-after is handled by default by the RiotWatcher library')
+#         print('future requests wait until the retry-after time passes')
+#     elif err.response.status_code == 404:
+#         print('Summoner with that ridiculous name not found.')
+#     else:
+#         raise
