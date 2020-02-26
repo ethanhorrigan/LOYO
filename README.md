@@ -45,6 +45,9 @@ Submission for tournament codes: http://competitive.euw.leagueoflegends.com/comp
 - 03/02/2020 - .gitpod.yml
 - 16/02/2020 - user authentication
 - 20/02/2020 - Retrieve Summoner Data
+- 26/02/2020 - Riot API Key Problem
+Production App:
+Register your project to apply for a Production API Key with access to the Standard APIs and/or Tournaments API. A Production API key requires a working prototype. Production API keys are not for testing purposes. You may submit an application in the planning stage of your project, but your application for a production key won’t be approved until your project is ready for public consumption. Work in progress should be tested using your demo key.
 
 ## Helpful Project Links
 
