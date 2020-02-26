@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first, tap } from 'rxjs/operators';
+import { first, tap, map } from 'rxjs/operators';
+import { concatMap } from 'rxjs/operators';
 import { UserService } from '../_services/user.service';
 import { AuthenticationService } from '../_services/authentication.service';
 import { debug } from 'util';
@@ -15,12 +16,13 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    changed = false;
     usernameTaken;
     summonerTaken = false;
     role: string;
     nameOnChange: string;
     selection: string;
-    usernameStatus: string;
+    usernameStatus: string = null;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -44,26 +46,28 @@ export class RegisterComponent implements OnInit {
     }
 
     onUsernameChange() {
-
-        console.log(this.f.username.value)
-        this.userService.login(this.f.username.value).pipe(tap(data => {
+        console.log(this.f.username.value);
+        //Check the Username on the API
+        this.userService.login(this.f.username.value).pipe(first()).subscribe(data => {
             this.usernameStatus = data.toString();
-            console.log(this.usernameStatus);
-        }));
-        
-        this.checkUsernameStatus();
-        console.log("check user api called")
+            this.checkUsernameStatus(this.usernameStatus);
+        });
+
+        //Check the Username Status
+        //I want this method to be called once the observable has returned a result
+        this.changed = true;
         return this.nameOnChange = this.f.username.value;
     }
 
-    checkUsernameStatus() {
-        if (this.usernameStatus = "USERNAME_OK") {
+    checkUsernameStatus(_status: string) {
+        console.log("Status:", _status);
+        if (_status == "USERNAME_OK") {
             this.usernameTaken = false;
-            console.log("UsernameTaken = "+ this.usernameTaken);
+            console.log("UsernameTaken = " + this.usernameTaken);
         }
-        if (this.usernameStatus = "USERNAME_TAKEN") {
+        if (_status == "USERNAME_TAKEN") {
             this.usernameTaken = true;
-            console.log("UsernameTaken = "+ this.usernameTaken);
+            console.log("UsernameTaken = " + this.usernameTaken);
         }
     }
 
