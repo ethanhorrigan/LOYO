@@ -1,29 +1,40 @@
-
 <!-- main row -->
+<div class="leaderboards-main">
     <div class="row">
-        <div class="col-xs-12">
-            <table class="table-bordered table-hover">
+            <table>
                 <thead>
                     <tr class="camper">
                         <th>#</th>
-                        <th>Name</th>
+                        <th class="th-name">Name</th>
                         <th class="number" ng-click="sortData('recent')">
                             Wins
-                        </th> 
+                        </th>
                         <th class="number" ng-click="sortData('alltime')">
                             Losses
                         </th>
+                        <th class="number" ng-click="sortData('alltime')">
+                            Rank
+                        </th>
+                        <th class="number" ng-click="sortData('alltime')">
+                            Games Played 
+                        </th>
                     </tr>
                 </thead>
-      
+
                 <tbody *ngFor="let summoner of summoners; index as i;">
                     <tr class="camper">
                         <td>{{i+1}}</td>
-                        <td class="name"><img class="summoner-avatar" src="http://avatar.leagueoflegends.com/euw/{{summoner.summonerName | lowercase}}.png"><img>{{summoner.summonerName}}</td>
+                        <div class="player-name">
+                            <td class="td-name">
+                                <img class="summoner-avatar"
+                                    src="http://avatar.leagueoflegends.com/euw/{{summoner.summonerName | lowercase}}.png"><img>
+                                {{summoner.summonerName}}
+                            </td>
+                        </div>
                         <td class="number">{{summoner.wins}}</td>
                         <td class="number">{{summoner.losses}}</td>
                     </tr>
                 </tbody>
-            </table>	
-        </div>
+            </table>
     </div>
+</div>

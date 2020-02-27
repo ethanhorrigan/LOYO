@@ -1,17 +1,28 @@
 body {
-    background-color: #D9DACD;
     padding: 1em;
-    font-family: "Helvetica Neue";
   }
   
+  th, td {
+    background-color: #152b3b;
+  }
+  td , th{
+    color: white;
+  }
+  .th-name {
+    text-align: left;
+  }
+  .leaderboards-main {
+    padding: 2%;
+    //display: flex;
+    //flex-direction: column;
+    text-align: center;
+  }
   .row {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
   .tableHeader {
-    background-color: #006400;
-    color: white;
     font-size: 22px;
     padding: 10px;
   }
@@ -25,58 +36,26 @@ body {
     text-align: center;
   }
   
-  .camper {
-    background-color: white;
-    text-align: center;
-  }
-  
-  .name .profileImg {
-    width: 60px;
-    border: 1px solid #006400;
-    border-radius: 50%;
-  }
-  
-  .profileImg:hover {
-    width: 70px;
-  }
-  
-  .up {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid black;
-    display: inline-block;
-  }
-  
-  .down {
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid black;
-    display: inline-block;
-  }
-  
-  .tableFooter {
-    background-color: #006400;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 40px;
-  }
-  .tableFooter a:link {
-    color: white;
-  }
-  .tableFooter a:hover {
-    color: #D9DACD;
-  }
-  
-  .footerSvg {
-    width: 32px;
+  .summoner-avatar {
+    position:relative;
+    margin-right:25px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    overflow:hidden
   }
 
-  .summoner-avatar {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    float: left;
+  .player-name {
+    background-color: #152b3b;
+    align-items: center;
   }
+  td {
+    border: none;
+    font-weight:100;
+    overflow:hidden;
+    text-overflow:ellipsis
+  }
+
 
   @media
   (min-width: 800px) {

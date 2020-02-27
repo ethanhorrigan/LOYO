@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* Materials */
 import {MatButtonModule} from '@angular/material/button';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon'
 
 /* App Components*/
@@ -51,7 +51,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{
+    provide: MAT_RADIO_DEFAULT_OPTIONS,
+    useValue: { color: 'primary' },
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

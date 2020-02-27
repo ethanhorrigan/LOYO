@@ -20,6 +20,9 @@ input[type=radio] {
     display: none;
 }
 
+input[type=text] {
+    color: #2c2c2c;
+}
 mat-radio-button {
     color: white;
     margin: 10px;
@@ -62,4 +65,8 @@ select {
 
 h2 {
     text-align: center;
+}
+
+.mat-radio-outer-circle{
+    border-color:rgb(66, 134, 244); 
 }

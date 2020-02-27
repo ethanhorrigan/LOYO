@@ -44,7 +44,8 @@ class Summoner():
                 print('this retry-after is handled by default by the RiotWatcher library')
                 print('future requests wait until the retry-after time passes')
             elif err.response.status_code == 404:
-                print('Summoner name not found.')
+                print("SUMMONER_NOT_FOUND")
+                response = "SUMMONER_NOT_FOUND"
             else:
                 raise
         return response

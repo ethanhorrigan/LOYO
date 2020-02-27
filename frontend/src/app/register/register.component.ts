@@ -88,16 +88,16 @@ export class RegisterComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    if (data = "UT") {
+                    if (data == "UT") {
                         this.usernameTaken = true;
                         console.log("Username Taken: " + this.usernameTaken)
                     }
 
-                    if (data = "ST") {
+                    if (data == "ST") {
                         this.summonerTaken = true;
                         console.log("Summoner Name Taken: " + this.usernameTaken)
                     }
-                    if (data = "OK") {
+                    if (data == "OK") {
                         console.log("Data is ok")
                         this.router.navigate(['/login']);
                     }
