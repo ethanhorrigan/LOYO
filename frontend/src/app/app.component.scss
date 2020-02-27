@@ -37,6 +37,11 @@ mat-icon {
     margin: 25px;
 }
 
+.sidebar-item.logout {
+    position: absolute;
+    bottom: 0;
+}
+
 
 .sidebar-item:hover {
     color: hsl(0, 0%, 100%);
