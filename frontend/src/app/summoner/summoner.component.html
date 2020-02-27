@@ -6,6 +6,9 @@
               <div class="col-sm-4" *ngFor="let summoner of summoners">
                 <div class="card">
                   <div class="card-body">
+                    <div class="card-role-icon">
+                      <img class="role-icon" src="../../assets/icons/roles/top.svg" alt="Top">
+                    </div>
                     <a>{{summoner.summonerName}}</a>
                     <br>
                     <a>{{summoner.rank}} </a>
@@ -15,7 +18,9 @@
                     <a>Losses: {{summoner.losses}}</a>
                     <br>
                     <a>{{summoner.primaryRole}}/{{summoner.secondaryRole}}</a>
+
                   </div>
+
                 </div>
               </div>
             </div>
