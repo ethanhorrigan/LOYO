@@ -51,6 +51,7 @@ Register your project to apply for a Production API Key with access to the Stand
 - 26/02/2020 - Observables in Typescript are asynchronous, this causes many issues with user authentication to solve this problem i used
 ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatmap)
 - 27/02/2020 - Added Role (SVG) Icons
+- 28/02/2020 - Password Encryption
 
 ## Helpful Project Links
 
