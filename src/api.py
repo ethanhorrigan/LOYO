@@ -36,11 +36,19 @@ class PlayerStandings(Resource):
 class Lobby(Resource):
     def post(self):
         conn = db_connect.connect()  # connect to the db
-        SummonerName = request.json['SummonerName']
+        SummonerName = request.json['summonerName']
         conn.execute(
             "insert into Lobby values(null,'{0}')".format(SummonerName))
-        print(request.json)
+        print("entered")
         return request.json
+    def get(self):
+        conn = db_connect.connect()
+        query = conn.execute(
+            "select COUNT(summonerName) from Lobby")
+        qResult = query.cursor.fetchall()
+        playerCount = qResult[0][0]
+        # return request.json
+        return playerCount
 
 
 class Users(Resource):
@@ -164,6 +172,6 @@ def create_password(pw):
 
 def validate_password(pw, hpw):
     return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
-    
+
 if __name__ == '__main__':
     app.run(port='5002')

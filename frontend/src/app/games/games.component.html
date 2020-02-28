@@ -1,12 +1,65 @@
-<p>games works!</p>
-
 <div class="main-content">
     <h1>Games Every Day at 7:00 GMT and 8:00 GMT</h1>
     <p>Players<p>
-            <p>0/10</p>
             <button mat-raised-button color="primary" (click)="addToLobby()">Join</button>
             <br>
             <div class="time-div">
                 <p>{{timeTillGame}} Hours until next game</p>
             </div>
-</div>
+            <p>{{registeredPlayers}}/10</p>
+                <div class="teams-container">
+                <ul class="teams-row">
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Top</p>
+                                <img class="role-icon" src="../../assets/icons/roles/top.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Jungle</p>
+                                <img class="role-icon" src="../../assets/icons/roles/jung.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Mid</p>
+                                <img class="role-icon" src="../../assets/icons/roles/mid.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Bot</p>
+                                <img class="role-icon" src="../../assets/icons/roles/bot.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Support</p>
+                                <img class="role-icon" src="../../assets/icons/roles/supp.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            

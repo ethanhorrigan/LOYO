@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
+                    localStorage.setItem("username", this.f.username.value);
                 },
                 error => {
                     this.loading = false;

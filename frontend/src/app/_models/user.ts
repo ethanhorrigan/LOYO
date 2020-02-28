@@ -8,4 +8,8 @@ export class User {
 
 export class TempUser {
     summonerName: string;
+
+    constructor(summonerName: string) {
+        this.summonerName = summonerName;
+    }
 }

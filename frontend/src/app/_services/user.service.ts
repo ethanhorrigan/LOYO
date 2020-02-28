@@ -11,9 +11,15 @@ export class UserService {
         //return this.http.get('http://127.0.0.1:5002/players');
     }
 
-    addToLobby(user: string) {
-        console.log("UserService: AddToLobby")
-        return this.http.post(`http://127.0.0.1:5002/lobby`, user);
+    addToLobby(tempUser: TempUser) {
+        //console.log(JSON.stringify(tempUser));
+        //console.log(tempUser);
+        //return this.http.post<TempUser>(`http://127.0.0.1:5002/lobby`, tempUser);
+        return this.http.post(`http://127.0.0.1:5002/lobby`, tempUser)
+    }
+
+    getLobby() {
+        return this.http.get(`http://127.0.0.1:5002/lobby`);
     }
 
     register(user: User) {
