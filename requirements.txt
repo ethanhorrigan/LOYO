@@ -19,7 +19,6 @@ cassiopeia==4.0.6
 certifi==2019.9.11
 cffi==1.13.2
 chardet==3.0.4
-Click==7.0
 conda==4.7.12
 conda-build==3.18.8
 conda-package-handling==1.6.0
