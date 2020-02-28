@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from json import dumps
 from flask_cors import CORS
 import json
+import bcrypt
 from watchTest import Summoner
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
@@ -79,8 +80,9 @@ class Users(Resource):
         # if both pass, register user
         else:
             # print("Registration Valid")
+            hashed = create_password(Password)
             conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(
-                Username, SummonerName, Password, role))
+                Username, SummonerName, hashed, role))
             status = "OK"
             print(request.json)
 
@@ -156,6 +158,12 @@ def getSummoner(player):
     # Retrieve SummonerID
     # Insert SummonerID Into USERS Table for the given summoner
 
+def create_password(pw):
+    hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
+    return hash.decode('utf-8')
 
+def validate_password(pw, hpw):
+    return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
+    
 if __name__ == '__main__':
     app.run(port='5002')
