@@ -49,6 +49,10 @@ class Summoner():
             else:
                 raise
         return response
+        
+    def getRank(self):
+        playerDetails = watcher.summoner.by_name(my_region, self)
+        summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
 
 def sortSummoners():
     for x in range(len(players)):
