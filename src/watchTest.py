@@ -111,10 +111,6 @@ def buildArrays(p):
             tmpDiff.append(abs(mmrArray[x-1] - mmrArray[x]))
 
     print(tmpDiff)
-    
-
-    with open('ranked.json', 'w') as json_file:
-        json.dump(mmrArray, json_file, sort_keys=True, indent=2)
 
 def matchMaking():
     matching = True
@@ -201,12 +197,6 @@ for b in range(len(team2)):
     # t2 = Team(2, team2[b].getSummonerName(), team2[b].getRank(), team2[b].getMMR())
     # teamObject.append(t2)
     print("Team 2: [{team}]".format(team=team2[b]))
-
-with open('teams.json', 'w') as json_file:
-    json.dump(team1, json_file, sort_keys=True, indent=2)
-
-with open('teams.json', 'w') as json_file:
-    json.dump(team2, json_file, sort_keys=True, indent=2)
 
 # try:
 #     response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')
