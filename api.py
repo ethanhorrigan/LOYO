@@ -5,7 +5,7 @@ from json import dumps
 from flask_cors import CORS
 import json
 import bcrypt
-from watchTest import Summoner
+from src.watchTest import Summoner
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
 app = Flask(__name__)
