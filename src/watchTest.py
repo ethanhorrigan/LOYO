@@ -9,8 +9,8 @@ import json
 watcher = RiotWatcher('RGAPI-821dbdd5-5f6e-4657-a8c0-d1148340a94c')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
-players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
-mmr = {'PLATINUM3': 1990, 'DIAMOND1': 2840, 'PLATINUM1': 2130, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640, 'PLATINUM4': 1920, 'GOLD1': 1780, 'SILVER1': 1430, 'DIAMOND3': 2340}
+# players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
+# mmr = {'PLATINUM3': 1990, 'DIAMOND1': 2840, 'PLATINUM1': 2130, 'GOLD2': 1710, 'BRONZE3': 940, 'SILVER3': 1290, 'GOLD4': 1570, 'DIAMOND4': 2270, 'SILVER2': 1360, 'GOLD3': 1640, 'PLATINUM4': 1920, 'GOLD1': 1780, 'SILVER1': 1430, 'DIAMOND3': 2340}
 my_region = 'euw1'
 
 registered = []
@@ -56,7 +56,6 @@ class Summoner():
 
 def sortSummoners():
     for x in range(len(players)):
-        print("--------------")
         count = 0
         playerDetails = watcher.summoner.by_name(my_region, players[x])
         summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
