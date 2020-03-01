@@ -29,5 +29,5 @@ export class UserService {
 
     login(username: string) {
         return this.http.get(`http://127.0.0.1:5002/users/${username}`);
-  
+    }
 }

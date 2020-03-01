@@ -1,9 +1,8 @@
 # Player.
-class Player:
+class PlayerDetails():
     
     # Method to create object (Constructor)
-    def __init__(self, summonerName, rank, mmr):
-         
+    def __init__(self, summonerName, rank, mmr):   
         self.summonerName= summonerName
         self.rank = rank
         self.mmr = mmr
@@ -25,7 +24,6 @@ class Player:
 
     def setMMR(self, mmr):
         self.mmr = mmr
-
 
     def __str__(self):
         return 'Player(name='+self.summonerName+', rank='+self.rank+', mmr='+str(self.mmr)+' )'    

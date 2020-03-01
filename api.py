@@ -11,8 +11,8 @@ db_connect = create_engine('sqlite:///fantasyleague.db')
 app = Flask(__name__)
 api = Api(app)
 
-# To solve the CORS issue when making HTTP Requests
-CORS(app)
+
+CORS(app) # To solve the CORS issue when making HTTP Requests
 
 
 class Players(Resource):

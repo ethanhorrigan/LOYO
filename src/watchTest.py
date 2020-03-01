@@ -1,12 +1,12 @@
 from riotwatcher import RiotWatcher, ApiError
-from player import Player
-from team import Team
 from numpy import allclose
 import numpy as np
-import utils as u
+import src.utils as u
+import src.team
+import src.playerdetails
 import json
 
-watcher = RiotWatcher('RGAPI-821dbdd5-5f6e-4657-a8c0-d1148340a94c')
+watcher = RiotWatcher('RGAPI-36ec608a-0b69-4d89-9067-9b474b682a24')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 # players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
@@ -22,26 +22,6 @@ team1 = []
 team2 = []
 tmpPlayers = []
 mmrArray = []
-
-def roman_to_int(s):
-    """
-    Converts a roman numeral (String) to an Integer value.
-
-    Args:
-    s: The Roman Numeral as a string.
-
-    Returns:
-    The Romanl Numeral as an Integer
-
-    """
-    rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    int_val = 0
-    for i in range(len(s)):
-        if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:
-            int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]
-        else:
-            int_val += rom_val[s[i]]
-    return int_val
 
 class Summoner():
     def get_player_details(self):
@@ -70,13 +50,63 @@ class Summoner():
         return response
         
     def get_rank(self):
+        """
+        Retrieves the rank of the Summoner as an Integer.
+
+        Args:
+            self: The Summoners name
+
+        Returns:
+            The rank of the Summoner as an Integer
+
+        """
         count = 0
-        playerDetails = watcher.summoner.by_name(my_region, player)
-        summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
+        player_details = watcher.summoner.by_name(my_region, self)
+        summoner_data  = watcher.league.by_summoner(my_region, player_details['id'])
 
-        while(summonerData[count]['queueType'] != QUEUE_TYPE):
-            count+=1
+        if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+            rank = summoner_data[count]['rank'] # Retrieve the Rank
+            rank_as_int = u.romanToInt(rank) # Converts rank to an Integer
+            response = rank_as_int
+        else:
+            while(summoner_data[count]['queueType'] != QUEUE_TYPE):
+                count+=1
+                if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+                    rank = summoner_data[count]['rank'] # Retrieve the Rank
+                    rank_as_int = u.romanToInt(rank) # Converts rank to an Integer
+                    count = 0
+                    response = rank_as_int
+        return response
+    
+    def get_tier(self):
+        """
+        Retrieves the Tier of the Summoners current rank between (1..4)
 
+        Args:
+            self: The summoners name to check.
+
+        Returns:
+            The Tier of the Summoners Rank
+
+        """
+        count = 0
+        player_details = watcher.summoner.by_name(my_region, self)
+        summoner_data = watcher.league.by_summoner(my_region, player_details['id'])
+
+        if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+            response = summoner_data[count]['tier']
+        else:
+            while(summoner_data[count]['queueType'] != QUEUE_TYPE):
+                count += 1
+                if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+                    response = summoner_data[count]['tier']
+        return response
+
+        # TODO:
+        # Get the outcome of the game
+        # Update Players Details based on the outcome of the game
+        # Clean the lobby
+        
 def sortSummoners():
     for x in range(len(players)):
         count = 0
@@ -107,7 +137,7 @@ def sortSummoners():
                 tmpMMR = mmr[key]
                 # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
 
-        p = Player(playerDetails['name'], rankStr, tmpMMR)
+        p = PlayerDetails(playerDetails['name'], rankStr, tmpMMR)
         registered.append(p)
         print(p.getSummonerName())
         print(p.getRank())
@@ -216,15 +246,3 @@ for b in range(len(team2)):
     # t2 = Team(2, team2[b].getSummonerName(), team2[b].getRank(), team2[b].getMMR())
     # teamObject.append(t2)
     print("Team 2: [{team}]".format(team=team2[b]))
-
-# try:
-#     response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')
-# except ApiError as err:
-#     if err.response.status_code == 429:
-#         print('We should retry in {} seconds.'.format(err.response.headers['Retry-After']))
-#         print('this retry-after is handled by default by the RiotWatcher library')
-#         print('future requests wait until the retry-after time passes')
-#     elif err.response.status_code == 404:
-#         print('Summoner with that ridiculous name not found.')
-#     else:
-#         raise
