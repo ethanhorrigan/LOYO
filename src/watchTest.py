@@ -23,8 +23,17 @@ team2 = []
 tmpPlayers = []
 mmrArray = []
 
-# Convert Roman Numerals to INT
 def roman_to_int(s):
+    """
+    Converts a roman numeral (String) to an Integer value.
+
+    Args:
+    s: The Roman Numeral as a string.
+
+    Returns:
+    The Romanl Numeral as an Integer
+
+    """
     rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     int_val = 0
     for i in range(len(s)):
@@ -35,7 +44,17 @@ def roman_to_int(s):
     return int_val
 
 class Summoner():
-    def getPlayerDetails(self):
+    def get_player_details(self):
+        """
+        Verifies if the Player exists in Riot's database.
+
+        Args:
+            self: The player name which is used to verify if the player exists.
+
+        Returns:
+            The value if the Summoner Name is found else the Summoner Name is Not Found.
+
+        """
         try:
             response = watcher.summoner.by_name(my_region, self)
         except ApiError as err:
@@ -50,9 +69,13 @@ class Summoner():
                 raise
         return response
         
-    def getRank(self):
-        playerDetails = watcher.summoner.by_name(my_region, self)
+    def get_rank(self):
+        count = 0
+        playerDetails = watcher.summoner.by_name(my_region, player)
         summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
+
+        while(summonerData[count]['queueType'] != QUEUE_TYPE):
+            count+=1
 
 def sortSummoners():
     for x in range(len(players)):
@@ -183,9 +206,6 @@ def matchMaking():
 
 
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
-
-# buildArrays(registered)
-# matchMaking()
 
 for a in range(len(team1)):
     # t = Team(1, team1[a].getSummonerName(), team1[a].getRank(), team1[a].getMMR())

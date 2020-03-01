@@ -11,6 +11,7 @@ db_connect = create_engine('sqlite:///fantasyleague.db')
 app = Flask(__name__)
 api = Api(app)
 
+# To solve the CORS issue when making HTTP Requests
 CORS(app)
 
 
@@ -121,17 +122,6 @@ class Employees(Resource):
         # Fetches first column that is Employee ID
         return {'employees': [i[0] for i in query.cursor.fetchall()]}
 
-
-class Tracks(Resource):
-    def get(self):
-        conn = db_connect.connect()
-        query = conn.execute(
-            "select trackid, name, composer, unitprice from tracks;")
-        result = {'data': [dict(zip(tuple(query.keys()), i))
-                           for i in query.cursor]}
-        return jsonify(result)
-
-
 class Employees_Name(Resource):
     def get(self, employee_id):
         conn = db_connect.connect()
@@ -146,8 +136,6 @@ class Employees_Name(Resource):
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
-api.add_resource(Employees, '/employees')  # Route_1
-api.add_resource(Tracks, '/tracks')  # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>')  # Route_3
 api.add_resource(Users, '/users')  # Route_4
 api.add_resource(UsersName, '/users/<username>')  # Route_3
@@ -159,7 +147,7 @@ def getSummoner(player):
         # Connect to the database
         # conn = db_connect.connect()
         # Search for the Summoner
-    summonerDetails = Summoner.getPlayerDetails(player)
+    summonerDetails = Summoner.get_player_details(player)
     # print(summonerDetails)
     # Check if the Summoner Exists
     # Return Summoner Data

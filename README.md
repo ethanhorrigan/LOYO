@@ -54,6 +54,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 - 28/02/2020 - Password Encryption
 - 28/02/2020 - Lobby System and Design Implemented
 - 28/02/2020 - Begin Session-Based User Authentication
+- 01/02/2020 - Documenting Backend Code.
 
 
 ## Helpful Project Links

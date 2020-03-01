@@ -8,13 +8,9 @@ export class UserService {
 
     getAll() {
         return this.http.get<User[]>(`http://127.0.0.1:5002/users`);
-        //return this.http.get('http://127.0.0.1:5002/players');
     }
 
     addToLobby(tempUser: TempUser) {
-        //console.log(JSON.stringify(tempUser));
-        //console.log(tempUser);
-        //return this.http.post<TempUser>(`http://127.0.0.1:5002/lobby`, tempUser);
         return this.http.post(`http://127.0.0.1:5002/lobby`, tempUser)
     }
 
@@ -33,7 +29,5 @@ export class UserService {
 
     login(username: string) {
         return this.http.get(`http://127.0.0.1:5002/users/${username}`);
-    }
-
-
+  
 }
