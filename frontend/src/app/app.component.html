@@ -3,6 +3,10 @@
     <div class="sidebar">
         <div class="global-bar">
 
+            <a class="sidebar-item">
+                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                {{currentUser}}
+            </a>
             <a class="sidebar-item" href="/summoner">
                 <mat-icon class="sidebar-icon">dashboard</mat-icon>
                 Players
@@ -23,7 +27,7 @@
                 <mat-icon class="sidebar-icon">shop</mat-icon>
                 Store
             </a>
-            <a class="sidebar-item logout" href="#">
+            <a class="sidebar-item logout" (click)="logout()">
                 <mat-icon class="sidebar-icon">input</mat-icon>
                 Logout
             </a>

@@ -3,11 +3,19 @@ from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 from json import dumps
 from flask_cors import CORS
+from sqlalchemy import exists
+from sqlalchemy.orm import sessionmaker
 import json
 import bcrypt
 from src.watchTest import Summoner
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
+
+
+Session = sessionmaker()
+Session.configure(bind=db_connect)
+session = Session()
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -48,6 +56,10 @@ class Lobby(Resource):
             "select COUNT(summonerName) from Lobby")
         qResult = query.cursor.fetchall()
         playerCount = qResult[0][0]
+        if playerCount <= 10:
+            playerCount = qResult[0][0]
+        else:
+            playerCount = "FULL"
         # return request.json
         return playerCount
 
@@ -89,14 +101,31 @@ class Users(Resource):
         # if both pass, register user
         else:
             # print("Registration Valid")
-            hashed = create_password(Password)
+            hashed = PasswordSetup.create_password(self, Password)
             conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(
                 Username, SummonerName, hashed, role))
             status = "OK"
             print(request.json)
 
         return status
+# CORS(app)
+class Login(Resource):
+    def post(self):
+        username = request.json['username']
+        password = request.json['password']
+        conn = db_connect.connect()
 
+        query = conn.execute("select COUNT(username) from Users where username= ?", (username))
+        username_from_db = query.cursor.fetchall()
+
+        if username_from_db[0][0] > 0:
+            query2 = conn.execute("select password from Users where username= ?", (username))
+            hpw_from_db = query2.cursor.fetchall()
+            print(hpw_from_db[0][0])
+            response = PasswordSetup.validate_password(self, password, hpw_from_db[0][0])
+        else:
+            response = False
+        return response
 
 class UsersName(Resource):
     def get(self, username):
@@ -139,6 +168,7 @@ api.add_resource(Lobby, '/lobby')  # Route_3
 api.add_resource(Employees_Name, '/employees/<employee_id>')  # Route_3
 api.add_resource(Users, '/users')  # Route_4
 api.add_resource(UsersName, '/users/<username>')  # Route_3
+api.add_resource(Login, '/login')  # Login Route
 
 # Methods
 
@@ -154,12 +184,14 @@ def getSummoner(player):
     # Retrieve SummonerID
     # Insert SummonerID Into USERS Table for the given summoner
 
-def create_password(pw):
-    hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
-    return hash.decode('utf-8')
+class PasswordSetup:
+    def create_password(self, pw):
+        hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
+        return hash.decode('utf-8')
 
-def validate_password(pw, hpw):
-    return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
+    def validate_password(self, pw, hpw):
+        print(bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8')))
+        return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
 
 if __name__ == '__main__':
     app.run(port='5002')

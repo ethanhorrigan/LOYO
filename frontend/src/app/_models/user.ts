@@ -6,6 +6,11 @@ export class User {
     role: string;
 }
 
+export class UserLogin {
+    username: string;
+    password: string;
+}
+
 export class TempUser {
     summonerName: string;
 

@@ -6,7 +6,7 @@ import src.team
 import src.playerdetails
 import json
 
-watcher = RiotWatcher('RGAPI-36ec608a-0b69-4d89-9067-9b474b682a24')
+watcher = RiotWatcher('RGAPI-eb0a5d3f-9d9b-4875-a84e-4ed6c4ba19ef')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 # players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
@@ -63,7 +63,6 @@ class Summoner():
         count = 0
         player_details = watcher.summoner.by_name(my_region, self)
         summoner_data  = watcher.league.by_summoner(my_region, player_details['id'])
-
         if(summoner_data[count]['queueType'] == QUEUE_TYPE):
             rank = summoner_data[count]['rank'] # Retrieve the Rank
             rank_as_int = u.romanToInt(rank) # Converts rank to an Integer
@@ -74,7 +73,7 @@ class Summoner():
                 if(summoner_data[count]['queueType'] == QUEUE_TYPE):
                     rank = summoner_data[count]['rank'] # Retrieve the Rank
                     rank_as_int = u.romanToInt(rank) # Converts rank to an Integer
-                    count = 0
+                    # count = 0
                     response = rank_as_int
         return response
     
