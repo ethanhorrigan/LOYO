@@ -7,6 +7,7 @@ from sqlalchemy import exists
 from sqlalchemy.orm import sessionmaker
 import json
 import bcrypt
+from src.playerdetails import PlayerDetails
 from src.watchTest import Summoner
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
@@ -45,10 +46,12 @@ class PlayerStandings(Resource):
 class Lobby(Resource):
     def post(self):
         conn = db_connect.connect()  # connect to the db
-        SummonerName = request.json['summonerName']
-        conn.execute(
-            "insert into Lobby values(null,'{0}')".format(SummonerName))
-        print("entered")
+        SummonerName = request.json['summonerName'] # Get SummonerName
+        _rank = Summoner.get_rank_string(self, SummonerName) # Get rank
+        mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank)) # Get the Users from the Lobby
+        res = mmr_query.cursor.fetchall()
+        _mmr = res[0][0]
+        conn.execute("insert into Lobby values(null,'{0}', '{1}', '{2}')".format(SummonerName, _rank, _mmr))
         return request.json
     def get(self):
         conn = db_connect.connect()
@@ -142,6 +145,39 @@ class UsersName(Resource):
         print(status)
         return status
 
+class MatchMaking(Resource):
+    def get(self):
+        matching_state = True # Set matching state to true
+        conn = db_connect.connect() # Connect to the Database
+        
+        query = conn.execute("select summonerName FROM Lobby order by mmr desc") # Get the Users from the Lobby
+
+        # Add Players in Lobby to the matchmaking queue
+        results = query.cursor.fetchall()
+        count = 0
+        while matching_state:
+            # for i in results:
+            _summoner_name_1 = results[count][0]
+            count+=1
+            _summoner_name_2 = results[count][0]
+            print("Summoner Name: {0}".format(_summoner_name_1))
+            print("Summoner Name: {0}".format(_summoner_name_2))
+            conn.execute("insert into Match values('{0}', '{1}')".format(1, _summoner_name_1))
+            conn.execute("insert into Match values('{0}', '{1}')".format(2, _summoner_name_2))
+            # _rank_str = Summoner.get_rank_string(self, _summonerName)
+            # mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank_str)) # Get the Users from the Lobby
+            # res = mmr_query.cursor.fetchall()
+            # _mmr = res[0][0]
+            # p = PlayerDetails(_summonerName, _rank_str, _mmr)
+            # print(p)
+            count +=1
+            if(count == 10):
+                matching_state = False
+
+            # Sort the Match Table
+            match_query = conn.execute("select team, player FROM Match order by team desc")
+
+        return {'match': [i[0] for i in match_query.cursor.fetchall()]}
 
 class Employees(Resource):
     def get(self):
@@ -169,6 +205,7 @@ api.add_resource(Employees_Name, '/employees/<employee_id>')  # Route_3
 api.add_resource(Users, '/users')  # Route_4
 api.add_resource(UsersName, '/users/<username>')  # Route_3
 api.add_resource(Login, '/login')  # Login Route
+api.add_resource(MatchMaking, '/mm')  # Matchmaking Route
 
 # Methods
 

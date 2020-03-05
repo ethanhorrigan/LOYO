@@ -18,6 +18,10 @@ export class UserService {
         return this.http.get(`http://127.0.0.1:5002/lobby`);
     }
 
+    getMM() {
+        return this.http.get(`http://127.0.0.1:5002/mm`);
+    }
+
     register(user: User) {
         console.log(user);
         return this.http.post(`http://127.0.0.1:5002/users`, user);

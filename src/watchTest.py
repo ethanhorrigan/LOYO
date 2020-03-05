@@ -3,10 +3,10 @@ from numpy import allclose
 import numpy as np
 import src.utils as u
 import src.team
-import src.playerdetails
+import src.playerdetails as PlayerDetails
 import json
 
-watcher = RiotWatcher('RGAPI-eb0a5d3f-9d9b-4875-a84e-4ed6c4ba19ef')
+watcher = RiotWatcher('RGAPI-28e1ee43-7edb-4b1e-9422-785240e9225a')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 # players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
@@ -100,56 +100,99 @@ class Summoner():
                 if(summoner_data[count]['queueType'] == QUEUE_TYPE):
                     response = summoner_data[count]['tier']
         return response
+    
+    def get_rank_string(self, player):
+        _rank = Summoner.get_rank(player)
+        _tier = Summoner.get_tier(player)
+        _response = _tier + str(_rank)
+        return _response
+        
+    def get_difference(self, player1, player2):
+        """
+        Retrieves the difference in MMR between two players
 
+        Args:
+            player1: the first players MMR.
+            player2: the second players MMR.
+
+        Returns:
+            The MMR Difference between the two players.
+
+        """
+        diff = 0
+        if(player1 >= player2):
+            diff = abs(player1 - player2)
+        if(player2 >= player1):
+            diff = abs(player2 - player1)
+        return diff
+        
+    def build_arrays(self, p):
+        tmpDiff = []
+
+        for x in range(0, len(p), 1):
+            tmpPlayers.append(p[x])
+            mmrArray.append(tmpPlayers[x].getMMR())
+            if(x != 0):
+                tmpDiff.append(abs(mmrArray[x-1] - mmrArray[x]))
+
+        print(tmpDiff)
+
+    def new_match_making(self):
+        """
+        New matchmaking algorithm by sorting a dict by value.
+        and adding every other player in that dict, to the opposite team.
+
+        Args:
+            regisitered: dictionary of players that have registered
+
+        Returns:
+            Both teams sorted by the value of the regisiterd dict
+
+        """
+        pass
+    
         # TODO:
         # Get the outcome of the game
         # Update Players Details based on the outcome of the game
         # Clean the lobby
+        # Get MMR
+
         
-def sortSummoners():
-    for x in range(len(players)):
-        count = 0
-        playerDetails = watcher.summoner.by_name(my_region, players[x])
-        summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
+# def sortSummoners():
+#     for x in range(len(players)):
+#         # count = 0
+#         # playerDetails = watcher.summoner.by_name(my_region, players[x])
+#         # summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
 
-        if(summonerData[count]['queueType'] == QUEUE_TYPE):
-            rank = summonerData[count]['rank']
-            rankToInt = u.romanToInt(rank)
-            rankStr = summonerData[count]['tier'] + str(rankToInt)
-        else:
-            while (summonerData[count]['queueType'] != QUEUE_TYPE):
-                count+=1
-                if(summonerData[count]['queueType'] == QUEUE_TYPE):
-                    rank = summonerData[count]['rank']
-                    rankToInt = roman_to_int(rank)
-                    rankStr = summonerData[count]['tier'] + str(rankToInt)
-                    count = 0
-                    break
-        count = 0      
-        print("Count: {count}".format(count=count))
+#         # if(summonerData[count]['queueType'] == QUEUE_TYPE):
+#         #     rank = summonerData[count]['rank']
+#         #     rankToInt = u.romanToInt(rank)
+#         #     rankStr = summonerData[count]['tier'] + str(rankToInt)
+#         # else:
+#         #     while (summonerData[count]['queueType'] != QUEUE_TYPE):
+#         #         count+=1
+#         #         if(summonerData[count]['queueType'] == QUEUE_TYPE):
+#         #             rank = summonerData[count]['rank']
+#         #             rankToInt = roman_to_int(rank)
+#         #             rankStr = summonerData[count]['tier'] + str(rankToInt)
+#         #             count = 0
+#         #             break
+#         # count = 0      
+#         # print("Count: {count}".format(count=count))
 
-        # print(rankStr)
-        # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
-        print("{name}'s ID = {id}".format(name=playerDetails['name'], id=playerDetails['id']))
-        for key in mmr:
-            if(key == rankStr):
-                tmpMMR = mmr[key]
-                # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
+#         # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
+#         print("{name}'s ID = {id}".format(name=playerDetails['name'], id=playerDetails['id']))
+#         for key in mmr:
+#             if(key == rankStr):
+#                 tmpMMR = mmr[key]
+#                 # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
 
-        p = PlayerDetails(playerDetails['name'], rankStr, tmpMMR)
-        registered.append(p)
-        print(p.getSummonerName())
-        print(p.getRank())
-        print(p.getMMR())
+#         p = PlayerDetails.PlayerDetails(playerDetails['name'], rankStr, tmpMMR)
+#         registered.append(p)
+#         print(p.getSummonerName())
+#         print(p.getRank())
+#         print(p.getMMR())
 
-# This function returns the difference in MMR beween two players
-def getDifference(player1, player2):
-    diff = 0
-    if(player1 >= player2):
-        diff = abs(player1 - player2)
-    if(player2 >= player1):
-        diff = abs(player2 - player1)
-    return diff
 
 # https://stackoverflow.com/questions/13602170/how-do-i-find-the-difference-between-two-values-without-knowing-which-is-larger
 def buildArrays(p):
@@ -178,7 +221,7 @@ def matchMaking():
         player2 = unmatched[toMatch-1].getSummonerName() 
 
 
-        currDiff = getDifference(currentPlayer.getMMR(), unmatched[toMatch-1].getMMR())
+        currDiff = Summoner.get_difference(self, currentPlayer.getMMR(), unmatched[toMatch-1].getMMR())
         print("Difference between Player {player1} and {player2} is {diff}".format(player1=player1, player2=player2, diff=currDiff))
 
         if(player1 != player2):
@@ -232,8 +275,6 @@ def matchMaking():
 
         print("Unmatched Players {unmatched}.".format(unmatched=unmatchedPlayers))
   
-
-
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
 
 for a in range(len(team1)):

@@ -13,12 +13,22 @@ export class GamesComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   async ngOnInit() {
-    this.getPlayers();
+    // Check the Lobby on page init
+    // if lobby is full, begin matchmaking and return the teams.
+    // if(this.getPlayers() == "FULL") {
+    //   console.log("im in init");
+    // }
+
+     this.getMatch();
   }
   
   // test variables
-  players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Thraius123', 'Afferent', 'ChaonesJ', 'BigDaddyHoulihan', 'VVickedz', 'FUBW Gilgamesh', 'FUBW Archer'];
+  players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Thrasius123', 'Afferent', 'ChaonesJ', 'BigDaddyHoulihan', 'VVickedz', 'FUBW Gilgamesh', 'FUBW Archer'];
   // end of test variables
+
+  // player variables
+  _summonerName: string;
+  _summonerRole: string;
 
   today = new Date();
   show = false;
@@ -32,8 +42,15 @@ export class GamesComponent implements OnInit {
       this.registeredPlayers = data;
       JSON.stringify(this.registeredPlayers);
       console.log(JSON.stringify(this.registeredPlayers));
+      
     });
-    this.allowPlayersJoin();
+    return this.registeredPlayers;
+  }
+
+  getMatch() {
+    this.userService.getMM().subscribe(data => {
+      console.log(data);
+    });
   }
 
   allowPlayersJoin() {
@@ -42,16 +59,12 @@ export class GamesComponent implements OnInit {
     }
   }
 
-  print(string: any) {
-    console.log(string);
-  }
-
   async addToLobby() {
     let tempUser: TempUser;
     for (var i = 0; i < this.players.length; i++) {
       tempUser = new TempUser(this.players[i]);
       this.userService.addToLobby(tempUser)
-        .pipe(delay(5000))
+        .pipe(delay(10000))
         .subscribe(async (data) => {
           console.log(data);
           location.reload();

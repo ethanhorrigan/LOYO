@@ -1,5 +1,5 @@
 # Player.
-class PlayerDetails():
+class PlayerDetails(object):
     
     # Method to create object (Constructor)
     def __init__(self, summonerName, rank, mmr):   
