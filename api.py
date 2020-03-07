@@ -23,6 +23,33 @@ api = Api(app)
 
 CORS(app) # To solve the CORS issue when making HTTP Requests
 
+class PasswordSetup:
+    def create_password(self, pw):
+        """
+        Creates a hash for a given password.
+
+        Args:
+            player: The password to be converted to hash. 
+            This is to ensure privacy for the users password.
+        Returns:
+            Hashed version of the users password.
+
+        """
+        hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
+        return hash.decode('utf-8')
+
+    def validate_password(self, pw, hpw):
+        """
+        Validates a password with the corresponding hashed password.
+
+        Args:
+            player: The password .
+        Returns:
+            hashed version of the users password.
+
+        """
+        print(bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8')))
+        return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
 
 class Players(Resource):
     def get(self):
@@ -221,14 +248,7 @@ def getSummoner(player):
     # Retrieve SummonerID
     # Insert SummonerID Into USERS Table for the given summoner
 
-class PasswordSetup:
-    def create_password(self, pw):
-        hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
-        return hash.decode('utf-8')
 
-    def validate_password(self, pw, hpw):
-        print(bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8')))
-        return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
 
 if __name__ == '__main__':
     app.run(port='5002')

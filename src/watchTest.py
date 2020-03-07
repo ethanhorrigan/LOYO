@@ -102,11 +102,20 @@ class Summoner():
         return response
     
     def get_rank_string(self, player):
+        """
+        Combines the Rank and Tier for a Player into one String.
+
+        Args:
+            player: The players details for rank and tier lookup.
+        Returns:
+            Rank and Tier as a String.
+
+        """
         _rank = Summoner.get_rank(player)
         _tier = Summoner.get_tier(player)
         _response = _tier + str(_rank)
         return _response
-        
+
     def get_difference(self, player1, player2):
         """
         Retrieves the difference in MMR between two players

@@ -15,3 +15,8 @@ export class Team {
         this.support = support;
     }
 }
+
+export interface TeamResponse
+{
+    teams: Team[];
+}
