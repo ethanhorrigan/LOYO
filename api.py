@@ -9,6 +9,7 @@ import json
 import bcrypt
 from src.playerdetails import PlayerDetails
 from src.watchTest import Summoner
+from uuidcreator import UUIDGenerator
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
 
@@ -179,6 +180,10 @@ class MatchMaking(Resource):
         
         query = conn.execute("select summonerName FROM Lobby order by mmr desc") # Get the Users from the Lobby
 
+        
+        
+        uuid = UUIDGenerator.generate_uuid()
+
         # Add Players in Lobby to the matchmaking queue
         results = query.cursor.fetchall()
         count = 0
@@ -189,8 +194,9 @@ class MatchMaking(Resource):
             _summoner_name_2 = results[count][0]
             print("Summoner Name: {0}".format(_summoner_name_1))
             print("Summoner Name: {0}".format(_summoner_name_2))
-            conn.execute("insert into Match values('{0}', '{1}')".format(1, _summoner_name_1))
-            conn.execute("insert into Match values('{0}', '{1}')".format(2, _summoner_name_2))
+            print("UUID: {0}".format(uuid))
+            conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(1, _summoner_name_1, uuid))
+            conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
             # _rank_str = Summoner.get_rank_string(self, _summonerName)
             # mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank_str)) # Get the Users from the Lobby
             # res = mmr_query.cursor.fetchall()
@@ -202,9 +208,9 @@ class MatchMaking(Resource):
                 matching_state = False
 
             # Sort the Match Table
-            match_query = conn.execute("select team, player FROM Match order by team desc")
+            match_query = conn.execute("select team, player, matchID FROM Match order by team desc")
 
-        return {'match': [i[0] for i in match_query.cursor.fetchall()]}
+        return {'match': [dict(zip(tuple(match_query.keys()), i)) for i in match_query.cursor]}
 
 class Employees(Resource):
     def get(self):
