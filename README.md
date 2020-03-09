@@ -55,7 +55,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 - 28/02/2020 - Lobby System and Design Implemented
 - 28/02/2020 - Begin Session-Based User Authentication
 - 01/02/2020 - Documenting Backend Code.
-- 02/02/2020 - Began Chaning the Database.
+- 02/02/2020 - Began Changing the Database.
 
 
 ## Helpful Project Links
