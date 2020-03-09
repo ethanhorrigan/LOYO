@@ -109,7 +109,7 @@ class Lobby(Resource):
         if enough players are avaialable for a match to begin.
 
         Returns:
-        hashed version of the users password.
+        The amount of players currently waiting in the lobby.
 
         """       
         conn = db_connect.connect()
@@ -142,18 +142,18 @@ class Users(Resource):
 
     def post(self):
         """
-        Validates a password with the corresponding hashed password.
+        Handles user registration.
+        First check if the user exists, if not continue.
+        Check if the the summoner name exists in RIOT's Database.
+        If both username and summoner name don't exist, proceed to register the user.
+        Encrypt the password for an extra layer of security.
 
-        Args:
-        player: The password .
         Returns:
-        hashed version of the users password.
-
+        A register user inserted into the database.
         """       
         conn = db_connect.connect()  # connect to the db
         Username = request.json['username']
         SummonerName = request.json['summonerName']
-        print("SummonerName: {0}".format(SummonerName))
         Password = request.json['password']
         role = request.json['role']
         getSummoner(SummonerName)
@@ -162,22 +162,18 @@ class Users(Resource):
             "select COUNT(username) from Users where username= ?", (Username))
         qResult = query.cursor.fetchall()
         status = ""
-        # print(qResult)
         if qResult[0][0] > 0:
             print("Username Taken")
             status = "UT"
-        # check if summoner name exists
         query2 = conn.execute(
             "select COUNT(summonerName) from Users where summonerName= ?", (SummonerName))
         qResult2 = query2.cursor.fetchall()
         print(qResult2[0][0])
         if qResult2[0][0] > 0:
-            # print("Summonername Taken")
             status = "ST"
 
         # if both pass, register user
         else:
-            # print("Registration Valid")
             hashed = PasswordSetup.create_password(self, Password)
             conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(
                 Username, SummonerName, hashed, role))
@@ -185,9 +181,18 @@ class Users(Resource):
             print(request.json)
 
         return status
-# CORS(app)
+
 class Login(Resource):
     def post(self):
+        """
+        Handles user authentication.
+        First check if the user exists, if not continue, else return false.
+        Compare the password given with the hashed password in the database for a given user.
+
+        Returns:
+        True if authentication is correct.
+        False if the user or password is incorrect.
+        """     
         username = request.json['username']
         password = request.json['password']
         conn = db_connect.connect()
@@ -204,8 +209,16 @@ class Login(Resource):
             response = False
         return response
 
-class UsersName(Resource):
+class UsersName(Resource): 
     def get(self, username):
+        """
+        Handles user verification.
+        Checks if the user exists in the database.
+
+        Returns:
+        USERNAME_OK if the username does not exist.
+        USERNAME_TAKEN if the username already exists.
+        """    
         conn = db_connect.connect()
         query = conn.execute(
             "select COUNT(username) from Users where username= ?", (username))
@@ -216,11 +229,20 @@ class UsersName(Resource):
             status = "USERNAME_OK"
         else:
             status = "USERNAME_TAKEN"
-        print(status)
         return status
 
 class MatchMaking(Resource):
     def get(self):
+        """
+        Handles the matchmaking process.
+        Set the matching_state to true while there is still users in the lobby.
+        Generate a Universally unique identifier for each match created to
+        distinguish between matches.
+        Insert players into their respective teams.
+
+        Returns:
+        Match ready teams.
+        """    
         matching_state = True # Set matching state to true
         conn = db_connect.connect() # Connect to the Database
         
