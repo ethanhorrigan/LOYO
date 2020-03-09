@@ -1,21 +1,23 @@
 <div class="main-content">
     <h1>Games Every Day at 7:00 GMT and 8:00 GMT</h1>
     <p>Players<p>
-            <button mat-raised-button color="primary" (click)="addToLobby()">Join</button>
+            <button mat-raised-button color="primary" (click)="getName()">Join</button>
             <br>
             <div class="time-div">
                 <p>{{timeTillGame}} Hours until next game</p>
             </div>
             <p>{{registeredPlayers}}/10</p>
+
+
             <div class="teams-container">
                 <ul class="teams-row">
-                    <li class="player-details">
+                    <li class="player-details" *ngFor="let match of match; index as i;">
                         <div class="player-details-content">
                             <figure>
-                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/{{match.player}}.png"
                                     alt="Top">
-                                <h3>Player Name</h3>
-                                <p>Top</p>
+                                <h3>{{match.player}}</h3>
+                                <p>{{i+1}}</p>
                                 <img class="role-icon" src="../../assets/icons/roles/top.svg" alt="Top">
                             </figure>
                         </div>

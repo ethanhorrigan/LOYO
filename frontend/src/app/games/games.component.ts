@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { first, delay } from 'rxjs/operators';
 import { UserService } from '../_services/user.service';
 import { TempUser } from '../_models';
-import { Team, TeamResponse } from '../_models/team';
+import { Team, TeamResponse, Match, MatchResponse } from '../_models/team';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -12,11 +12,30 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GamesComponent implements OnInit {
 
+    // test variables
+    players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Thrasius123', 'Afferent', 'ChaonesJ', 'BigDaddyHoulihan', 'VVickedz', 'FUBW Gilgamesh', 'FUBW Archer'];
+    url = ' http://127.0.0.1:5002/mm';
+    // end of test variables
+  
+    // player variables
+    _summonerName: string;
+    _summonerRole: string;
+    blueTeam: Team;
+    redTeam: Team;
+  
+    today = new Date();
+    show = false;
+    time = this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
+  
+    timeTillGame = 19.00 - this.today.getHours()
+    registeredPlayers: any;
+
+    public match: Match[];
+
+    
   constructor(
     private userService: UserService, 
-    private http: HttpClient,
-    private blueTeam: Team,
-    private redTeam: Team
+    private http: HttpClient
     ){}
 
   async ngOnInit() {
@@ -26,24 +45,11 @@ export class GamesComponent implements OnInit {
     //   console.log("im in init");
     // }
 
-     //this.getMatch();
+     this.getMatch();
+     console.log(this.getNumberOfGames(36));
+     
   }
   
-  // test variables
-  players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Thrasius123', 'Afferent', 'ChaonesJ', 'BigDaddyHoulihan', 'VVickedz', 'FUBW Gilgamesh', 'FUBW Archer'];
-  url = ' http://127.0.0.1:5002/mm';
-  // end of test variables
-
-  // player variables
-  _summonerName: string;
-  _summonerRole: string;
-
-  today = new Date();
-  show = false;
-  time = this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
-
-  timeTillGame = 19.00 - this.today.getHours()
-  registeredPlayers: any;
 
   getPlayers() {
     this.userService.getLobby().pipe(first()).subscribe(data => {
@@ -55,25 +61,37 @@ export class GamesComponent implements OnInit {
     return this.registeredPlayers;
   }
 
-  // getMatch() {
-  //   this.userService.getMM().subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
+  getBlueTeam() {
 
-  // getBlueTeam() {
-  //   this.http.get<TeamResponse>(this.url).subscribe(result  => {
-  //     this.blueTeam = result.players;
-  //     console.log(result);
-  //     console.log(this.summoners);
-  //   }, error => console.error(error));
-    
-  // }
+  }
 
-  allowPlayersJoin() {
-    console.log((this.registeredPlayers));
-    if (Number(this.registeredPlayers == 2)) {
-    }
+  getRedTeam() {
+
+  }
+  getMatch() {
+    this.http.get<MatchResponse>(this.url).subscribe(data => {
+      this.match = data.match;
+      console.log(this.match);
+    });
+    // this.userService.getMM().subscribe(data => {
+    //   console.log(data);
+    // });
+  }
+
+  /**
+   * Returns the number of games depending on the amount of players in the lobby.
+   * @param n The number of players in the lobby.
+   */
+  getNumberOfGames(n: number) {
+    return Math.floor(n / 10) * 10 / 10;
+  }
+
+  /**
+   * Adds the user to the Lobby "Queue".
+   * Reload the page to update the lobby amount.
+   */
+  getName() {
+    console.log(this.match[5].summonerName);
   }
 
   async addToLobby() {

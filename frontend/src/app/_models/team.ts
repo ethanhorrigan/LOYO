@@ -20,3 +20,20 @@ export interface TeamResponse
 {
     teams: Team[];
 }
+
+export class Match {
+    teamID: number;
+    matchID: number;
+    summonerName: string;
+
+    constructor(teamID, matchID, summonerName) {
+        this.teamID = teamID;
+        this.matchID = matchID;
+        this.summonerName = summonerName;
+    }
+}
+
+export interface MatchResponse
+{
+    match: Match[];
+}

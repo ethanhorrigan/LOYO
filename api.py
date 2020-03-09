@@ -208,7 +208,7 @@ class MatchMaking(Resource):
                 matching_state = False
 
             # Sort the Match Table
-            match_query = conn.execute("select team, player, matchID FROM Match order by team desc")
+            match_query = conn.execute("select team, player, matchID FROM Match order by team asc")
 
         return {'match': [dict(zip(tuple(match_query.keys()), i)) for i in match_query.cursor]}
 

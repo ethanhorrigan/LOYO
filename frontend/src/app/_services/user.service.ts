@@ -1,6 +1,7 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
+import { Match } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -19,7 +20,7 @@ export class UserService {
     }
 
     getMM() {
-        return this.http.get(`http://127.0.0.1:5002/mm`);
+        return this.http.get<Match[]>(`http://127.0.0.1:5002/mm`);
     }
 
     register(user: User) {
