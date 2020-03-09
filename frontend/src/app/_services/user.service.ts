@@ -4,6 +4,12 @@ import { User, TempUser } from '../_models';
 import { Match } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
+
+/* 
+* @description
+* This services handles the HTTP Request routes to the API
+* Currently, the routes are static and should be changed to relative paths in the future.
+*/
 export class UserService {
     constructor(private http: HttpClient) { }
 
