@@ -1,12 +1,12 @@
 from riotwatcher import RiotWatcher, ApiError
-from player import Player
-from team import Team
 from numpy import allclose
 import numpy as np
-import utils as u
+import src.utils as u
+import src.team
+import src.playerdetails as PlayerDetails
 import json
 
-watcher = RiotWatcher('RGAPI-821dbdd5-5f6e-4657-a8c0-d1148340a94c')
+watcher = RiotWatcher('RGAPI-28e1ee43-7edb-4b1e-9422-785240e9225a')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 # players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
@@ -23,19 +23,18 @@ team2 = []
 tmpPlayers = []
 mmrArray = []
 
-# Convert Roman Numerals to INT
-def roman_to_int(s):
-    rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    int_val = 0
-    for i in range(len(s)):
-        if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:
-            int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]
-        else:
-            int_val += rom_val[s[i]]
-    return int_val
-
 class Summoner():
-    def getPlayerDetails(self):
+    def get_player_details(self):
+        """
+        Verifies if the Player exists in Riot's database.
+
+        Args:
+            self: The player name which is used to verify if the player exists.
+
+        Returns:
+            The value if the Summoner Name is found else the Summoner Name is Not Found.
+
+        """
         try:
             response = watcher.summoner.by_name(my_region, self)
         except ApiError as err:
@@ -50,54 +49,159 @@ class Summoner():
                 raise
         return response
         
-    def getRank(self):
-        playerDetails = watcher.summoner.by_name(my_region, self)
-        summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
+    def get_rank(self):
+        """
+        Retrieves the rank of the Summoner as an Integer.
 
-def sortSummoners():
-    for x in range(len(players)):
+        Args:
+            self: The Summoners name
+
+        Returns:
+            The rank of the Summoner as an Integer
+
+        """
         count = 0
-        playerDetails = watcher.summoner.by_name(my_region, players[x])
-        summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
-
-        if(summonerData[count]['queueType'] == QUEUE_TYPE):
-            rank = summonerData[count]['rank']
-            rankToInt = u.romanToInt(rank)
-            rankStr = summonerData[count]['tier'] + str(rankToInt)
+        player_details = watcher.summoner.by_name(my_region, self)
+        summoner_data  = watcher.league.by_summoner(my_region, player_details['id'])
+        if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+            rank = summoner_data[count]['rank'] # Retrieve the Rank
+            rank_as_int = u.romanToInt(rank) # Converts rank to an Integer
+            response = rank_as_int
         else:
-            while (summonerData[count]['queueType'] != QUEUE_TYPE):
+            while(summoner_data[count]['queueType'] != QUEUE_TYPE):
                 count+=1
-                if(summonerData[count]['queueType'] == QUEUE_TYPE):
-                    rank = summonerData[count]['rank']
-                    rankToInt = roman_to_int(rank)
-                    rankStr = summonerData[count]['tier'] + str(rankToInt)
-                    count = 0
-                    break
-        count = 0      
-        print("Count: {count}".format(count=count))
+                if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+                    rank = summoner_data[count]['rank'] # Retrieve the Rank
+                    rank_as_int = u.romanToInt(rank) # Converts rank to an Integer
+                    # count = 0
+                    response = rank_as_int
+        return response
+    
+    def get_tier(self):
+        """
+        Retrieves the Tier of the Summoners current rank between (1..4)
 
-        # print(rankStr)
-        # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
-        print("{name}'s ID = {id}".format(name=playerDetails['name'], id=playerDetails['id']))
-        for key in mmr:
-            if(key == rankStr):
-                tmpMMR = mmr[key]
-                # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
+        Args:
+            self: The summoners name to check.
 
-        p = Player(playerDetails['name'], rankStr, tmpMMR)
-        registered.append(p)
-        print(p.getSummonerName())
-        print(p.getRank())
-        print(p.getMMR())
+        Returns:
+            The Tier of the Summoners Rank
 
-# This function returns the difference in MMR beween two players
-def getDifference(player1, player2):
-    diff = 0
-    if(player1 >= player2):
-        diff = abs(player1 - player2)
-    if(player2 >= player1):
-        diff = abs(player2 - player1)
-    return diff
+        """
+        count = 0
+        player_details = watcher.summoner.by_name(my_region, self)
+        summoner_data = watcher.league.by_summoner(my_region, player_details['id'])
+
+        if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+            response = summoner_data[count]['tier']
+        else:
+            while(summoner_data[count]['queueType'] != QUEUE_TYPE):
+                count += 1
+                if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+                    response = summoner_data[count]['tier']
+        return response
+    
+    def get_rank_string(self, player):
+        """
+        Combines the Rank and Tier for a Player into one String.
+
+        Args:
+            player: The players details for rank and tier lookup.
+        Returns:
+            Rank and Tier as a String.
+
+        """
+        _rank = Summoner.get_rank(player)
+        _tier = Summoner.get_tier(player)
+        _response = _tier + str(_rank)
+        return _response
+
+    def get_difference(self, player1, player2):
+        """
+        Retrieves the difference in MMR between two players
+
+        Args:
+            player1: the first players MMR.
+            player2: the second players MMR.
+
+        Returns:
+            The MMR Difference between the two players.
+
+        """
+        diff = 0
+        if(player1 >= player2):
+            diff = abs(player1 - player2)
+        if(player2 >= player1):
+            diff = abs(player2 - player1)
+        return diff
+        
+    def build_arrays(self, p):
+        tmpDiff = []
+
+        for x in range(0, len(p), 1):
+            tmpPlayers.append(p[x])
+            mmrArray.append(tmpPlayers[x].getMMR())
+            if(x != 0):
+                tmpDiff.append(abs(mmrArray[x-1] - mmrArray[x]))
+
+        print(tmpDiff)
+
+    def new_match_making(self):
+        """
+        New matchmaking algorithm by sorting a dict by value.
+        and adding every other player in that dict, to the opposite team.
+
+        Args:
+            regisitered: dictionary of players that have registered
+
+        Returns:
+            Both teams sorted by the value of the regisiterd dict
+
+        """
+        pass
+    
+        # TODO:
+        # Get the outcome of the game
+        # Update Players Details based on the outcome of the game
+        # Clean the lobby
+        # Get MMR
+
+        
+# def sortSummoners():
+#     for x in range(len(players)):
+#         # count = 0
+#         # playerDetails = watcher.summoner.by_name(my_region, players[x])
+#         # summonerData  = watcher.league.by_summoner(my_region, playerDetails['id'])
+
+#         # if(summonerData[count]['queueType'] == QUEUE_TYPE):
+#         #     rank = summonerData[count]['rank']
+#         #     rankToInt = u.romanToInt(rank)
+#         #     rankStr = summonerData[count]['tier'] + str(rankToInt)
+#         # else:
+#         #     while (summonerData[count]['queueType'] != QUEUE_TYPE):
+#         #         count+=1
+#         #         if(summonerData[count]['queueType'] == QUEUE_TYPE):
+#         #             rank = summonerData[count]['rank']
+#         #             rankToInt = roman_to_int(rank)
+#         #             rankStr = summonerData[count]['tier'] + str(rankToInt)
+#         #             count = 0
+#         #             break
+#         # count = 0      
+#         # print("Count: {count}".format(count=count))
+
+#         # print("{name} is {tier} {rank}".format(name=playerDetails['name'], tier=summonerData[1]['tier'], rank=rankToInt))
+#         print("{name}'s ID = {id}".format(name=playerDetails['name'], id=playerDetails['id']))
+#         for key in mmr:
+#             if(key == rankStr):
+#                 tmpMMR = mmr[key]
+#                 # print("{name}'s MMR = {mmr}".format(name=playerDetails['name'], mmr=mmr[key]))
+
+#         p = PlayerDetails.PlayerDetails(playerDetails['name'], rankStr, tmpMMR)
+#         registered.append(p)
+#         print(p.getSummonerName())
+#         print(p.getRank())
+#         print(p.getMMR())
+
 
 # https://stackoverflow.com/questions/13602170/how-do-i-find-the-difference-between-two-values-without-knowing-which-is-larger
 def buildArrays(p):
@@ -126,7 +230,7 @@ def matchMaking():
         player2 = unmatched[toMatch-1].getSummonerName() 
 
 
-        currDiff = getDifference(currentPlayer.getMMR(), unmatched[toMatch-1].getMMR())
+        currDiff = Summoner.get_difference(self, currentPlayer.getMMR(), unmatched[toMatch-1].getMMR())
         print("Difference between Player {player1} and {player2} is {diff}".format(player1=player1, player2=player2, diff=currDiff))
 
         if(player1 != player2):
@@ -180,8 +284,6 @@ def matchMaking():
 
         print("Unmatched Players {unmatched}.".format(unmatched=unmatchedPlayers))
   
-
-
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
 
 # buildArrays(registered)

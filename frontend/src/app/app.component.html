@@ -2,17 +2,12 @@
 
     <div class="sidebar">
         <div class="global-bar">
-
-            <a class="sidebar-item" href="/summoner">
-                <mat-icon class="sidebar-icon">dashboard</mat-icon>
-                Players
-            </a>
             <a class="sidebar-item" href="/games">
-                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                <mat-icon class="sidebar-icon">home</mat-icon>
                 Play
             </a>
             <a class="sidebar-item" href="/leaderboards">
-                <mat-icon class="sidebar-icon">dashboard</mat-icon>
+                <mat-icon class="sidebar-icon">table_chart</mat-icon>
                 Leaderboards
             </a>
             <a class="sidebar-item" href="/teams">
@@ -23,7 +18,7 @@
                 <mat-icon class="sidebar-icon">shop</mat-icon>
                 Store
             </a>
-            <a class="sidebar-item logout" href="#">
+            <a class="sidebar-item logout" (click)="logout()">
                 <mat-icon class="sidebar-icon">input</mat-icon>
                 Logout
             </a>

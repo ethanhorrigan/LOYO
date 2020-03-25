@@ -1,25 +1,32 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
+import { Match } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
+
+/* 
+* @description
+* This services handles the HTTP Request routes to the API
+* Currently, the routes are static and should be changed to relative paths in the future.
+*/
 export class UserService {
     constructor(private http: HttpClient) { }
 
     getAll() {
         return this.http.get<User[]>(`http://127.0.0.1:5002/users`);
-        //return this.http.get('http://127.0.0.1:5002/players');
     }
 
     addToLobby(tempUser: TempUser) {
-        //console.log(JSON.stringify(tempUser));
-        //console.log(tempUser);
-        //return this.http.post<TempUser>(`http://127.0.0.1:5002/lobby`, tempUser);
         return this.http.post(`http://127.0.0.1:5002/lobby`, tempUser)
     }
 
     getLobby() {
         return this.http.get(`http://127.0.0.1:5002/lobby`);
+    }
+
+    getMM() {
+        return this.http.get<Match[]>(`http://127.0.0.1:5002/mm`);
     }
 
     register(user: User) {
@@ -34,6 +41,4 @@ export class UserService {
     login(username: string) {
         return this.http.get(`http://127.0.0.1:5002/users/${username}`);
     }
-
-
 }

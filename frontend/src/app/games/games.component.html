@@ -1,28 +1,40 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+
 <div class="main-content">
     <h1>Games Every Day at 7:00 GMT and 8:00 GMT</h1>
     <p>Players<p>
-            <button mat-raised-button color="primary" (click)="addToLobby()">Join</button>
+            <button mat-raised-button color="primary" (click)="getName()">Join</button>
             <br>
             <div class="time-div">
                 <p>{{timeTillGame}} Hours until next game</p>
             </div>
             <p>{{registeredPlayers}}/10</p>
-                <div class="teams-container">
+
+
+            <div class="teams-container">
                 <ul class="teams-row">
-                    <li class="player-details">
+                    <li class="player-details" *ngFor="let match of match; index as i;">
+                        <p>Team 1</p>
                         <div class="player-details-content">
                             <figure>
-                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
-                                <h3>Player Name</h3>
-                                <p>Top</p>
+                                <!-- <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/{{match.player}}.png"
+                                    alt="Top"> -->
+                                <h3>{{match.player}}</h3>
+                                <p>{{i+1}}</p>
                                 <img class="role-icon" src="../../assets/icons/roles/top.svg" alt="Top">
                             </figure>
                         </div>
                     </li>
-                    <li class="player-details">
+                    <!-- <li class="player-details">
                         <div class="player-details-content">
                             <figure>
-                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
                                 <h3>Player Name</h3>
                                 <p>Jungle</p>
                                 <img class="role-icon" src="../../assets/icons/roles/jung.svg" alt="Top">
@@ -32,7 +44,8 @@
                     <li class="player-details">
                         <div class="player-details-content">
                             <figure>
-                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
                                 <h3>Player Name</h3>
                                 <p>Mid</p>
                                 <img class="role-icon" src="../../assets/icons/roles/mid.svg" alt="Top">
@@ -42,7 +55,8 @@
                     <li class="player-details">
                         <div class="player-details-content">
                             <figure>
-                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
                                 <h3>Player Name</h3>
                                 <p>Bot</p>
                                 <img class="role-icon" src="../../assets/icons/roles/bot.svg" alt="Top">
@@ -52,7 +66,67 @@
                     <li class="player-details">
                         <div class="player-details-content">
                             <figure>
-                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png" alt="Top">
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Support</p>
+                                <img class="role-icon" src="../../assets/icons/roles/supp.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- <div class="teams-container">
+                <ul class="teams-row">
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Top</p>
+                                <img class="role-icon" src="../../assets/icons/roles/top.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Jungle</p>
+                                <img class="role-icon" src="../../assets/icons/roles/jung.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Mid</p>
+                                <img class="role-icon" src="../../assets/icons/roles/mid.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
+                                <h3>Player Name</h3>
+                                <p>Bot</p>
+                                <img class="role-icon" src="../../assets/icons/roles/bot.svg" alt="Top">
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="player-details">
+                        <div class="player-details-content">
+                            <figure>
+                                <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png"
+                                    alt="Top">
                                 <h3>Player Name</h3>
                                 <p>Support</p>
                                 <img class="role-icon" src="../../assets/icons/roles/supp.svg" alt="Top">
@@ -60,6 +134,28 @@
                         </div>
                     </li>
                 </ul>
+<<<<<<< HEAD
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <img class="role-icon" src="http://avatar.leagueoflegends.com/euw/Yupouvit.png">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Yupouvit</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Top</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+
+=======
+            </div> -->
+>>>>>>> 0b9e8782346fa811faf0f93449e31d9570e7bfbc
+</div>

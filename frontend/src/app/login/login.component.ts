@@ -6,7 +6,13 @@ import { AuthenticationService } from '../_services/authentication.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-@Component({templateUrl: 'login.component.html'})
+// @Component({templateUrl: 'login.component.html'})
+
+@Component({
+    styleUrls: ['./login.component.scss'],
+    templateUrl: 'login.component.html'
+})
+
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
@@ -67,12 +73,20 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        this.authenticationService.login(this.f.username.value)
+        this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
-                    localStorage.setItem("username", this.f.username.value);
+                    //
+                    console.log("Im here");
+                    let response = JSON.stringify(data);
+                    // localStorage.setItem("username", this.f.username.value);
+                    console.log(response);
+                    if(response == "true") {
+                        console.log("Im here now");
+                        console.log(data);
+                        this.router.navigate([this.returnUrl]);
+                    }
                 },
                 error => {
                     this.loading = false;
