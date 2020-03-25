@@ -5,7 +5,7 @@ from json import dumps
 from flask_cors import CORS
 import json
 import bcrypt
-from src.watchTest import Summoner
+
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
 app = Flask(__name__)
@@ -13,6 +13,30 @@ api = Api(app)
 
 CORS(app)
 
+
+class PasswordSetup:
+    def create_password(self, pw):
+        """
+        Creates a hash for a given password.
+        Args:
+            player: The password to be converted to hash. 
+            This is to ensure privacy for the users password.
+        Returns:
+            Hashed version of the users password.
+        """
+        hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
+        return hash.decode('utf-8')
+
+    def validate_password(self, pw, hpw):
+        """
+        Validates a password with the corresponding hashed password.
+        Args:
+            player: The password .
+        Returns:
+            hashed version of the users password.
+        """
+        print(bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8')))
+        return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
 
 class Players(Resource):
     def get(self):
@@ -66,7 +90,6 @@ class Users(Resource):
         print("SummonerName: {0}".format(SummonerName))
         Password = request.json['password']
         role = request.json['role']
-        getSummoner(SummonerName)
         # first check if username exists
         query = conn.execute(
             "select COUNT(username) from Users where username= ?", (Username))
@@ -88,7 +111,7 @@ class Users(Resource):
         # if both pass, register user
         else:
             # print("Registration Valid")
-            hashed = create_password(Password)
+            hashed = PasswordSetup.create_password(self, Password)
             conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(
                 Username, SummonerName, hashed, role))
             status = "OK"
@@ -132,46 +155,14 @@ class Tracks(Resource):
         return jsonify(result)
 
 
-class Employees_Name(Resource):
-    def get(self, employee_id):
-        conn = db_connect.connect()
-        query = conn.execute(
-            "select * from employees where EmployeeId =%d " % int(employee_id))
-        result = {'data': [dict(zip(tuple(query.keys()), i))
-                           for i in query.cursor]}
-        response = jsonify(result)
-        return response
-
 
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
 api.add_resource(Employees, '/employees')  # Route_1
 api.add_resource(Tracks, '/tracks')  # Route_2
-api.add_resource(Employees_Name, '/employees/<employee_id>')  # Route_3
 api.add_resource(Users, '/users')  # Route_4
 api.add_resource(UsersName, '/users/<username>')  # Route_3
-
-# Methods
-
-
-def getSummoner(player):
-        # Connect to the database
-        # conn = db_connect.connect()
-        # Search for the Summoner
-    summonerDetails = Summoner.getPlayerDetails(player)
-    # print(summonerDetails)
-    # Check if the Summoner Exists
-    # Return Summoner Data
-    # Retrieve SummonerID
-    # Insert SummonerID Into USERS Table for the given summoner
-
-def create_password(pw):
-    hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
-    return hash.decode('utf-8')
-
-def validate_password(pw, hpw):
-    return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
 
 if __name__ == '__main__':
     app.run(port='5002')
