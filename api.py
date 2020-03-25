@@ -139,7 +139,7 @@ class Users(Resource):
             print(request.json)
 
         return status
-# CORS(app)
+
 class Login(Resource):
     def post(self):
         username = request.json['username']
@@ -188,7 +188,6 @@ class MatchMaking(Resource):
         results = query.cursor.fetchall()
         count = 0
         while matching_state:
-            # for i in results:
             _summoner_name_1 = results[count][0]
             count+=1
             _summoner_name_2 = results[count][0]
@@ -197,12 +196,6 @@ class MatchMaking(Resource):
             print("UUID: {0}".format(uuid))
             conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(1, _summoner_name_1, uuid))
             conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
-            # _rank_str = Summoner.get_rank_string(self, _summonerName)
-            # mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank_str)) # Get the Users from the Lobby
-            # res = mmr_query.cursor.fetchall()
-            # _mmr = res[0][0]
-            # p = PlayerDetails(_summonerName, _rank_str, _mmr)
-            # print(p)
             count +=1
             if(count == 10):
                 matching_state = False
@@ -212,49 +205,16 @@ class MatchMaking(Resource):
 
         return {'match': [dict(zip(tuple(match_query.keys()), i)) for i in match_query.cursor]}
 
-class Employees(Resource):
-    def get(self):
-        conn = db_connect.connect()  # connect to database
-        # This line performs query and returns json result
-        query = conn.execute("select * from employees")
-        # Fetches first column that is Employee ID
-        return {'employees': [i[0] for i in query.cursor.fetchall()]}
-
-class Employees_Name(Resource):
-    def get(self, employee_id):
-        conn = db_connect.connect()
-        query = conn.execute(
-            "select * from employees where EmployeeId =%d " % int(employee_id))
-        result = {'data': [dict(zip(tuple(query.keys()), i))
-                           for i in query.cursor]}
-        response = jsonify(result)
-        return response
-
-
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
-api.add_resource(Employees_Name, '/employees/<employee_id>')  # Route_3
 api.add_resource(Users, '/users')  # Route_4
 api.add_resource(UsersName, '/users/<username>')  # Route_3
 api.add_resource(Login, '/login')  # Login Route
 api.add_resource(MatchMaking, '/mm')  # Matchmaking Route
 
-# Methods
-
-
 def getSummoner(player):
-        # Connect to the database
-        # conn = db_connect.connect()
-        # Search for the Summoner
     summonerDetails = Summoner.get_player_details(player)
-    # print(summonerDetails)
-    # Check if the Summoner Exists
-    # Return Summoner Data
-    # Retrieve SummonerID
-    # Insert SummonerID Into USERS Table for the given summoner
-
-
 
 if __name__ == '__main__':
     app.run(port='5002')
