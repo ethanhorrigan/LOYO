@@ -185,17 +185,6 @@ def matchMaking():
 # https://en.m.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
 
 # buildArrays(registered)
-# matchMaking()
-
-for a in range(len(team1)):
-    # t = Team(1, team1[a].getSummonerName(), team1[a].getRank(), team1[a].getMMR())
-    # teamObject.append(t)
-    print("Team 1: [{team}]".format(team=team1[a]))
-
-for b in range(len(team2)):
-    # t2 = Team(2, team2[b].getSummonerName(), team2[b].getRank(), team2[b].getMMR())
-    # teamObject.append(t2)
-    print("Team 2: [{team}]".format(team=team2[b]))
 
 # try:
 #     response = watcher.summoner.by_name(my_region, 'this_is_probably_not_anyones_summoner_name')
