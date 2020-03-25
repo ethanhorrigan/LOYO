@@ -54,6 +54,13 @@ class PasswordSetup:
 
 class Players(Resource):
     def get(self):
+        """
+        Retrieves the players in-game statistics.
+
+        Returns:
+        Players Stats in JSON format.
+
+        """
         conn = db_connect.connect()  # connect to the db
         query = conn.execute(
             "select summonerName, rank, tier, wins, losses, primaryRole, secondaryRole from players")
@@ -64,6 +71,13 @@ class Players(Resource):
 
 class PlayerStandings(Resource):
     def get(self):
+        """
+        Get the leaderboards from the database.
+
+        Returns:
+        Leaderboards from the database.
+
+        """
         conn = db_connect.connect()  # connect to the db
         query = conn.execute("SELECT * FROM Players ORDER BY wins DESC;")
         result = {'players': [dict(zip(tuple(query.keys()), i))
@@ -73,6 +87,14 @@ class PlayerStandings(Resource):
 
 class Lobby(Resource):
     def post(self):
+        """
+        Inserts a user to the lobby, the lobby is used to hold players,
+        before matchmaking takes place.
+
+        Returns:
+        Inserts a user to the lobby and returns the data in JSON.
+
+        """
         conn = db_connect.connect()  # connect to the db
         SummonerName = request.json['summonerName'] # Get SummonerName
         _rank = Summoner.get_rank_string(self, SummonerName) # Get rank
@@ -82,21 +104,36 @@ class Lobby(Resource):
         conn.execute("insert into Lobby values(null,'{0}', '{1}', '{2}')".format(SummonerName, _rank, _mmr))
         return request.json
     def get(self):
+        """
+        Get the amount of players currently in the lobby, to verify
+        if enough players are avaialable for a match to begin.
+
+        Returns:
+        The amount of players currently waiting in the lobby.
+
+        """       
         conn = db_connect.connect()
-        query = conn.execute(
-            "select COUNT(summonerName) from Lobby")
+        query = conn.execute("select COUNT(summonerName) from Lobby")
         qResult = query.cursor.fetchall()
         playerCount = qResult[0][0]
         if playerCount <= 10:
             playerCount = qResult[0][0]
         else:
             playerCount = "FULL"
-        # return request.json
         return playerCount
 
 
 class Users(Resource):
     def get(self):
+        """
+        Validates a password with the corresponding hashed password.
+
+        Args:
+        player: The password .
+        Returns:
+        hashed version of the users password.
+
+        """       
         conn = db_connect.connect()  # connect to database
         # This line performs query and returns json result
         query = conn.execute("select username from users")
@@ -104,10 +141,19 @@ class Users(Resource):
         return {'users': [i[0] for i in query.cursor.fetchall()]}
 
     def post(self):
+        """
+        Handles user registration.
+        First check if the user exists, if not continue.
+        Check if the the summoner name exists in RIOT's Database.
+        If both username and summoner name don't exist, proceed to register the user.
+        Encrypt the password for an extra layer of security.
+
+        Returns:
+        A register user inserted into the database.
+        """       
         conn = db_connect.connect()  # connect to the db
         Username = request.json['username']
         SummonerName = request.json['summonerName']
-        print("SummonerName: {0}".format(SummonerName))
         Password = request.json['password']
         role = request.json['role']
         getSummoner(SummonerName)
@@ -116,22 +162,18 @@ class Users(Resource):
             "select COUNT(username) from Users where username= ?", (Username))
         qResult = query.cursor.fetchall()
         status = ""
-        # print(qResult)
         if qResult[0][0] > 0:
             print("Username Taken")
             status = "UT"
-        # check if summoner name exists
         query2 = conn.execute(
             "select COUNT(summonerName) from Users where summonerName= ?", (SummonerName))
         qResult2 = query2.cursor.fetchall()
         print(qResult2[0][0])
         if qResult2[0][0] > 0:
-            # print("Summonername Taken")
             status = "ST"
 
         # if both pass, register user
         else:
-            # print("Registration Valid")
             hashed = PasswordSetup.create_password(self, Password)
             conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(
                 Username, SummonerName, hashed, role))
@@ -142,6 +184,15 @@ class Users(Resource):
 
 class Login(Resource):
     def post(self):
+        """
+        Handles user authentication.
+        First check if the user exists, if not continue, else return false.
+        Compare the password given with the hashed password in the database for a given user.
+
+        Returns:
+        True if authentication is correct.
+        False if the user or password is incorrect.
+        """     
         username = request.json['username']
         password = request.json['password']
         conn = db_connect.connect()
@@ -158,8 +209,16 @@ class Login(Resource):
             response = False
         return response
 
-class UsersName(Resource):
+class UsersName(Resource): 
     def get(self, username):
+        """
+        Handles user verification.
+        Checks if the user exists in the database.
+
+        Returns:
+        USERNAME_OK if the username does not exist.
+        USERNAME_TAKEN if the username already exists.
+        """    
         conn = db_connect.connect()
         query = conn.execute(
             "select COUNT(username) from Users where username= ?", (username))
@@ -170,30 +229,33 @@ class UsersName(Resource):
             status = "USERNAME_OK"
         else:
             status = "USERNAME_TAKEN"
-        print(status)
         return status
 
 class MatchMaking(Resource):
     def get(self):
+        """
+        Handles the matchmaking process.
+        Set the matching_state to true while there is still users in the lobby.
+        Generate a Universally unique identifier for each match created to
+        distinguish between matches.
+        Insert players into their respective teams.
+
+        Returns:
+        Match ready teams.
+        """    
         matching_state = True # Set matching state to true
         conn = db_connect.connect() # Connect to the Database
         
         query = conn.execute("select summonerName FROM Lobby order by mmr desc") # Get the Users from the Lobby
 
-        
-        
-        uuid = UUIDGenerator.generate_uuid()
+        uuid = UUIDGenerator.generate_uuid() # Generate a Unique ID for the match.
 
-        # Add Players in Lobby to the matchmaking queue
-        results = query.cursor.fetchall()
+        results = query.cursor.fetchall() # Get the players currently in the lobby.
         count = 0
         while matching_state:
             _summoner_name_1 = results[count][0]
             count+=1
             _summoner_name_2 = results[count][0]
-            print("Summoner Name: {0}".format(_summoner_name_1))
-            print("Summoner Name: {0}".format(_summoner_name_2))
-            print("UUID: {0}".format(uuid))
             conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(1, _summoner_name_1, uuid))
             conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
             count +=1
@@ -205,16 +267,26 @@ class MatchMaking(Resource):
 
         return {'match': [dict(zip(tuple(match_query.keys()), i)) for i in match_query.cursor]}
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 0b9e8782346fa811faf0f93449e31d9570e7bfbc
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
 api.add_resource(Users, '/users')  # Route_4
-api.add_resource(UsersName, '/users/<username>')  # Route_3
-api.add_resource(Login, '/login')  # Login Route
-api.add_resource(MatchMaking, '/mm')  # Matchmaking Route
+api.add_resource(UsersName, '/users/<username>')  # Route_5
+api.add_resource(Login, '/login')  # Route_6
+api.add_resource(MatchMaking, '/mm')  # Route_7
 
 def getSummoner(player):
     summonerDetails = Summoner.get_player_details(player)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0b9e8782346fa811faf0f93449e31d9570e7bfbc
 
 if __name__ == '__main__':
     app.run(port='5002')
