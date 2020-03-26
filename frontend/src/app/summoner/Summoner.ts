@@ -7,6 +7,5 @@ export interface Summoner {
     losses : number;
     gamesPlayed : number;
     primaryRole : string;
-    secondaryRole : string;
   }
   

@@ -7,6 +7,8 @@ from sqlalchemy import exists
 from sqlalchemy.orm import sessionmaker
 import json
 import bcrypt
+import psycopg2
+from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
@@ -18,9 +20,22 @@ session = Session()
 app = Flask(__name__)
 api = Api(app)
 
-
 CORS(app) # To solve the CORS issue when making HTTP Requests
 
+try:
+    # dsn=None, connection_factory=None, cursor_factory=None, **kwargs
+    connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
+    cursor = connection.cursor(cursor_factory=RealDictCursor)
+
+    # print(connection.get_dsn_parameteres())
+    # Print PostgreSQL version
+    cursor.execute("SELECT version();")
+    record = cursor.fetchone()
+    print("You are connected to - ", record,"\n")
+    
+    
+except (Exception, psycopg2.Error) as error:
+    print ("Error while connecting to PostgreSQL", error)
 
 # TODO: get summoner details
 
@@ -78,10 +93,20 @@ class PlayerStandings(Resource):
         Leaderboards from the database.
 
         """
-        conn = db_connect.connect()  # connect to the db
-        query = conn.execute("SELECT * FROM Players ORDER BY wins DESC;")
-        result = {'players': [dict(zip(tuple(query.keys()), i))
-                              for i in query.cursor]}
+
+        # conn = db_connect.connect()  # connect to the db
+        # query = conn.execute("SELECT * FROM Players ORDER BY wins DESC;")
+        # result = {'players': [dict(zip(tuple(query.keys()), i))
+        #                       for i in query.cursor]}
+        # return result
+
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT summoner_name, user_name, rank, tier, mmr, wins, losses, primary_role FROM users ORDER BY wins DESC")
+        # cursor.execute("select array_to_json(array_agg(row_to_json(t))) from (select summoner_name, wins, losses, rank, primary_role from users) t")
+        # https://stackoverflow.com/questions/10252247/how-do-i-get-a-list-of-column-names-from-a-psycopg2-cursor/46000207#46000207
+        columns = [desc[0] for desc in cursor.description]
+        result = {'players': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
 
 
