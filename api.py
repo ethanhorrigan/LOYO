@@ -5,6 +5,7 @@ from json import dumps
 from flask_cors import CORS
 from sqlalchemy import exists
 from sqlalchemy.orm import sessionmaker
+from riotwatcher import RiotWatcher, ApiError
 import json
 import bcrypt
 import psycopg2
@@ -19,6 +20,11 @@ session = Session()
 
 app = Flask(__name__)
 api = Api(app)
+
+watcher = RiotWatcher('RGAPI-28e1ee43-7edb-4b1e-9422-785240e9225a')
+
+QUEUE_TYPE = 'RANKED_SOLO_5x5'
+my_region = 'euw1'
 
 CORS(app) # To solve the CORS issue when making HTTP Requests
 
@@ -38,6 +44,128 @@ except (Exception, psycopg2.Error) as error:
     print ("Error while connecting to PostgreSQL", error)
 
 # TODO: get summoner details
+class Summoner():
+    def get_player_details(self):
+        """
+        Verifies if the Player exists in Riot's database.
+
+        Args:
+            self: The player name which is used to verify if the player exists.
+
+        Returns:
+            The value if the Summoner Name is found else the Summoner Name is Not Found.
+
+        """
+        try:
+            response = watcher.summoner.by_name(my_region, self)
+        except ApiError as err:
+            if err.response.status_code == 429:
+                print('We should retry in {} seconds.'.format(err.response.headers['Retry-After']))
+                print('this retry-after is handled by default by the RiotWatcher library')
+                print('future requests wait until the retry-after time passes')
+            elif err.response.status_code == 404:
+                print("SUMMONER_NOT_FOUND")
+                response = "SUMMONER_NOT_FOUND"
+            else:
+                raise
+        return response
+        
+    def get_rank(self):
+        """
+        Retrieves the rank of the Summoner as an Integer.
+
+        Args:
+            self: The Summoners name
+
+        Returns:
+            The rank of the Summoner as an Integer
+
+        """
+        count = 0
+        player_details = watcher.summoner.by_name(my_region, self)
+        summoner_data  = watcher.league.by_summoner(my_region, player_details['id'])
+        if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+            rank = summoner_data[count]['rank'] # Retrieve the Rank
+            rank_as_int = Summoner.roman_to_int(self, rank) # Converts rank to an Integer
+            response = rank_as_int
+        else:
+            while(summoner_data[count]['queueType'] != QUEUE_TYPE):
+                count+=1
+                if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+                    rank = summoner_data[count]['rank'] # Retrieve the Rank
+                    rank_as_int = Summoner.roman_to_int(self, rank) # Converts rank to an Integer
+                    # count = 0
+                    response = rank_as_int
+        return response
+    
+    def get_tier(self):
+        """
+        Retrieves the Tier of the Summoners current rank between (1..4)
+
+        Args:
+            self: The summoners name to check.
+
+        Returns:
+            The Tier of the Summoners Rank
+
+        """
+        count = 0
+        player_details = watcher.summoner.by_name(my_region, self)
+        summoner_data = watcher.league.by_summoner(my_region, player_details['id'])
+
+        if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+            response = summoner_data[count]['tier']
+        else:
+            while(summoner_data[count]['queueType'] != QUEUE_TYPE):
+                count += 1
+                if(summoner_data[count]['queueType'] == QUEUE_TYPE):
+                    response = summoner_data[count]['tier']
+        return response
+    
+    def get_rank_string(self, player):
+        """
+        Combines the Rank and Tier for a Player into one String.
+
+        Args:
+            player: The players details for rank and tier lookup.
+        Returns:
+            Rank and Tier as a String.
+
+        """
+        _rank = Summoner.get_rank(player)
+        _tier = Summoner.get_tier(player)
+        _response = _tier + str(_rank)
+        return _response
+
+    # Convert Roman Numerals to INT
+    def roman_to_int(self, s):
+        rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        int_val = 0
+        for i in range(len(s)):
+            if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:
+                int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]
+            else:
+                int_val += rom_val[s[i]]
+        return int_val
+
+    def get_difference(self, player1, player2):
+        """
+        Retrieves the difference in MMR between two players
+
+        Args:
+            player1: the first players MMR.
+            player2: the second players MMR.
+
+        Returns:
+            The MMR Difference between the two players.
+
+        """
+        diff = 0
+        if(player1 >= player2):
+            diff = abs(player1 - player2)
+        if(player2 >= player1):
+            diff = abs(player2 - player1)
+        return diff
 
 class PasswordSetup:
     def create_password(self, pw):
