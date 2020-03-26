@@ -7,6 +7,7 @@ from sqlalchemy import exists
 from sqlalchemy.orm import sessionmaker
 import json
 import bcrypt
+from uuidcreator import UUIDGenerator
 
 db_connect = create_engine('sqlite:///fantasyleague.db')
 
@@ -20,6 +21,9 @@ api = Api(app)
 
 CORS(app) # To solve the CORS issue when making HTTP Requests
 
+
+# TODO: get summoner details
+
 class PasswordSetup:
     def create_password(self, pw):
         """
@@ -44,30 +48,6 @@ class PasswordSetup:
         Returns:
             hashed version of the users password.
 
-        """
-        print(bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8')))
-        return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
-
-class PasswordSetup:
-    def create_password(self, pw):
-        """
-        Creates a hash for a given password.
-        Args:
-            player: The password to be converted to hash. 
-            This is to ensure privacy for the users password.
-        Returns:
-            Hashed version of the users password.
-        """
-        hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
-        return hash.decode('utf-8')
-
-    def validate_password(self, pw, hpw):
-        """
-        Validates a password with the corresponding hashed password.
-        Args:
-            player: The password .
-        Returns:
-            hashed version of the users password.
         """
         print(bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8')))
         return bcrypt.checkpw(pw.encode('utf-8'), hpw.encode('utf-8'))
@@ -268,7 +248,7 @@ class MatchMaking(Resource):
         
         query = conn.execute("select summonerName FROM Lobby order by mmr desc") # Get the Users from the Lobby
 
-        uuid = UUIDGenerator.generate_uuid() # Generate a Unique ID for the match.
+        uuid = UUIDGenerator.generate_uuid(self) # Generate a Unique ID for the match.
 
         results = query.cursor.fetchall() # Get the players currently in the lobby.
         count = 0
@@ -289,10 +269,8 @@ class MatchMaking(Resource):
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
-api.add_resource(Users, '/users')  # Route_4
-api.add_resource(UsersName, '/users/<username>')  # Route_3
-api.add_resource(Users, '/users')  # Route_4
-api.add_resource(UsersName, '/users/<username>')  # Route_5
+api.add_resource(UsersName, '/users/<username>')  # Route_4
+api.add_resource(Users, '/users')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
 

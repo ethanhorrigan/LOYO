@@ -7,6 +7,7 @@ h2, label, input, p {
     background-color: #1ba098;
     border: none;
 }
+
 .btn-link {
     color: #1ba098;
 }
@@ -23,10 +24,7 @@ input[type=radio] {
 input[type=text] {
     color: #2c2c2c;
 }
-mat-radio-button {
-    color: white;
-    margin: 10px;
-}
+
 
 select {
     -webkit-appearance: none;
@@ -69,4 +67,8 @@ h2 {
 
 .mat-radio-outer-circle{
     border-color:rgb(66, 134, 244); 
+}
+
+.mat-radio-group {
+    border: none;
 }

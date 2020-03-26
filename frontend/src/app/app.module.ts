@@ -7,8 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-/* Testing Modules */
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 /* Materials */
 import {MatButtonModule} from '@angular/material/button';
@@ -52,7 +50,6 @@ const appRoutes: Routes = [
     MatRadioModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientTestingModule,
     BrowserAnimationsModule
   ],
   providers: [{

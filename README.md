@@ -56,6 +56,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 - 28/02/2020 - Begin Session-Based User Authentication
 - 01/02/2020 - Documenting Backend Code.
 - 02/02/2020 - Began Changing the Database.
+- 26/03/2020 - Fixed HTTP request issue due to HTTPClientTesting module overriding HTTPClient Module
 
 
 ## Helpful Project Links
