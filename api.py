@@ -21,7 +21,7 @@ session = Session()
 app = Flask(__name__)
 api = Api(app)
 
-watcher = RiotWatcher('RGAPI-28e1ee43-7edb-4b1e-9422-785240e9225a')
+watcher = RiotWatcher('RGAPI-4e4ffc99-6675-4cb8-9c68-3003a8d7bcc3')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 my_region = 'euw1'
@@ -166,6 +166,10 @@ class Summoner():
         if(player2 >= player1):
             diff = abs(player2 - player1)
         return diff
+    def get_outcome(self, match_id):
+        pass
+    def get_match_id(self, player):
+        pass
 
 class PasswordSetup:
     def create_password(self, pw):
@@ -224,8 +228,7 @@ class PlayerStandings(Resource):
 
         # conn = db_connect.connect()  # connect to the db
         # query = conn.execute("SELECT * FROM Players ORDER BY wins DESC;")
-        # result = {'players': [dict(zip(tuple(query.keys()), i))
-        #                       for i in query.cursor]}
+        # result = {'players': [dict(zip(tuple(query.keys()), i))for i in query.cursor]}
         # return result
 
         cursor = connection.cursor()
@@ -235,6 +238,7 @@ class PlayerStandings(Resource):
         # https://stackoverflow.com/questions/10252247/how-do-i-get-a-list-of-column-names-from-a-psycopg2-cursor/46000207#46000207
         columns = [desc[0] for desc in cursor.description]
         result = {'players': [dict(zip(columns, row)) for row in cursor.fetchall()]}
+
         return result
 
 
@@ -248,11 +252,14 @@ class Lobby(Resource):
         Inserts a user to the lobby and returns the data in JSON.
 
         """
+        
         conn = db_connect.connect()  # connect to the db
         SummonerName = request.json['summonerName'] # Get SummonerName
         _rank = Summoner.get_rank_string(self, SummonerName) # Get rank
-        mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank)) # Get the Users from the Lobby
-        res = mmr_query.cursor.fetchall()
+        # mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank)) # Get the Users from the Lobby
+        cursor = connection.cursor()
+        cursor.execute("SELECT mmr from Ranks where rank= ?", (_rank))
+        res = cursor.fetchall()
         _mmr = res[0][0]
         conn.execute("insert into Lobby values(null,'{0}', '{1}', '{2}')".format(SummonerName, _rank, _mmr))
         return request.json
@@ -415,7 +422,7 @@ class MatchMaking(Resource):
             if(count == 10):
                 matching_state = False
             # Sort the Match Table
-            match_query = conn.execute("select team, player, matchID FROM Match order by team asc")
+            match_query = conn.execute("select team, summoner_name, uuid FROM Match order by team asc")
 
         return {'match': [dict(zip(tuple(match_query.keys()), i)) for i in match_query.cursor]}
 

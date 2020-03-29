@@ -91,7 +91,7 @@ export class GamesComponent implements OnInit {
    * Reload the page to update the lobby amount.
    */
   getName() {
-    console.log(this.match[5].summonerName);
+    this.addToLobby();
   }
 
   async addToLobby() {
