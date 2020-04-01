@@ -32,12 +32,13 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="role">Role</label>
                 <mat-radio-group [(ngModel)]="selection" formControlName="role" class="form-control" aria-label="Select an option">
-                    <mat-radio-button value="Top" (change)="getRole($event)">Top</mat-radio-button>
-                    <mat-radio-button value="Jungle" (change)="getRole($event)">Jungle</mat-radio-button>
-                    <mat-radio-button value="Mid" (change)="getRole($event)" >Mid</mat-radio-button>
-                    <mat-radio-button value="Adc" (change)="getRole($event)">ADC</mat-radio-button>
-                    <mat-radio-button value="Support" (change)="getRole($event)">Support</mat-radio-button>
+                    <mat-radio-button value="Top" (change)="getRole($event)"> Top</mat-radio-button>
+                    <mat-radio-button value="Jungle" (change)="getRole($event)"> Jungle</mat-radio-button>
+                    <mat-radio-button value="Mid" (change)="getRole($event)" > Mid</mat-radio-button>
+                    <mat-radio-button value="Adc" (change)="getRole($event)"> ADC</mat-radio-button>
+                    <mat-radio-button value="Support" (change)="getRole($event)"> Support</mat-radio-button>
                   </mat-radio-group>
                 <p>You selected: {{selection}}</p>
             </div>

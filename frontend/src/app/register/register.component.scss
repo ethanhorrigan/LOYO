@@ -70,5 +70,12 @@ h2 {
 }
 
 .mat-radio-group {
+    width: auto;
     border: none;
+    background: none;
+    color: white;
+}
+mat-radio-button {
+    margin-right: 5px auto;
+    margin-left: 5px auto;
 }
