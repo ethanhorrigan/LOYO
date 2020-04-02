@@ -333,11 +333,12 @@ class Users(Resource):
         hashed version of the users password.
 
         """       
-        conn = db_connect.connect()  # connect to database
+        cursor = connection.cursor() # connect to the db
         # This line performs query and returns json result
-        query = conn.execute("select username from users")
+        query = ("select username from users")
+        cursor.execute(query)
         # Fetches first column that is Employee ID
-        return {'users': [i[0] for i in query.cursor.fetchall()]}
+        return {'users': [i[0] for i in cursor.fetchall()]}
 
     def post(self):
         """
@@ -420,10 +421,12 @@ class UsersName(Resource):
         USERNAME_OK if the username does not exist.
         USERNAME_TAKEN if the username already exists.
         """    
-        conn = db_connect.connect()
-        query = conn.execute(
-            "select COUNT(username) from Users where username= ?", (username))
-        getResult = query.cursor.fetchall()
+        
+        cursor = connection.cursor() # connect to the db
+        query = ("select COUNT(user_name) from Users where user_name= %s")
+        param = [username]
+        cursor.execute(query,param)
+        getResult = cursor.fetchall()
         print("Usernames in Table: {0}".format(getResult[0][0]))
         status = ""
         if getResult[0][0] == 0:
