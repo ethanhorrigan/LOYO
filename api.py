@@ -51,7 +51,13 @@ class Match():
     def get_match_id(self, player_id):
         pass
 # TODO: get summoner details
+
+
 class Summoner():
+    def get_account_id(self):
+        player_details = watcher.summoner.by_name(my_region, self)
+        return player_details['id']
+
     def get_player_details(self):
         """
         Verifies if the Player exists in Riot's database.
@@ -178,6 +184,8 @@ class Summoner():
     def get_match_id(self, player):
         pass
 
+print(Summoner.get_account_id('Yupouvit'))
+
 class PasswordSetup:
     def create_password(self, pw):
         """
@@ -289,7 +297,7 @@ class Lobby(Resource):
             playerCount = "FULL"
         return playerCount
 
-
+# Register
 class Users(Resource):
     def get(self):
         """
@@ -323,6 +331,8 @@ class Users(Resource):
         SummonerName = request.json['summonerName']
         Password = request.json['password']
         role = request.json['role']
+        account = Summoner.get_account_id(SummonerName) # get the account id
+        # account_id = 
         # first check if username exists
         query = conn.execute(
             "select COUNT(username) from Users where username= ?", (Username))
