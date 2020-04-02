@@ -67,6 +67,10 @@ class Summoner():
         """
         player_details = watcher.summoner.by_name(my_region, self)
         return player_details['accountId']
+    def get_player_icon(self):
+        player_icon = watcher.summoner.by_name(my_region, self)
+        return player_icon['profileIconId']
+
     def get_lastest_game_id(self):
         account_id = Summoner.get_account_id(self)
         match_id = watcher.match.matchlist_by_account(my_region, account_id)
@@ -258,7 +262,7 @@ class PlayerStandings(Resource):
 
         cursor = connection.cursor()
 
-        cursor.execute("SELECT summoner_name, user_name, rank, mmr, wins, losses, primary_role FROM users ORDER BY wins DESC")
+        cursor.execute("SELECT summoner_name, user_name, rank, mmr, wins, losses, primary_role, player_icon FROM users ORDER BY wins DESC")
         # cursor.execute("select array_to_json(array_agg(row_to_json(t))) from (select summoner_name, wins, losses, rank, primary_role from users) t")
         # https://stackoverflow.com/questions/10252247/how-do-i-get-a-list-of-column-names-from-a-psycopg2-cursor/46000207#46000207
         columns = [desc[0] for desc in cursor.description]
@@ -357,8 +361,8 @@ class Users(Resource):
         role = request.json['role']
         _account_id = Summoner.get_account_id(SummonerName) # get the account id
         _rank_string = Summoner.get_rank_string(self, SummonerName)
-
-
+        _player_icon = Summoner.get_player_icon(SummonerName)
+        print(_player_icon)
         cursor = connection.cursor()
         query = ("select COUNT(user_name) from Users where user_name= %s")
         param = [Username]
@@ -388,9 +392,9 @@ class Users(Resource):
             cursor.execute(mmr_query, mmr_param)
             _mmr = cursor.fetchall()[0]
 
-            print(hashed)
-            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id) VALUES(%s, %s, %s, %s, %s, %s, %s)")
-            r_values = (SummonerName, Username, hashed, _rank_string, _mmr, role, _account_id)
+            # add icon http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/588.png
+            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id, player_icon) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)")
+            r_values = (SummonerName, Username, hashed, _rank_string, _mmr, role, _account_id, _player_icon)
 
             cursor.execute(r_query, r_values)
 
@@ -398,7 +402,6 @@ class Users(Resource):
             initial_param = [Username]
             cursor.execute(initial_query, initial_param)
             connection.commit()
-
 
             status = "OK"
             print(request.json)
@@ -471,27 +474,38 @@ class MatchMaking(Resource):
         Match ready teams.
         """    
         matching_state = True # Set matching state to true
-        conn = db_connect.connect() # Connect to the Database
+        # conn = db_connect.connect() # Connect to the Database
+        cursor = connection.cursor()
         
-        query = conn.execute("select summonerName FROM Lobby order by mmr desc") # Get the Users from the Lobby
+        query = ("select summoner_name FROM Lobby order by mmr desc") # Get the Users from the Lobby
+        cursor.execute(query)
 
         uuid = UUIDGenerator.generate_uuid(self) # Generate a Unique ID for the match.
 
-        results = query.cursor.fetchall() # Get the players currently in the lobby.
+        results = cursor.fetchall() # Get the players currently in the lobby.
         count = 0
         while matching_state:
             _summoner_name_1 = results[count][0]
             count+=1
             _summoner_name_2 = results[count][0]
-            conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(1, _summoner_name_1, uuid))
-            conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
+            # conn.execute("insert into Match values")
+            m_one_query = ("insert into Match values(%s, %s, %s)")
+            m_one_values = (1, _summoner_name_1, uuid)
+            cursor.execute(m_one_query, m_one_values)
+
+            m_two_query = ("insert into Match values(%s, %s, %s)")
+            m_two_values = (1, _summoner_name_2, uuid)
+            cursor.execute(m_two_query, m_two_values)
+            # conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
+            connection.commit()
             count +=1
             if(count == 10):
                 matching_state = False
             # Sort the Match Table
-            match_query = conn.execute("select team, summoner_name, uuid FROM Match order by team asc")
+            match_query = ("select team, summoner_name, uuid FROM Match order by team asc")
+            cursor.execute(match_query)
 
-        return {'match': [dict(zip(tuple(match_query.keys()), i)) for i in match_query.cursor]}
+        return {'match': [dict(zip(tuple(cursor.keys()), i)) for i in cursor]}
 
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2

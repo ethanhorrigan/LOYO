@@ -47,7 +47,7 @@ export class GamesComponent implements OnInit {
     //   console.log("im in init");
     // }
 
-     //this.getMatch();
+     this.getMatch();
      console.log(this.getNumberOfGames(36));
      
   }
@@ -63,15 +63,15 @@ export class GamesComponent implements OnInit {
     return this.registeredPlayers;
   }
 
-  // getMatch() {
-  //   this.http.get<MatchResponse>(this.url).subscribe(data => {
-  //     this.match = data.match;
-  //     console.log(this.match);
-  //   });
-  //   // this.userService.getMM().subscribe(data => {
-  //   //   console.log(data);
-  //   // });
-  // }
+  getMatch() {
+    this.http.get<MatchResponse>(this.url).subscribe(data => {
+      this.match = data.match;
+      console.log(this.match);
+    });
+    // this.userService.getMM().subscribe(data => {
+    //   console.log(data);
+    // });
+  }
 
   /**
    * Returns the number of games depending on the amount of players in the lobby.

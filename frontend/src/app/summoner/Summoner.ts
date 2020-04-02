@@ -7,5 +7,6 @@ export interface Summoner {
     losses : number;
     gamesPlayed : number;
     primaryRole : string;
+    playerIcon : string;
   }
   
