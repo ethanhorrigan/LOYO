@@ -351,24 +351,29 @@ class Users(Resource):
         Returns:
         A register user inserted into the database.
         """       
-        conn = db_connect.connect()  # connect to the db
         Username = request.json['username']
         SummonerName = request.json['summonerName']
         Password = request.json['password']
         role = request.json['role']
-        account = Summoner.get_account_id(SummonerName) # get the account id
-        # account_id = 
-        # first check if username exists
-        query = conn.execute(
-            "select COUNT(username) from Users where username= ?", (Username))
-        qResult = query.cursor.fetchall()
+        _account_id = Summoner.get_account_id(SummonerName) # get the account id
+        _rank_string = Summoner.get_rank_string(self, SummonerName)
+
+
+        cursor = connection.cursor()
+        query = ("select COUNT(user_name) from Users where user_name= %s")
+        param = [Username]
+        cursor.execute(query, param)
+        qResult = cursor.fetchall()
         status = ""
         if qResult[0][0] > 0:
             print("Username Taken")
             status = "UT"
-        query2 = conn.execute(
-            "select COUNT(summonerName) from Users where summonerName= ?", (SummonerName))
-        qResult2 = query2.cursor.fetchall()
+
+        query2 = ("select COUNT(summoner_name) from Users where summoner_name= %s")
+        param2 = [SummonerName]
+        cursor.execute(query2, param2)
+
+        qResult2 = cursor.fetchall()
         print(qResult2[0][0])
         if qResult2[0][0] > 0:
             status = "ST"
@@ -377,8 +382,20 @@ class Users(Resource):
         else:
             # print("Registration Valid")
             hashed = PasswordSetup.create_password(self, Password)
-            conn.execute("INSERT INTO users VALUES(null, '{0}', '{1}', '{2}', '{3}')".format(
-                Username, SummonerName, hashed, role))
+
+            mmr_query = ("SELECT mmr from Ranks where rank= %s")
+            mmr_param = [_rank_string]
+            cursor.execute(mmr_query, mmr_param)
+            _mmr = cursor.fetchall()[0]
+
+            print(hashed)
+            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id) VALUES(%s, %s, %s, %s, %s, %s, %s)")
+            r_values = (SummonerName, Username, hashed, _rank_string, _mmr, role, _account_id)
+
+            cursor.execute(r_query, r_values)
+            connection.commit()
+
+
             status = "OK"
             print(request.json)
 
@@ -397,14 +414,16 @@ class Login(Resource):
         """     
         username = request.json['username']
         password = request.json['password']
-        conn = db_connect.connect()
-
-        query = conn.execute("select COUNT(username) from Users where username= ?", (username))
-        username_from_db = query.cursor.fetchall()
+        cursor = connection.cursor() # connect to the db
+        query = ("select COUNT(user_name) from Users where user_name= %s")
+        param = [username]
+        cursor.execute(query,param)
+        username_from_db = cursor.fetchall()
 
         if username_from_db[0][0] > 0:
-            query2 = conn.execute("select password from Users where username= ?", (username))
-            hpw_from_db = query2.cursor.fetchall()
+            query2 = ("select password from Users where user_name= %s")
+            cursor.execute(query2,param)
+            hpw_from_db = cursor.fetchall()
             print(hpw_from_db[0][0])
             response = PasswordSetup.validate_password(self, password, hpw_from_db[0][0])
         else:
