@@ -6,7 +6,7 @@ import src.team
 import src.playerdetails as PlayerDetails
 import json
 
-watcher = RiotWatcher('RGAPI-28e1ee43-7edb-4b1e-9422-785240e9225a')
+watcher = RiotWatcher('RGAPI-12c35bf1-b43f-4007-882e-6c63132628c6')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 # players = ['Yupouvit', 'Tommy Shlug', 'Afferent', 'FUBW Gilgamesh', 'Globhopper', 'MacCionaodha', 'BigDaddyHoulihan', 'ChaonesJ', 'VVickedZ', 'FUBW Archer']
