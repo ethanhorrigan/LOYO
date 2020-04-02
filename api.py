@@ -310,9 +310,10 @@ class Lobby(Resource):
         The amount of players currently waiting in the lobby.
 
         """       
-        conn = db_connect.connect()
-        query = conn.execute("select COUNT(summonerName) from Lobby")
-        qResult = query.cursor.fetchall()
+        cursor = connection.cursor() # connect to the db
+        query = ("select COUNT(summoner_name) from Lobby")
+        cursor.execute(query)
+        qResult = cursor.fetchall()
         playerCount = qResult[0][0]
         if playerCount <= 10:
             playerCount = qResult[0][0]
