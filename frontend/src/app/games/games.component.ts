@@ -4,6 +4,7 @@ import { UserService } from '../_services/user.service';
 import { TempUser } from '../_models';
 import { Team, TeamResponse, Match, MatchResponse } from '../_models/team';
 import { HttpClient } from '@angular/common/http';
+import { QueueScheduler } from 'rxjs/internal/scheduler/QueueScheduler';
 
 @Component({
   selector: 'app-games',
@@ -13,7 +14,8 @@ import { HttpClient } from '@angular/common/http';
 export class GamesComponent implements OnInit {
 
     // test variables
-    players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Thrasius123', 'Afferent', 'ChaonesJ', 'BigDaddyHoulihan', 'VVickedz', 'FUBW Gilgamesh', 'FUBW Archer'];
+    //players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Obi Sean Kenobi', 'Afferent', 'Bingi101', 'Zethose'];
+    players: string[] = ['Yupouvit', 'Communism'];
     url = ' http://127.0.0.1:5002/mm';
     // end of test variables
   
@@ -45,7 +47,7 @@ export class GamesComponent implements OnInit {
     //   console.log("im in init");
     // }
 
-     this.getMatch();
+     //this.getMatch();
      console.log(this.getNumberOfGames(36));
      
   }
@@ -61,22 +63,15 @@ export class GamesComponent implements OnInit {
     return this.registeredPlayers;
   }
 
-  getBlueTeam() {
-
-  }
-
-  getRedTeam() {
-
-  }
-  getMatch() {
-    this.http.get<MatchResponse>(this.url).subscribe(data => {
-      this.match = data.match;
-      console.log(this.match);
-    });
-    // this.userService.getMM().subscribe(data => {
-    //   console.log(data);
-    // });
-  }
+  // getMatch() {
+  //   this.http.get<MatchResponse>(this.url).subscribe(data => {
+  //     this.match = data.match;
+  //     console.log(this.match);
+  //   });
+  //   // this.userService.getMM().subscribe(data => {
+  //   //   console.log(data);
+  //   // });
+  // }
 
   /**
    * Returns the number of games depending on the amount of players in the lobby.

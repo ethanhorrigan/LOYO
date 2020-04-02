@@ -55,8 +55,22 @@ class Match():
 
 class Summoner():
     def get_account_id(self):
+        """
+        Retrieves the account id to the corresponding summoner name
+
+        Args:
+            self: The summoner name.
+
+        Returns:
+            The account id for that summoner.
+
+        """
         player_details = watcher.summoner.by_name(my_region, self)
-        return player_details['id']
+        return player_details['accountId']
+    def get_lastest_game_id(self):
+        account_id = Summoner.get_account_id(self)
+        match_id = watcher.match.matchlist_by_account(my_region, account_id)
+        return match_id['matches'][0]['gameId']
 
     def get_player_details(self):
         """
@@ -179,12 +193,8 @@ class Summoner():
         if(player2 >= player1):
             diff = abs(player2 - player1)
         return diff
-    def get_outcome(self, match_id):
-        pass
-    def get_match_id(self, player):
-        pass
 
-print(Summoner.get_account_id('Yupouvit'))
+# print(Summoner.get_match_id('Yupouvit'))
 
 class PasswordSetup:
     def create_password(self, pw):
@@ -267,16 +277,29 @@ class Lobby(Resource):
         Inserts a user to the lobby and returns the data in JSON.
 
         """
-        
-        conn = db_connect.connect()  # connect to the db
-        SummonerName = request.json['summonerName'] # Get SummonerName
-        _rank = Summoner.get_rank_string(self, SummonerName) # Get rank
+        cursor = connection.cursor() # connect to the db
+
+        cursor.execute("DELETE FROM lobby")
+
+        _summoner_name = request.json['summonerName'] # Get SummonerName from requests
+        role_query = ("SELECT primary_role FROM users WHERE summoner_name = %s")
+        param = [_summoner_name]
+        cursor.execute(role_query, param)
+        # _primary_role = cursor.fetchall()
+        _primary_role = cursor.fetchall()[0][0]
+        print(_primary_role)
+
+        connection.commit()
+
+        _rank = Summoner.get_rank_string(self, _summoner_name) # Get rank
+
         # mmr_query = conn.execute("SELECT mmr from Ranks where rank= ?", (_rank)) # Get the Users from the Lobby
-        cursor = connection.cursor()
-        cursor.execute("SELECT mmr from Ranks where rank= ?", (_rank))
+        cursor.execute("SELECT mmr from Ranks where rank='{0}'".format(_rank))
         res = cursor.fetchall()
         _mmr = res[0][0]
-        conn.execute("insert into Lobby values(null,'{0}', '{1}', '{2}')".format(SummonerName, _rank, _mmr))
+        cursor.execute("insert into Lobby values('{0}', '{1}', '{2}')".format(_summoner_name, _mmr, _primary_role))
+
+        connection.commit()
         return request.json
     def get(self):
         """
