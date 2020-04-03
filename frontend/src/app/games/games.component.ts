@@ -14,8 +14,8 @@ import { QueueScheduler } from 'rxjs/internal/scheduler/QueueScheduler';
 export class GamesComponent implements OnInit {
 
     // test variables
-    //players: string[] = ['Yupouvit', 'Communism', 'Tommy Shlug', 'Obi Sean Kenobi', 'Afferent', 'Bingi101', 'Zethose'];
-    players: string[] = ['Yupouvit', 'Communism'];
+    players: string[] = ['Yupouvit', 'Dylan Loftus', 'Communism', 'Obi Sean Kenobi', 'Afferent', 'Bingi101', 'Zethose'];
+    //players: string[] = ['Yupouvit', 'Communism'];
     url = ' http://127.0.0.1:5002/mm';
     // end of test variables
   
