@@ -220,6 +220,7 @@ class PasswordSetup:
             Hashed version of the users password.
 
         """
+        print(pw)
         hash = bcrypt.hashpw(password=pw.encode('utf-8'), salt=bcrypt.gensalt())
         return hash.decode('utf-8')
 
@@ -365,7 +366,9 @@ class Users(Resource):
         """       
         Username = request.json['username']
         SummonerName = request.json['summonerName']
+        
         Password = request.json['password']
+        print(Password)
         role = request.json['role']
         _account_id = Summoner.get_account_id(SummonerName) # get the account id
         _rank_string = Summoner.get_rank_string(self, SummonerName)
