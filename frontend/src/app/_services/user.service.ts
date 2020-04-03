@@ -29,10 +29,16 @@ export class UserService {
         return this.http.get<Match[]>(`http://127.0.0.1:5002/mm`);
     }
 
+    // register(user: User) {
+    //     console.log(user);
+    //     return this.http.post(`http://127.0.0.1:5002/users`, user);
+    // }
+
     register(user: User) {
         console.log(user);
-        return this.http.post(`http://127.0.0.1:5002/users`, user);
+        return this.http.post(`https://limitless-fjord-64117.herokuapp.com/users`, user);
     }
+    //https://limitless-fjord-64117.herokuapp.com/
 
     delete(id: number) {
         return this.http.delete(`http://127.0.0.1:5002/users/${id}`);

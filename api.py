@@ -28,7 +28,7 @@ port = "5432"
 app = Flask(__name__)
 api = Api(app)
 
-watcher = RiotWatcher('RGAPI-12c35bf1-b43f-4007-882e-6c63132628c6')
+watcher = RiotWatcher('RGAPI-bf3ba910-167c-431b-9872-2dc33ba17375')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 my_region = 'euw1'
