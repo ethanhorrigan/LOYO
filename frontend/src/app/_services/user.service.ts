@@ -13,20 +13,23 @@ import { Match } from '../_models/team';
 export class UserService {
     constructor(private http: HttpClient) { }
 
+    deploy_url : string = "https://limitless-fjord-64117.herokuapp.com";
+    local_url : string = "http://127.0.0.1:5002"
+
     getAll() {
-        return this.http.get<User[]>(`http://127.0.0.1:5002/users`);
+        return this.http.get<User[]>(`https://limitless-fjord-64117.herokuapp.com/users/users`);
     }
 
     addToLobby(tempUser: TempUser) {
-        return this.http.post(`http://127.0.0.1:5002/lobby`, tempUser)
+        return this.http.post(`https://limitless-fjord-64117.herokuapp.com/lobby`, tempUser)
     }
 
     getLobby() {
-        return this.http.get(`http://127.0.0.1:5002/lobby`);
+        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/lobby`);
     }
 
     getMM() {
-        return this.http.get<Match[]>(`http://127.0.0.1:5002/mm`);
+        return this.http.get<Match[]>(`https://limitless-fjord-64117.herokuapp.com/mm`);
     }
 
     // register(user: User) {
@@ -41,10 +44,10 @@ export class UserService {
     //https://limitless-fjord-64117.herokuapp.com/
 
     delete(id: number) {
-        return this.http.delete(`http://127.0.0.1:5002/users/${id}`);
+        return this.http.delete(`https://limitless-fjord-64117.herokuapp.com/users/${id}`);
     }
 
     login(username: string) {
-        return this.http.get(`http://127.0.0.1:5002/users/${username}`);
+        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/users/${username}`);
     }
 }
