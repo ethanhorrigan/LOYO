@@ -22,7 +22,7 @@ import urllib.parse as urlparse
 URL = urlparse.urlencode(os.environ['DATABASE_URL'])
 database = "d34bp9cpp983nn"
 user = "cfrqbgcghvvkyw"
-password "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
+password = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
 host = "ec2-35-168-54-239.compute-1.amazonaws.com"
 port = "5432"
 
