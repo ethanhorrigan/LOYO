@@ -21,7 +21,7 @@ import urllib.parse as urlparse
 
 database = "d34bp9cpp983nn"
 user = "cfrqbgcghvvkyw"
-password = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
+db_password = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
 host = "ec2-35-168-54-239.compute-1.amazonaws.com"
 port = "5432"
 
@@ -37,7 +37,7 @@ CORS(app) # To solve the CORS issue when making HTTP Requests
 
 try:
     # dsn=None, connection_factory=None, cursor_factory=None, **kwargs
-    connection = psycopg2.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = psycopg2.connect(user=user, password=db_password, host=host, port=port, database=database)
     # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
 
