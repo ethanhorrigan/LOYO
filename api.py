@@ -245,7 +245,7 @@ class Players(Resource):
         Players Stats in JSON format.
 
         """
-        conn = db_connect.connect()  # connect to the db
+        # conn = db_connect.connect()  # connect to the db
         query = conn.execute(
             "select summonerName, rank, tier, wins, losses, primaryRole, secondaryRole from players")
         result = {'players': [dict(zip(tuple(query.keys()), i))
