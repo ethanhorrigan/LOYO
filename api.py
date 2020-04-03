@@ -11,12 +11,20 @@ import bcrypt
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
+import urllib.parse as urlparse
 
-db_connect = create_engine('sqlite:///fantasyleague.db')
+# db_connect = create_engine('sqlite:///fantasyleague.db')
 
-Session = sessionmaker()
-Session.configure(bind=db_connect)
-session = Session()
+# Session = sessionmaker()
+# Session.configure(bind=db_connect)
+# session = Session()
+
+URL = urlparse.urlencode(os.environ['DATABASE_URL'])
+DB_NAME = URL.path[1:]
+user = URL.username
+password URL.password
+host = URL.hostname
+port = url.port
 
 app = Flask(__name__)
 api = Api(app)
@@ -30,7 +38,8 @@ CORS(app) # To solve the CORS issue when making HTTP Requests
 
 try:
     # dsn=None, connection_factory=None, cursor_factory=None, **kwargs
-    connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
+    connection = psycopg2.connect(user = user, password = password, host = host, port =port, database = DB_NAME)
+    # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
 
     # print(connection.get_dsn_parameteres())
