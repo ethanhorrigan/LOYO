@@ -19,7 +19,6 @@ import urllib.parse as urlparse
 # Session.configure(bind=db_connect)
 # session = Session()
 
-URL = urlparse.urlencode(os.environ['DATABASE_URL'])
 database = "d34bp9cpp983nn"
 user = "cfrqbgcghvvkyw"
 password = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
