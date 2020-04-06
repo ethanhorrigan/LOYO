@@ -11,7 +11,7 @@ import { PlayersResponse } from '../summoner/PlayerResponse';
 })
 export class LeaderboardsComponent implements OnInit {
   summ;
-  url = ' http://127.0.0.1:5002/playerstandings';
+  url = 'https://limitless-fjord-64117.herokuapp.com/playerstandings';
   res = [];
   public summoners: Summoner[];
 
