@@ -18,6 +18,7 @@ export class UserService {
 
     getAll() {
         return this.http.get<User[]>(`https://limitless-fjord-64117.herokuapp.com/users/users`);
+        //return this.http.get<User[]>(this.deploy_url + '/users/users')
     }
 
     addToLobby(tempUser: TempUser) {
@@ -39,7 +40,8 @@ export class UserService {
 
     register(user: User) {
         console.log(user);
-        return this.http.post(`https://limitless-fjord-64117.herokuapp.com/users`, user);
+        ///return this.http.post(`https://limitless-fjord-64117.herokuapp.com/users`, user);
+        return this.http.post(this.deploy_url + '/users', user);
     }
     //https://limitless-fjord-64117.herokuapp.com/
 
