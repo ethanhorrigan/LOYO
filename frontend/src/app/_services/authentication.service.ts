@@ -36,17 +36,15 @@ export class AuthenticationService {
 
     
     login(username, password) {
-        return this.http.post<Boolean>(`http://127.0.0.1:5002/login`, { username, password }).pipe(map(user => {
+        return this.http.post<Boolean>(`https://limitless-fjord-64117.herokuapp.com/login`, { username, password }).pipe(map(user => {
             if(user == true) {
                 localStorage.setItem('currentUser', username);
                 this.currentUserSubject.next(username);
-                console.log("User Signed In")
             }
             else {
                 
             }
             return user;
-            console.log(user);
         }));
     }
 

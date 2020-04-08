@@ -334,8 +334,18 @@ class Lobby(Resource):
             playerCount = "FULL"
         return playerCount
 
+class SummonerName(Resource):
+    def get(self, user_name):
+        cursor = connection.cursor()
+        query = ("SELECT summoner_name from users WHERE user_name =%s")
+        query_param = [user_name]
+        cursor.execute(query, query_param)
+        result = cursor.fetchall()
+        
+        return result
 # Register
 class Users(Resource):
+
     def get(self):
         """
         Validates a password with the corresponding hashed password.
@@ -417,6 +427,7 @@ class Users(Resource):
             print(request.json)
 
         return status
+            
 
 class Login(Resource):
     def post(self):
@@ -522,6 +533,7 @@ api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
 api.add_resource(UsersName, '/users/<username>')  # Route_4
 api.add_resource(Users, '/users')  # Route_5
+api.add_resource(SummonerName, '/users/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
 
