@@ -2,7 +2,7 @@
 
     <div class="sidebar">
         <div class="global-bar">
-            <a class="sidebar-item" href="/games">
+            <a *ngIf="log" class="sidebar-item" href="/games">
                 <mat-icon class="sidebar-icon">home</mat-icon>
                 {{playerName}}
             </a>
@@ -22,9 +22,9 @@
                 <mat-icon class="sidebar-icon">shop</mat-icon>
                 Store
             </a>
-            <a class="sidebar-item logout" (click)="logout()">
+            <a class="sidebar-item"  (click)="logout()">
                 <mat-icon class="sidebar-icon">input</mat-icon>
-                <a>Logout</a>
+                <a>{{logStatus}}</a>
             </a>
         </div>
     </div>

@@ -48,8 +48,12 @@ mat-icon {
     bottom: 0;
 }
 
+.sidebar-item .logout:hover {
+    cursor: pointer;
+}
 
 .sidebar-item:hover {
+    cursor: pointer;
     color: hsl(0, 0%, 100%);
     .sidebar-icon {
         color: hsl(0, 0%, 100%);

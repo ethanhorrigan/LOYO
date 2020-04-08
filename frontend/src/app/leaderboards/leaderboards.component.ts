@@ -13,7 +13,7 @@ export class LeaderboardsComponent implements OnInit {
   summ;
   url = 'https://limitless-fjord-64117.herokuapp.com/playerstandings';
   res = [];
-  public summoners: Summoner[];
+  public Summoners: Summoner[];
 
   constructor(
     private apiService: APIServiceService,
