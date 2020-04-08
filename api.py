@@ -533,7 +533,7 @@ api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
 api.add_resource(UsersName, '/users/<username>')  # Route_4
 api.add_resource(Users, '/users')  # Route_5
-api.add_resource(SummonerName, '/users/<username>')  # Route_5
+api.add_resource(SummonerName, '/s/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
 
