@@ -60,14 +60,11 @@ export class RegisterComponent implements OnInit {
     }
 
     checkUsernameStatus(_status: string) {
-        console.log("Status:", _status);
         if (_status == "USERNAME_OK") {
             this.usernameTaken = false;
-            console.log("UsernameTaken = " + this.usernameTaken);
         }
         if (_status == "USERNAME_TAKEN") {
             this.usernameTaken = true;
-            console.log("UsernameTaken = " + this.usernameTaken);
         }
     }
 

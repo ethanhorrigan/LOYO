@@ -13,7 +13,7 @@ export class LeaderboardsComponent implements OnInit {
   summ;
   url = 'https://limitless-fjord-64117.herokuapp.com/playerstandings';
   res = [];
-  public Summoners: Summoner[];
+  public summoners: Summoner[];
 
   constructor(
     private apiService: APIServiceService,
@@ -23,8 +23,6 @@ export class LeaderboardsComponent implements OnInit {
   ngOnInit() {
     this.http.get<PlayersResponse>(this.url).subscribe(result  => {
       this.summoners = result.players;
-      console.log(result);
-      console.log(this.summoners);
     }, error => console.error(error));
     
   }

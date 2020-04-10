@@ -78,13 +78,10 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     //
-                    console.log("Im here");
                     let response = JSON.stringify(data);
                     // localStorage.setItem("username", this.f.username.value);
                     console.log(response);
                     if(response == "true") {
-                        console.log("Im here now");
-                        console.log(data);
                         this.router.navigate([this.returnUrl]);
                     }
                 },
