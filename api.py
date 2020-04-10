@@ -463,6 +463,7 @@ class CreateMatch(Resource):
         query = ("INSERT into matches (match_uuid, match_name, match_type, date, time, admin) VALUES (%s, %s, %s, %s, %s, %s)")
         param = _uuid, _match_name, _match_type, _date, _time, _match_admin
         cursor.execute(query, param)
+        connection.commit()
 
         return request.json
     def get(self):
