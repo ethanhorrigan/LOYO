@@ -455,6 +455,7 @@ class CreateMatch(Resource):
         _match_type = request.json['match_type']
         _date = request.json['date']
         _time = request.json['time']
+        print(Outcome.PENDING)
         _outcome = Outcome.PENDING
         _match_admin = request.json['player_name']
 
