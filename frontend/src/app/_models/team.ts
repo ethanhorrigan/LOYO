@@ -33,7 +33,7 @@ export class Match {
     }
 }
 
-export class Game {
+export class Games {
     /**
      *   _uuid = UUIDGenerator.generate_uuid(self) # Create UUID
         _match_name = request.json['match_name']
@@ -44,16 +44,16 @@ export class Game {
         _outcome = str(Outcome.PENDING.value)
         _match_admin = request.json['player_name']
      */
-    matchUUID: string;
-    matchName: string;
-    matchType: string;
+    match_uuid: string;
+    match_name: string;
+    match_type: string;
     date: string; //possible change to Date object?
     time: string; //possible change to Date object?
     outcome: string;
     admin: string;
 }
 export interface GameResponse {
-    game: Game[];
+    games: Games[];
 }
 
 export interface MatchResponse {

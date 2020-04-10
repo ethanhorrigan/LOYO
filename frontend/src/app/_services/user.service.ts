@@ -33,9 +33,9 @@ export class UserService {
         return this.http.get<Match[]>(`https://limitless-fjord-64117.herokuapp.com/mm`);
     }
 
-    getGames() {
-        return this.http.get<Game[]>(`https://limitless-fjord-64117.herokuapp.com/creategame`);
-    }
+    // getGames() {
+    //     return this.http.get<Game[]>(`https://limitless-fjord-64117.herokuapp.com/create`);
+    // }
 
     // register(user: User) {
     //     console.log(user);

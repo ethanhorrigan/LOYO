@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { Games, GameResponse } from '../_models/team';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-test-game',
@@ -8,12 +10,16 @@ import { UserService } from '../_services/user.service';
 })
 export class TestGameComponent implements OnInit {
   
+  public game: Games[];
 
-
-  constructor(private userService: UserService) { 
+  constructor(
+    private userService: UserService,
+    private http: HttpClient
+    ) { 
   }
 
   ngOnInit() {
+    this.getGames();
   }
 
   date: Date = new Date();
@@ -22,14 +28,12 @@ export class TestGameComponent implements OnInit {
   /**
    * Retrieve all current games.
    */
-
-  addToLobby() {
-    //let tempUser: TempUser;
-    this.userService.getGames()
-      .subscribe(data => {
-        console.log(data);
-        location.reload();
-      });
-
+  getGames() {
+    this.http.get<GameResponse>("https://limitless-fjord-64117.herokuapp.com/create").subscribe(data => {
+      this.game = data.games;
+      console.log(this.game[0].match_name);
+      console.log(this.game);
+    });
   }
+
 }

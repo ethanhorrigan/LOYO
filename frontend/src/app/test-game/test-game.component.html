@@ -9,26 +9,28 @@
         <div class="col-6 col-md-8">
             <p>.col-sm-6 .col-md-8</p>
             <a href="/creategame">
-            <button mat-raised-button color="accent">
-                <i class="fa fa-plus"></i>
-                Create
-            </button>
-        </a>
+                <button mat-raised-button color="accent">
+                    <i class="fa fa-plus"></i>
+                    Create
+                </button>
+            </a>
         </div>
         <div class="col-6 col-md-4">
             <p>.col-6 .col-md-4</p>
             <button mat-raised-button color="accent">Create 2</button>
         </div>
     </div>
-
-    <div class="card text-center" style="width: 18rem;">
+  
+    <div class="card text-center" style="width: 18rem;" *ngFor="let game of game; index as i;">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT02D9By8XQy3k4c_RAs2B9fWtNiiLIpatYTCsaMD_t-K0quvDP&usqp=CAU"
             class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <!-- <h5 class="card-title">{{game.matchName}}</h5> -->
+            <h5 class="card-title">{{game.match_name}}</h5>
             <h5 class="card-title">Game Type</h5>
             <h5 class="card-title">{{today}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's
                 content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>

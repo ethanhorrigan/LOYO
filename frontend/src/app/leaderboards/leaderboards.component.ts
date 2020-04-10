@@ -24,6 +24,5 @@ export class LeaderboardsComponent implements OnInit {
     this.http.get<PlayersResponse>(this.url).subscribe(result  => {
       this.summoners = result.players;
     }, error => console.error(error));
-    
   }
 }

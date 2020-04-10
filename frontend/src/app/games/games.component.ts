@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { first, delay } from 'rxjs/operators';
 import { UserService } from '../_services/user.service';
 import { TempUser } from '../_models';
-import { Team, TeamResponse, Match, MatchResponse } from '../_models/team';
+import { Team, TeamResponse, Match, MatchResponse, Game } from '../_models/team';
 import { HttpClient } from '@angular/common/http';
 import { QueueScheduler } from 'rxjs/internal/scheduler/QueueScheduler';
 
