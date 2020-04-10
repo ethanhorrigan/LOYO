@@ -1,7 +1,7 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
-import { Match } from '../_models/team';
+import { Match, Game } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
 
@@ -31,6 +31,10 @@ export class UserService {
 
     getMM() {
         return this.http.get<Match[]>(`https://limitless-fjord-64117.herokuapp.com/mm`);
+    }
+
+    getGames() {
+        return this.http.get<Game[]>(`https://limitless-fjord-64117.herokuapp.com/creategame`);
     }
 
     // register(user: User) {
