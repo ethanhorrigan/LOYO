@@ -62,6 +62,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 
 ## Helpful Project Links
 
+- Angular Cheat Sheet: https://angular.io/guide/cheatsheet
 - https://www.spiderposts.com/2019/07/04/flask-sqlalchemy-tutorial-login-system-with-python/
 - https://stackoverflow.com/questions/48775478/flask-user-login-check-if-user-exists
 

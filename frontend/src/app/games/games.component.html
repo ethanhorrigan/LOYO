@@ -1,8 +1,4 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
 <div class="main-content">
@@ -14,8 +10,29 @@
                 <p>{{timeTillGame}} Hours until next game</p>
             </div>
             <p>{{registeredPlayers}}/10</p>
-            <button>Test Button</button>
 
+            <!--Card-->
+            <div class=".col-md-4">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>Shiba Inu</mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
             <div class="teams-container">
                 <ul class="teams-row">
                     <li class="player-details" *ngFor="let match of match; index as i;">
@@ -153,5 +170,6 @@
                     </div>
                 </div>
             </div>
+
 
 </div>

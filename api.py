@@ -428,6 +428,30 @@ class Users(Resource):
 
         return status
             
+class CreateMatch(Resource):
+    """
+    Handles CRUD operations for creating matches.
+    """     
+    def post(self):
+        """
+        MATCH_TABLE
+        _match_uuid
+        _match_name
+        _match_type
+        _date
+        _time
+        _outcome
+        _region ??
+        _current_player
+        _match_admin
+        MATCH_PARTICIPANTS
+        _match_uuid
+        _match_name
+        _player_name
+        """
+        pass
+    def get(self):
+        pass
 
 class Login(Resource):
     def post(self):

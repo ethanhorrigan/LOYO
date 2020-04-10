@@ -11,7 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* Materials */
 import {MatButtonModule} from '@angular/material/button';
 import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 /* App Components*/
 import { SummonerComponent } from './summoner/summoner.component';
@@ -21,6 +22,9 @@ import { RegisterComponent } from './register/register.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { GamesComponent } from './games/games.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { from } from 'rxjs';
+import { TestGameComponent } from './test-game/test-game.component';
+import { CreatetournamentComponent } from './createtournament/createtournament.component';
 
 const appRoutes: Routes = [
   { path: 'summoner', component: SummonerComponent }
@@ -36,6 +40,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     LeaderboardsComponent,
     GamesComponent,
+    TestGameComponent,
+    CreatetournamentComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -48,6 +54,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatRadioModule,
+    MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule

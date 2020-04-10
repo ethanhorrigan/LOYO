@@ -1,0 +1,56 @@
+<div class="container">
+<div class="register-page">
+    <h2>Register</h2>
+    <div class="main-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" [(ngModel)]="usernameInput" (change)="onUsernameChange()"
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="usernameTaken && changed" class="error-message">The username {{nameOnChange}} is already taken.</div>
+                <div *ngIf="!usernameTaken && changed" class="available-message">The username {{nameOnChange}} is available.</div>
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="summonerName">Summoner Name</label>
+                <input type="text" formControlName="summonerName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.summonerName.errors }" />
+                <div *ngIf="summonerTaken" class="error-message">Summoner Name is taken</div>
+                <div *ngIf="submitted && f.summonerName.errors" class="invalid-feedback">
+                    <div *ngIf="f.summonerName.errors.required">Summoner Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <mat-radio-group [(ngModel)]="selection" formControlName="role" class="form-control" aria-label="Select an option">
+                    <mat-radio-button value="Top" (change)="getRole($event)"> Top</mat-radio-button>
+                    <mat-radio-button value="Jungle" (change)="getRole($event)"> Jungle</mat-radio-button>
+                    <mat-radio-button value="Mid" (change)="getRole($event)" > Mid</mat-radio-button>
+                    <mat-radio-button value="Adc" (change)="getRole($event)"> ADC</mat-radio-button>
+                    <mat-radio-button value="Support" (change)="getRole($event)"> Support</mat-radio-button>
+                  </mat-radio-group>
+                <p>You selected: {{selection}}</p>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Register
+                </button>
+                <a routerLink="/login" class="btn btn-link">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+</div>
