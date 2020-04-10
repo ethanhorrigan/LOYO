@@ -470,7 +470,8 @@ class CreateMatch(Resource):
         cursor = connection.cursor()
         query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches")
         cursor.execute(query)
-        result = {'games': [dict(zip(tuple(query.keys()), i))for i in query.cursor]}
+        columns = [desc[0] for desc in cursor.description]
+        result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
 
 class Login(Resource):
