@@ -459,7 +459,7 @@ class CreateMatch(Resource):
         _match_admin = request.json['player_name']
 
         cursor = connection.cursor() # Connect to DB
-        query = ("INSERT into matches (match_uuid, match_name, match_type, date, time, outcome, admin) VALUES (%s, %s, %s, %s, %s, %s, %s)")
+        query = ("INSERT into matches (match_uuid, match_name, match_type, date, time, admin) VALUES (%s, %s, %s, %s, %s, %s)")
         param = _match_name, _match_type, _date, _time, _outcome, _match_admin
         cursor.execute(query, param)
 
