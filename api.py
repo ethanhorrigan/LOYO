@@ -455,8 +455,8 @@ class CreateMatch(Resource):
         _match_type = request.json['match_type']
         _date = request.json['date']
         _time = request.json['time']
-        print(Outcome.PENDING)
-        _outcome = Outcome.PENDING
+        print(Outcome.PENDING.value)
+        _outcome = Outcome.PENDING.value
         _match_admin = request.json['player_name']
 
         cursor = connection.cursor() # Connect to DB
