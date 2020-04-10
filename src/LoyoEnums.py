@@ -1,9 +1,9 @@
 from enum import Enum
 
 class Outcome(Enum):
-    WIN = 0
-    LOSS = 1
-    PENDING = 3
+    WIN = 'WIN'
+    LOSS = 'LOSS'
+    PENDING = 'PENDING'
 
 class MatchTypes(Enum):
     CUSTOM_5V5 = 'RANKED_5V5'

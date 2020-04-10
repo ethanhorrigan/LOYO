@@ -12,6 +12,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
+from src.LoyoEnums import Outcome
 
 # db_connect = create_engine('sqlite:///fantasyleague.db')
 
@@ -449,7 +450,20 @@ class CreateMatch(Resource):
         _match_name
         _player_name
         """
-        pass
+        _uuid = UUIDGenerator.generate_uuid(self) # Create UUID
+        _match_name = request.json['match_name']
+        _match_type = request.json['match_type']
+        _date = request.json['date']
+        _time = request.json['time']
+        _outcome = Outcome.PENDING
+        _match_admin = request.json['player_name']
+
+        cursor = connection.cursor() # Connect to DB
+        query = ("INSERT into matches (match_uuid, match_name, match_type, date, time, outcome, admin) VALUES (%s, %s, %s, %s, %s, %s, %s)")
+        param = _match_name, _match_type, _date, _time, _outcome, _match_admin
+        cursor.execute(query, param)
+
+        return request.json
     def get(self):
         pass
 
@@ -560,6 +574,7 @@ api.add_resource(Users, '/users')  # Route_5
 api.add_resource(SummonerName, '/s/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
+api.add_resource(Createm, '/login')  # Route_8
 
 if __name__ == '__main__':
     app.run(port='5002')
