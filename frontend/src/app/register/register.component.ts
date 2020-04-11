@@ -46,15 +46,11 @@ export class RegisterComponent implements OnInit {
     }
 
     onUsernameChange() {
-        console.log(this.f.username.value);
         //Check the Username on the API
         this.userService.login(this.f.username.value).pipe(first()).subscribe(data => {
             this.usernameStatus = data.toString();
             this.checkUsernameStatus(this.usernameStatus);
         });
-
-        //Check the Username Status
-        //I want this method to be called once the observable has returned a result
         this.changed = true;
         return this.nameOnChange = this.f.username.value;
     }

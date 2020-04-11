@@ -19,8 +19,10 @@
             <p>.col-6 .col-md-4</p>
             <button mat-raised-button color="accent">Create 2</button>
         </div>
-    </div>
 
+        
+    </div>
+    <div class="col-sm-8">col-sm-8</div>
     <div class="card text-center" style="width: 18rem;" *ngFor="let game of game; index as i;">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT02D9By8XQy3k4c_RAs2B9fWtNiiLIpatYTCsaMD_t-K0quvDP&usqp=CAU"
             class="card-img-top" alt="...">
@@ -28,10 +30,11 @@
             <!-- <h5 class="card-title">{{game.matchName}}</h5> -->
             <h5 class="card-title">{{game.match_name}}</h5>
             <h5 class="card-title">{{game.match_type}}</h5>
-            <p class="card-text">
-                    <i class="fa fa-eye"></i> 5/10
-            </p>
+
             <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <i class="fa fa-user-circle-o"></i> 5/10
+                </li>
                 <li class="list-group-item">
                     <i class="fa fa-calendar"></i> {{game.date}}
 

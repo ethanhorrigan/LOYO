@@ -1,11 +1,16 @@
-.card{
+.card {
     margin: 15px;
     display: inline-block; /* make blocks inline-block */
+    box-shadow: -5px 5px 25px 0px rgba(0,0,0,0.75);
 }
 
 .col-6 {
     // background-color: white;
-    // border: 1px solid red;
+     border: 1px solid red;
+}
+
+.col-sm-8{
+    border: 1px solid green;
 }
 
 button {
