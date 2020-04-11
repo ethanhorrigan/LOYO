@@ -1,7 +1,7 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
-import { Match, Game } from '../_models/team';
+import { Match, Games } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
 
