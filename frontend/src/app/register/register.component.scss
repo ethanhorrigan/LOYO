@@ -3,6 +3,10 @@ h2, label, input, p {
     color: white;
 }
 
+h2 {
+    margin-top: 150px;
+}
+
 .btn-primary {
     background-color: #1ba098;
     border: none;
@@ -49,6 +53,7 @@ select {
     padding: 2%;
     background-color: opacify($color: #09263b, $amount: 0.5);
     border-radius: 2%;
+    box-shadow: -5px 5px 25px 0px rgba(0,0,0,0.75);
 }
 
 .error-message {
@@ -76,6 +81,6 @@ h2 {
     color: white;
 }
 mat-radio-button {
-    margin-right: 5px auto;
     margin-left: 5px auto;
+    margin-right: 10px;
 }

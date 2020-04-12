@@ -51,6 +51,7 @@ select {
     padding: 2%;
     background-color: opacify($color: #09263b, $amount: 0.5);
     border-radius: 2%;
+    box-shadow: -5px 5px 25px 0px rgba(0,0,0,0.75);
 }
 
 .error-message {

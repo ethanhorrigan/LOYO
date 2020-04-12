@@ -59,8 +59,6 @@ fdescribe('RegisterComponent', () => {
     expect(nameInput.valid).toBeTruthy();
   });
 
-
-  
   it('should validate empty summonername', () => {
     const summonerIn = component.registerForm.controls.summonerName;
     expect(summonerIn.valid).toBeFalsy();
