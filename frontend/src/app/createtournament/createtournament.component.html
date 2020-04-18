@@ -2,48 +2,34 @@
 <div class="register-page">
     <h2>Create an Event</h2>
     <div class="main-form">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="username">Tournament Name</label>
-                <input type="text" formControlName="username" [(ngModel)]="usernameInput" 
-                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <input type="text" formControlName="gameName" 
+                class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="username">Date</label>
-                <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="dateInput"  [ngClass]="{'is-invalid': submitted && f.date.errors}">
+                <label for="date">Date</label>
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="date" 
+                [ngClass]="{'is-invalid': submitted && f.date.errors}">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker #picker disabled="false"></mat-datepicker>
+                
+                 
+
             </div>
+
             <div class="form-group">
-                <label for="summonerName">Summoner Name</label>
-                <input type="text" formControlName="summonerName" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.summonerName.errors }" />
-                <div *ngIf="summonerTaken" class="error-message">Summoner Name is taken</div>
-                <div *ngIf="submitted && f.summonerName.errors" class="invalid-feedback">
-                    <div *ngIf="f.summonerName.errors.required">Summoner Name is required</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" formControlName="password" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
-                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="role">Game Mode</label>
-                <mat-radio-group [(ngModel)]="selection" formControlName="role" class="form-control" aria-label="Select an option">
-                    <mat-radio-button value="Top" (change)="getRole($event)"> 5v5</mat-radio-button>
-                    <mat-radio-button value="Jungle" (change)="getRole($event)"> 1v1</mat-radio-button>
-                    <mat-radio-button value="Mid" (change)="getRole($event)" > ARAM</mat-radio-button>
+                <label for="gameMode">Game Mode</label>
+                <mat-radio-group formControlName="gameMode" class="form-control" aria-label="Select an option">
+                    <mat-radio-button value="Top" > 5v5</mat-radio-button>
+                    <mat-radio-button value="Jungle"> 1v1</mat-radio-button>
+                    <mat-radio-button value="Mid" > ARAM</mat-radio-button>
                   </mat-radio-group>
-                <p>You selected: {{selection}}</p>
             </div>
             <div class="form-group">
                 <button [disabled]="loading" class="btn btn-primary">

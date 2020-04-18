@@ -16,6 +16,10 @@ h2, label, input, p {
     color: white;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    color: white;
+   }
+
 input[type=radio] {
     position: absolute;
     display: none;
@@ -24,6 +28,8 @@ input[type=radio] {
 input[type=text] {
     color: #2c2c2c;
 }
+
+
 
 select {
     -webkit-appearance: none;
