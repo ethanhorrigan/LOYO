@@ -3,7 +3,6 @@ from api import PasswordSetup
 import unittest
 
 class SimpleTest(unittest.TestCase):
-
     def test_get_tier(self):
         self.assertEqual(Summoner.get_tier('Yupouvit'), 'GOLD')
 

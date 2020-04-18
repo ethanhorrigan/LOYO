@@ -47,7 +47,7 @@ export class GamesComponent implements OnInit {
     //   console.log("im in init");
     // }
 
-     this.getMatch();
+     //this.getMatch();
      console.log(this.getNumberOfGames(36));
      
   }

@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
     submitted = false;
+    invalid = false;
     returnUrl: string;
 
     constructor(
@@ -79,10 +80,14 @@ export class LoginComponent implements OnInit {
                 data => {
                     //
                     let response = JSON.stringify(data);
-                    // localStorage.setItem("username", this.f.username.value);
                     console.log(response);
                     if(response == "true") {
+                        this.invalid = false;
                         this.router.navigate([this.returnUrl]);
+                    }
+                    if(response == "false") {
+                        this.invalid = true;
+                        this.loading = false;
                     }
                 },
                 error => {

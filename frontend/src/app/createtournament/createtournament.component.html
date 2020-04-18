@@ -1,17 +1,21 @@
 <div class="container">
 <div class="register-page">
-    <h2>Register</h2>
+    <h2>Create an Event</h2>
     <div class="main-form">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" formControlName="username" [(ngModel)]="usernameInput" (change)="onUsernameChange()"
-                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                <div *ngIf="usernameTaken && changed" class="error-message">The username {{nameOnChange}} is already taken.</div>
-                <div *ngIf="!usernameTaken && changed" class="available-message">The username {{nameOnChange}} is available.</div>
+                <label for="username">Tournament Name</label>
+                <input type="text" formControlName="username" [(ngModel)]="usernameInput" 
+                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="username">Date</label>
+                <input matInput [matDatepicker]="picker" formControlName="date" [(ngModel)]="dateInput"  [ngClass]="{'is-invalid': submitted && f.date.errors}">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
             </div>
             <div class="form-group">
                 <label for="summonerName">Summoner Name</label>
@@ -31,14 +35,13 @@
                     <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                 </div>
             </div>
+            
             <div class="form-group">
-                <label for="role">Role</label>
+                <label for="role">Game Mode</label>
                 <mat-radio-group [(ngModel)]="selection" formControlName="role" class="form-control" aria-label="Select an option">
-                    <mat-radio-button value="Top" (change)="getRole($event)"> Top</mat-radio-button>
-                    <mat-radio-button value="Jungle" (change)="getRole($event)"> Jungle</mat-radio-button>
-                    <mat-radio-button value="Mid" (change)="getRole($event)" > Mid</mat-radio-button>
-                    <mat-radio-button value="Adc" (change)="getRole($event)"> ADC</mat-radio-button>
-                    <mat-radio-button value="Support" (change)="getRole($event)"> Support</mat-radio-button>
+                    <mat-radio-button value="Top" (change)="getRole($event)"> 5v5</mat-radio-button>
+                    <mat-radio-button value="Jungle" (change)="getRole($event)"> 1v1</mat-radio-button>
+                    <mat-radio-button value="Mid" (change)="getRole($event)" > ARAM</mat-radio-button>
                   </mat-radio-group>
                 <p>You selected: {{selection}}</p>
             </div>

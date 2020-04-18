@@ -11,11 +11,11 @@ h2, label, input, p {
 .btn-link {
     color: #1ba098;
 }
-.register-page {
-    // background-image: url("../../assets/Images/ClientBG.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.mat-datepicker-toggle {
+    color: white;
 }
+
 input[type=radio] {
     position: absolute;
     display: none;
@@ -24,7 +24,6 @@ input[type=radio] {
 input[type=text] {
     color: #2c2c2c;
 }
-
 
 select {
     -webkit-appearance: none;
@@ -78,4 +77,8 @@ h2 {
 mat-radio-button {
     margin-right: 5px auto;
     margin-left: 5px auto;
+}
+
+input, select, textarea{
+    color: #2c2c2c;
 }

@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'leaderboards', component: LeaderboardsComponent},
   { path: 'test', component: TestGameComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'creategame', component: CreatetournamentComponent}
+  { path: 'creategame', component: CreatetournamentComponent},
+  { path: '**', component: GamesComponent } // Wildward Route
 ];
 
 @NgModule({

@@ -8,16 +8,13 @@ import { User, UserLogin } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-    private currentUserSubject: BehaviorSubject<User>;
-    public currentUser: Observable<User>;
+    public currentUser: String;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public get currentUserValue(): User {
-        return this.currentUserSubject.value;
+    public get currentUserValue(): String {
+        return this.currentUser;
     }
 
     public getUserInStorage() {
@@ -43,7 +40,6 @@ export class AuthenticationService {
         return this.http.post<Boolean>(`https://limitless-fjord-64117.herokuapp.com/login`, { username, password }).pipe(map(user => {
             if(user == true) {
                 localStorage.setItem('currentUser', username);
-                this.currentUserSubject.next(username);
             }
             else {
                 
@@ -55,6 +51,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+        this.currentUser = null;
+        location.reload();
     }
 }

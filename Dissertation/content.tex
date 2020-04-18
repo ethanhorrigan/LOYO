@@ -10,7 +10,7 @@ Ethan Horrrigan
 
 
 \chapter{Introduction}
-Competitive online gaming has seen a significant increase in popularity in recent times. The estimated global esports audience was estimated at 335 million people in 2017 generating a revenue of more than \$900M with an estimated growth of over \$1600M in 2021.~\cite{sjoblom2019esports} Yuri Seo and Sang-Uk Jung ~\cite{seo2016beyond} outlined why people play or spectate competitive games. The main factors include entertainment and gaining a better understanding of a game. Whether spectating or participating, competitive games can consume a large portion of our free time. Organising tournaments require organisation and rules. To ensure the rules are upheld require some form of administration from a system or an individual. Issues can occur when an individual is responsible for managing these tournaments, for example, if a tournament has a fixed schedule but the person responsible for managing the tournament is unavailable, then the tournament game must be postponed. Administrators are also required to ensure matchmaking fairness between teams which can be very time consuming and inefficient. The disadvantages of physical tournaments do not exist in an online game
+Competitive online gaming has seen a significant increase in popularity in recent times. The estimated global esports audience was estimated at 335 million people in 2017 generating a revenue of more than \$900M with an estimated growth of over \$1600M in 2021.~\cite{sjoblom2019esports} Yuri Seo and Sang-Uk Jung ~\cite{seo2016beyond} outlined why people play or spectate competitive games. The main factors include entertainment and gaining a better understanding of a game. Whether spectating or participating, competitive games can consume a large portion of our free time. Organising matches need some form of administration to ensure rules are upheld. A person or system is usually responsible for this. Issues occur when an individual is responsible for managing these games, for example, if a match has a fixed schedule but the person responsible for managing the game is unavailable, then the tournament game must be postponed. Administrators are also required to ensure matchmaking fairness between teams which can be very time consuming and unpredictable. These factors are the reason why I've developed a service for people to manage and administrate their events or matches.
 
 \chapter{Context}
 \begin{itemize}
@@ -26,6 +26,9 @@ NOTE: Remove usless information.
 NOTE: How tournaments work (Online)
 League of Legends is a free-to-play multiplayer online battle arena (MOBA). A team consists of five players on either side. The map consists of three lanes (Top lane, Middle lane and Bottom lane) and a Jungle on each side of the map. Each player is responsible for fulfilling these lanes and controlling their characters (champions). The main objective of the game is to defeat the enemy nexus (base). Players can accomplish this by fighting the opposition in solo fights or team fights. Players can purchase items throughout the game to strengthen their character, all players gain experience and gold by killing minions and other players. This is the main source of income for players to upgrade their items. Players can build damage or resistances depending on what characters the enemies are playing.
 League of Legends is heavily Team-Based. The skill level of a team is an important condition for team effectiveness. The team's skill level is based on the combination of skills and attributes of its members.
+
+\section{Rating}
+\section{Custom Games}
 This creates a very competitive environment. Players also acquire ranks, which are broken up into several tiers: Iron, Bronze, Silver, Gold, Platinum, Diamond, Master, Grandmaster and Challenger. All tiers have four divisions within each tier up until master. A division contains 100 league points (LP) that players gain or lose depending on match outcome. 78.31\% of the player base are either bronze, silver or gold. Whereas only 0.02\% of players are challenger tier \cite{kou2016ranking}.
 
 \begin{center}    
@@ -167,16 +170,63 @@ About seven to ten pages.
 	\item Use references (IEEE format, e.g. [1]), Books, Papers, URLs (timestamp) – sources should be authoritative. 
 \end{itemize}
 
-\section{XML}
-Here's some nicely formatted XML:
-\begin{minted}{xml}
-<this>
-<looks lookswhat="good">
-Good
-</looks>
-</this>
+\section{Angular}
+Angular is an open-source web application framework led by the Angular Team at Google. It is often used for building Single Page Applications (SPA). What is a Single Page Application? In a web application, when you navigate to a different page, the entire page is reloaded, in a SPA, only the view of the content requested is reloaded. SPA provides a fluid experience for the user. A good example of a Single Page Application is Twitter. Since this application is a SPA, navigating between pages was smooth. A constant array of Routes is declared for every component.
+\begin{minted}{typescript}
+const routes: Routes = [
+{ path: 'mypath', component: MyComponent}
+{ path: 'mypath2', component: MyComponentTwo}
+{ path: 'mypath3', component: MyComponentThree}
+];
 \end{minted}
 
+\newpage
+\subsection{Why Angular?}
+
+\begin{itemize}
+	\item Components
+\end{itemize}
+
+Angular allows you to create components that provide functionality, styling and views.
+
+\begin{itemize}
+	\item Data Binding
+\end{itemize}
+Allows accessing of data from Typescript code to the html page view. This eliminates the process of implementing data binding myself.
+Example:
+\begin{minted}{typescript}
+// TypeScript String Variable
+myString: string = "Hello, World";
+
+// Data Binding on the HTML Page
+{{myString}}
+\end{minted}
+
+\begin{itemize}
+	\item Testing
+\end{itemize}
+Angular includes testing frameworks (Jasmine, Karma and Protractor) for e2e testing and unit testing. When creating a new component, A template spec file is also created where test cases for each component can be easily written.
+
+\section{SQLite}
+SQLITE
+\section{PostgreSQL}
+SQLITE
+\section{Heroku}
+Here's some nicely formatted XML:
+\section{Flask}
+Here's some nicely formatted XML:
+\section{RiotWatcher}
+Here's some nicely formatted XML:
+\section{Postman and JSON}
+Here's some nicely formatted XML:
+\section{The Glicko System}
+Here's some nicely formatted XML:
+\section{Gale Shapley Algorithm}
+Here's some nicely formatted XML:
+\section{Bootstrap and Angular Material}
+Here's some nicely formatted XML:
+\section{Bcrypt}
+Here's some nicely formatted XML:
 \chapter{System Design}
 As many pages as needed.
 \begin{itemize}

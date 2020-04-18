@@ -58,6 +58,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 - 02/02/2020 - Began Changing the Database.
 - 26/03/2020 - Fixed HTTP request issue due to HTTPClientTesting module overriding HTTPClient Module
 - 02/04/2020 - Refactored Postgres and Parameterised Queries 
+- 18/04/2020 - https://stackoverflow.com/a/42458129 Unique URL Angular
 
 
 ## Helpful Project Links

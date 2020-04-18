@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 
 /* App Components*/
 import { SummonerComponent } from './summoner/summoner.component';
@@ -55,6 +57,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatRadioModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule

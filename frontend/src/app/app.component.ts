@@ -18,7 +18,7 @@ constructor(
 
   
   title = 'LOYO';
-  playerName: string = localStorage.getItem('currentUser');
+  playerName: string = this.authenticationService.getUserInStorage(); // Get the current user (in local storage)
   logStatus: string;
   log: boolean = false;
 
@@ -34,6 +34,7 @@ constructor(
   }
 
   logout() {
+    this.authenticationService.login;
     if(this.authenticationService.getUserInStorage() != null) {
       localStorage.removeItem('currentUser');
     }
