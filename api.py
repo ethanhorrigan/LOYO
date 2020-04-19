@@ -591,7 +591,7 @@ api.add_resource(SummonerName, '/s/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
 api.add_resource(CreateMatch, '/create')  # Route_8
-api.add_resource(GetMatch, '/getMatch/<match_uuid>')  # Route_5
+api.add_resource(GetMatch, '/getmatch/<_match_uuid>')  # Route_5
 
 if __name__ == '__main__':
     app.run(port='5002')
