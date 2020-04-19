@@ -61,6 +61,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { TestGameComponent } from './test-game/test-game.component';
 import { CreatetournamentComponent } from './createtournament/createtournament.component';
+import { MatformtestComponent } from './matformtest/matformtest.component';
 
 const appRoutes: Routes = [
   { path: 'summoner', component: SummonerComponent }
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     GamesComponent,
     TestGameComponent,
     CreatetournamentComponent,
+    MatformtestComponent,
   ],
   imports: [
     RouterModule.forRoot(

@@ -41,10 +41,12 @@ select {
     border: 0 !important;
     background: #2c3e50;
     background-image: none;
+    
   }
 
 .aria-label {
     color: white;
+    
 }
 
 .main-form {
@@ -70,6 +72,29 @@ h2 {
     text-align: center;
 }
 
+// https://stackoverflow.com/a/53536919
+:host ::ng-deep .mat-radio-label-content {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    display: inline-block;
+    order: 0;
+    line-height: inherit;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+:host ::ng-deep .mat-select-value {
+    display: table-cell;
+    max-width: 0;
+    /* width: 100%; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: white;
+}
+
 .mat-radio-outer-circle{
     border-color:rgb(66, 134, 244); 
 }
@@ -79,12 +104,10 @@ h2 {
     border: none;
     background: none;
     color: white;
-}
-mat-radio-button {
-    margin-right: 5px auto;
-    margin-left: 5px auto;
+    
 }
 
 input, select, textarea{
     color: #2c2c2c;
 }
+
