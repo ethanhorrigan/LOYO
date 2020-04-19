@@ -1,7 +1,7 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
-import { Match, Games } from '../_models/team';
+import { Match, Games, GameResponse, NewParticipant } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
 
@@ -58,6 +58,10 @@ export class UserService {
     }
 
     getMatch(matchId: string) {
-        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getMatch/${matchId}`);
+        return this.http.get<GameResponse>(`https://limitless-fjord-64117.herokuapp.com/getmatch/${matchId}`);
+    }
+
+    addPlayerToMatch(user: NewParticipant) {
+        return this.http.post(`https://limitless-fjord-64117.herokuapp.com/addtomatch`, user);
     }
 }

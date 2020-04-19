@@ -52,8 +52,25 @@ export class Games {
     outcome: string;
     admin: string;
 }
+
 export interface GameResponse {
     games: Games[];
+}
+
+export class Participants {
+    match_uuid: string;
+    username: string;
+    summoner_name: string;
+    player_icon: string;
+}
+
+export interface NewParticipant {
+    username: string;
+    match_uuid: string;
+}
+
+export interface ParticipantsResponse {
+    participants: Participants[];
 }
 
 export interface MatchResponse {

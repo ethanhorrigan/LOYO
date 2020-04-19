@@ -38,6 +38,7 @@ CORS(app) # To solve the CORS issue when making HTTP Requests
 
 try:
     # dsn=None, connection_factory=None, cursor_factory=None, **kwargs
+   
     connection = psycopg2.connect(user=user, password=db_password, host=host, port=port, database=database)
     
     # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
@@ -483,6 +484,35 @@ class GetMatch(Resource):
         columns = [desc[0] for desc in cursor.description]
         result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
+class AddToMatch(Resource):
+    def post(self):
+        _username = request.json['username']
+        _match_uuid = request.json['match_uuid']
+        cursor = connection.cursor()
+        user_query = ("SELECT summoner_name, player_icon from users where user_name= %s")
+        user_param = [_username]
+
+        cursor.execute(user_query, user_param)
+        result = cursor.fetchall()[0]
+        _summoner_name = result[0]
+        _player_icon = result[1]
+        print(_summoner_name)
+        print(_player_icon)
+
+        print(_username)
+        print(_match_uuid)
+        # check the participant db first before inserting
+        check_query=("SELECT COUNT(summoner_name) FROM participants where summoner_name=%s")
+        check_param=[_summoner_name]
+        cursor.execute(check_query, check_param)
+        check_result = cursor.fetchall()
+
+        if check_result[0][0] == 0:
+            p_query=("INSERT INTO participants values(%s, %s, %s, %s)")
+            p_param=(_match_uuid, _username, _summoner_name, _player_icon)
+            cursor.execute(p_query, p_param)
+        # Get user details
+        return 'Added'
 class Login(Resource):
     def post(self):
         """
@@ -592,6 +622,7 @@ api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
 api.add_resource(CreateMatch, '/create')  # Route_8
 api.add_resource(GetMatch, '/getmatch/<_match_uuid>')  # Route_5
+api.add_resource(AddToMatch, '/addtomatch')  # Route_8
 
 if __name__ == '__main__':
     app.run(port='5002')
