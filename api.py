@@ -510,8 +510,8 @@ class AddToMatch(Resource):
         # print(check_result[0][0])
 
         # Not breaking into the if statement for some reason?
-        p_query=("INSERT INTO participants values(%s, %s, %s, %s)")
-        p_param=[_match_uuid, _username, _summoner_name, _player_icon]
+        p_query = ("insert into participants values(%s, %s, %s, %s)")
+        p_param = (_match_uuid, _username, _summoner_name, _player_icon)
         cursor.execute(p_query, p_param)
         # Get user details
         return 'Added'
