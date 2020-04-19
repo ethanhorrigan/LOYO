@@ -508,7 +508,7 @@ class AddToMatch(Resource):
         cursor.execute(check_query, check_param)
         check_result = cursor.fetchall()
         print(check_result[0][0])
-        if check_result[0][0] == 0:
+        if int(check_result[0][0]) == 0:
             p_query=("INSERT INTO participants values(%s, %s, %s, %s)")
             p_param=(_match_uuid, _username, _summoner_name, _player_icon)
             cursor.execute(p_query, p_param)
