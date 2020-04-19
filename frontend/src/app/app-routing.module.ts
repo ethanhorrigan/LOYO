@@ -9,6 +9,8 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { TestGameComponent } from './test-game/test-game.component';
 import { CreatetournamentComponent } from './createtournament/createtournament.component';
 import { MatformtestComponent } from './matformtest/matformtest.component';
+import { DynamicrouteComponent } from './dynamicroute/dynamicroute.component';
+import { ViewMatchComponent } from './view-match/view-match.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'creategame', component: CreatetournamentComponent},
   { path: 'matform', component: MatformtestComponent},
-  { path: '**', component: GamesComponent } // Wildward Route
+  { path: 'user/:username', component: DynamicrouteComponent},
+  { path: 'match/:matchId', component: ViewMatchComponent},
+  { path: '**', component: GamesComponent }, // Wildward Route
 ];
 
 @NgModule({

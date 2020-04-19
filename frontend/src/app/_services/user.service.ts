@@ -56,4 +56,8 @@ export class UserService {
     login(username: string) {
         return this.http.get(`https://limitless-fjord-64117.herokuapp.com/users/${username}`);
     }
+
+    getMatch(matchId: string) {
+        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getMatch/${matchId}`);
+    }
 }

@@ -474,6 +474,15 @@ class CreateMatch(Resource):
         result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
 
+class GetMatch(Resource):
+    def get (self, _match_uuid):
+        cursor = connection.cursor()
+        query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches WHERE match_uuid =%s")
+        query_param = [_match_uuid]
+        cursor.execute(query, query_param)
+        columns = [desc[0] for desc in cursor.description]
+        result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
+        return result
 class Login(Resource):
     def post(self):
         """
@@ -582,6 +591,7 @@ api.add_resource(SummonerName, '/s/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm')  # Route_7
 api.add_resource(CreateMatch, '/create')  # Route_8
+api.add_resource(GetMatch, '/getMatch/<match_uuid>')  # Route_5
 
 if __name__ == '__main__':
     app.run(port='5002')

@@ -31,6 +31,13 @@
 
 ![MMR](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/research/MMR.PNG)
 
+## TO-DO
+- Implement Elo System
+- Allow player to create match
+- Allow admin to input winner of the match
+- Remove match when winner has been determined
+- Unique URL for match
+
 ## Change Log
 
 - 29/01/2020 - Changed Database from SQLIte to MongoDB
