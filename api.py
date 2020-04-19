@@ -484,6 +484,7 @@ class GetMatch(Resource):
         columns = [desc[0] for desc in cursor.description]
         result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
+
 class AddToMatch(Resource):
     def post(self):
         _username = request.json['username']
@@ -506,7 +507,7 @@ class AddToMatch(Resource):
         check_param=[_summoner_name]
         cursor.execute(check_query, check_param)
         check_result = cursor.fetchall()
-
+        print(check_result)
         if check_result[0][0] == 0:
             p_query=("INSERT INTO participants values(%s, %s, %s, %s)")
             p_param=(_match_uuid, _username, _summoner_name, _player_icon)
