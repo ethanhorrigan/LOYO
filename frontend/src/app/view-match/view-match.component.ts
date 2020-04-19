@@ -32,6 +32,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     });
 
     this.getMatch();
+    this.getParticipants();
   }
 
   ngOnDestroy() {
@@ -55,8 +56,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       username: this.user,
       match_uuid: this.matchId
     };
-
-    console.log(participant);
   
     this.userService.addPlayerToMatch(participant).subscribe(data => {
       location.reload();
@@ -66,7 +65,8 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
   getParticipants() {
     this.userService.getParticipants(this.matchId).subscribe(data => {
-      this.participants = data.participants
+      this.participants = data.participants;
+      console.log(this.participants);
     });
   }
 
