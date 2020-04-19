@@ -17,6 +17,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   user: string;
 
   public matchDetails: Games[];
+  public participants: Participants[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -56,13 +57,17 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     };
 
     console.log(participant);
-    
-
-    /*
+  
     this.userService.addPlayerToMatch(participant).subscribe(data => {
       location.reload();
     });
-    */
+    
+  }
+
+  getParticipants() {
+    this.userService.getParticipants(this.matchId).subscribe(data => {
+      this.participants = data.participants
+    });
   }
 
 }

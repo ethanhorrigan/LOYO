@@ -34,8 +34,8 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-sm">
-                <p>One of three columns</p>
+            <div class="col-sm" *ngFor="let p of participants; let i=index">
+                <p>{{p.participants}}</p>
               </div>
               <div class="col-sm">
                 <p>One of three columns</p>

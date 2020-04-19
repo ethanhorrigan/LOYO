@@ -485,6 +485,16 @@ class GetMatch(Resource):
         result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
 
+class GetParticipants(Resource):
+    def get(post, _match_id):
+        cursor = connection.cursor()
+        p_query = ("Select match_uuid, username, summoner_name, player_icon from participants where match_uuid=%s")
+        p_param = [_match_id]
+        cursor.execute(p_query, p_param)
+        columns = [desc[0] for desc in cursor.description]
+        result = {'participants': [dict(zip(columns, row)) for row in cursor.fetchall()]}
+        return result
+
 class AddToMatch(Resource):
     def post(self):
         _username = request.json['username']
@@ -503,11 +513,11 @@ class AddToMatch(Resource):
         print(_username)
         print(_match_uuid)
         # # check the participant db first before inserting
-        # check_query=("SELECT COUNT(summoner_name) FROM participants where summoner_name=%s")
-        # check_param=[_summoner_name]
-        # cursor.execute(check_query, check_param)
-        # check_result = cursor.fetchall()
-        # print(check_result[0][0])
+        check_query=("SELECT COUNT(summoner_name) FROM participants where summoner_name=%s")
+        check_param=[_summoner_name]
+        cursor.execute(check_query, check_param)
+        check_result = cursor.fetchall()
+        print(check_result[0][0])
 
         # Not breaking into the if statement for some reason?
         # not adding ??
@@ -627,6 +637,7 @@ api.add_resource(MatchMaking, '/mm')  # Route_7
 api.add_resource(CreateMatch, '/create')  # Route_8
 api.add_resource(GetMatch, '/getmatch/<_match_uuid>')  # Route_5
 api.add_resource(AddToMatch, '/addtomatch')  # Route_8
+api.add_resource(GetParticipants, '/getparticipants/<_match_id>')
 
 if __name__ == '__main__':
     app.run(port='5002')
