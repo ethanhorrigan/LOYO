@@ -1,42 +1,67 @@
 
-<div class="container">
-<p>view-match works!</p>
-<p>Viewing match {{matchId}}</p>
+<div class="container-fluid">
 <p> Current User: {{user}}</p>
 
-<div class="match-container" *ngFor="let game of matchDetails; index as i;">
-<p>{{game.match_uuid}}</p>
-<p>{{game.match_name}}</p>
-<p>{{game.date}}</p>
-<p>{{game.time}}</p>
-<p>{{game.admin}}</p>
-<p>{{game.outcome}}</p>
+
+<div class="container" *ngFor="let game of matchDetails; index as i;">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>{{matchName}}</h2>
+    </div>
+    <div class="col-md-4">
+      <h3>{{game.date}}</h3>
+      <h3>{{game.time}}</h3>
+    </div>
+  </div>
 </div>
 
-<div class="row no-gutters">
-    <div class="col-6 col-md-4">
-            <button mat-raised-button color="accent" (click)="joinMatch()">
-                Join
-                <i class="fa fa-plus"></i>
-            </button>
-    </div>
 
+<div class="row no-gutters">
     <div class="container">
         <div class="row">
           <div class="col-sm">
-            <p>One of three columns</p>
-          </div>
-          <div class="col-sm">
-            <p>One of three columns</p>
-          </div>
-          <div class="col-sm">
-            <p>One of three columns</p>
+            <p>Participants</p>
           </div>
         </div>
-        <div class="row" *ngFor="let p of participants; let i=index">
-            <div class="col-sm" >
-                <p><img src="http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/{{p.player_icon}}.png" alt="Smiley face" height="42" width="42">{{p.summoner_name}}</p>
+        <div class="row p">
+            <div class="col-sm" *ngFor="let p of participants; let i=index">
+              <div style="width: 250px;">
+                <div class="card card-stats mb-4 mb-lg-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <span class="text-success mr-2">{{i + 1}}</span>
+                        <h5 class="card-title">{{p.summoner_name}}</h5>
+                      </div>
+                      <div class="col-auto">
+                          <img class="player-icon" src="http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/{{p.player_icon}}.png">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="col-sm" *ngIf="!max">
+                <button mat-raised-button color="accent" (click)="joinMatch()">
+                  Join
+                  <i class="fa fa-plus"></i>
+              </button>
               </div>
         </div>
       </div>
+
+      <div class="container team">
+        <div class="row">
+            <div class="col-sm">
+              <p>Team 1</p>
+            </div>
+            <div class="col-sm">
+              <p>Vs</p>
+            </div>
+            <div class="col-sm">
+              <p>Team 2</p>
+            </div>
+          </div>
+      </div>
+
 </div>

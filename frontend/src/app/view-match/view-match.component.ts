@@ -15,6 +15,9 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   private sub: any;
   matchId: string;
   user: string;
+  matchName: string;
+  max: boolean = false;
+  playerCount: number;
 
   public matchDetails: Games[];
   public participants: Participants[];
@@ -33,6 +36,12 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
     this.getMatch();
     this.getParticipants();
+    if(this.playerCount == 10) {
+      this.max = true;
+    }
+    //console.log(this.participants.length);
+    
+
   }
 
   ngOnDestroy() {
@@ -42,6 +51,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   getMatch() {
     this.userService.getMatch(this.matchId).subscribe(data =>  {
       this.matchDetails = data.games;
+      this.matchName = this.matchDetails[0].match_name;
     });
   }
 
@@ -59,15 +69,39 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   
     this.userService.addPlayerToMatch(participant).subscribe(data => {
       location.reload();
-    });
-    
+    }); 
   }
 
   getParticipants() {
     this.userService.getParticipants(this.matchId).subscribe(data => {
       this.participants = data.participants;
       console.log(this.participants);
+      this.playerCount = this.participants.length;
+      console.log(this.playerCount);
     });
+  }
+
+  
+  beingMM() {
+    /**
+     * matchmaking needs an array of participants
+     * and the match id?
+     * returns a sorted match of particpants sorted by team ? 
+     */
+   //this.userService.getMM
+  }
+
+  getOutcome() {
+    /**
+     * Outcome needs to update values for all participants
+     * so outcome needs:
+     * the MatchID
+     * Participants []
+     * and the actual outcome of the game
+     * 
+     * 
+     * only update values for winning team participants.
+     */
   }
 
 }

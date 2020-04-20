@@ -1,3 +1,57 @@
-p {
+p, h2, h3{
     color: white;
+}
+
+.col-md-8 {
+    border: 1px solid red;
+    text-align: center;
+}
+
+.col-md-4 {
+    border: 1px solid blue;
+}
+
+.participant {
+    text-align: center;
+    border: 1px solid red;
+    padding: 15px;
+}
+
+.col-sm {
+    margin: 25px auto;
+}
+
+.player-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.card {
+    background-color: #09263b;
+    border-radius: 0.50rem;
+    max-height: 82px;
+}
+
+.card-title {
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.card-body {
+    padding: 0.50rem;
+}
+
+.card {
+-webkit-box-shadow: -15px 15px 35px 8px rgba(0,0,0,0.75);
+-moz-box-shadow: -15px 15px 35px 8px rgba(0,0,0,0.75);
+box-shadow: -15px 15px 35px 8px rgba(0,0,0,0.75);
+}
+
+.row .p {
+    border: 1px solid blue;
+}
+
+.container .team {
+    text-align: center;
 }

@@ -34,9 +34,12 @@
 ## TO-DO
 - Implement Elo System
 - Allow player to create match
-- Allow admin to input winner of the match
 - Remove match when winner has been determined
-- Unique URL for match
+- Create Request for updating players game outcome
+- begin matchmaking when enough participants 
+- add option for admin ONLY to determine game outcome
+- update players values accordingly
+- only show games on page where outcome is pending
 
 ## Change Log
 
