@@ -5,7 +5,7 @@
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" formControlName="username" [(ngModel)]="usernameInput" (change)="onUsernameChange()"
+                <input type="text" formControlName="username" (change)="onUsernameChange()"
                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <div *ngIf="usernameTaken && changed" class="error-message">The username {{nameOnChange}} is already taken.</div>
                 <div *ngIf="!usernameTaken && changed" class="available-message">The username {{nameOnChange}} is available.</div>

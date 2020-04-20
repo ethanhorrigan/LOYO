@@ -70,6 +70,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 - 02/04/2020 - Refactored Postgres and Parameterised Queries 
 - 18/04/2020 - https://stackoverflow.com/a/42458129 Unique URL Angular
 - 18/04/2020 - https://www.infragistics.com/products/ignite-ui-angular/angular/components/time_picker.html TimePicker
+- Deploy Angular to Firebase
 
 
 ## Helpful Project Links
