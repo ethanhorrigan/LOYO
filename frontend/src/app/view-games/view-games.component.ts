@@ -4,11 +4,11 @@ import { Games, GameResponse } from '../_models/team';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-test-game',
-  templateUrl: './test-game.component.html',
-  styleUrls: ['./test-game.component.scss']
+  selector: 'app-view-games',
+  templateUrl: './view-games.component.html',
+  styleUrls: ['./view-games.component.scss']
 })
-export class TestGameComponent implements OnInit {
+export class ViewGamesComponent implements OnInit {
   
   public game: Games[];
   searchText: string;

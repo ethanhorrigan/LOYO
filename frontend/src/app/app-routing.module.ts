@@ -6,8 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { GamesComponent } from './games/games.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
-import { TestGameComponent } from './test-game/test-game.component';
-import { MatformtestComponent } from './matformtest/matformtest.component';
+import { ViewGamesComponent } from './view-games/view-games.component';
 import { DynamicrouteComponent } from './dynamicroute/dynamicroute.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
 
@@ -18,12 +17,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'games', component: GamesComponent},
   { path: 'leaderboards', component: LeaderboardsComponent},
-  { path: 'test', component: TestGameComponent},
+  { path: 'viewgames', component: ViewGamesComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'matform', component: MatformtestComponent},
   { path: 'user/:username', component: DynamicrouteComponent},
   { path: 'match/:matchId', component: ViewMatchComponent},
-  { path: '**', component: GamesComponent }, // Wildward Route
+  { path: '**', component: ViewGamesComponent }, // Wildward Route
 ];
 
 @NgModule({

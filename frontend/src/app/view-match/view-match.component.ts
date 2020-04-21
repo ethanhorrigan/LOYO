@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TestGameComponent } from '../test-game/test-game.component';
+import { ViewGamesComponent } from '../view-games/view-games.component';
 import { UserService } from '../_services/user.service';
 import { Games, Participants, NewParticipant } from '../_models/team';
 import { AuthenticationService } from '../_services/authentication.service';

@@ -60,8 +60,7 @@ import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { GamesComponent } from './games/games.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
-import { TestGameComponent } from './test-game/test-game.component';
-import { MatformtestComponent } from './matformtest/matformtest.component';
+import { ViewGamesComponent } from './view-games/view-games.component';
 import { DynamicrouteComponent } from './dynamicroute/dynamicroute.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
 
@@ -79,8 +78,7 @@ const appRoutes: Routes = [
     RegisterComponent,
     LeaderboardsComponent,
     GamesComponent,
-    TestGameComponent,
-    MatformtestComponent,
+    ViewGamesComponent,
     DynamicrouteComponent,
     ViewMatchComponent,
   ],
