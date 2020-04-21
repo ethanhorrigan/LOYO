@@ -20,6 +20,7 @@
                     </div>
                 </div>
                 <p *ngIf="invalid" class="invalid-details">Invalid Username or Password.</p>
+                <p *ngIf="loggedIn" class="invalid-details">User already Logged In.</p>
                 <div class="form-group">
                     <button [disabled]="loading" class="btn btn-primary">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>

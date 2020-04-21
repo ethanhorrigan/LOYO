@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     invalid = false;
+    loggedIn = false;
     returnUrl: string;
 
     constructor(
@@ -70,6 +71,11 @@ export class LoginComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.loginForm.invalid) {
+            return;
+        }
+
+        if(this.authenticationService.getUserInStorage != null) {
+            this.loggedIn = true;
             return;
         }
 
