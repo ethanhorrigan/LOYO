@@ -7,7 +7,6 @@ import { RegisterComponent } from './register/register.component';
 import { GamesComponent } from './games/games.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { ViewGamesComponent } from './view-games/view-games.component';
-import { DynamicrouteComponent } from './dynamicroute/dynamicroute.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
 
 
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'leaderboards', component: LeaderboardsComponent},
   { path: 'viewgames', component: ViewGamesComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'user/:username', component: DynamicrouteComponent},
   { path: 'match/:matchId', component: ViewMatchComponent},
   { path: '**', component: ViewGamesComponent }, // Wildward Route
 ];

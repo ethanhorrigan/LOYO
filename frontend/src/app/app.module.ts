@@ -61,7 +61,6 @@ import { GamesComponent } from './games/games.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { ViewGamesComponent } from './view-games/view-games.component';
-import { DynamicrouteComponent } from './dynamicroute/dynamicroute.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
 
 const appRoutes: Routes = [
@@ -79,7 +78,6 @@ const appRoutes: Routes = [
     LeaderboardsComponent,
     GamesComponent,
     ViewGamesComponent,
-    DynamicrouteComponent,
     ViewMatchComponent,
   ],
   imports: [
