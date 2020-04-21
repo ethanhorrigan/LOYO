@@ -34,9 +34,8 @@ constructor(
   }
 
   logout() {
-    this.authenticationService.login;
     if(this.authenticationService.getUserInStorage() != null) {
-      localStorage.removeItem('currentUser');
+      this.authenticationService.logout();
     }
     else if (this.authenticationService.getUserInStorage() == null) {
       this.router.navigate(['/login']);

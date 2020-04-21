@@ -38,7 +38,10 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
+        console.log(this.authenticationService.getUserInStorage())
+        if(this.authenticationService.getUserInStorage() == null) {
+            this.loggedIn = false;
+        }
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
@@ -74,7 +77,7 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        if(this.authenticationService.getUserInStorage != null) {
+        if(this.authenticationService.getUserInStorage() != null) {
             this.loggedIn = true;
             return;
         }
@@ -90,6 +93,7 @@ export class LoginComponent implements OnInit {
                     if(response == "true") {
                         this.invalid = false;
                         this.router.navigate([this.returnUrl]);
+                        
                     }
                     if(response == "false") {
                         this.invalid = true;
