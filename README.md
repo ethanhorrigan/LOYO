@@ -21,6 +21,12 @@
 $ ng test
 ```
 
+> Unit Test Server
+
+```shell
+$ python loyo_python_test.py
+```
+
 ---
 
 ## Contributing
