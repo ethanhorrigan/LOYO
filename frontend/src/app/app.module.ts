@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 /* Materials */
@@ -141,6 +142,7 @@ const appRoutes: Routes = [
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    Ng2SearchPipeModule
   ],
   providers: [{
     provide: MAT_RADIO_DEFAULT_OPTIONS,

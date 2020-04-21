@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class TestGameComponent implements OnInit {
   
   public game: Games[];
+  searchText: string;
 
   constructor(
     private userService: UserService,
