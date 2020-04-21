@@ -212,16 +212,73 @@ myString: string = "Hello, World";
 Angular includes testing frameworks (Jasmine, Karma and Protractor) for e2e testing and unit testing. When creating a new component, A template spec file is also created where test cases for each component can be easily written.
 
 \section{SQLite}
-SQLITE
+SQLite is an open-source relational database. I used SQLite in the development of the project so I could audition how data was structured for the entire application. Each table went through iterations of changes until I was satisfied with the database schema. SQLite database is stored as a file locally \cite{newman2004sqlite} instead of running as a stand-alone process.
+This made it easier to develop a prototype database and understand how data will be interpreted when deploying.
+When I finally developed a functioning database I converted to a PostgreSQL production database. This was a smooth transition as both databases were relational. This meant queries didn't change and only how the database connected to the server and had to be changed.
+
+\newpage
+\begin{itemize}
+	\item Connection to SQLite Database:
+\end{itemize}
+
+ \begin{minted}{python}
+db_connect = create_engine('sqlite:///dev_database.db')
+\end{minted}
+
+\begin{itemize}
+	\item Connection to PostgreSQL Database:
+\end{itemize}
+
+\begin{minted}{python}
+connection = psycopg2.connect(user=user, password=db_password, host=host, port=port, database=database)
+
+cursor = connection.cursor(cursor_factory=RealDictCursor)
+\end{minted}
 \section{PostgreSQL}
-SQLITE
+PostgreSQL (Postgres) is a Relational Database Management System (RDBMS). 
+\cite{postgresql1996postgresql} Postgres is known for its reliability, data integrity and extensibility. The main reason why I chose Postgres as my production database is because of its extensibility, ensuring my application is scalable for future growth. Postgres also provides concurrency meaning queries can be read in parallel allowing multiple users to use the database at the same time.
+\paragraph{Tables:}Matches and Participants both contained a match id primary key, I could access match data from both tables using a match id number. These tables were used in match creation and joining.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{llllll}
+		\toprule \\
+		match id & match type & match name & date & outcome & admin \\
+		\midrule \\
+		Row 1.2  & Row 1.2    & Row 1.3    & Row 1.4 & Row 1.5 & Row 1.6\\
+		\bottomrule
+	\end{tabular}
+	\caption{Matches table.}
+	\label{table:Matches}
+\end{table}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{llllll}
+		\toprule \\
+		match id & username & summonername \\
+		\midrule \\
+		Row 1.2  & Row 1.2  & Row 1.3  \\
+		\bottomrule
+	\end{tabular}
+	\caption{Participants table.}
+	\label{table:Matches}
+\end{table}
+\section{PgAdmin}
+PGADMIN TODO
 \section{Heroku}
+Here's some nicely formatted XML:
+\section{Firebase}
 Here's some nicely formatted XML:
 \section{Flask}
 Here's some nicely formatted XML:
 \section{RiotWatcher}
 Here's some nicely formatted XML:
-\section{Postman and JSON}
+\section{Postman}
+Here's some nicely formatted XML:
+\section{JSON}
+Here's some nicely formatted XML:
+\section{Karma and Jasmine}
+Here's some nicely formatted XML:
+\section{Python Unittest}
 Here's some nicely formatted XML:
 \section{The Glicko System}
 Here's some nicely formatted XML:
