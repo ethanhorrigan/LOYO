@@ -13,13 +13,32 @@
 - 
 ## Usage (Optional)
 ## Documentation (Optional)
-## Tests (Optional)
 
-> Unit Tests
+## Build
 
-```shell
+ > The build artifacts will be stored in the `dist/` directory.
+
+ ```shell
+$ ng build
+```
+
+## Running unit tests
+
+> To execute unit tests via [Karma](https://karma-runner.github.io)
+
+ ```shell
 $ ng test
 ```
+
+## Running end-to-end tests
+
+To execute the end-to-end tests via [Protractor](http://www.protractortest.org/)
+
+ ```shell
+$ ng e2e
+```
+
+## Tests 
 
 > Unit Test Server
 
