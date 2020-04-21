@@ -67,7 +67,6 @@ $ python loyo_python_test.py
 ![MMR](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/research/MMR.PNG)
 
 ## TO-DO
-- Change root route to view match
 - Implement Elo System
 - Allow player to create match
 - Remove match when winner has been determined
