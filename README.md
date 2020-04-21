@@ -7,9 +7,19 @@
 
 ### Setup
 ## Features
+- Allow usewrs to create and manage custom matches
+- Automatic Matchmacking
+- User Registration and Authentication
+- 
 ## Usage (Optional)
 ## Documentation (Optional)
 ## Tests (Optional)
+
+> Unit Tests
+
+```shell
+$ ng test
+```
 
 ---
 
