@@ -506,13 +506,14 @@ class AddToMatch(Resource):
         _username = request.json['username']
         _match_uuid = request.json['match_uuid']
         cursor = connection.cursor()
-        user_query = ("SELECT summoner_name, player_icon from users where user_name= %s")
+        user_query = ("SELECT summoner_name, player_icon, mmr from users where user_name= %s")
         user_param = [_username]
 
         cursor.execute(user_query, user_param)
         result = cursor.fetchall()[0]
         _summoner_name = result[0]
         _player_icon = result[1]
+        _mmr = result[2]
         print(_summoner_name)
         print(_player_icon)
 
@@ -528,8 +529,8 @@ class AddToMatch(Resource):
         # Not breaking into the if statement for some reason?
         # not adding ??
         if check_result[0][0] == 0:
-            p_query = ("insert into participants values(%s, %s, %s, %s)")
-            p_param = (_match_uuid, _username, _summoner_name, _player_icon)
+            p_query = ("insert into participants values(%s, %s, %s, %s, %s)")
+            p_param = (_match_uuid, _username, _summoner_name, _player_icon, _mmr)
             cursor.execute(p_query, p_param)
             connection.commit()
         # Get user details
@@ -599,10 +600,15 @@ class MatchMaking(Resource):
         Returns:
         Match ready teams.
         """    
+        # Param Variables
+        _match_uuid = request.json['match_uuid']
         matching_state = True # Set matching state to true
         # conn = db_connect.connect() # Connect to the Database
         cursor = connection.cursor()
         
+        p_query = ("SELECT summoner_name from participants where match_uuid=%s order by mmr desc")
+        p_param = [_match_uuid]
+        cursor.execute(p_query, p_param)
         query = ("select summoner_name FROM Lobby order by mmr desc") # Get the Users from the Lobby
         cursor.execute(query)
 

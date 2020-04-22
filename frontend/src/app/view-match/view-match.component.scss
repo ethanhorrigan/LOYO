@@ -1,4 +1,4 @@
-p, h2, h3{
+p, h2, h3, h6{
     color: white;
 }
 
@@ -52,6 +52,14 @@ box-shadow: -15px 15px 35px 8px rgba(0,0,0,0.75);
     border: 1px solid blue;
 }
 
-.container .team {
-    text-align: center;
+.team {
+ text-align: center;
+}
+
+.details {
+    margin-top: 1.25rem;
+}
+
+.outcome {
+    margin-top: 1.25rem;
 }

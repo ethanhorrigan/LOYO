@@ -1,18 +1,23 @@
 
 <div class="container-fluid">
-<p> Current User: {{user}}</p>
-
-
-<div class="container" *ngFor="let game of matchDetails; index as i;">
+<div class="container details" *ngFor="let game of matchDetails; index as i;">
   <div class="row">
     <div class="col-md-8">
       <h2>{{matchName}}</h2>
+      <h6>Mode: {{game.match_type}}</h6>
+      <h6>Admin: {{game.admin}}</h6>
     </div>
     <div class="col-md-4">
       <h3>{{game.date}}</h3>
       <h3>{{game.time}}</h3>
     </div>
   </div>
+
+  <div class="row justify-content-center outcome">
+    <div class="col-md-8 ">
+      <h6>Outcome: {{game.outcome}}</h6>
+    </div>
+    </div>
 </div>
 
 

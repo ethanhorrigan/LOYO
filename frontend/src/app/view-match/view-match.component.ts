@@ -35,7 +35,9 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     });
 
     this.getMatch();
-    this.getParticipants();
+    if(this.max == false) {
+      this.getParticipants();
+    }
     if(this.playerCount == 10) {
       this.max = true;
     }
@@ -66,10 +68,16 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       username: this.user,
       match_uuid: this.matchId
     };
-  
-    this.userService.addPlayerToMatch(participant).subscribe(data => {
-      location.reload();
-    }); 
+    if(this.max == false) {
+      this.userService.addPlayerToMatch(participant).subscribe(data => {
+        location.reload();
+      }); 
+    }
+
+    else {
+      console.log("ERROR: Joining match");
+      
+    }
   }
 
   getParticipants() {
