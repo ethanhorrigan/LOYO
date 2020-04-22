@@ -390,7 +390,8 @@ class Users(Resource):
         _account_id = Summoner.get_account_id(SummonerName) # get the account id
         _rank_string = Summoner.get_rank_string(self, SummonerName)
         _player_icon = Summoner.get_player_icon(SummonerName)
-        print(_player_icon)
+        _total_games = Summoner.get_total_games(SummonerName)
+
         cursor = connection.cursor()
         query = ("select COUNT(user_name) from Users where user_name= %s")
         param = [Username]
@@ -421,8 +422,8 @@ class Users(Resource):
             _mmr = cursor.fetchall()[0]
 
             # add icon http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/588.png
-            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id, player_icon) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)")
-            r_values = (SummonerName, Username, hashed, _rank_string, _mmr, role, _account_id, _player_icon)
+            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id, player_icon) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)")
+            r_values = (SummonerName, Username, hashed, _rank_string, _mmr, role, _account_id, _player_icon, _total_games)
 
             cursor.execute(r_query, r_values)
 
