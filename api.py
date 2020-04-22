@@ -421,7 +421,7 @@ class Users(Resource):
             _mmr = cursor.fetchall()[0]
 
             # add icon http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/588.png
-            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id, player_icon) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)")
+            r_query = ("INSERT INTO users (summoner_name, user_name, password, rank, mmr, primary_role, account_id, player_icon, total_games) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)")
             r_values = (SummonerName, Username, hashed, _rank_string, _mmr, role, _account_id, _player_icon, _total_games)
 
             cursor.execute(r_query, r_values)
