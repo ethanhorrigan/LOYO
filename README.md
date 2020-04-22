@@ -1,9 +1,11 @@
 
 # Applied Project & Minor Dissertation
 
+
+![Arch](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/MainArchitecture.png)
+
 ![Arch1](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/Archetciture2.png)
 
-![Arch2](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/Archetciture.png)
 
 ### Setup
 ## Features

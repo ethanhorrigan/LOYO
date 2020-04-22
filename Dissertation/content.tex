@@ -167,12 +167,6 @@ Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in F
 
 
 \chapter{Technology Review}
-About seven to ten pages.
-\begin{itemize}
-	\item Describe each of the technologies you used at a conceptual level. Standards, Database Model (e.g. MongoDB, CouchDB), XMl, WSDL, JSON, JAXP.
-	\item Use references (IEEE format, e.g. [1]), Books, Papers, URLs (timestamp) – sources should be authoritative. 
-\end{itemize}
-
 \section{Angular}
 Angular is an open-source web application framework led by the Angular Team at Google. It is often used for building Single Page Applications (SPA). What is a Single Page Application? In a web application, when you navigate to a different page, the entire page is reloaded, in a SPA, only the view of the content requested is reloaded. SPA provides a fluid experience for the user. A good example of a Single Page Application is Twitter. Since this application is a SPA, navigating between pages was smooth. A constant array of Routes is declared for every component.
 \begin{minted}{typescript}
@@ -183,7 +177,6 @@ const routes: Routes = [
 ];
 \end{minted}
 
-\newpage
 \subsection{Why Angular?}
 
 \begin{itemize}
@@ -194,7 +187,16 @@ Angular allows you to create components that provide functionality, styling and 
 \begin{itemize}
 	\item Dynamic Routes
 \end{itemize}
-TODO:
+I could create unique URLs through Angulars ActivatedRoutes feature. I used this for viewing users profiles and particular match details. The URL parameters could also be accessed.
+\newpage Example Button to view a match.
+\begin{minted}{typescript}
+//Typescript
+{ path: 'match/:matchId', component: ViewMatchComponent},
+\end{minted}
+\begin{minted}{html}
+ <!-- HTML -->
+<a href="match/{{game.match_uuid}}" class="btn btn-primary">Join</a></li>
+\end{minted}
 
 \begin{itemize}
 	\item Data Binding
@@ -266,25 +268,148 @@ PostgreSQL (Postgres) is a Relational Database Management System (RDBMS).
 	\label{table:Matches}
 \end{table}
 \section{PgAdmin}
-PGADMIN TODO
+PgAdmin \cite{pgadmin} is a database management tool for PostgreSQL. It simplifies the creation, maintenance, and use of database objects through a user interface. I used pgAdmin for database maintenance and to get a visual representation of data that was stored in my database. I linked the local and deployment PostgreSQL database to pgAdmin making both easily accessible for development.
 \section{Heroku}
-Here's some nicely formatted XML:
+Heroku \cite{heroku} is a Free Cloud Application Platform. The Flask Server and PostgreSQL Database were both deployed on Heroku. Heroku runs applications in "dynos" which are basically just virtual computers. I created a branch on GitHub specifically for Heroku, so every time I made a new commit to GitHub, Heroku would automatically build. This allowed me to develop alot more efficiently because I did not have to start up the server each time and changes to server were automatically built, deployed and ran on each git push. 
+\paragraph{Setup:} to setup Heroku for my server. I had to give it a requirments file, which contains all the servers dependencies. This is so Heroku can set up an enviroment to run the server.
+\begin{minted}{text}
+riotwatcher==2.7.1
+Flask_Cors==3.0.8
+Flask_RESTful==0.3.7
+psycopg2==2.8.4
+SQLAlchemy==1.3.12
+numpy==1.17.3
+Flask==1.1.1
+python_bcrypt==0.3.2
+\end{minted}
+A Procfile is also made, to let Heroku know how to run the server.
+\begin{minted}{text}
+web: gunicorn api:app
+\end{minted}
+\newpage
 \section{Firebase}
-Here's some nicely formatted XML:
+Firebase \cite{firebase} is a web application development platform. I used Firebase primarly for its Cloud Hosting \cite{peteva2017cloud}. Firebase provided resources for me to deploy and manage my front-end application remotely in a cloud infrastructure. This provided access for public and private end-users.
+\paragraph{Setup:}
+First, I created a Firebase account and a Firebase App.
+I then built my front-end application into one distribution folder (/dist)
+\begin{minted}{bash}
+ng build --prod --aot
+\end{minted}
+After building the project, I initialised the Firebase app.
+Selecting hosting as the feature setup.
+\begin{minted}{bash}
+firebase init
+\end{minted}
+Once the project was finish initialising, I deployed the app.
+\begin{minted}{bash}
+firebase deploy
+\end{minted}
+I could then navigate to the deployment url, to view my deployed application.
 \section{Flask}
-Here's some nicely formatted XML:
+Flask is a web framework written in Python. I used Flask to develop the projects API. The projects databases and Riot Games API were connected to the flask server. This basically provided communication via CRUD operations between the projects front-end and back-end.
+\paragraph{Setup}
+\begin{minted}{python}
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+\end{minted}
+
+Example of a GET request to Riot Games API to retrieve players id.
+\begin{minted}{python}
+def get_account_id(self):
+player_details = watcher.summoner.by_name(my_region, self)
+return player_details['accountId']
+\end{minted}
+\newpage
+Working example of a GET request to retrieve match details.
+\begin{minted}{python}
+class GetMatch(Resource):
+def get (self, _match_uuid):
+cursor = connection.cursor()
+query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches WHERE match_uuid =%s")
+query_param = [_match_uuid]
+ cursor.execute(query, query_param)
+columns = [desc[0] for desc in cursor.description]
+result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
+return result
+\end{minted}
+
+
 \section{RiotWatcher}
-Here's some nicely formatted XML:
+RiotWatcher is a Python wrapper for Riot Games API, RiotWatcher supports a simple rate limiter. This \cite{dealcisco} rate limiter will try to stop you from making too many requests to Riot Games API. I used RiotWatcher to access players in-game data and then store relevant data in my database to be used throughout the project. Here is a working example of retrieving a players ID number and verify if the player exists in Riot Games database.
+\begin{minted}{python}
+from riotwatcher import RiotWatcher, ApiError
+
+watcher = RiotWatcher(<api-key>)
+
+def get_player_details(self):
+	try:
+		response = watcher.summoner.by_name(my_region, self)
+	except ApiError as err:
+		if err.response.status_code == 429:
+			print('Too many requests')
+	elif err.response.status_code == 404:
+		response = "SUMMONER_NOT_FOUND"
+	return response
+\end{minted}
+\newpage
 \section{Postman}
-Here's some nicely formatted XML:
-\section{JSON}
-Here's some nicely formatted XML:
-\section{Karma and Jasmine}
-Here's some nicely formatted XML:
+Postman \cite{postman} is a platform for Application Programming Interface (API) development. I used Postman to perform CRUD operations (Create, Read, Update, Delete) on Riot Games API and the projects API. I created collections of each request so I could easily test each operation before implementing into the projects front end. When the project was deployed, I ran the same tests but used the projects deployment URL.
+\section{Jasmine}
+Jasmine \cite{jasmine} is a behaviour-driven development framework for testing JavaScript code. Jasmine is a set of functions that perform unit tests. You give a function and what the result should be. These unit test cases \cite{elbaum2006carving} focuses on the individual components of the project. Jasmine was mainly used to test static components, e.g. buttons, form fields, titles etc..
+\paragraph{Example:} validating user input field on the registration component
+\begin{minted}{typescript}
+fdescribe('RegisterComponent', () => {
+	let component: RegisterComponent;
+	let fixture: ComponentFixture<RegisterComponent>;	
+	beforeEach(async(() => {
+	TestBed.configureTestingModule({
+		declarations: [ RegisterComponent ],
+		imports: [ RouterTestingModule, FormsModule,],
+	})
+	.compileComponents();
+}));
+
+it('should validate username', () => {
+	const nameInput = component.registerForm.controls.username;
+	
+	expect(nameInput.valid).toBeFalsy();
+	
+	nameInput.setValue('TestName');
+	expect(nameInput.valid).toBeTruthy();
+});
+
+\end{minted}
+ 
+\section{Karma}
+Karma \cite{karmatesting} is a tool which opens a web server that executes source code against test code. The results of each test against each browser are displayed via the command so I can see if the tests passed or failed. Jasmine tests are executed through Karma. Using a configuration file, I can set which testing framework (Jasmine), port, browser and plugins needed to execute Karma.
+\paragraph{My Karma Config:}
+\begin{minted}{javascript}
+module.exports = function (config) {
+	config.set({
+	 basePath: '',
+	 frameworks: ['jasmine', '@angular-devkit/build-angular'],
+	coverageIstanbulReporter: {
+	 dir: require('path').join(__dirname, './coverage/frontend'),
+	 reports: ['html', 'lcovonly', 'text-summary'],
+	 fixWebpackSourcePaths: true
+	},
+	 port: 9876,
+	 autoWatch: true,
+	 browsers: ['Chrome'],
+	 singleRun: false,
+	 restartOnFileChange: true
+	});
+};
+
+\end{minted}
+
 \section{Selenium}
-Here's some nicely formatted XML:
-\section{Python Unittest}
-Here's some nicely formatted XML:
+Selenium is a web testing tool which uses scripts to automate tests directly within a browser \cite{holmes2006automating}. I used Selenium for user interface automation testing. Instead of manually testing the UI which is time-consuming and error-prone, I could automate manual tasks through Selenium.
+
+\paragraph{Example:}when implementing the user authentication system, I would have to enter the user details every time I wanted to test its functionality. Using Selenium, I could automate this process by recording each step of logging in with a test set of user details, then anytime I wanted to test the login system, I would execute this script through Selenium's IDE browser extension.
+\begin{center}
+\includegraphics[width=10cm,height=5.3cm,keepaspectratio]{img/Selenium.png}
+\end{center}
 \section{The Elo System}
 The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
 \[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
@@ -295,23 +420,10 @@ The Elo rating system, developed by Arpad Elo, is used for calculating relative 
 \cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
 \paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
 
-
-{\raggedright The new rating for player $E_a$ if $S_a = 1$ (Win)}\vfill
-
-$E_a = \frac{1}{1+10\frac{1200-1000}{400}}$\vfill
-
-$E_a = 0.16$\vfill
-
-$R_n = 1200 + 30(1 - 0.16)$\vfill
-
-$R_n = 1225.2$\vfill
-\section{Gale Shapley Algorithm}
-Here's some nicely formatted XML:
-\section{Bootstrap and Angular Material}
-Here's some nicely formatted XML:
-\section{Bcrypt}
-Here's some nicely formatted XML:
 \chapter{System Design}
+\begin{center}    
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/Architecture.png}
+\end{center}
 As many pages as needed.
 \begin{itemize}
 	\item Architecture, UML etc. An overview of the different components of the system. Diagrams etc… Screen shots etc.
