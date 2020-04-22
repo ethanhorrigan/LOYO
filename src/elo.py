@@ -8,16 +8,8 @@ class Elo:
 
     """
     What do i need?
-
-    - List of players for Team 1 or Team 2
-    - Average MMR for both teams.
-    - The players rating (for each player)
-    - compare ratings 
-    - 1v1:
-    - Both players MMR
-    - The players Rating
-    - Calculate Rating
-    - Output rating
+    - Players Games in this Tournament
+    - Players total games on league
     """
 
     # The K-factor used by the USCF (United States Chess Federation)
@@ -44,7 +36,7 @@ class Elo:
         """
         # Calcuate the expected rating for the winning player.
         expected_rating = self.expect_result(losers_rating, winners_rating)
-        k = self.k_factor(0, 5)
+        k = self.k_factor(25, 0)
         print(k)
         # Calculate the updated rating for the winning player.
         new_rating = winners_rating + k * (1 - expected_rating)
@@ -62,10 +54,7 @@ class Elo:
         Ea = 1 / (1 + 10**( (opponent_rating - player_rating) /400))
         return Ea
 
-    # https://realpython.com/python-rounding/
-    def round_down(self, n, decimals=0):
-        multiplier = 10 ** decimals
-        return math.floor(n * multiplier) / multiplier
 
 e = Elo()
-print(e.calculate_new_rating(700, 1000))
+print(e.calculate_new_rating(1000, 1100))
+print(e.calculate_new_rating(500, 800))

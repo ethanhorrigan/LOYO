@@ -286,7 +286,25 @@ Here's some nicely formatted XML:
 \section{Python Unittest}
 Here's some nicely formatted XML:
 \section{The Elo System}
-Here's some nicely formatted XML:
+The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
+\[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
+\[ R_n = R_o + K(S_a - E_a) \]
+
+
+{\raggedright The size of the score change is determined by a dynamic K value. Initially, this K value is big (30 for their first 30 games) resulting in rapid changes in Elo. This is so a player can quickly find his or her correct place in the ranking system. As the number of games increases the K value is reduced to prevent dramatic changes in Elo.}\newline
+\cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
+\paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
+
+
+{\raggedright The new rating for player $E_a$ if $S_a = 1$ (Win)}\vfill
+
+$E_a = \frac{1}{1+10\frac{1200-1000}{400}}$\vfill
+
+$E_a = 0.16$\vfill
+
+$R_n = 1200 + 30(1 - 0.16)$\vfill
+
+$R_n = 1225.2$\vfill
 \section{Gale Shapley Algorithm}
 Here's some nicely formatted XML:
 \section{Bootstrap and Angular Material}

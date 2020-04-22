@@ -29,7 +29,7 @@ port = "5432"
 app = Flask(__name__)
 api = Api(app)
 
-watcher = RiotWatcher('RGAPI-646600b8-b063-4402-a7f6-7defa618ffdd')
+watcher = RiotWatcher('RGAPI-2223bdbc-71de-4799-ad6e-7b302b7264e2')
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 my_region = 'euw1'
@@ -86,6 +86,11 @@ class Summoner():
         account_id = Summoner.get_account_id(self)
         match_id = watcher.match.matchlist_by_account(my_region, account_id)
         return match_id['matches'][0]['gameId']
+    
+    def get_total_games(self):
+        account_id = Summoner.get_account_id(self)
+        wins = watcher.league.by_id(my_region, account_id);
+        return wins
 
     def get_player_details(self):
         """
