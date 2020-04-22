@@ -492,7 +492,7 @@ class GetMatch(Resource):
         return result
 
 class GetParticipants(Resource):
-    def get(post, _match_id):
+    def get(self, _match_id):
         cursor = connection.cursor()
         p_query = ("Select match_uuid, username, summoner_name, player_icon from participants where match_uuid=%s")
         p_param = [_match_id]
