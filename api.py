@@ -509,7 +509,7 @@ class GetParticipantCount(Resource):
         cursor.execute(query, param)
 
         qResult = cursor.fetchall()
-        print(qResult[0][0])
+        print(qResult)
         return qResult[0][0]
 
 class AddToMatch(Resource):
