@@ -509,7 +509,8 @@ class GetParticipantCount(Resource):
         cursor.execute(query, param)
 
         qResult = cursor.fetchall()
-        print(qResult)
+        connection.commit()
+        print(qResult[0][0])
         return qResult[0][0]
 
 class AddToMatch(Resource):
@@ -600,7 +601,7 @@ class UsersName(Resource):
         return status
 
 class MatchMaking(Resource):
-    def get(self):
+    def get(self, _match_uuid):
         """
         Handles the matchmaking process.
         Set the matching_state to true while there is still users in the lobby.
@@ -620,10 +621,6 @@ class MatchMaking(Resource):
         p_query = ("SELECT summoner_name from participants where match_uuid=%s order by mmr desc")
         p_param = [_match_uuid]
         cursor.execute(p_query, p_param)
-        query = ("select summoner_name FROM Lobby order by mmr desc") # Get the Users from the Lobby
-        cursor.execute(query)
-
-        uuid = UUIDGenerator.generate_uuid(self) # Generate a Unique ID for the match.
 
         results = cursor.fetchall() # Get the players currently in the lobby.
         count = 0
@@ -657,7 +654,7 @@ api.add_resource(UsersName, '/users/<username>')  # Route_4
 api.add_resource(Users, '/users')  # Route_5
 api.add_resource(SummonerName, '/s/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
-api.add_resource(MatchMaking, '/mm')  # Route_7
+api.add_resource(MatchMaking, '/mm/<_match_uuid>')  # Route_7
 api.add_resource(CreateMatch, '/create')  # Route_8
 api.add_resource(GetMatch, '/getmatch/<_match_uuid>')  # Route_5
 api.add_resource(AddToMatch, '/addtomatch')  # Route_8

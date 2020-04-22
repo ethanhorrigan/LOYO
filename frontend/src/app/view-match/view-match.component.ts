@@ -4,6 +4,7 @@ import { ViewGamesComponent } from '../view-games/view-games.component';
 import { UserService } from '../_services/user.service';
 import { Games, Participants, NewParticipant } from '../_models/team';
 import { AuthenticationService } from '../_services/authentication.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-view-match',
@@ -27,14 +28,19 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private auth: AuthenticationService) { 
       this.user = this.auth.getUserInStorage();
-      this.getPlayerCount();
     }
 
   ngOnInit() {
+
+    
     this.sub = this.activatedRoute.params.subscribe(params => {
       this.matchId = params['matchId'];
     });
 
+    this.getPlayerCount();
+
+    console.log(this.playerCount);
+    
     this.getMatch();
     if(this.max == false) {
       this.getParticipants();
@@ -88,10 +94,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     });
   }
 
+
   getPlayerCount() {
     this.userService.getParticipantCount(this.matchId).subscribe(data => {
-      this.playerCount = Number(data);
-      console.log(data)
+      this.playerCount = Number(data);    
     });
   }
 
