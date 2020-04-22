@@ -27,6 +27,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private auth: AuthenticationService) { 
       this.user = this.auth.getUserInStorage();
+      this.getPlayerCount();
     }
 
   ngOnInit() {
@@ -41,8 +42,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     if(this.playerCount == 10) {
       this.max = true;
     }
-    //console.log(this.participants.length);
-    
+    else {
+      this.max = false;
+    }
+    console.log(this.playerCount);
 
   }
 
@@ -83,9 +86,12 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   getParticipants() {
     this.userService.getParticipants(this.matchId).subscribe(data => {
       this.participants = data.participants;
-      console.log(this.participants);
-      this.playerCount = this.participants.length;
-      console.log(this.playerCount);
+    });
+  }
+
+  getPlayerCount() {
+    this.userService.getParticipantCount(this.matchId).subscribe(data => {
+      this.playerCount = Number(data);
     });
   }
 

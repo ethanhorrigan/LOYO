@@ -68,4 +68,8 @@ export class UserService {
     getParticipants(matchId: string) {
         return this.http.get<ParticipantsResponse>(`https://limitless-fjord-64117.herokuapp.com/getparticipants/${matchId}`);
     }
+
+    getParticipantCount(matchId: string) {
+        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getparticipantcount/${matchId}`);
+    }
 }

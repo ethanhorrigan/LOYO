@@ -501,6 +501,16 @@ class GetParticipants(Resource):
         result = {'participants': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
 
+class GetParticipantCount(Resource):
+    def get(self, _match_uuid):
+        cursor = connection.cursor()
+        query = ("Select COUNT(summoner_name) from participants where match_uuid=%s ")
+        param = [_match_uuid]
+        cursor.execute(query, param)
+
+        qResult = cursor.fetchall()
+        return qResult[0][0]
+
 class AddToMatch(Resource):
     def post(self):
         _username = request.json['username']
@@ -651,6 +661,7 @@ api.add_resource(CreateMatch, '/create')  # Route_8
 api.add_resource(GetMatch, '/getmatch/<_match_uuid>')  # Route_5
 api.add_resource(AddToMatch, '/addtomatch')  # Route_8
 api.add_resource(GetParticipants, '/getparticipants/<_match_id>')
+api.add_resource(GetParticipantCount, '/getparticipantcount/<_match_uuid>')
 
 if __name__ == '__main__':
     app.run(port='5002')
