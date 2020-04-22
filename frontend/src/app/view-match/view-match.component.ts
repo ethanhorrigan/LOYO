@@ -45,7 +45,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     else {
       this.max = false;
     }
-    console.log(this.playerCount);
 
   }
 
@@ -92,6 +91,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   getPlayerCount() {
     this.userService.getParticipantCount(this.matchId).subscribe(data => {
       this.playerCount = Number(data);
+      console.log(data)
     });
   }
 
