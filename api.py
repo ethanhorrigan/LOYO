@@ -76,7 +76,7 @@ class Summoner():
 
         """
         player_details = watcher.summoner.by_name(my_region, self)
-        return player_details['accountId']
+        return player_details['id']
     def get_player_icon(self):
         player_icon = watcher.summoner.by_name(my_region, self)
         return player_icon['profileIconId']
@@ -88,7 +88,7 @@ class Summoner():
     
     def get_total_games(self):
         account_id = Summoner.get_account_id(self)
-        wins = watcher.league.by_id(my_region, account_id);
+        wins = watcher.league.by_summoner(my_region, account_id)
         total_games = wins[0]['wins'] + wins[0]['losses']
         return total_games
 

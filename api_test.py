@@ -1,6 +1,6 @@
 from riotwatcher import RiotWatcher, ApiError
 
-watcher = RiotWatcher('RGAPI-2223bdbc-71de-4799-ad6e-7b302b7264e2')
+watcher = RiotWatcher('RGAPI-8af5f1d7-ae69-4750-82b6-6a3880750aa2')
 my_region = 'euw1'
 class SummmonerDetails():
     def get_total_games(self):
