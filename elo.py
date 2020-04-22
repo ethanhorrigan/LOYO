@@ -19,10 +19,10 @@ class Elo:
     # the average player is 1500 
     # professional level is 2200.
     def k_factor(self, totalPlayed, gamesPlayed):
-        return 800 / (totalPlayed + gamesPlayed)
+        return 700 / (totalPlayed + gamesPlayed)
 
     # i only want to update rating for the winning player or team
-    def calculate_new_rating(self, winners_rating, losers_rating):
+    def calculate_new_rating(self, winners_rating, losers_rating, totalPlayedLoL, gamesPlayed):
         """
         I know that the subject won, so outcome computation 
         is not needed.
@@ -36,7 +36,7 @@ class Elo:
         """
         # Calcuate the expected rating for the winning player.
         expected_rating = self.expect_result(losers_rating, winners_rating)
-        k = self.k_factor(25, 0)
+        k = self.k_factor(totalPlayedLoL, gamesPlayed)
         print(k)
         # Calculate the updated rating for the winning player.
         new_rating = winners_rating + k * (1 - expected_rating)
@@ -53,8 +53,3 @@ class Elo:
         """
         Ea = 1 / (1 + 10**( (opponent_rating - player_rating) /400))
         return Ea
-
-
-e = Elo()
-print(e.calculate_new_rating(1000, 1100))
-print(e.calculate_new_rating(500, 800))

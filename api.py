@@ -90,7 +90,8 @@ class Summoner():
     def get_total_games(self):
         account_id = Summoner.get_account_id(self)
         wins = watcher.league.by_id(my_region, account_id);
-        return wins
+        total_games = wins[0]['wins'] + wins[0]['losses']
+        return total_games
 
     def get_player_details(self):
         """
