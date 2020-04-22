@@ -12,7 +12,6 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
-from src.LoyoEnums import Outcome
 
 # db_connect = create_engine('sqlite:///fantasyleague.db')
 
