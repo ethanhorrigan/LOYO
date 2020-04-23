@@ -650,7 +650,7 @@ class MatchMaking(Resource):
                 matching_state = False
             
             # Sort the Match Table
-            match_query = ("select match_uuid, team1 FROM final_match where match_uuid=%s")
+            match_query = ("select match_uuid, team1, team2 FROM final_match where match_uuid=%s")
             match_param = [_match_uuid]
             cursor.execute(match_query, match_param)
             connection.commit()
