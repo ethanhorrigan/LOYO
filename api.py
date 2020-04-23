@@ -654,8 +654,9 @@ class MatchMaking(Resource):
             match_param = [_match_uuid]
             cursor.execute(match_query, match_param)
             connection.commit()
-
-        return {'match': [dict(zip(tuple(cursor.keys()), i)) for i in cursor]}
+            columns = [desc[0] for desc in cursor.description]
+            result = {'final_match': [dict(zip(columns, row)) for row in cursor.fetchall()]}
+        return result
 
 api.add_resource(Players, '/players')  # Route_1
 api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
