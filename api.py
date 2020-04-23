@@ -644,8 +644,8 @@ class MatchMaking(Resource):
             # connection.commit()
             count +=1
             if(count == 10):
-                fm_query = ("INSERT into final_match values(%s, %s)")
-                fm_param = [_match_uuid, team_1]
+                fm_query = ("INSERT into final_match values(%s, %s, %s)")
+                fm_param = [_match_uuid, team_1, team_2]
                 cursor.execute(fm_query, fm_param)
                 matching_state = False
             
