@@ -3,9 +3,8 @@
     
 <div class="container">
 
-    <div class="row no-gutters">
+    <div class="row no-gutters search-bar">
         <div class="col-6 col-md-8">
-
             <div class="input-group mb-3">
                 <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Find game..">
               </div>
@@ -22,9 +21,8 @@
 
         
     </div>
-    <div class="col-sm-8">col-sm-8</div>
     <div class="card text-center" style="width: 18rem;" *ngFor="let game of game  | filter:searchText">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT02D9By8XQy3k4c_RAs2B9fWtNiiLIpatYTCsaMD_t-K0quvDP&usqp=CAU"
+        <img src="https://wallpaperaccess.com/full/628500.jpg"
             class="card-img-top" alt="...">
         <div class="card-body">
             <!-- <h5 class="card-title">{{game.matchName}}</h5> -->
