@@ -33,6 +33,7 @@ export class Match {
     }
 }
 
+
 export class Games {
     /**
      *   _uuid = UUIDGenerator.generate_uuid(self) # Create UUID
@@ -69,10 +70,20 @@ export interface NewParticipant {
     match_uuid: string;
 }
 
+export class FinalMatch {
+    match_uuid: string;
+    team1: string[];
+    team2: string[];
+}
+
 export interface ParticipantsResponse {
     participants: Participants[];
 }
 
 export interface MatchResponse {
     match: Match[];
+}
+
+export interface FinalMatchResponse {
+    final_match: FinalMatch[];
 }

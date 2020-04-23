@@ -1,7 +1,7 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
-import { Match, Games, GameResponse, NewParticipant, ParticipantsResponse } from '../_models/team';
+import { Match, Games, GameResponse, NewParticipant, ParticipantsResponse, FinalMatchResponse } from '../_models/team';
 
 @Injectable({ providedIn: 'root' })
 
@@ -29,9 +29,6 @@ export class UserService {
         return this.http.get(`https://limitless-fjord-64117.herokuapp.com/lobby`);
     }
 
-    getMM() {
-        return this.http.get<Match[]>(`https://limitless-fjord-64117.herokuapp.com/mm`);
-    }
 
     // getGames() {
     //     return this.http.get<Game[]>(`https://limitless-fjord-64117.herokuapp.com/create`);
@@ -69,7 +66,12 @@ export class UserService {
         return this.http.get<ParticipantsResponse>(`https://limitless-fjord-64117.herokuapp.com/getparticipants/${matchId}`);
     }
 
+    
+    getMM(matchId: string) {
+        return this.http.get<FinalMatchResponse>(`https://limitless-fjord-64117.herokuapp.com/mm/${matchId}`);
+    }
+
     getParticipantCount(matchId: string) {
-        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getparticipantcount/${matchId}`);
+        return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getparticipantcount/${matchId}`).pipe();
     }
 }

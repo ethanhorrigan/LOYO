@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ViewGamesComponent } from '../view-games/view-games.component';
 import { UserService } from '../_services/user.service';
-import { Games, Participants, NewParticipant } from '../_models/team';
+import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch } from '../_models/team';
 import { AuthenticationService } from '../_services/authentication.service';
 import { tap } from 'rxjs/operators';
 
@@ -22,6 +22,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
   public matchDetails: Games[];
   public participants: Participants[];
+  public finalMatch: FinalMatch[];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,8 +39,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     });
 
     this.getPlayerCount();
-
-    console.log(this.playerCount);
     
     this.getMatch();
     if(this.max == false) {
@@ -51,6 +50,8 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     else {
       this.max = false;
     }
+
+    this.beginMM();
 
   }
 
@@ -90,6 +91,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
   getParticipants() {
     this.userService.getParticipants(this.matchId).subscribe(data => {
+      console.log(data.participants)
       this.participants = data.participants;
     });
   }
@@ -97,18 +99,22 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
   getPlayerCount() {
     this.userService.getParticipantCount(this.matchId).subscribe(data => {
-      this.playerCount = Number(data);    
+      this.playerCount = Number(data);
     });
   }
-
   
-  beingMM() {
+  beginMM() {
     /**
      * matchmaking needs an array of participants
      * and the match id?
      * returns a sorted match of particpants sorted by team ? 
      */
-   //this.userService.getMM
+    this.userService.getMM(this.matchId).subscribe(data => {
+      this.finalMatch = data.final_match;
+      console.log(this.finalMatch[0].team1[0]);
+
+      
+    });
   }
 
   getOutcome() {
@@ -120,7 +126,8 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
      * and the actual outcome of the game
      * 
      * 
-     * only update values for winning team participants.
+     * only update values for
+     *  winning team participants.
      */
   }
 
