@@ -613,9 +613,11 @@ class MatchMaking(Resource):
         Match ready teams.
         """    
         # Param Variables
-        _match_uuid = request.json['match_uuid']
+        # _match_uuid = request.json['match_uuid']
         matching_state = True # Set matching state to true
         # conn = db_connect.connect() # Connect to the Database
+        team_1 = []
+        team_2 = []
         cursor = connection.cursor()
         
         p_query = ("SELECT summoner_name from participants where match_uuid=%s order by mmr desc")
@@ -629,21 +631,29 @@ class MatchMaking(Resource):
             count+=1
             _summoner_name_2 = results[count][0]
             # conn.execute("insert into Match values")
-            m_one_query = ("insert into Match values(%s, %s, %s)")
-            m_one_values = (1, _summoner_name_1, uuid)
-            cursor.execute(m_one_query, m_one_values)
+            team_1.append(_summoner_name_1)
+            team_2.append(_summoner_name_2)
+            # m_one_query = ("insert into final_match values(%s, %s, %s)")
+            # m_one_values = (_match_uuid, _summoner_name_1, uuid)
+            # cursor.execute(m_one_query, m_one_values)
 
-            m_two_query = ("insert into Match values(%s, %s, %s)")
-            m_two_values = (1, _summoner_name_2, uuid)
-            cursor.execute(m_two_query, m_two_values)
+            # m_two_query = ("insert into Match values(%s, %s, %s)")
+            # m_two_values = (1, _summoner_name_2, uuid)
+            # cursor.execute(m_two_query, m_two_values)
             # conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
-            connection.commit()
+            # connection.commit()
             count +=1
             if(count == 10):
+                fm_query = ("INSERT into final_match values(%s, %s)")
+                fm_param = [_match_uuid, team_1]
+                cursor.execute(fm_query, fm_param)
                 matching_state = False
+            
             # Sort the Match Table
-            match_query = ("select team, summoner_name, uuid FROM Match order by team asc")
-            cursor.execute(match_query)
+            match_query = ("select match_uuid, team1 FROM final_match where match_uuid=%s")
+            match_param = [_match_uuid]
+            cursor.execute(match_query, match_param)
+            connection.commit()
 
         return {'match': [dict(zip(tuple(cursor.keys()), i)) for i in cursor]}
 
