@@ -2,21 +2,18 @@
 
     <div class="sidebar">
         <div class="global-bar">
-            <a *ngIf="log" class="sidebar-item" href="/games">
+            <a *ngIf="log" class="sidebar-item profile-item" href="/games" #tooltip="matTooltip" matTooltip="Profile: {{playerName}}" matTooltipClass="tooltip-lb" matTooltipPosition="right">
                 <mat-icon class="sidebar-icon">home</mat-icon>
-                {{playerName}}
             </a>
-            <a class="sidebar-item" href="/viewgames">
+            
+            <a class="sidebar-item" href="/viewgames" #tooltip="matTooltip" matTooltip="Games" matTooltipClass="tooltip-lb" matTooltipPosition="right">
                 <mat-icon class="sidebar-icon">home</mat-icon>
-                Play
             </a>
-            <a class="sidebar-item" href="/leaderboards">
+            <a class="sidebar-item leaderboards" href="/leaderboards" #tooltip="matTooltip" matTooltip="Leaderboards" matTooltipClass="tooltip-lb" matTooltipPosition="right">
                 <mat-icon class="sidebar-icon">table_chart</mat-icon>
-                Leaderboards
             </a>
-            <a class="sidebar-item"  (click)="logout()">
+            <a class="sidebar-item"  (click)="logout()"   #tooltip="matTooltip" matTooltip="{{logStatus}}" matTooltipClass="tooltip-lb" matTooltipPosition="right">
                 <mat-icon class="sidebar-icon">input</mat-icon>
-                <a>{{logStatus}}</a>
             </a>
         </div>
     </div>

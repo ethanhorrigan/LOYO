@@ -1,13 +1,11 @@
 .sidebar {
-    width:250px;
-    min-width:250px;
-    max-width:250px;
+    width:200px;
+    min-width:200px;
+    max-width:200px;
     display:flex;
     flex-direction:column;
-    // background-color:#28303f;
-    background-color: #021421;
+    background-color: #02101a;
     align-items: center;
-    z-index:1048;
     position:fixed;
     top:0;
     left:0;
@@ -23,7 +21,8 @@
 }
 
 mat-icon {
-    margin:0px 14px 0px 5px;
+    font-size: 60px;
+    margin:0px 50px 0px 10px;
 }
 
 .sidebar-icon {
@@ -40,8 +39,12 @@ mat-icon {
     text-decoration: none;
     gap:normal;
     line-height: 20.86px;
-    margin: 25px;
+    margin: 10rem;
 }
+::ng-deep .tooltip-lb {
+    font-size: 1.25rem;
+  }
+
 
 .sidebar-item.logout {
     position: absolute;
@@ -64,14 +67,14 @@ mat-icon {
     top: 0;
     bottom:0;
     position: fixed;
-    width: -moz-calc(100vw - 220px);
+    width: -moz-calc(100vw - 170px);
     /* WebKit */
-    width: -webkit-calc(100vw - 220px);
+    width: -webkit-calc(100vw - 170px);
     /* Opera */
-    width: -o-calc(100vw - 220px);
+    width: -o-calc(100vw - 170px);
     /* Standard */
-    width: calc(100vw - 220px);
-    margin-left: 250px;
+    width: calc(100vw - 170px);
+    margin-left: 200px;
     overflow-y: scroll;
     background-color: #051622;
 }

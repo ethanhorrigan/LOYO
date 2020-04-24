@@ -69,9 +69,6 @@ $ python loyo_python_test.py
 ![MMR](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/research/MMR.PNG)
 
 ## TO-DO
-- Implement Elo System
-- Allow player to create match
-- Remove match when winner has been determined
 - Create Request for updating players game outcome
 - begin matchmaking when enough participants 
 - add option for admin ONLY to determine game outcome

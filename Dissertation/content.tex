@@ -429,6 +429,26 @@ The Elo rating system, developed by Arpad Elo, is used for calculating relative 
 \cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
 \paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
 
+\section{Gale Shapely Algorithm}
+Complexity Upper Bound : $O(n^2)$
+
+\paragraph{Pseudo Algorithm}
+\begin{algorithm}[H]
+	\KwData{this text}
+	\KwResult{how to write algorithm with \LaTeX2e }
+	initialization\;
+	\While{not at end of this document}{
+		read current\;
+		\eIf{understand}{
+			go to next section\;
+			current section becomes this one\;
+		}{
+			go back to the beginning of current section\;
+		}
+	}
+	\caption{How to write algorithms}
+\end{algorithm}
+
 \chapter{System Design}
 Overall Project Architecture
 \begin{center}    

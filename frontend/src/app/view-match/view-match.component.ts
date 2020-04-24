@@ -5,6 +5,7 @@ import { UserService } from '../_services/user.service';
 import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch } from '../_models/team';
 import { AuthenticationService } from '../_services/authentication.service';
 import { tap } from 'rxjs/operators';
+import { resolve } from 'url';
 
 @Component({
   selector: 'app-view-match',
@@ -38,7 +39,12 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.matchId = params['matchId'];
     });
 
-    this.getPlayerCount();
+    this.userService.getParticipantCount(this.matchId).subscribe(data => {
+      this.playerCount = Number(data);
+      console.log(this.playerCount);
+
+    });
+
     
     this.getMatch();
     if(this.max == false) {
@@ -98,9 +104,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
 
   getPlayerCount() {
-    this.userService.getParticipantCount(this.matchId).subscribe(data => {
-      this.playerCount = Number(data);
-    });
+    this.userService.getParticipantCount(this.matchId);
   }
   
   beginMM() {
