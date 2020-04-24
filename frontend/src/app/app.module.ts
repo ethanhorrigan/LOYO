@@ -58,7 +58,6 @@ import { TeamsComponent } from './teams/teams.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
-import { GamesComponent } from './games/games.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { ViewGamesComponent } from './view-games/view-games.component';
@@ -79,7 +78,6 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     LeaderboardsComponent,
-    GamesComponent,
     ViewGamesComponent,
     ViewMatchComponent,
     CreateGameComponent,
