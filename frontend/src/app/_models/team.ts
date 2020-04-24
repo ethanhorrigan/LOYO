@@ -35,16 +35,6 @@ export class Match {
 
 
 export class Games {
-    /**
-     *   _uuid = UUIDGenerator.generate_uuid(self) # Create UUID
-        _match_name = request.json['match_name']
-        _match_type = request.json['match_type']
-        _date = request.json['date']
-        _time = request.json['time']
-        print(Outcome.PENDING.value)
-        _outcome = str(Outcome.PENDING.value)
-        _match_admin = request.json['player_name']
-     */
     match_uuid: string;
     match_name: string;
     match_type: string;
@@ -52,6 +42,14 @@ export class Games {
     time: string; //possible change to Date object?
     outcome: string;
     admin: string;
+
+    constructor(match_name, match_type, date, time, admin) {
+        this.match_name = match_name;
+        this.match_type = match_type;
+        this.date = date;
+        this.time = time;
+        this.admin = admin;
+    }
 }
 
 export interface GameResponse {

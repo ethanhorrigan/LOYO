@@ -29,10 +29,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private auth: AuthenticationService) { 
       this.user = this.auth.getUserInStorage();
+      
     }
 
   ngOnInit() {
-
     
     this.sub = this.activatedRoute.params.subscribe(params => {
       this.matchId = params['matchId'];

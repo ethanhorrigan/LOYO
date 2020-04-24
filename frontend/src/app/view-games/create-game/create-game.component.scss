@@ -1,0 +1,77 @@
+
+h2, label, input, p {
+    color: white;
+}
+
+.btn-primary {
+    background-color: #1ba098;
+    border: none;
+}
+.btn-link {
+    color: #1ba098;
+}
+.register-page {
+    // background-image: url("../../assets/Images/ClientBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+input[type=radio] {
+    position: absolute;
+    display: none;
+}
+
+input[type=text] {
+    color: #2c2c2c;
+}
+mat-radio-button {
+    color: white;
+    margin: 10px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50;
+    background-image: none;
+  }
+
+.aria-label {
+    color: white;
+}
+
+.invalid-details {
+    color: red;
+}
+
+.main-form {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+    padding: 2%;
+    background-color: opacify($color: #09263b, $amount: 0.5);
+    border-radius: 2%;
+    box-shadow: -5px 5px 25px 0px rgba(0,0,0,0.75);
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+}
+
+.available-message {
+    color: green;
+    font-style: italic;
+}
+
+h2 {
+    text-align: center;
+}
+
+.mat-radio-outer-circle{
+    border-color:rgb(66, 134, 244); 
+}

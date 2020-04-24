@@ -54,6 +54,10 @@ export class UserService {
         return this.http.get(`https://limitless-fjord-64117.herokuapp.com/users/${username}`);
     }
 
+    createMatch(game: Games) {
+        return this.http.post('https://limitless-fjord-64117.herokuapp.com/creategame', game);
+    }
+    
     getMatch(matchId: string) {
         return this.http.get<GameResponse>(`https://limitless-fjord-64117.herokuapp.com/getmatch/${matchId}`);
     }

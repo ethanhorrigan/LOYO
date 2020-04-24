@@ -50,6 +50,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 /* App Components*/
 import { SummonerComponent } from './summoner/summoner.component';
@@ -62,6 +63,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { ViewGamesComponent } from './view-games/view-games.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
+import { CreateGameComponent } from './view-games/create-game/create-game.component';
 
 const appRoutes: Routes = [
   { path: 'summoner', component: SummonerComponent }
@@ -79,6 +81,7 @@ const appRoutes: Routes = [
     GamesComponent,
     ViewGamesComponent,
     ViewMatchComponent,
+    CreateGameComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -138,6 +141,7 @@ const appRoutes: Routes = [
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    AmazingTimePickerModule,
     Ng2SearchPipeModule
   ],
   providers: [{

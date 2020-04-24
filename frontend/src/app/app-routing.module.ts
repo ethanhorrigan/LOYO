@@ -8,6 +8,7 @@ import { GamesComponent } from './games/games.component';
 import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
 import { ViewGamesComponent } from './view-games/view-games.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
+import { CreateGameComponent } from './view-games/create-game/create-game.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'games', component: GamesComponent},
   { path: 'leaderboards', component: LeaderboardsComponent},
   { path: 'viewgames', component: ViewGamesComponent},
+  { path: 'creategame', component: CreateGameComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'match/:matchId', component: ViewMatchComponent},
   { path: '**', component: ViewGamesComponent }, // Wildward Route
