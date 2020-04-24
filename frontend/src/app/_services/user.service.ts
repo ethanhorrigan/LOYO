@@ -55,7 +55,7 @@ export class UserService {
     }
 
     createMatch(game: Games) {
-        return this.http.post('https://limitless-fjord-64117.herokuapp.com/creategame', game);
+        return this.http.post('https://limitless-fjord-64117.herokuapp.com/create', game);
     }
     
     getMatch(matchId: string) {

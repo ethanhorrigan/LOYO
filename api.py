@@ -463,7 +463,7 @@ class CreateMatch(Resource):
         _date = request.json['date']
         _time = request.json['time']
         _outcome = 'PENDING'
-        _match_admin = request.json['player_name']
+        _match_admin = request.json['admin']
 
         cursor = connection.cursor() # Connect to DB
         query = ("INSERT into matches (match_uuid, match_name, match_type, date, time, admin, outcome) VALUES (%s, %s, %s, %s, %s, %s, %s)")
