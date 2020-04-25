@@ -596,6 +596,21 @@ class UsersName(Resource):
             status = "USERNAME_TAKEN"
         return status
 
+
+class UpdateRating(Resource):
+    def post(self, _match_uuid):
+        cursor = connection.cursor()
+        # get the participants that won and their mmr.
+        # get the participants that lost and their mmr.
+
+
+        # Querying with multiple where conditions and multiple columns
+
+        win_query = ("select username, mmr from participants where match where outcome=1 and match_uuid=%s")
+        win_param = [_match_uuid]
+        cursor.execute(win_query, win_param)
+        result = cursor.fetchall()
+        return result
 class MatchMaking(Resource):
     def get(self, _match_uuid):
         """
@@ -667,6 +682,7 @@ api.add_resource(GetMatch, '/getmatch/<_match_uuid>')  # Route_5
 api.add_resource(AddToMatch, '/addtomatch')  # Route_8
 api.add_resource(GetParticipants, '/getparticipants/<_match_id>')
 api.add_resource(GetParticipantCount, '/getparticipantcount/<_match_uuid>')
+api.add_resource(UpdateRating, '/updatescore/<_match_uuid>')
 
 if __name__ == '__main__':
     app.run(port='5002')

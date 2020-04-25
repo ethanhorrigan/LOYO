@@ -50,6 +50,18 @@ class Elo:
         new_rating = str(new_rating).split('.')[0]
         return int(new_rating)
 
+    def update_points(self):
+        """Calculate the players new rating and then remove that rating 
+        from their previous rating, to calculate how much points they 
+        recieve.
+
+        Returns:
+            updated_points : the amount of points the player recieves.
+        """        
+        updated_rating = self.calculate_new_rating()
+        points = updated_rating - self.player_rating
+        return points
+        
     def expect_result(self):
         """Calcualtes the expected outcome between two participants 
         for use in the Elo System.
