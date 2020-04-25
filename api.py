@@ -13,12 +13,6 @@ from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
 
-# db_connect = create_engine('sqlite:///fantasyleague.db')
-
-# Session = sessionmaker()
-# Session.configure(bind=db_connect)
-# session = Session()
-
 database = "d34bp9cpp983nn"
 user = "cfrqbgcghvvkyw"
 db_password = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
