@@ -12,6 +12,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
+import src.utils.constants as constants
 
 database = "d34bp9cpp983nn"
 user = "cfrqbgcghvvkyw"
@@ -22,7 +23,7 @@ port = "5432"
 app = Flask(__name__)
 api = Api(app)
 
-watcher = RiotWatcher('RGAPI-8af5f1d7-ae69-4750-82b6-6a3880750aa2')
+watcher = RiotWatcher(constants.RIOT_API_KEY)
 
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 my_region = 'euw1'
@@ -32,7 +33,7 @@ CORS(app) # To solve the CORS issue when making HTTP Requests
 try:
     # dsn=None, connection_factory=None, cursor_factory=None, **kwargs
    
-    connection = psycopg2.connect(user=user, password=db_password, host=host, port=port, database=database)
+    connection = psycopg2.connect(user=constants.USER, password=constants.DB_PASSWORD, host=constants.HOST, port=constants.PORT, database=constants.DATABASE)
     
     # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
@@ -253,11 +254,11 @@ class Players(Resource):
 
         """
         # conn = db_connect.connect()  # connect to the db
-        query = conn.execute(
-            "select summonerName, rank, tier, wins, losses, primaryRole, secondaryRole from players")
-        result = {'players': [dict(zip(tuple(query.keys()), i))
-                              for i in query.cursor]}
-        return result
+        # query = conn.execute("select summonerName, rank, tier, wins, losses, primaryRole, secondaryRole from players")
+        # result = {'players': [dict(zip(tuple(query.keys()), i))
+        #                       for i in query.cursor]}
+        # return result
+        pass
 
 
 class PlayerStandings(Resource):
