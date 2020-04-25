@@ -1,1 +1,4 @@
 .vscode\settings.json
+Procfile
+requirements.txt
+package-lock.json
