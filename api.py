@@ -13,12 +13,7 @@ from psycopg2.extras import RealDictCursor
 from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
 import src.utils.constants as constants
-
-database = "d34bp9cpp983nn"
-user = "cfrqbgcghvvkyw"
-db_password = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
-host = "ec2-35-168-54-239.compute-1.amazonaws.com"
-port = "5432"
+from src.matchmaking.elo import Elo
 
 app = Flask(__name__)
 api = Api(app)
@@ -28,11 +23,12 @@ watcher = RiotWatcher(constants.RIOT_API_KEY)
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 my_region = 'euw1'
 
+m = Elo(1000, 1500, 60, 1)
+print(m.calculate_new_rating())
+
 CORS(app) # To solve the CORS issue when making HTTP Requests
 
-try:
-    # dsn=None, connection_factory=None, cursor_factory=None, **kwargs
-   
+try:   
     connection = psycopg2.connect(user=constants.USER, password=constants.DB_PASSWORD, host=constants.HOST, port=constants.PORT, database=constants.DATABASE)
     
     # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
