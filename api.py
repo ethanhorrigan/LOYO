@@ -606,7 +606,7 @@ class UpdateRating(Resource):
 
         # Querying with multiple where conditions and multiple columns
 
-        win_query = ("select username, mmr from participants where match where outcome=1 and match_uuid=%s")
+        win_query = ("select username, mmr from participants where outcome=1 and match_uuid=%s")
         win_param = [_match_uuid]
         cursor.execute(win_query, win_param)
         result = cursor.fetchall()
