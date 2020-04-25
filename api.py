@@ -609,7 +609,8 @@ class UpdateRating(Resource):
         win_query = ("select username, mmr from participants where outcome=1 and match_uuid=%s")
         win_param = [_match_uuid]
         cursor.execute(win_query, win_param)
-        result = cursor.fetchall()
+        result = (cursor.fetchall())
+        result = len(result[0])
         return result
 class MatchMaking(Resource):
     def get(self, _match_uuid):
