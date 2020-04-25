@@ -72,6 +72,11 @@ class Summoner():
         player_details = watcher.summoner.by_name(my_region, self)
         return player_details['id']
     def get_player_icon(self):
+        """Gets the player icon id from Riots API
+
+        Returns:
+            int -- player icon id
+        """        
         player_icon = watcher.summoner.by_name(my_region, self)
         return player_icon['profileIconId']
 
@@ -475,6 +480,7 @@ class CreateMatch(Resource):
         return result
 
 class GetMatch(Resource):
+    
     def get (self, _match_uuid):
         cursor = connection.cursor()
         query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches WHERE match_uuid =%s")

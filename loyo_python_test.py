@@ -3,6 +3,11 @@ from api import PasswordSetup
 import unittest
 
 class SimpleTest(unittest.TestCase):
+    """Conducts tests for the back-end of the application
+
+    Arguments:
+        unittest -- using pythons unnitest lib for unit testing.
+    """    
     def test_get_tier(self):
         self.assertEqual(Summoner.get_tier('Yupouvit'), 'GOLD')
 
