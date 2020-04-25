@@ -1,8 +1,0 @@
-tasks:
-  - init: npm install -g @angular/cli
-    command: npm update
-  - command: pip install flask
-  - command: pip install flask-restful
-  - command: pip install sqlalchemy
-  - command: pip install flask_cors
-
