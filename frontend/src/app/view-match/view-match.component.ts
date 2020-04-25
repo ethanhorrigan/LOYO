@@ -19,6 +19,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   user: string;
   matchName: string;
   max: boolean = false;
+  doMM: boolean = false;
   playerCount: number;
 
   public matchDetails: Games[];
@@ -33,20 +34,15 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       
     }
 
-  ngOnInit() {
+   ngOnInit() {
     
     this.sub = this.activatedRoute.params.subscribe(params => {
       this.matchId = params['matchId'];
     });
-
-    this.userService.getParticipantCount(this.matchId).subscribe(data => {
-      this.playerCount = Number(data);
-      console.log(this.playerCount);
-
-    });
-
     
     this.getMatch();
+    this.getPlayerCount();
+
     if(this.max == false) {
       this.getParticipants();
     }
@@ -104,7 +100,9 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
 
   getPlayerCount() {
-    this.userService.getParticipantCount(this.matchId);
+    this.userService.getParticipantCount(this.matchId).subscribe(data => {
+      this.playerCount = Number(data);
+    });
   }
   
   beginMM() {
@@ -113,12 +111,16 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
      * and the match id?
      * returns a sorted match of particpants sorted by team ? 
      */
+    console.log(this.playerCount);
+    
+    if(this.playerCount == 9 && this.doMM == false) {
     this.userService.getMM(this.matchId).subscribe(data => {
       this.finalMatch = data.final_match;
       console.log(this.finalMatch[0].team1[0]);
 
-      
+      this.doMM = true;
     });
+  }
   }
 
   getOutcome() {

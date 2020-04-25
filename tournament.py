@@ -45,30 +45,38 @@ class MatchMaking():
     def __init__(self, players):
         self.players = players
 
-    def build_men_pref(self):
-        player1_pref = [self.players.index(2), self.players.index(3), self.players.index(3), self.players.index(3)] # 0
+    def build_preferences(self):
+        player1_pref = [self.players.index(2), self.players.index(3)] # 0
         player2_pref = [self.players.index(3), self.players.index(1)] # 1
         player3_pref = [self.players.index(4), self.players.index(2)] # 2
         player4_pref = [self.players.index(3), self.players.index(5)] # 3
         player5_pref = [self.players.index(6), self.players.index(4)] # 4
-        menPref = [player1_pref, player2_pref, player3_pref, player4_pref, player5_pref]
-        return menPref
+        player6_pref = [self.players.index(7), self.players.index(5)] # 0
+        player7_pref = [self.players.index(8), self.players.index(6)] # 1
+        player8_pref = [self.players.index(9), self.players.index(7)] # 2
+        player9_pref = [self.players.index(10), self.players.index(8)] # 3
+        player10_pref = [self.players.index(9), self.players.index(8)] # 4
+        pref = [
+            player1_pref, 
+            player2_pref, 
+            player3_pref, 
+            player4_pref, 
+            player5_pref,
+            player6_pref,
+            player7_pref,
+            player8_pref,
+            player9_pref,
+            player10_pref
+        ]
+        return pref
 
-    def build_women_pref(self):
-        player1_pref = [self.players.index(7), self.players.index(5)] # 0
-        player2_pref = [self.players.index(8), self.players.index(6)] # 1
-        player3_pref = [self.players.index(9), self.players.index(7)] # 2
-        player4_pref = [self.players.index(10), self.players.index(8)] # 3
-        player5_pref = [self.players.index(9), self.players.index(8)] # 4
-        womenPref = [player1_pref, player2_pref, player3_pref, player4_pref, player5_pref] 
-        return womenPref
 
     def stableMatching(self):
-        n = 5
-        menPreferences = self.build_men_pref()
-        womenPreferences = self.build_women_pref()
+        n = 10
+        preferences = self.build_preferences()
+        # womenPreferences = self.build_women_pref()
     # Initially, all n men are unmarried
-        unmarriedMen = list(range(n))
+        unmatched = list(range(n))
         # None of the men has a spouse yet, we denote this by the value None
         manSpouse = [None] * n                      
         # None of the women has a spouse yet, we denote this by the value None
@@ -78,18 +86,19 @@ class MatchMaking():
         nextManChoice = [0] * n                       
         
         # While there exists at least one unmarried man:
-        while unmarriedMen:
+        while unmatched:
             # Pick an arbitrary unmarried man
-            he = unmarriedMen[0]                      
+            he = unmatched[0]                      
             # Store his ranking in this variable for convenience
-            hisPreferences = menPreferences[he]       
+            hisPreferences = preferences[he]    
+            print("His preference ",hisPreferences)   
             # Find a woman to propose to
             she = hisPreferences[nextManChoice[he]] 
             # Store her ranking in this variable for convenience
-            herPreferences = womenPreferences[she]
+            # herPreferences = womenPreferences[she]
             # Find the present husband of the selected woman (it might be None)
             currentHusband = womanSpouse[she]
-        
+            print("Current Husband: ",currentHusband)
             
             # Now "he" proposes to "she". 
             # Decide whether "she" accepts, and update the following fields
@@ -107,13 +116,14 @@ class MatchMaking():
                 nextManChoice[he] = nextManChoice[he] + 1
                 #Delete "him" from the 
                 #Unmarried list
-                unmarriedMen.pop(0)
+                unmatched.pop(0)
+                print('Unmatched: ', unmatched)
             else:
                 #Husband exists
                 #Check the preferences of the 
                 #current husband and that of the proposed man's
-                currentIndex = herPreferences.index(currentHusband)
-                hisIndex = herPreferences.index(he)
+                currentIndex = preferences.index(currentHusband)
+                hisIndex = preferences.index(he)
                 #Accept the proposal if 
                 #"he" has higher preference in the herPreference list
                 if currentIndex > hisIndex:
@@ -122,10 +132,10 @@ class MatchMaking():
                     manSpouse[he] = she
                     nextManChoice[he] = nextManChoice[he] + 1
                     #Pop the newly wed husband
-                    unmarriedMen.pop(0)
+                    unmatched.pop(0)
                     #Now the previous husband is unmarried add
                     #him to the unmarried list
-                    unmarriedMen.insert(0,currentHusband)
+                    unmatched.insert(0,currentHusband)
                 else:
                     nextManChoice[he] = nextManChoice[he] + 1
         return manSpouse
@@ -153,11 +163,9 @@ test_players = [
 # test_teams = sorted(test_teams, key=lambda team: team.team_mmr)
 # print(test_teams)
 test_players.sort()
-print(test_players)
+# print(test_players)
 m = MatchMaking(test_players)
 
-print(m.build_men_pref())
-print(m.build_women_pref())
 print(m.stableMatching())
 
 # for team in test_teams:
