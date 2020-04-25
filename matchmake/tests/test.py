@@ -1,4 +1,4 @@
-from matchmake.elo import Elo
+from .. import Elo
 
 e = Elo(1200, 1000, 65, 1)
 
