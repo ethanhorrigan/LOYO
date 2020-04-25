@@ -1,6 +1,6 @@
 .vscode\settings.json
 package-lock.json
-Selenium Tests/
+Selenium Tests
 research/
 __pycache__/
 node_modules/bin/
