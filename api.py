@@ -650,14 +650,14 @@ class UpdateRating(Resource):
         result_loss = (cursor.fetchall())
         for i in range(count):
 
-            wa_query = ("select wins from users where user_name=%s")
+            wa_query = ("select wins, points from users where user_name=%s")
             wa_param = [result[i][0]]
             cursor.execute(wa_query, wa_param)
             wa = (cursor.fetchall())
-            wa = wa + 1
+            wins = wa[0][0] + 1
+            total_points = wa[0][1] + _points
             update_query = ("update users set points=%s, wins=%s where user_name=%s")
-            wins = result[i][2] + 1
-            update_param = [_points, wa, result[i][0]]
+            update_param = [total_points, wins, result[i][0]]
             cursor.execute(update_query, update_param)
         
         connection.commit()
