@@ -99,6 +99,7 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 
 ## Helpful Project Links
 
+- DB tips and tricks: http://archive.oreilly.com/oreillyschool/courses/Python2/DatabaseHintsAndTricks.html
 - Angular Cheat Sheet: https://angular.io/guide/cheatsheet
 - FA Icons: https://fontawesome.com/v4.7.0/icons/
 - https://www.spiderposts.com/2019/07/04/flask-sqlalchemy-tutorial-login-system-with-python/

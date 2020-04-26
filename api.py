@@ -14,6 +14,7 @@ from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
 import src.utils.constants as constants
 from src.matchmaking.elo import Elo
+import src.rating.rating as r
 
 app = Flask(__name__)
 api = Api(app)
@@ -23,14 +24,14 @@ watcher = RiotWatcher(constants.RIOT_API_KEY)
 QUEUE_TYPE = 'RANKED_SOLO_5x5'
 my_region = 'euw1'
 
-m = Elo(1000, 1500, 60, 1)
-print(m.calculate_new_rating())
 
 CORS(app) # To solve the CORS issue when making HTTP Requests
 
-try:   
+try:
+
     connection = psycopg2.connect(user=constants.USER, password=constants.DB_PASSWORD, host=constants.HOST, port=constants.PORT, database=constants.DATABASE)
-    
+
+
     # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
 
@@ -606,11 +607,49 @@ class UpdateRating(Resource):
 
         # Querying with multiple where conditions and multiple columns
 
-        win_query = ("select username, mmr from participants where outcome=1 and match_uuid=%s")
+        win_query = ("select username, mmr, outcome from participants where outcome=1 and match_uuid=%s")
         win_param = [_match_uuid]
         cursor.execute(win_query, win_param)
         result = (cursor.fetchall())
-        result = len(result[0])
+
+        lose_query = ("select username, mmr, outcome from participants where outcome=0 and match_uuid=%s")
+        lose_param = [_match_uuid]
+        cursor.execute(lose_query, lose_param)
+        result_loss = (cursor.fetchall())
+
+        count = len(result)
+        l_count = len(result_loss)
+
+        mmr_list = []
+        loss_mmr_list = []
+        # fill up average mmr list
+        for i in range(count):
+            _name = result[i][0]
+            _mmr = result[i][1]
+            mmr_list.append(_mmr)
+        
+        for j in range(l_count):
+            _name = result_loss[j][0]
+            _mmr = result_loss[j][1]
+            loss_mmr_list.append(_mmr)
+
+
+        print('Winner Avg MMR:', r.get_average_mmr(mmr_list))
+        print('Loser Avg MMR:', r.get_average_mmr(loss_mmr_list))
+
+        winner_rating = r.get_average_mmr(mmr_list)
+        loser_rating = r.get_average_mmr(loss_mmr_list)
+
+        e = Elo(winner_rating, loser_rating, 5, 0)
+        _points = e.update_points()
+        
+        for i in range(count):
+            update_query = ("update users set points=%s where user_name=%s")
+            update_param = [_points, result[i][0]]
+            cursor.execute(update_query, update_param)
+        
+        connection.commit()
+
         return result
 class MatchMaking(Resource):
     def get(self, _match_uuid):
