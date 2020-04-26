@@ -643,9 +643,21 @@ class UpdateRating(Resource):
         e = Elo(winner_rating, loser_rating, 5, 0)
         _points = e.update_points()
         
+        
+        lose_query = ("select wins from users where user_name=%s")
+        lose_param = [_match_uuid]
+        cursor.execute(lose_query, lose_param)
+        result_loss = (cursor.fetchall())
         for i in range(count):
-            update_query = ("update users set points=%s where user_name=%s")
-            update_param = [_points, result[i][0]]
+
+            wa_query = ("select wins from users where user_name=%s")
+            wa_param = [result[i][0]]
+            cursor.execute(wa_query, wa_param)
+            wa = (cursor.fetchall())
+            wa = wa + 1
+            update_query = ("update users set points=%s, wins=%s where user_name=%s")
+            wins = result[i][2] + 1
+            update_param = [_points, wa, result[i][0]]
             cursor.execute(update_query, update_param)
         
         connection.commit()
