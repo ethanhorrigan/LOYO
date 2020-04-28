@@ -54,19 +54,27 @@ https://github.com/ethanhorrigan/LOYO
 \end{itemize}
 
 \section{Competitive Gaming}
-Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).
-\newline
-This project will focus on providing a platform for players to manage competitive matches for the popular Multiplayer Online Battle Arena (MOBA), League of Legends.
-\newline
+Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).\newline
+
+
+This project will focus on providing a platform for players to manage competitive matches for the popular Multiplayer Online Battle Arena (MOBA), League of Legends.\newline
+
 Within the game, players have different game modes which they can play
 (Draft Mode and Ranked Mode). Players can receive a rank when playing in ranked mode meaning players are matched up against opponents with similar skill levels. When searching for a game, players join a queue and the system tries to create a lobby of 10 random players of similar skill levels. Custom lobbies can also be created allowing people to form a lobby of players where players ranks are inconsequential. This allows players to have complete control over the lobby (who goes onto what team). My application will manage these custom games through matchmaking instead of people deciding on who goes where which can be a nuisance and inefficient.
 
 
 \section{Skill-Based Matchmaking}
-The fundamental purpose of skill-based matchmaking is that a game is enjoyable for all parties. \cite{graepel2006ranking} If the participating teams have a fair chance of winning, then the match is considered to be fair, being paired against an opponent with more or less skill can ruin the experience. \cite{alman2017theoretical} To decide whether a game is balanced, we need to measure the skill of a team. We can simply add the skills of the team members to achieve this. In traditional sports like football, teams are awarded points depending on the outcome of the game. Typically, these points are increased based on a constant value, if a team wins a football match, they gain 3 points. This system reflects on the team's overall performance. Whereas in online games, they take a different approach. \cite{pelanek2016applications} The Elo rating system was originally developed for rating chess players, now it is commonly used for ranking players in many online games. Players can quickly find his/her ranking in a game using this system. when updating a players rating, it does not increase at a constant rate, the value at which it increases depends on the skill level of its opponent.
+The fundamental purpose of skill-based matchmaking is that a game is enjoyable for all parties. \cite{graepel2006ranking} If the participating teams have a fair chance of winning, then the match is considered to be fair, being paired against an opponent with more or less skill can ruin the experience. \cite{alman2017theoretical} To decide whether a game is balanced, we need to measure the skill of a team. We can simply add the skills of the team members to achieve this. In traditional sports like football, teams are awarded points depending on the outcome of the game. Typically, these points are increased based on a constant value, if a team wins a football match, they gain 3 points. This system reflects on the team's overall performance. Whereas in online games, they take a different approach.\newline  
+
+The Elo rating system \cite{pelanek2016applications} was originally developed for rating chess players, now it is commonly used for ranking players in many online games. Players can quickly find his/her ranking in a game using this system. when updating a players rating, it does not increase at a constant rate, the value at which it increases depends on the skill level of its opponent if a player is matched up against someone with a relatively lower rating, then the rating for the player would not increase as much as if he/she was matched against a player of similar rating. In my opinion, this system introduces fairness.\newline
+
+
+The idea for creating such a platform is because many groups or communities of players like to have friendly competition between each other but, organising these friendly matches can be a nuisance, whether gathering players to form a match or even attempting to balance teams when a match has been formed. This is where my system comes in, I aim to avoid these time-consuming actions by providing a platform that handles these operations for the user.
 
 \section{Web Application}
-Based off of the two sections above, I aim to develop a web application for users to manage custom matches and bypass the time-consuming process of managing custom matches. I wanted to explore new technologies and concepts that I was not familiar with. I also wanted to develop something I'm interested in. Many ideas and concepts were discussed with my supervisor when trying to figure out what to develop. I ended up settling with this idea, as it felt like something I could incorporate multiple technologies and unfamiliar concepts with. Initially, I had very little knowledge of how rating systems and matchmaking worked. I will discuss how I studied and implemented these concepts into my project in the technology review section. Once I had a clear idea on what I wanted to develop, I began studying various frameworks, platforms and technologies that would be appropriate to use throughout the project. Since I wanted this to be a web application, I could narrow down the frameworks I wanted to use. The main options that stood out to me were Angular, React or Vue. I opted for Angular since this framework came packed with features, the documentation was easy to follow and the internet had a lot of resources for learning this framework.
+Based off of the two sections above, I aim to develop a web application for users to manage custom matches and bypass the time-consuming process of managing custom matches. I wanted to explore new technologies and concepts that I was not familiar with. I also wanted to develop something I'm interested in. Many ideas and concepts were discussed with my supervisor when trying to figure out what to develop. I ended up settling with this idea, as it felt like something I could incorporate multiple technologies and unfamiliar concepts with.\newline
+
+Initially, I had very little knowledge of how rating systems and matchmaking worked. I will discuss how I studied and implemented these concepts into my project in the technology review section. Once I had a clear idea on what I wanted to develop, I began studying various frameworks, platforms and technologies that would be appropriate to use throughout the project. Since I wanted this to be a web application, I could narrow down the frameworks I wanted to use. The main options that stood out to me were Angular, React or Vue. I opted for Angular since this framework came packed with features, the documentation was easy to follow and the internet had a lot of resources for learning this framework.
 
 
 \chapter{Methodology}
@@ -76,7 +84,6 @@ Project meetings were established at the beginning of development, Initial meeti
 I opted to use System Testing
 I opted to use System Testing as the main type of testing for the project as this suited my workflow. I wanted to implement the functionality of client-side elements before testing. Unit tests were carried out near completion of development on individual components for both server-side and client-side. Jasmine and Karma was the framework used to test the functionality of web components.
 
-TALK ABOUT SELENIUM
 \begin{center}    
 	\includegraphics[width=8cm,height=3.3cm,keepaspectratio]{img/Jasmine_and_Karma.png}
 \end{center}
@@ -98,6 +105,8 @@ The main way I generated test cases was based on application usage, e.g., one co
 \end{itemize}
 The first test case satisfied these inputs and then the second test case took the exact input from the first scenario proving that duplicate usernames cannot be inserted into the database.
 
+\paragraph{}
+I also performed Automated Tests when adding new features, this enabled me to conduct tests that I would normally do manually, e.g. testing the login system. I installed Selenium \cite{selenium} as a browser extension and manually recording various tests, I could run these tests whenever I was testing a new feature, this saved a lot of manual typing and navigating which can add up over time.
 \section{Source Control}
 GitHub was used for source control and project management. Initially, I was using Trello for task management but this quickly became complicated to associate updates with unfinished tasks of the project. Therefore I changed the projects task management to GitHub’s Issues section. I posted issues for any viable element that needed to be implemented into the project and when one of these elements were complete I would close the corresponding issue on GitHub. Each issue was categorized with tags depending on the type. These tags include:
 \begin{itemize}
@@ -111,9 +120,9 @@ GitHub was used for source control and project management. Initially, I was usin
 This method of task management proved to be a lot more manageable compared to my previous method of using Trello. I could easily compare my current tasks to my commits on GitHub. Anytime I had implemented a significant change or addition to my project, I would perform commit it to through git and push the change.
 
 \section{Technologies Selection Criteria}
-The primary development environment used throughout the project was Visual Studio Code, The main reasons why I chose this environment is because it supports debugging, Git control, syntax highlighting, intelligent code completion and for its customisability. Both Frontend and backend of the project were developed in this environment.
-I used Angular which is an open-source web application framework led by the Angular Team at Google. The reasoning behind choosing Angular is because I wanted the project to be a web application as compared to a hybrid application, Angular seemed to be the most viable framework for this application.
-When researching options for the database server, the two main options were python and flask or using MEAN stack (Mongo, Express.js, Angular and Node). I wanted the database to be a relational instead of using a NoSQL database, so a NoSQL database did not suit. I also wanted to use a technology that I'm not familiar with. These factors
+The primary development environment used throughout the project was Visual Studio Code, The main reasons why I chose this environment is because it supports browser debugging, Git control, syntax highlighting, intelligent code completion and for its customisability. Both front-end and back-end of the project were developed in this environment.
+I used Angular which is an open-source web application framework led by the Angular Team at Google. The reasoning behind choosing Angular is because I wanted the project to be a web application as compared to a hybrid application, Angular seemed to be the most viable framework for this application. Through angular, I could write the functionality of the front-end using typescript, which is then compiled down to javascript. Typescript is more structured then Javascript which I preferred.
+When researching options for the database server, the two main options were python and flask or using MEAN stack (Mongo, Express.js, Angular and Node). I wanted the database to be a relational instead of using a NoSQL database, so a NoSQL database did not suit. I also wanted to use a technology that I'm not familiar with. So I opted for Python and Flask.
 \par
 \begin{itemize}
 	\item Agile / incremental and iterative approach to development. Planning, meetings.
@@ -430,7 +439,44 @@ The Elo rating system, developed by Arpad Elo, is used for calculating relative 
 \paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
 
 \section{Gale Shapely Algorithm}
-Complexity Upper Bound : $O(n^2)$
+The Gale-Shapely algorithm \cite{dubins1981machiavelli} is an algorithm for the stable matching problem. \cite{gale1985some}
+
+
+David Gale and Lloyd Shapley proved that \cite{gale1962college}, for an equal number of men and women, it is possible to make all marriages stable. 
+
+\paragraph{}
+The algorithm involves different rounds.
+
+\begin{itemize}
+	\item Round 1
+\end{itemize}
+All single men propose to the woman he favours most.
+\begin{itemize}
+	\item Round 2
+\end{itemize}
+Each woman is then temporarily taken by the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
+\paragraph{In each following round:}
+\begin{itemize}
+	\item a
+\end{itemize}
+All unengaged men propose to their most-preferred woman (even if the woman is already "engaged" )
+\begin{itemize}
+	\item b
+\end{itemize}
+If a woman prefers this man over her current temporary partner, they become unengaged and the woman and new man become "engaged".
+This process is repeated until everyone is engaged.
+
+\paragraph{In the end}
+\begin{itemize}
+	\item Everyone gets married.
+\end{itemize}
+There can't be a people unengaged.\newline 
+\begin{itemize}
+	\item The marriages are stable.
+\end{itemize}
+Say, we have a woman and man that both have their partners, Let's call them Mary and John.
+When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner. 
+
 
 \paragraph{Pseudo Algorithm}
 \begin{algorithm}[H]
@@ -692,6 +738,30 @@ One of the main limitations of this project is not being able to gain access to 
 The API key to access Riot Games API changed every day, this meant each day I was working on the project, I'd have to regenerate a new API key. After I created a new API key, I could not access the API immediately, I would have to wait a while before being able to access it again. The only way to get a static API key is to submit your application for review by Riot Games and hope they approve, this was also an extra limitation as they would not accept applications currently in development. Therefore, there was no way for me to receive a static API key. Although this is not a significant limitation, it's more of a minor inconvenience.
 \subsection{Tournament Codes}
 Riot Games can supply tournament codes, which would have given me the capabilities of creating private custom games. This would have suited the system a lot because I could then gain access to information about these games and their outcomes. To only way to receive these tournament codes, was to make the custom matches made through my system a prized event, meaning the winners of a match would receive some form of prize.
+\section{Vulnerabilities}
+When migrating the database over to PostgreSQL, I stumbled upon a vulnerability in how I was handling requests and insertions in my database. My queries were not parameterized meaning attackers could potentially harm my database, by deleting tables or even releasing sensitive information. This is commonly referred to as SQL Injection. 
+
+The types of attacks that could have been performed on my old procedures are called "Piggy-Backed Queries" \cite{halfond2006classification}, in this type of attack, the attacker will attempt to add an extra query to the original query. 
+\newline Piggy-Backed query example:
+
+\begin{minted}{sql}
+SELECT username FROM users WHERE login=john; drop table users;
+\end{minted}
+
+After executing the above query, the database will recognise the semicolon (';') which determines the end of the first query, the second query is the injected query which would destroy the table, removing any valuable data within.
+
+\paragraph{}
+SQL injection \cite{halfond2006classification} can cause an obvious threat to web applications, they enable attackers to modify queries and even release sensitive information (i.e passwords).
+
+To solve this potential vulnerability, I ensured that all my queries were parametrized \cite{psycopg}.
+\begin{minted}{python}
+p_query = ("insert into participants values(%s, %s, %s, %s, %s)")
+p_param = (_match_uuid, _username, _summoner_name, _player_icon, _mmr)
+\end{minted}
+I also assured the only data that the user could enter were alphanumeric characters: no symbols were allowed.
+
+Writing Secure Code\cite{howard2003writing} by Michael Howard and David LeBlanc is an interesting read that provides good practices for writing secure code and SQL queries.
+
 \section{Robust}
 
 \chapter{Conclusion}

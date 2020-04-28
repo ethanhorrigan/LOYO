@@ -45,15 +45,6 @@ try:
 except (Exception, psycopg2.Error) as error:
     print ("Error while connecting to PostgreSQL", error)
 
-class Match():
-    # Game Outcome
-    # Get gameId from the players account id
-    def get_player_id(self, summoner_name):
-        pass
-    def get_match_id(self, player_id):
-        pass
-# TODO: get summoner details
-
 
 class Summoner():
     def get_account_id(self):
@@ -644,12 +635,12 @@ class UpdateRating(Resource):
         _points = e.update_points()
         
         
-        lose_query = ("select wins from users where user_name=%s")
-        lose_param = [_match_uuid]
-        cursor.execute(lose_query, lose_param)
-        result_loss = (cursor.fetchall())
+        # lose_query = ("select wins from users where user_name=%s")
+        # lose_param = [_match_uuid]
+        # cursor.execute(lose_query, lose_param)
+        # result_loss = (cursor.fetchall())
         for i in range(count):
-
+            # Select the wins for the player so we can update their wins.
             wa_query = ("select wins, points from users where user_name=%s")
             wa_param = [result[i][0]]
             cursor.execute(wa_query, wa_param)
@@ -660,6 +651,16 @@ class UpdateRating(Resource):
             update_param = [total_points, wins, result[i][0]]
             cursor.execute(update_query, update_param)
         
+        # update user loss
+        for i in range(l_count):
+            loss_query = ("select losses from users where user_name=%s")
+            loss_param = [result_loss[i][0]]
+            cursor.execute(loss_query, loss_param)
+            loss_count = (cursor.fetchall())
+            losses = loss_count[0][0] + 1
+            lq = ("update users set losses=%s where user_name=%s")
+            lp = [losses, result_loss[i][0]]
+            cursor.execute(lq, lp)
         connection.commit()
 
         return result

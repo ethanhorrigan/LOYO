@@ -1,5 +1,6 @@
-from src.watchTest import Summoner
-from api import PasswordSetup
+
+from api import PasswordSetup, Summoner
+import api
 import unittest
 
 class SimpleTest(unittest.TestCase):
@@ -13,9 +14,12 @@ class SimpleTest(unittest.TestCase):
 
     def test_get_rank(self):
         self.assertEqual(Summoner.get_rank('Yupouvit'), 1)
+    
+    def test_get_summoner_id(self):
+        self.assertEqual(Summoner.get_player_icon('Dylan Loftus'), 1456)
 
-    def test_password_create(self):
-        self.assertEqual(PasswordSetup.create_password(self, '123'), '123')
+    def test_summoner_name(self):
+        self.assertEqual(api.SummonerName.get(self,'Ethan'), [('Dylan Loftus',)])
 
 if __name__ == '__main__':
     unittest.main()
