@@ -71,7 +71,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   }
 
   getAdmin() {
-    this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/getmatch/${this.matchId}`).toPromise().then(admin => this.adminUser = admin);
+    this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/admin/${this.matchId}`).toPromise().then(admin => this.adminUser = admin);
   }
 
   ngOnDestroy() {
