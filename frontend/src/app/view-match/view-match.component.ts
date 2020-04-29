@@ -6,6 +6,7 @@ import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch } f
 import { AuthenticationService } from '../_services/authentication.service';
 import { tap } from 'rxjs/operators';
 import { resolve } from 'url';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-match',
@@ -22,6 +23,9 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   doMM: boolean = false;
   playerCount: number;
 
+  private admin: boolean = false;
+  adminUser: string;
+
   public matchDetails: Games[];
   public participants: Participants[];
   public finalMatch: FinalMatch[];
@@ -29,9 +33,14 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
+    private http: HttpClient,
     private auth: AuthenticationService) { 
       this.user = this.auth.getUserInStorage();
+      this.getAdmin();
       
+      if(this.user == this.adminUser) {
+        this.admin == true;
+      }
     }
 
    ngOnInit() {
@@ -39,6 +48,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     this.sub = this.activatedRoute.params.subscribe(params => {
       this.matchId = params['matchId'];
     });
+
+    // i need to check if it is the admin
+    // if not then i dunno
+
     
     this.getMatch();
     this.getPlayerCount();
@@ -55,6 +68,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
     this.beginMM();
 
+  }
+
+  getAdmin() {
+    this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/getmatch/${this.matchId}`).toPromise().then(admin => this.adminUser = admin);
   }
 
   ngOnDestroy() {

@@ -588,7 +588,20 @@ class UsersName(Resource):
             status = "USERNAME_TAKEN"
         return status
 
-
+class PlayerAdmin(Resource):
+    def get(self, match_id):
+        admin = False
+        cursor = connection.cursor()
+        try:
+            query = (constants.ADMIN_QUERY)
+            param = [match_id]
+            cursor.execute(query, param)
+            response = cursor.fetchall()[0][0]
+        except psycopg2.Error as error:
+            print('Error getting data: PlayerAdmin')
+        finally:
+            cursor.close()
+        return response
 class UpdateRating(Resource):
     def post(self, _match_uuid):
         cursor = connection.cursor()
@@ -736,6 +749,8 @@ api.add_resource(AddToMatch, '/addtomatch')  # Route_8
 api.add_resource(GetParticipants, '/getparticipants/<_match_id>')
 api.add_resource(GetParticipantCount, '/getparticipantcount/<_match_uuid>')
 api.add_resource(UpdateRating, '/updatescore/<_match_uuid>')
+api.add_resource(PlayerAdmin, '/admin/<match_id>')
+
 
 if __name__ == '__main__':
     app.run(port='5002')

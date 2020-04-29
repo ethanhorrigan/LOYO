@@ -9,3 +9,5 @@ HOST = "ec2-35-168-54-239.compute-1.amazonaws.com"
 PORT = "5432"
 
 RIOT_API_KEY = 'RGAPI-cd6b5349-2e7f-4a09-a34d-914817127d10'
+
+ADMIN_QUERY = 'select admin from matches where match_uuid=%s'

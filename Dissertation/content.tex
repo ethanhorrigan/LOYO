@@ -477,24 +477,6 @@ There can't be a people unengaged.\newline
 Say, we have a woman and man that both have their partners, Let's call them Mary and John.
 When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner. 
 
-
-\paragraph{Pseudo Algorithm}
-\begin{algorithm}[H]
-	\KwData{this text}
-	\KwResult{how to write algorithm with \LaTeX2e }
-	initialization\;
-	\While{not at end of this document}{
-		read current\;
-		\eIf{understand}{
-			go to next section\;
-			current section becomes this one\;
-		}{
-			go back to the beginning of current section\;
-		}
-	}
-	\caption{How to write algorithms}
-\end{algorithm}
-
 \chapter{System Design}
 Overall Project Architecture
 \begin{center}    
@@ -711,6 +693,33 @@ When a match reaches its maximum amount of participants, all the participants fo
 	\end{tabular}
 	\caption{The final match table.}
 \end{table}
+
+\subsection{Matchmaking System Design}
+For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm.
+
+I wanted to further improve the Elo System in order to generate more balanced teams.\newline
+To achieve this, I calculated the growth rate \cite{d2010production} for players, this growth rate determined how long it took for a given player to achieve that rating, if player $a$ got the same rating as player $b$ in a shorter period of time, then it is assumed that player $a$ is performing better than player $b$.
+
+
+\begin{center}
+\begin{tikzpicture} 
+\begin{axis}
+       [
+xlabel={Days},
+ylabel={Rating}
+]
+\addplot [mark=none,  red,   ultra thick] coordinates { (0,1000) (30, 1500)};
+\addplot [mark=none,  blue,   ultra thick] coordinates { (0,1000) (60, 1500)};
+\end{axis} 
+\end{tikzpicture}
+\end{center} 
+
+Say we have player $a$ with a rating $RP$ and an initial rating $RS$.
+We can calculate his growth rate $g$ with: 
+\[ g = \frac{\frac{(RP - RS)}{RS} \times 100}{n} \]
+
+This growth rate was used in cases when trying to matchmake multiple players with the exact same rating.
+
 
 \paragraph{talk about typescript observables}
 \paragraph{talk about heroku deployment}
