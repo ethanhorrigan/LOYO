@@ -340,7 +340,7 @@ class SummonerName(Resource):
         return result
 
 class UpdateUser(Resource):
-    def post(self, _username):
+    def get(self, _username):
         cursor = connection.cursor()
         response = 'not added'
         summoner_q = constants.GET_SUMMONER_NAME

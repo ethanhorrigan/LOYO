@@ -2,6 +2,7 @@ import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
 import { Match, Games, GameResponse, NewParticipant, ParticipantsResponse, FinalMatchResponse } from '../_models/team';
+import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({ providedIn: 'root' })
 
@@ -78,4 +79,5 @@ export class UserService {
     getParticipantCount(matchId: string) {
         return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getparticipantcount/${matchId}`);
     }
+
 }
