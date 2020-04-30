@@ -694,7 +694,7 @@ When a match reaches its maximum amount of participants, all the participants fo
 	\caption{The final match table.}
 \end{table}
 
-\subsection{Matchmaking System Design}
+\subsection{Matchmaking Design}
 For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm.
 
 I wanted to further improve the Elo System in order to generate more balanced teams.\newline
@@ -715,10 +715,17 @@ ylabel={Rating}
 \end{center} 
 
 Say we have player $a$ with a rating $RP$ and an initial rating $RS$.
-We can calculate his growth rate $g$ with: 
+We can calculate growth rate $g$ with: 
 \[ g = \frac{\frac{(RP - RS)}{RS} \times 100}{n} \]
+Where $n$ is the amount of games played to receive that rank.
 
-This growth rate was used in cases when trying to matchmake multiple players with the exact same rating.
+This growth rate is used in cases when trying to matchmake multiple players with the exact same rating.
+If we had four players with the exact same rating of 1500, we can match them depending on their growth rate.
+
+\[ player A = \frac{\frac{(1500 - 1000)}{1000} \times 100}{15} = 3.3 \]
+\[ player B = \frac{\frac{(1500 - 1000)}{1000} \times 100}{50} = 1.0 \]
+\[ player C = \frac{\frac{(1500 - 1000)}{1000} \times 100}{30} = 1.6 \]
+\[ player D = \frac{\frac{(1500 - 1000)}{1000} \times 100}{26} = 1.9 \]
 
 
 \paragraph{talk about typescript observables}

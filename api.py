@@ -338,7 +338,39 @@ class SummonerName(Resource):
         result = cursor.fetchall()
         
         return result
-# Register
+
+class UpdateUser(Resource):
+    def post(self, _username):
+        cursor = connection.cursor()
+        response = 'not added'
+        summoner_q = constants.GET_SUMMONER_NAME
+        summoner_p = [_username]
+        cursor.execute(summoner_q, summoner_p)
+        _summoner_name = cursor.fetchall()[0][0]
+        connection.commit()
+
+        _account_id = Summoner.get_account_id(_summoner_name)
+        _rank = Summoner.get_rank_string(self, _summoner_name)
+        print(_rank)
+        mq = constants.MMR_QUERY
+        mp = [_rank]
+        cursor.execute(mq, mp)
+        _mmr = cursor.fetchall()[0][0]
+        connection.commit()
+        _player_icon = Summoner.get_player_icon(_summoner_name)
+        _total_games = Summoner.get_total_games(_summoner_name)
+
+        query = ("UPDATE users SET account_id=%s, rank=%s, mmr=%s, player_icon=%s, total_games=%s WHERE user_name=%s")
+        param = [_account_id, _rank, _mmr, _player_icon,_total_games, _summoner_name]
+        cursor.execute(query, param)
+        print('RowCount:', cursor.rowcount)
+        print('Param:', cursor.rowcount)
+        connection.commit()
+        response = 'added'
+
+        connection.commit()
+        cursor.close()
+        return response
 class Users(Resource):
 
     def get(self):
@@ -357,7 +389,6 @@ class Users(Resource):
         cursor.execute(query)
         # Fetches first column that is Employee ID
         return {'users': [i[0] for i in cursor.fetchall()]}
-
     def post(self):
         """
         Handles user registration.
@@ -740,6 +771,7 @@ api.add_resource(PlayerStandings, '/playerstandings')  # Route_2
 api.add_resource(Lobby, '/lobby')  # Route_3
 api.add_resource(UsersName, '/users/<username>')  # Route_4
 api.add_resource(Users, '/users')  # Route_5
+api.add_resource(UpdateUser, '/users/<_username>')  # Route_5
 api.add_resource(SummonerName, '/s/<username>')  # Route_5
 api.add_resource(Login, '/login')  # Route_6
 api.add_resource(MatchMaking, '/mm/<_match_uuid>')  # Route_7
