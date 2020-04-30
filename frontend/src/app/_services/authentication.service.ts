@@ -40,7 +40,12 @@ export class AuthenticationService {
         return this.http.post<Boolean>(`https://limitless-fjord-64117.herokuapp.com/login`, { username, password }).pipe(map(user => {
             if(user == true) {
                 localStorage.setItem('currentUser', username);
-                this.updateDetails(username);
+                this.updateDetails(username).subscribe (res => {
+                    console.log("request succesfull.");
+                    
+                }, error => {
+                    console.error("error during request");
+                });
             }
             else {
                 
@@ -50,7 +55,7 @@ export class AuthenticationService {
     }
 
     updateDetails(username) {
-        return this.http.patch(`https://limitless-fjord-64117.herokuapp.com/users/${username}`, null);
+        return this.http.patch(`https://limitless-fjord-64117.herokuapp.com/users/${username}`, username);
     }
 
     logout() {
