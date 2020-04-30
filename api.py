@@ -347,7 +347,7 @@ class UpdateUser(Resource):
         summoner_p = [_username]
         cursor.execute(summoner_q, summoner_p)
         _summoner_name = cursor.fetchall()[0][0]
-        connection.commit()
+
 
         _account_id = Summoner.get_account_id(_summoner_name)
         _rank = Summoner.get_rank_string(self, _summoner_name)
@@ -356,16 +356,15 @@ class UpdateUser(Resource):
         mp = [_rank]
         cursor.execute(mq, mp)
         _mmr = cursor.fetchall()[0][0]
-        connection.commit()
+
         _player_icon = Summoner.get_player_icon(_summoner_name)
         _total_games = Summoner.get_total_games(_summoner_name)
 
-        query = ("UPDATE users SET account_id=%s, rank=%s, mmr=%s, player_icon=%s, total_games=%s WHERE user_name=%s")
-        param = [_account_id, _rank, _mmr, _player_icon,_total_games, _summoner_name]
-        cursor.execute(query, param)
+        query1 = ("UPDATE users SET rank=%s, mmr=%s, player_icon=%s, total_games=%s, account_id=%s WHERE user_name=%s")
+        param2 = [_rank, _mmr, _player_icon, _total_games, _account_id, _username]
+        cursor.execute(query1, param2)
         print('RowCount:', cursor.rowcount)
         print('Param:', cursor.rowcount)
-        connection.commit()
         response = 'added'
 
         connection.commit()
