@@ -71,3 +71,15 @@ class Elo:
         """        
         Ea = 1 / (1 + 10**( (self.losers_rating - self.player_rating) /400))
         return Ea
+
+    def calculate_growth_rate(self):
+        # PR = (V presetn - V pass) / v Pass x 1000
+        # n = divide that by number of years (games)
+        r = self.k_factor()
+        current_rating = self.player_rating
+        past_rating = 1000
+        n = self.total_played_lol
+        PR = (current_rating - past_rating) / past_rating * 100
+        PR = PR / n
+
+        return PR

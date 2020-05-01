@@ -63,3 +63,31 @@ box-shadow: -15px 15px 35px 8px rgba(0,0,0,0.75);
 .outcome {
     margin-top: 1.25rem;
 }
+
+.admin {
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    height: 250px;
+
+    text-align: center;
+}
+
+
+::ng-deep .mat-radio-label-content {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    display: inline-block;
+    order: 0;
+    line-height: inherit;
+    // padding-left: 1.25rem !important;
+    // padding-right: 1.25rem !important;
+    padding: 1.5rem !important;
+}
+
+::ng-deep .mat-radio-outer-circle {
+    border-color: white;
+    color: white !important;
+}

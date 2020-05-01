@@ -23,7 +23,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   doMM: boolean = false;
   playerCount: number;
   adminUser: string;
-  private admin: boolean = false;
+  admin: boolean = false;
  
 
   public matchDetails: Games[];
@@ -40,49 +40,39 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.sub = this.activatedRoute.params.subscribe(params => {
         this.matchId = params['matchId'];
       });
-  
-      console.log("vat");
+
+      this.getAdmin();
       
-      this.sub = this.getAdmin().pipe(first()).subscribe(data => {
-        this.adminUser = data.toString();
-        console.log(this.adminUser);
-      });
     }
 
    ngOnInit() {
-     //this.checkAdmin();
      
-     this.getMatch();
+    console.log(this.admin);
 
-    // i need to check if it is the admin
-    // if not then i dunno
+    
+    this.getMatch();
+
     this.getParticipants();
     
-    //
-    //this.getPlayerCount();
 
-
-    //this.beginMM();
-
-  }
-
-  getAdmin() {
-    return this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/admin/${this.matchId}`);
   }
 
   checkAdmin() {
-    console.log(this.adminUser);
-    console.log(this.user);
-    console.log(this.matchId);
-    
-    
     if(this.adminUser == this.user) {
-      this.admin = true;
+      return true;
     }
+    return false;
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  getAdmin() {
+    this.userService.getAdmin(this.matchId).pipe(first()).subscribe(data => {
+      this.adminUser = data;
+      this.admin = this.checkAdmin();
+    });
   }
 
   getMatch() {

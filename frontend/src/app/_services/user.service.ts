@@ -80,4 +80,8 @@ export class UserService {
         return this.http.get(`https://limitless-fjord-64117.herokuapp.com/getparticipantcount/${matchId}`);
     }
 
+    getAdmin(matchId: string) {
+        return this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/admin/${matchId}`);
+    }
+
 }

@@ -26,7 +26,6 @@ export class UserProfile {
     // should this be on a seperate query?
     // i can attempt to join both tables into one JSON object.
     matchName: string;
-    date:
     
 }
 

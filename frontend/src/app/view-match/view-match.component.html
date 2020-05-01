@@ -1,77 +1,87 @@
-
 <div class="container-fluid">
-<div class="container details" *ngFor="let game of matchDetails; index as i;">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>{{matchName}}</h2>
-      <h6>Mode: {{game.match_type}}</h6>
-      <h6>Admin: {{game.admin}}</h6>
+  <div class="container details" *ngFor="let game of matchDetails; index as i;">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>{{matchName}}</h2>
+        <h6>Mode: {{game.match_type}}</h6>
+        <h6>Admin: {{game.admin}}</h6>
+      </div>
+      <div class="col-md-4">
+        <h3>{{game.date}}</h3>
+        <h3>{{game.time}}</h3>
+      </div>
     </div>
-    <div class="col-md-4">
-      <h3>{{game.date}}</h3>
-      <h3>{{game.time}}</h3>
+
+    <div class="row justify-content-center outcome">
+      <div class="col-md-8 ">
+        <h6>Outcome: {{game.outcome}}</h6>
+      </div>
     </div>
   </div>
 
-  <div class="row justify-content-center outcome">
-    <div class="col-md-8 ">
-      <h6>Outcome: {{game.outcome}}</h6>
-    </div>
-    </div>
-</div>
 
-
-<div class="row no-gutters">
+  <div class="row no-gutters">
     <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <p>Participants</p>
-          </div>
+      <div class="row">
+        <div class="col-sm">
+          <p>Participants</p>
         </div>
-        <div class="row p">
-            <div class="col-sm" *ngFor="let p of participants; let i=index">
-              <div style="width: 250px;">
-                <div class="card card-stats mb-4 mb-lg-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        <span class="text-success mr-2">{{i + 1}}</span>
-                        <h5 class="card-title">{{p.summoner_name}}</h5>
-                      </div>
-                      <div class="col-auto">
-                          <img class="player-icon" src="http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/{{p.player_icon}}.png">
-                      </div>
-                    </div>
+      </div>
+      <div class="row p">
+        <div class="col-sm" *ngFor="let p of participants; let i=index">
+          <div style="width: 250px;">
+            <div class="card card-stats mb-4 mb-lg-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <span class="text-success mr-2">{{i + 1}}</span>
+                    <h5 class="card-title">{{p.summoner_name}}</h5>
+                  </div>
+                  <div class="col-auto">
+                    <img class="player-icon"
+                      src="http://ddragon.leagueoflegends.com/cdn/10.7.1/img/profileicon/{{p.player_icon}}.png">
                   </div>
                 </div>
               </div>
-              </div>
-              <div class="col-sm" *ngIf="!max">
-                <button mat-raised-button color="accent" (click)="joinMatch()">
-                  Join
-                  <i class="fa fa-plus"></i>
-              </button>
-              </div>
-        </div>
-      </div>
-
-      <div class="container team">
-        <div class="row">
-            <div class="col-sm">
-              <p>Team 1</p>
-            </div>
-            <div class="col-sm">
-              <p>Vs</p>
-            </div>
-            <div class="col-sm">
-              <p>Team 2</p>
             </div>
           </div>
+        </div>
+        <div class="col-sm" *ngIf="!max">
+          <button mat-raised-button color="accent" (click)="joinMatch()">
+            Join
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
       </div>
+    </div>
 
-      <div class="container" *ngIf="admin">
-        test container
-          <button (click)="checkAdmin()">name</button>
-          
+    <div class="container team">
+      <div class="row">
+        <div class="col-sm">
+          <p>Team 1</p>
+        </div>
+        <div class="col-sm">
+          <p>Vs</p>
+        </div>
+        <div class="col-sm">
+          <p>Team 2</p>
+        </div>
       </div>
-</div>
+    </div>
+
+    <div class="container">
+      <div class="row admin" *ngIf="admin">
+        <h4>Please select who won:</h4>
+        <div class="outcome-selector">
+        <div class="team-option">
+          <mat-radio-group>
+            <mat-radio-button value="value1">Team 1</mat-radio-button>
+            <mat-radio-button value="value2">Team 2</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div>
+          <button mat-raised-button color="accent">Submit</button>
+        </div>
+        </div>
+      </div>
+    </div>
