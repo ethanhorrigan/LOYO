@@ -550,8 +550,8 @@ class AddToMatch(Resource):
         print(_username)
         print(_match_uuid)
         # # check the participant db first before inserting
-        check_query=("SELECT COUNT(summoner_name) FROM participants where summoner_name=%s")
-        check_param=[_summoner_name]
+        check_query=("SELECT COUNT(summoner_name) FROM participants where summoner_name=%s AND match_uuid=%s")
+        check_param=[_summoner_name, _match_uuid]
         cursor.execute(check_query, check_param)
         check_result = cursor.fetchall()
         print(check_result[0][0])

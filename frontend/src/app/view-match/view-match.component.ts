@@ -50,19 +50,19 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     }
 
    ngOnInit() {
-     this.checkAdmin();
+     //this.checkAdmin();
      
-
+     this.getMatch();
 
     // i need to check if it is the admin
     // if not then i dunno
-
+    this.getParticipants();
     
-    this.getMatch();
-    this.getPlayerCount();
+    //
+    //this.getPlayerCount();
 
 
-    this.beginMM();
+    //this.beginMM();
 
   }
 
@@ -103,16 +103,11 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       username: this.user,
       match_uuid: this.matchId
     };
-    if(this.max == false) {
-      this.userService.addPlayerToMatch(participant).subscribe(data => {
-        location.reload();
-      }); 
-    }
 
-    else {
-      console.log("ERROR: Joining match");
-      
-    }
+
+    this.userService.addPlayerToMatch(participant).subscribe(data => {
+      location.reload();
+    }); 
   }
 
   getParticipants() {

@@ -54,7 +54,7 @@ https://github.com/ethanhorrigan/LOYO
 \end{itemize}
 
 \section{Competitive Gaming}
-Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).\newline
+Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. In essence, its a competitive way of playing computer games. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).\newline
 
 
 This project will focus on providing a platform for players to manage competitive matches for the popular Multiplayer Online Battle Arena (MOBA), League of Legends.\newline
@@ -285,7 +285,8 @@ PostgreSQL (Postgres) is a Relational Database Management System (RDBMS).
 	\caption{Participants table.}
 	\label{table:Matches}
 \end{table}
-\section{PgAdmin}
+\section{PgAdmin and DBeaver}
+TALK ABOUT DBeaver
 PgAdmin \cite{pgadmin} is a database management tool for PostgreSQL. It simplifies the creation, maintenance, and use of database objects through a user interface. I used pgAdmin for database maintenance and to get a visual representation of data that was stored in my database. I linked the local and deployment PostgreSQL database to pgAdmin making both easily accessible for development.
 \section{Heroku}
 Heroku \cite{heroku} is a Free Cloud Application Platform. The Flask Server and PostgreSQL Database were both deployed on Heroku. Heroku runs applications in "dynos" which are basically just virtual computers. I created a branch on GitHub specifically for Heroku, so every time I made a new commit to GitHub, Heroku would automatically build. This allowed me to develop alot more efficiently because I did not have to start up the server each time and changes to server were automatically built, deployed and ran on each git push. 
@@ -694,7 +695,7 @@ When a match reaches its maximum amount of participants, all the participants fo
 	\caption{The final match table.}
 \end{table}
 
-\subsection{Matchmaking Design}
+\section{Matchmaking Design}
 For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm.
 
 I wanted to further improve the Elo System in order to generate more balanced teams.\newline
@@ -728,12 +729,19 @@ If we had four players with the exact same rating of 1500, we can match them dep
 \[ player D = \frac{\frac{(1500 - 1000)}{1000} \times 100}{26} = 1.9 \]
 
 
-\paragraph{talk about typescript observables}
+\paragraph{updating user on login}
+\newpage
+\section{Microservices}
+\begin{center}    
+	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/Microservice.png}
+\end{center}
+Microservices is an architecture style which separates the system into individual services that build a cohesive system. \cite{alshuqayran2016systematic} I used this architecture style for communication integration. I created a service for communication with Riot Games API and a different service for communication with the applications API, both these services then communicated with the projects database for further usage during development. This style provided portability \cite{dragoni2017microservices} since each service was loosely coupled \cite{salah2016evolution}, meaning I could access these classes independently, not only did this provide a more fluent workflow, it made life a lot easier when conducting tests.
+Companies like Netflix \cite{bukoski2018we} make use of microservices to allow their teams to "build and push at comfortable speeds".
+\subsection{Communicating Data}
+To retrieve data from the database and display it on the angular web application, I used Observable Requests
 \paragraph{talk about heroku deployment}
-\paragraph{talk about firebase deployment}
-\paragraph{talk about workflow}
-\paragraph{talk about point system}
-\paragraph{talk about database design}
+\paragraph{Deployment}
+\paragraph{Workflow}
 \paragraph{talk about web design}
 
 \chapter{System Evaluation}
@@ -778,21 +786,42 @@ I also assured the only data that the user could enter were alphanumeric charact
 
 Writing Secure Code\cite{howard2003writing} by Michael Howard and David LeBlanc is an interesting read that provides good practices for writing secure code and SQL queries.
 
-\section{Robust}
+\section{Robustness}
+To ensure my system was robust I conducted multiple types of tests, including:
 
+\begin{itemize}
+	\item Back-end Unit Testing.
+	\item Front-End Unit Testing.
+	\item e2e Testing.
+	\item Automated Testing.
+\end{itemize}
+
+Theses tests were responsible for testing various different components of the project, unit tests were added to test individual components, I tried to emulate how a real-world user would use the system through automated tests.\newline
+Incorporating multiple tests allowed me to discover errors that may not have been found. Testing at multiple layers of the application ensured that the system was robust.
 \chapter{Conclusion}
 About three pages.
 
 \begin{itemize}
 	\item Briefly summarise your context and ob-jectives (a few lines).
-	\item Highlight your findings from the evalua-tion section / chapter and any opportuni-ties identified.
-	
-	\item MY OPPORTUNITIES
-	\item Possible Public API for tournament and match creation
-	\item python package for the elo system
-	\item python package for matchmaking
-	\item Easy possibilties to scale this up by adding more game platforms
-	\item possibilites for scaling by incorporating multiple regions
-	
 \end{itemize}
+
+I set out to develop an application that could automate the organisation of custom matches with the intent of making it more manageable for people to run their events, focusing on the end goal and researching various concepts related to this application enabled me to achieve this goal. This project was no simple task but yet it was very enjoyable and valuable, I feel I've got more insight on how real-world applications are developed.  Although I could not automate the process of accessing match outcomes which I discussed above, I consider the alternative solution a viable option. In the future, I aim to submit this application to Riot Game's API for review so I can gain access to tournament codes, which will open up more oppurtunities for me to scale this application. Being in a group of friends and acquaintances that also play similar games futher motivated me to develop this system.
+
+
+\subsection{Opportunities}
+Throughout development and on completion, I discovered potential opportunities, including an API for custom online events, such as matches and tournaments. Instead of being restricted to the web application, people could integrate this API into their application or system. I could develop a python package with the implementation of the Elo System, this would be a good resource for developers who are creating their own game and require some form of rating system for their players.
+I could potentially scale this application by incorporating multiple online game platforms, which would greatly increase the size of the platform and similar concepts of matchmaking will still be applicable. I'd incorporate a tournament system in the style of knockout stages, this would further increase the competitive environment.
+
+\subsection{What would I do differently?}
+
+In hindseight, there are various things I would have done differently:
+\begin{itemize}
+	\item Use some form of project managment from the very beginning.
+	\item Travis CI for continuous integration, which would help greatly with developing and testing in smaller increments and also automate parts of the development process by managing deployments.
+	\item Deploy at the Beginning.
+	\item Decide on a database before even starting development, I was unsure if i should have used an SQL database or a NoSQL database, I trialed both and in the end I chose SQL, I could have saved some valuble time if I decided on a database at the very beginning.
+	\item Test more and Test early, I only started testing towards the end of development which was very tricky, if I were to develop this application again, I would incorporate tests for any new element that was added.
+\end{itemize}
+
+If I was to rework some components of this application, the user authentication system would be the first. Instead of using my own authentication system, I would integrate a third-party system. I would do this from a security standpoint, the benefits of using a third-party system is that they would handle all the authentication processes for me whilst also being secure. Firebase provides this functionality, which is convenient because it is the same platform that the frontend of this application is deployed on. This would also go hand-in-hand with the possible public API that I mentioned above because I could separate the sensitive information with the public information.
 
