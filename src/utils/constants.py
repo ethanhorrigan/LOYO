@@ -8,7 +8,7 @@ DB_PASSWORD = "553a3ddb1f43deb191cf1001d58ba5ce319d55f24e83ebad7c91f03fab8d90dd"
 HOST = "ec2-35-168-54-239.compute-1.amazonaws.com"
 PORT = "5432"
 
-RIOT_API_KEY = 'RGAPI-9db96ee5-4bb6-452b-affb-03ba4054fdc7'
+RIOT_API_KEY = 'RGAPI-5ac05e6e-8871-43d3-b4a0-dc16f6cacc5f'
 
 ADMIN_QUERY = 'select admin from matches where match_uuid=%s'
 GET_SUMMONER_NAME = 'select summoner_name from users where user_name=%s'
