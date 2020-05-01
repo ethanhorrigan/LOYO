@@ -9,6 +9,8 @@ import { ViewGamesComponent } from './view-games/view-games.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
 import { CreateGameComponent } from './view-games/create-game/create-game.component';
 import { TournamentComponent } from './view-match/tournament/tournament.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './_helpers';
 
 
 const routes: Routes = [
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: 'creategame', component: CreateGameComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'match/:matchId', component: ViewMatchComponent},
+  { path: 'profile/:profileId', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'tournament', component: TournamentComponent},
   { path: '**', component: ViewGamesComponent }, // Wildward Route
 ];

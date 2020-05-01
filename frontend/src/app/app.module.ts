@@ -64,6 +64,7 @@ import { ViewGamesComponent } from './view-games/view-games.component';
 import { ViewMatchComponent } from './view-match/view-match.component';
 import { CreateGameComponent } from './view-games/create-game/create-game.component';
 import { TournamentComponent } from './view-match/tournament/tournament.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: 'summoner', component: SummonerComponent }
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
     ViewMatchComponent,
     CreateGameComponent,
     TournamentComponent,
+    ProfileComponent,
   ],
   imports: [
     RouterModule.forRoot(

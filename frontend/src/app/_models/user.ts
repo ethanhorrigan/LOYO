@@ -11,6 +11,25 @@ export class UserLogin {
     password: string;
 }
 
+// What data do i want to display on the user page?
+//
+export class UserProfile {
+    username: string;
+    summonerName: string;
+    rank: string;
+    wins: number;
+    losses: number;
+    playerIcon: number;
+    poitns: number;
+
+    // i also want to get the matches they are in.
+    // should this be on a seperate query?
+    // i can attempt to join both tables into one JSON object.
+    matchName: string;
+    date:
+    
+}
+
 export class TempUser {
     summonerName: string;
 

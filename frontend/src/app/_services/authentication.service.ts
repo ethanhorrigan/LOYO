@@ -11,6 +11,7 @@ export class AuthenticationService {
     public currentUser: String;
 
     constructor(private http: HttpClient) {
+        this.currentUser = this.getUserInStorage();
     }
 
     public get currentUserValue(): String {
@@ -20,20 +21,6 @@ export class AuthenticationService {
     public getUserInStorage() {
         return localStorage.getItem('currentUser');
     }
-
-    // login(username, password) {
-    //     return this.http.post<any>(`http://127.0.0.1:5002/users/authenticate`, { username, password })
-    //         .pipe(map(user => {
-    //             // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //             localStorage.setItem('currentUser', JSON.stringify(user));
-    //             this.currentUserSubject.next(user);
-    //             return user;
-    //         }));
-    // }
-
-    // login(username: string) {
-    //     return this.http.post(`http://127.0.0.1:5002/login/${username}`);
-    // }
 
     
     login(username, password) {

@@ -4,7 +4,7 @@ import { ViewGamesComponent } from '../view-games/view-games.component';
 import { UserService } from '../_services/user.service';
 import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch } from '../_models/team';
 import { AuthenticationService } from '../_services/authentication.service';
-import { tap, map } from 'rxjs/operators';
+import { tap, map, first } from 'rxjs/operators';
 import { resolve } from 'url';
 import { HttpClient } from '@angular/common/http';
 
@@ -43,7 +43,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   
       console.log("vat");
       
-      this.sub = this.getAdmin().subscribe(data => {
+      this.sub = this.getAdmin().pipe(first()).subscribe(data => {
         this.adminUser = data.toString();
         console.log(this.adminUser);
       });
