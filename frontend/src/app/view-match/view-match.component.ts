@@ -25,7 +25,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   adminUser: string;
   admin: boolean = false;
  
+  daysUntil: string;
 
+
+  public matchDate: string;
   public matchDetails: Games[];
   public participants: Participants[];
   public finalMatch: FinalMatch[];
@@ -53,6 +56,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     this.getMatch();
 
     this.getParticipants();
+
     
 
   }
@@ -79,7 +83,41 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     this.userService.getMatch(this.matchId).subscribe(data =>  {
       this.matchDetails = data.games;
       this.matchName = this.matchDetails[0].match_name;
+      this.matchDate = this.matchDetails[0].date;
+      this.daysUntil = this.calculateDays(this.matchDate);
     });
+  }
+
+  calculateDays(matchDate: string) {
+    let year = matchDate.substr(0, 4);
+    let month = matchDate.substr(5, 2);
+    if(month.startsWith('0')) {
+      month = month.replace('0', '');
+    }
+    let day = matchDate.substr(8,2);
+
+    console.log(year);
+    console.log(month);
+    console.log(day);
+
+    const currentMonth = (new Date().getUTCMonth()+ 1).toString();
+    const currentDay = new Date().getDate();
+    console.log('currentMonth:', currentMonth);
+    let daysUntil = null;
+
+    if(currentMonth == month) {
+      daysUntil = Number(day) - currentDay;
+      console.log(daysUntil);
+      
+    }
+    let result = null;
+    if(daysUntil == 1) {
+      result = "IN "+daysUntil+" DAYS";
+    }
+
+    result = "IN "+daysUntil+" DAYS";
+    console.log(matchDate);
+    return result;
   }
 
   joinMatch() {

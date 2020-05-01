@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { Games, GameResponse } from '../_models/team';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-view-games',
@@ -12,6 +13,7 @@ export class ViewGamesComponent implements OnInit {
   
   public game: Games[];
   searchText: string;
+  private dates: Observable<string[]>;
 
   constructor(
     private userService: UserService,
@@ -29,12 +31,20 @@ export class ViewGamesComponent implements OnInit {
   /**
    * Retrieve all current games.
    */
+  gameTimes() {
+    for (let index = 0; index < this.game.length; index++) {
+      console.log(this.game[index].date);
+      //this.dates.push(this.game[index].date);
+      
+    }
+  }
+
   getGames() {
     this.http.get<GameResponse>("https://limitless-fjord-64117.herokuapp.com/create").subscribe(data => {
       this.game = data.games;
-      console.log(this.game[0].match_name);
       console.log(this.game);
     });
+    
   }
 
 }
