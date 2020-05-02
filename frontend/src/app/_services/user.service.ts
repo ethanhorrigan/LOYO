@@ -1,7 +1,7 @@
 import { Injectable, DebugElement } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, TempUser } from '../_models';
-import { Match, Games, GameResponse, NewParticipant, ParticipantsResponse, FinalMatchResponse } from '../_models/team';
+import { Match, Games, GameResponse, NewParticipant, ParticipantsResponse, FinalMatchResponse, UpdateFinalMatch } from '../_models/team';
 import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({ providedIn: 'root' })
@@ -82,6 +82,10 @@ export class UserService {
 
     getAdmin(matchId: string) {
         return this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/admin/${matchId}`);
+    }
+
+    updateFinalMatch(fmatch: UpdateFinalMatch) {
+        return this.http.post('http://127.0.0.1:5002/finalmatch', fmatch);
     }
 
 }

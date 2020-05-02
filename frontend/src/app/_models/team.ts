@@ -74,6 +74,12 @@ export class FinalMatch {
     team2: string[];
 }
 
+export class UpdateFinalMatch {
+    match_uuid: string;
+    winning_team: string;
+    losing_team: string;
+}
+
 export interface ParticipantsResponse {
     participants: Participants[];
 }

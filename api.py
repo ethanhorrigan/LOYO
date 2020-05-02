@@ -632,6 +632,61 @@ class PlayerAdmin(Resource):
         finally:
             cursor.close()
         return response
+
+class Finalmatch(Resource):
+    def post(self):
+        response = None
+        _match_uuid = request.json['match_uuid']
+        _winning_team = request.json['winning_team']
+        _losing_team = request.json['losing_team']
+        print(_match_uuid)
+        print(_winning_team)
+        print(_losing_team)
+
+        team1_index = 1
+        team2_index = 2
+
+        cursor = connection.cursor()
+        try:
+            query = (constants.UPDATE_TEAM)
+            param = [_winning_team, _losing_team, _match_uuid]
+            cursor.execute(query, param)
+
+            query2 = (constants.WINNING_TEAM)
+            param2 = [_match_uuid]
+            cursor.execute(query2, param2)
+            result = cursor.fetchall()[0][int(_winning_team.replace('team',''))]
+            print(len(result))
+
+            print(result)
+            for name in result:
+                query = (constants.UPDATE_OUTCOME)
+                param = [1, name, _match_uuid]
+                cursor.execute(query, param)
+                print(name)
+            
+            queryL = (constants.WINNING_TEAM)
+            paramL = [_match_uuid]
+            cursor.execute(queryL, paramL)
+            result = cursor.fetchall()[0][int(_losing_team.replace('team', ''))]
+            print(len(result))
+
+            for name in result:
+                query = (constants.UPDATE_OUTCOME)
+                param = [0, name, _match_uuid]
+                cursor.execute(query, param)
+                print(name)
+                
+            UpdateRating.post(self, _match_uuid)
+            #print(result[0][0][1])
+            response = constants.SUCCESS
+        except psycopg2.Error as identifier:
+            response = '400: Bad Request'
+        finally:
+            connection.commit()
+            cursor.close()
+        return response
+
 class UpdateRating(Resource):
     def post(self, _match_uuid):
         cursor = connection.cursor()
@@ -781,6 +836,7 @@ api.add_resource(GetParticipants, '/getparticipants/<_match_id>')
 api.add_resource(GetParticipantCount, '/getparticipantcount/<_match_uuid>')
 api.add_resource(UpdateRating, '/updatescore/<_match_uuid>')
 api.add_resource(PlayerAdmin, '/admin/<match_id>')
+api.add_resource(Finalmatch, '/finalmatch')
 
 
 if __name__ == '__main__':

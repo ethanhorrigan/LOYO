@@ -9,50 +9,23 @@ Ethan Horrrigan
 
 
 \chapter{Introduction}
-Competitive online gaming has seen a significant increase in popularity in recent times. The estimated global esports audience was estimated at 335 million people in 2017 generating a revenue of more than \$900M with an estimated growth of over \$1600M in 2021.~\cite{sjoblom2019esports} Yuri Seo and Sang-Uk Jung ~\cite{seo2016beyond} outlined why people play or spectate competitive games. The main factors include entertainment and gaining a better understanding of a game. \newline Whether spectating or participating, competitive games can consume a large portion of our free time. \newline Organising matches need some form of administration to ensure rules are upheld. Issues occur when an individual is responsible for managing these games, for example, if a match has a fixed schedule but the person responsible for managing the game is unavailable, then the tournament game is postponed. Administrators are also required to make sure that teams are is fair which is very time-consuming and unpredictable. \newline This application will automate the process of matchmaking teams which is a tedious task for an individual and offer an environment for people to compete which adds to the competitive experience.
+In recent years, the competitive online gaming industry (esports) has seen a substantial rise in popularity. \cite{sjoblom2019esports} The estimated global esports audience in 2017 was previously estimated at 335 million people, generating revenue of more than \$900 million with an expected increase of more than \$1600 million in 2021. Yuri Seo and Sang-Uk Jung \cite{seo2016beyond} outlined why people play or enjoy watching competitive games. The main factors include entertainment and gaining a better understanding of a game. \newline Whether spectating or participating, competitive games can consume a large portion of our free time. This project aims to minimize the time needed to manage pick-up game styled events by creating a platform for users to create and manage their events. Organising matches need some form of administration to ensure rules are upheld. Issues occur when an individual is responsible for managing these games, for example, if a match has a fixed schedule but the person responsible for managing the game is unavailable, then the game is postponed. Administrators are also required to make sure that teams are is fair which is time-consuming and unpredictable. \newline This application will automate the process of matchmaking teams which is a tedious task for an individual, matchmaking will decide which player goes on which team based off their in-game rating. I will discuss how the matchmaking system was implemented in section 3.2.
 \newpage
-In order to develop this system, I needed to connect various technologies with each other and allow communication between them. I used Angular as the front-end for the application, where I could design the user interface and communicate with the back-end server to display information. I used Flask for the server and API (Application Programming Interface) this controlled how the data was transferred between the database and the web application.
-The features included in the web application are a registration system, login system, leaderboards, match creation, matches page and match display and then the server-side of the application was responsible for the matchmaking and point system algorithms. 
- 
-I went with an iterative development approach for this application, I met with my supervisor to discuss what had been implemented in the project on a weekly basis and discussed what I will implement in the following week. This allowed me to see significant progress each week on the project.
+To develop this system, I needed to connect various technologies and allow communication between them. I used Angular as the front-end for the application, where I could design the user interface and communicate with the back-end server to display information. I used Flask for the server and API (Application Programming Interface) this controlled how the data was transferred between the database and the web application.
+The features included in the web application are a registration system, login system, leader-boards, match creation, matches page and match display and then the server-side of the application was responsible for the matchmaking and point system algorithms. 
+
+I went with an iterative development approach for this application, I met with my supervisor to discuss what had been implemented in the project weekly and discussed what I will implement in the following week. This allowed me to see significant progress each week on the project.
 
 \chapter{Summary}
 \paragraph{Context:} here I explain how to the idea for the project came about, I highlight the reasons why this application was made and its core uses.
-\paragraph{Methodolgy:} the methodolgy section contains how I went about developing the project, an overview of the technologies used and design choices.
+\paragraph{Methodology:} the Methodology section contains how I went about developing the project, an overview of the technologies used and design choices.
 \paragraph{Technology Review:} here I explain how the various technologies were implemented in the project. This section contains working examples of algorithms and features. I explain how I developed, tested and deployed this project.
 \paragraph{System Design:} I show how the overall system architecture is designed and implemented. I divide the architecture into individual sections and explain the relationships between databases, platforms and deployment services.
 \paragraph{System Evaluation:} I discuss how the overall system works, how I tested the system for performance, the outcome of the project and the limitations that I encountered throughout development.
 \paragraph{Conclusion:} I summarise the project and evaluation.
 
-\newpage
-\subsection{Github}
-https://github.com/ethanhorrigan/LOYO
-\paragraph{The Readme}
-\begin{itemize}
-	\item Contains software architecture.
-
-
-	\item Features of the project
-
-
-	\item How to Build, test and deploy the project.
-
-
-	\item Change log: Which contains any changes or findings I encountered throughout the project.
-
-
-	\item Helpful Links
-\end{itemize}
-\paragraph{Issues}
-\begin{itemize}
-	\item I used the Issues section for project management, I created new issues depending on a feature that needed to be implemented, when that feature was finished, I would close that issues.
-\end{itemize}
 \chapter{Context}
-\begin{itemize}
-	\item This project aims to create a platform for people to manage and compete in online custom games.
-	\item The core objectives are to develop a web application for people to create and find custom games and to handle handle matchmaking for these games.
-\end{itemize}
-
+The project aims to provide a service for people to create and manage custom matches for online games. These types of games are usually referred to as pick-up games, which are games that are randomly initiated by a group of players. These types of games are not professional style games nor are they casual. They're somewhere in between. The main objective is to create a web application for users to interact where they can sign up and create or participate in custom games, the application will handle the process of matchmaking players to teams and track progress using a point system.
 \section{Competitive Gaming}
 Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. In essence, its a competitive way of playing computer games. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).\newline
 
@@ -71,7 +44,7 @@ The Elo rating system \cite{pelanek2016applications} was originally developed fo
 
 The idea for creating such a platform is because many groups or communities of players like to have friendly competition between each other but, organising these friendly matches can be a nuisance, whether gathering players to form a match or even attempting to balance teams when a match has been formed. This is where my system comes in, I aim to avoid these time-consuming actions by providing a platform that handles these operations for the user.
 
-\section{Web Application}
+\section{Project Objectives}
 Based off of the two sections above, I aim to develop a web application for users to manage custom matches and bypass the time-consuming process of managing custom matches. I wanted to explore new technologies and concepts that I was not familiar with. I also wanted to develop something I'm interested in. Many ideas and concepts were discussed with my supervisor when trying to figure out what to develop. I ended up settling with this idea, as it felt like something I could incorporate multiple technologies and unfamiliar concepts with.\newline
 
 Initially, I had very little knowledge of how rating systems and matchmaking worked. I will discuss how I studied and implemented these concepts into my project in the technology review section. Once I had a clear idea on what I wanted to develop, I began studying various frameworks, platforms and technologies that would be appropriate to use throughout the project. Since I wanted this to be a web application, I could narrow down the frameworks I wanted to use. The main options that stood out to me were Angular, React or Vue. I opted for Angular since this framework came packed with features, the documentation was easy to follow and the internet had a lot of resources for learning this framework.
@@ -107,7 +80,7 @@ The first test case satisfied these inputs and then the second test case took th
 
 \paragraph{}
 I also performed Automated Tests when adding new features, this enabled me to conduct tests that I would normally do manually, e.g. testing the login system. I installed Selenium \cite{selenium} as a browser extension and manually recording various tests, I could run these tests whenever I was testing a new feature, this saved a lot of manual typing and navigating which can add up over time.
-\section{Source Control}
+\section{Project Management and Source Control}
 GitHub was used for source control and project management. Initially, I was using Trello for task management but this quickly became complicated to associate updates with unfinished tasks of the project. Therefore I changed the projects task management to GitHub’s Issues section. I posted issues for any viable element that needed to be implemented into the project and when one of these elements were complete I would close the corresponding issue on GitHub. Each issue was categorized with tags depending on the type. These tags include:
 \begin{itemize}
 	\item To-do: Tasks that have yet to be implemented.
@@ -120,17 +93,18 @@ GitHub was used for source control and project management. Initially, I was usin
 This method of task management proved to be a lot more manageable compared to my previous method of using Trello. I could easily compare my current tasks to my commits on GitHub. Anytime I had implemented a significant change or addition to my project, I would perform commit it to through git and push the change.
 
 \section{Technologies Selection Criteria}
+\subsection{Front-end}
+I used Angular framework for front-end development, Angular is an open-source web application framework led by Google. The reason I opted for Angular is because it provided everything I needed to develop a production-ready web application. Angular uses TypeScript, which is a superset of Javascript \cite{bierman2014understanding}. TypeScript improves JavaScript with a module system, classes, interfaces, and a static type system. This allowed me to develop in a more structured manner. Angular also provides detailed and easy to follow documentation \cite{docsangular}, making life alot easier when learning this framework.
+Angular Material is another feature that allows developers to easily integrate UI components. Building the application was done using Angular's ahead-of-time (AOT) compiler \cite{aotc} which converts Angular HTML and TypeScript code into JavaScript code. This meant I could compile my code into one package and then use this package for deployment. A core feature that Angular provided is Two-way data binding, this means that when properties in the model get updated, so does the view (user interface) and when user interface elements get updated, the changes get delivered back to the model.
+With the factors discussed, Angular seemed like the right choice for this application.
+\subsection{Back-end}
+\subsection{Database}
 The primary development environment used throughout the project was Visual Studio Code, The main reasons why I chose this environment is because it supports browser debugging, Git control, syntax highlighting, intelligent code completion and for its customisability. Both front-end and back-end of the project were developed in this environment.
 I used Angular which is an open-source web application framework led by the Angular Team at Google. The reasoning behind choosing Angular is because I wanted the project to be a web application as compared to a hybrid application, Angular seemed to be the most viable framework for this application. Through angular, I could write the functionality of the front-end using typescript, which is then compiled down to javascript. Typescript is more structured then Javascript which I preferred.
 When researching options for the database server, the two main options were python and flask or using MEAN stack (Mongo, Express.js, Angular and Node). I wanted the database to be a relational instead of using a NoSQL database, so a NoSQL database did not suit. I also wanted to use a technology that I'm not familiar with. So I opted for Python and Flask.
 \par
-\begin{itemize}
-	\item Agile / incremental and iterative approach to development. Planning, meetings.
-	\item What about validation and testing? Junit or some other framework.
-	\item If team based, did you use GitHub during the development process.
-	\item Selection criteria for algorithms, languages, platforms and technolo-gies.
-\end{itemize}
-Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in Figure \ref{tikz:mydiagram}.
+
+Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in Figure \ref{tikz:graphs2}.
 
 \begin{figure}
 	\centering
@@ -180,7 +154,7 @@ Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in F
 	\draw [line] (b) -- (c);
 	\end{tikzpicture}
 	\caption{Nice pictures}
-	\label{tikz:graphs}
+	\label{tikz:graphs2}
 \end{figure}
 
 
@@ -479,12 +453,15 @@ Say, we have a woman and man that both have their partners, Let's call them Mary
 When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner. 
 
 \chapter{System Design}
-Overall Project Architecture
-\begin{center}    
+
+\begin{figure}[H]	  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/Architecture.png}
-\end{center}
+	\caption{Overall Software Architecture}
+	\label{tikz:arch}
+\end{figure}
+
 \begin{itemize}
-	\item In this section, I will dissect the above architecture and discuss each section and how it was designed.
+	\item In this section, I will discuss how I designed and implemented the elements in Figure \ref{tikz:arch}
 \end{itemize}
 
 \newpage
@@ -695,15 +672,18 @@ When a match reaches its maximum amount of participants, all the participants fo
 	\caption{The final match table.}
 \end{table}
 
-\section{Matchmaking Design}
+\section{Algorithms}
 For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm.
 
 I wanted to further improve the Elo System in order to generate more balanced teams.\newline
 To achieve this, I calculated the growth rate \cite{d2010production} for players, this growth rate determined how long it took for a given player to achieve that rating, if player $a$ got the same rating as player $b$ in a shorter period of time, then it is assumed that player $a$ is performing better than player $b$.
 
 
-\begin{center}
-\begin{tikzpicture} 
+
+
+\begin{figure}[H]
+	\centering
+\begin{tikzpicture}
 \begin{axis}
        [
 xlabel={Days},
@@ -713,7 +693,10 @@ ylabel={Rating}
 \addplot [mark=none,  blue,   ultra thick] coordinates { (0,1000) (60, 1500)};
 \end{axis} 
 \end{tikzpicture}
-\end{center} 
+	\caption{Growth Rate Example}
+	\label{tikz:growth}
+\end{figure}
+
 
 Say we have player $a$ with a rating $RP$ and an initial rating $RS$.
 We can calculate growth rate $g$ with: 
@@ -745,15 +728,6 @@ To retrieve data from the database and display it on the angular web application
 \paragraph{talk about web design}
 
 \chapter{System Evaluation}
-As many pages as needed.
-\begin{itemize}
-	\item Prove that your software is robust. How? Testing etc. 
-	\item Use performance benchmarks (space and time) if algorithmic.
-	\item Measure the outcomes / outputs of your system / software against the objectives from the Introduction.
-	\item Highlight any limitations or opportuni-ties in your approach or technologies used.
-\end{itemize}
-
-
 \section{Limitations}
 \subsection{Limited Data Access}
 One of the main limitations of this project is not being able to gain access to data for custom games. The main aim of this project was to automate the process of managing custom matches and not being able to gain access to the outcome of these matches within Riots API, indicated that someone or something is responsible for determining the outcome of a match. to remedy this, each game has an administrator, he/she is responsible for confirming the outcome of a match, although this can raise multiple potential problems. I can not think of another way to combat this issue.
@@ -801,9 +775,6 @@ Incorporating multiple tests allowed me to discover errors that may not have bee
 \chapter{Conclusion}
 About three pages.
 
-\begin{itemize}
-	\item Briefly summarise your context and ob-jectives (a few lines).
-\end{itemize}
 
 I set out to develop an application that could automate the organisation of custom matches with the intent of making it more manageable for people to run their events, focusing on the end goal and researching various concepts related to this application enabled me to achieve this goal. This project was no simple task but yet it was very enjoyable and valuable, I feel I've got more insight on how real-world applications are developed.  Although I could not automate the process of accessing match outcomes which I discussed above, I consider the alternative solution a viable option. In the future, I aim to submit this application to Riot Game's API for review so I can gain access to tournament codes, which will open up more oppurtunities for me to scale this application. Being in a group of friends and acquaintances that also play similar games futher motivated me to develop this system.
 

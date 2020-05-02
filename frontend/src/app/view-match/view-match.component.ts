@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ViewGamesComponent } from '../view-games/view-games.component';
 import { UserService } from '../_services/user.service';
-import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch } from '../_models/team';
+import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch, UpdateFinalMatch } from '../_models/team';
 import { AuthenticationService } from '../_services/authentication.service';
 import { tap, map, first } from 'rxjs/operators';
 import { resolve } from 'url';
@@ -23,9 +23,20 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   doMM: boolean = false;
   playerCount: number;
   adminUser: string;
-  admin: boolean = false;
+
+
  
+  /* Admin Variables*/
+  admin: boolean = false;
+  submitted: boolean = false;
+  winningTeam: string;
+  losingTeam: string;
+  selection:string;
+
+  /* UI Display vars */
   daysUntil: string;
+  badge: string = 'badge badge-primary';
+
 
 
   public matchDate: string;
@@ -112,10 +123,21 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     }
     let result = null;
     if(daysUntil == 1) {
+      result = "IN "+daysUntil+" DAY";
+      this.badge = 'badge badge-primary';
+    }
+    
+    else {
       result = "IN "+daysUntil+" DAYS";
+      this.badge = 'badge badge-primary';
     }
 
-    result = "IN "+daysUntil+" DAYS";
+    if(daysUntil == null) {
+      result = "GAME FINISHED";
+      this.badge = 'badge badge-danger';
+    }
+
+    
     console.log(matchDate);
     return result;
   }
@@ -182,5 +204,70 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
      *  winning team participants.
      */
   }
+
+
+  onAdminSubmit() {
+    console.log("im in");
+    
+    this.submitted = true;
+    if(this.selection == null || this.selection == undefined) {
+      return;
+    }
+
+    let fmatch: UpdateFinalMatch = {
+      match_uuid: this.matchId,
+      winning_team: this.winningTeam,
+      losing_team: this.losingTeam
+    }
+
+    this.userService.updateFinalMatch(fmatch).subscribe(data => {
+      console.log(data);
+      
+    });
+
+    
+    //when the admin submits, it should called the update user stats..
+    // To do so i need a service to do a post request to the database.
+    // i need to set submitted to false
+    // if match is closed, then submitted is false
+    // close the game and display the outcome
+
+    // i need the value of the winning team , where winnning is 1
+    // i also need the value of the losing team, where losing is 0
+
+    // set each players value to its outcome
+    //update both players 
+  }
+
+  onTeamChange(event: any) {
+    //howtf does this work
+
+    console.log(event.value);
+    
+    this.selection = event.value;
+
+    this.sortTeam(this.selection)
+  }
+
+  sortTeam(selection: string) {
+    const team_1 = 'team1';
+    const team_2 = 'team2';
+
+    if(this.selection == team_1) {
+      this.winningTeam = team_1;
+      this.losingTeam = team_2;
+    }
+
+    
+    else if(this.selection == team_2) {
+      this.winningTeam = team_2;
+      this.losingTeam = team_1;
+    }
+
+    console.log('Winning Team: ', this.winningTeam);
+    console.log('Losing Team: ', this.losingTeam);
+    
+  }
+  
 
 }
