@@ -1,20 +1,24 @@
 
 # Applied Project & Minor Dissertation
-
+A Service for users to Create, Manage & Participate in Online Custom Games. With a Matchmkaing System and an Integrated Point System, This service allows users to manage their events.
 
 ![Arch](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/MainArchitecture.png)
 
 
 ### Setup
 ## Features
-- Allow users to create and manage custom matches
-- Automatic Matchmacking
-- User Registration and Authentication
-- 
+- Point System using in an implementation of the Elo System
+- Matchmaking System to provide fairness when creating teams.
+- User Registration & Authentication.
+
+
 
 ## Setup
 - **Clone**
-    - 👯 Clone this repo to your local machine using `https://github.com/ethanhorrigan/LOYO.git`
+    - 👯 Clone this repo to your local machine using:
+
+    ```git clone https://github.com/ethanhorrigan/LOYO.git```
+
 
 ## Build
 
@@ -50,9 +54,7 @@ $ python loyo_python_test.py
 
 ---
 
-## Contributing
 
-> To get started...
 
 ## Average MMR
 
@@ -104,8 +106,3 @@ ConcatMap (https://www.learnrxjs.io/learn-rxjs/operators/transformation/concatma
 - FA Icons: https://fontawesome.com/v4.7.0/icons/
 - https://www.spiderposts.com/2019/07/04/flask-sqlalchemy-tutorial-login-system-with-python/
 - https://stackoverflow.com/questions/48775478/flask-user-login-check-if-user-exists
-
-
-## Dissertation links
-
-https://medium.com/@SoftwareDevelopmentCommunity/what-is-service-oriented-architecture-fa894d11a7ec

@@ -3,18 +3,16 @@
 \chapter*{About this project}
 \paragraph{Abstract}
 
-This project aims to offer a platform for players to create, manage and compete in competitive online matches. The system is a web application where a user can interact with to create and manage matches.\newline The demand for this application is due to how inconvenient it is for an individual to manage custom matches, determining which player goes on what team is time-consuming and very inefficient. This application will automate the process of deciding which player goes on which team through matchmaking. A point system and leaderboard are also provided to produce a competitive environment. How players gain points depends on the outcome of a match and the skill level of their opponents. Users will be able to create an account and log in, allowing them to use the system by viewing and joining public matches or creating their own match for others to join. I hope to develop a cohesive and robust system with a fluent user interface that is aimed towards people who enjoy a competitive setting and want an extra layer to their gaming experience.
+This project aims to offer a platform for players to create, manage and compete in competitive online matches. The system is a web application where a user can interact with to create and manage games .\newline The demand for this application is due to how inconvenient it is for an individual to manage custom matches, determining which player goes on what team is time-consuming and very inefficient. This application will automate the process of deciding which player goes on which team through matchmaking. A point system and leaderboard are also provided to produce a competitive environment. How players gain points depends on the outcome of a match and the skill level of their opponents. Users will be able to create an account and log in, allowing them to use the system by viewing and joining public matches or creating their own match for others to join. I hope to develop a cohesive and robust system with a fluent user interface that aims towards people who enjoy a competitive setting and want an extra layer to their gaming experience.
 \paragraph{Authors}
-Ethan Horrrigan
+Ethan Horrigan
 
 
 \chapter{Introduction}
-In recent years, the competitive online gaming industry (esports) has seen a substantial rise in popularity. \cite{sjoblom2019esports} The estimated global esports audience in 2017 was previously estimated at 335 million people, generating revenue of more than \$900 million with an expected increase of more than \$1600 million in 2021. Yuri Seo and Sang-Uk Jung \cite{seo2016beyond} outlined why people play or enjoy watching competitive games. The main factors include entertainment and gaining a better understanding of a game. \newline Whether spectating or participating, competitive games can consume a large portion of our free time. This project aims to minimize the time needed to manage pick-up game styled events by creating a platform for users to create and manage their events. Organising matches need some form of administration to ensure rules are upheld. Issues occur when an individual is responsible for managing these games, for example, if a match has a fixed schedule but the person responsible for managing the game is unavailable, then the game is postponed. Administrators are also required to make sure that teams are is fair which is time-consuming and unpredictable. \newline This application will automate the process of matchmaking teams which is a tedious task for an individual, matchmaking will decide which player goes on which team based off their in-game rating. I will discuss how the matchmaking system was implemented in section 3.2.
+In recent years, the competitive online gaming industry (esports) has seen a substantial rise in popularity. \cite{sjoblom2019esports} The estimated global esports audience in 2017 was previously estimated at 335 million people, generating revenue of more than \$900 million with an expected increase of more than \$1600 million in 2021. Yuri Seo and Sang-Uk Jung \cite{seo2016beyond} outlined why people play or enjoy watching competitive games, the main factors include entertainment and to gain a better understanding of a game. People who enjoy competitive gaming can often take part in custom matches of their own, commonly referred to as pick-up games; this is when a group of players form teams and play amongst themselves in a friendly competitive setting. The players involved are responsible for picking the teams and rules for these types of games, more often then not, this leads to unfair matches. This project aims to provide a service for players to manage their pick-up game events and handle the process of matchmaking. The matchmaking system will form balanced teams by fulfilling these two characteristics fairness and uniformity: both sides have a relatively equal chance, and there is little variation between the best and worst players in the match \cite{alman2017theoretical}. I will discuss how the matchmaking system works in more detail below. Users can create a schedule, which will allow the users to determine when an event will take place. When a game has ended players are awarded points, the amount of points they receive depends on the skill level of their opponents. A leaderboard system will track the points they have acquired, allowing players to view their performance in these custom matches.
 \newpage
-To develop this system, I needed to connect various technologies and allow communication between them. I used Angular as the front-end for the application, where I could design the user interface and communicate with the back-end server to display information. I used Flask for the server and API (Application Programming Interface) this controlled how the data was transferred between the database and the web application.
-The features included in the web application are a registration system, login system, leader-boards, match creation, matches page and match display and then the server-side of the application was responsible for the matchmaking and point system algorithms. 
-
-I went with an iterative development approach for this application, I met with my supervisor to discuss what had been implemented in the project weekly and discussed what I will implement in the following week. This allowed me to see significant progress each week on the project.
+To develop this system, I needed to connect various technologies and allow communication between them. I used Angular as the front-end for the application, where I could design the user interface and communicate with the back-end server to display information. I used Flask for the server and API (Application Programming Interface) this controlled the data communication between the database and the web application.
+The features included in the web application are a registration system, login system, leaderboards, match creation, matches page and match display. Then the server-side of the app was responsible for the matchmaking and point system algorithms.
 
 \chapter{Summary}
 \paragraph{Context:} here I explain how to the idea for the project came about, I highlight the reasons why this application was made and its core uses.
@@ -52,10 +50,10 @@ Initially, I had very little knowledge of how rating systems and matchmaking wor
 
 \chapter{Methodology}
 \section{Development Methodology}
-Project meetings were established at the beginning of development, Initial meetings consisted of brainstorming and considering project ideas. During this period, I conducted research on various technologies that could possibly be used throughout the project. I began development once the project was defined and understood what technologies were suitable for use throughout. Every week I would meet with my supervisor and discuss what has been implemented in the past week and what I will work on for the upcoming week. I took an iterative approach in the development of this project so I could see significant developments in the project.
+The development methodology used throughout the development of the project was Extreme Programming (XP), Extreme Programming is an agile software development framework that aims to deliver higher quality software. Similar to most Agile approaches, Extreme Programming allows for releases in short development sprints, XP also ensured that the app was fault-free because of continuous testing. XP follows simplicity and communication. Before development started, project meetings were established with my supervisor; these early meetings consisted of brainstorming and considering project ideas. During this period, I researched various technologies that could provide use throughout project development. Once the objectives of the project were understood, I divided what needed to be done into iterations, each week I met with my supervisor to discuss what part of the project is currently in development and listened to any feedback. This style of development allowed me to stick to the plan and see changes to the application each week.
+\section{Research Methodology}
 \section{Testing}
-I opted to use System Testing
-I opted to use System Testing as the main type of testing for the project as this suited my workflow. I wanted to implement the functionality of client-side elements before testing. Unit tests were carried out near completion of development on individual components for both server-side and client-side. Jasmine and Karma was the framework used to test the functionality of web components.
+I used various testing techniques throughout the project, unit testing, end-to-end testing and automated testing were among the main testing types I used. I implemented the functionality of client-side elements before conducting tests; therefore, I could test the system as a whole. Jasmine and Karma was the framework used to test the functionality of web components, pythons unittest for back-end unit testing and automated tests for how the application worked at a user level.
 
 \begin{center}    
 	\includegraphics[width=8cm,height=3.3cm,keepaspectratio]{img/Jasmine_and_Karma.png}
@@ -98,50 +96,14 @@ I used Angular framework for front-end development, Angular is an open-source we
 Angular Material is another feature that allows developers to easily integrate UI components. Building the application was done using Angular's ahead-of-time (AOT) compiler \cite{aotc} which converts Angular HTML and TypeScript code into JavaScript code. This meant I could compile my code into one package and then use this package for deployment. A core feature that Angular provided is Two-way data binding, this means that when properties in the model get updated, so does the view (user interface) and when user interface elements get updated, the changes get delivered back to the model.
 With the factors discussed, Angular seemed like the right choice for this application.
 \subsection{Back-end}
+Since I wanted to experience new technologies and had already used the MEAN stack before, I had the option to either use Flask or Django; which are both web application frameworks in Python. A web framework is a combination of packages or modules that make life easier when building scalable, reliable, and maintainable web applications. Frameworks often promote code reuse for common HTTP operations and aim to automate the burden associated with everyday activities performed in web development \cite{rengglib2004seaside}. \hfill \break
+I opted for a flask server, I chose flask for multiple reasons, some of them being: it supports all SQL and NoSQL databases, and because I was unsure at the beginning of what database I should use, this feature stood out to me.
+Flask classifies as a micro-framework. Micro-frameworks are usually frameworks with little to no dependencies to external libraries \cite{aboutflask}; they lack most of the functionality which is typical to expect in your regular web application framework, for example, they do not provide authentication or authorization. Although this seems like a reason to not use flask, it meant I had creative freedom on what I wanted to add, and I could learn how functions like user authentication or authorization worked by implementing them myself. \hfill \break
 \subsection{Database}
 The primary development environment used throughout the project was Visual Studio Code, The main reasons why I chose this environment is because it supports browser debugging, Git control, syntax highlighting, intelligent code completion and for its customisability. Both front-end and back-end of the project were developed in this environment.
 I used Angular which is an open-source web application framework led by the Angular Team at Google. The reasoning behind choosing Angular is because I wanted the project to be a web application as compared to a hybrid application, Angular seemed to be the most viable framework for this application. Through angular, I could write the functionality of the front-end using typescript, which is then compiled down to javascript. Typescript is more structured then Javascript which I preferred.
 When researching options for the database server, the two main options were python and flask or using MEAN stack (Mongo, Express.js, Angular and Node). I wanted the database to be a relational instead of using a NoSQL database, so a NoSQL database did not suit. I also wanted to use a technology that I'm not familiar with. So I opted for Python and Flask.
 \par
-
-Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in Figure \ref{tikz:graphs2}.
-
-\begin{figure}
-	\centering
-	\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-	\node (a) at (0,2) {a};
-	\node (b) at (2,2) {b};
-	\node (c) at (2,0) {c};
-	\node (d) at (0,0) {d};
-	\end{scope}
-	\begin{scope}[every edge/.style={draw=black,thick}]
-	\path (a) edge (b);
-	\path (b) edge (c);
-	\path (b) edge (d);
-	\path (c) edge (d);
-	\end{scope}
-	\node () at (1,-1) {$G_1$};
-	\end{tikzpicture}
-	\hspace{1.5cm}
-	\begin{tikzpicture}
-	\begin{scope}[every node/.style={circle,thick,draw}]
-	\node (1) at (0,2) {a};
-	\node (2) at (2,2) {b};
-	\node (3) at (2,0) {c};
-	\node (4) at (0,0) {d};
-	\end{scope}
-	\begin{scope}[every edge/.style={draw=black,thick}]
-	\path (1) edge (2);
-	\path (1) edge (3);
-	\path (1) edge (4);
-	\path (3) edge (4);
-	\end{scope}
-	\node () at (1,-1) {$G_2$};
-	\end{tikzpicture}
-	\caption{Nice pictures}
-	\label{tikz:graphs}
-\end{figure}
 
 
 \begin{figure}
@@ -403,54 +365,7 @@ Selenium is a web testing tool which uses scripts to automate tests directly wit
 \begin{center}
 \includegraphics[width=10cm,height=5.3cm,keepaspectratio]{img/Selenium.png}
 \end{center}
-\section{The Elo System}
-The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
-\[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
-\[ R_n = R_o + K(S_a - E_a) \]
 
-
-{\raggedright The size of the score change is determined by a dynamic K value. Initially, this K value is big (30 for their first 30 games) resulting in rapid changes in Elo. This is so a player can quickly find his or her correct place in the ranking system. As the number of games increases the K value is reduced to prevent dramatic changes in Elo.}\newline
-\cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
-\paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
-
-\section{Gale Shapely Algorithm}
-The Gale-Shapely algorithm \cite{dubins1981machiavelli} is an algorithm for the stable matching problem. \cite{gale1985some}
-
-
-David Gale and Lloyd Shapley proved that \cite{gale1962college}, for an equal number of men and women, it is possible to make all marriages stable. 
-
-\paragraph{}
-The algorithm involves different rounds.
-
-\begin{itemize}
-	\item Round 1
-\end{itemize}
-All single men propose to the woman he favours most.
-\begin{itemize}
-	\item Round 2
-\end{itemize}
-Each woman is then temporarily taken by the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
-\paragraph{In each following round:}
-\begin{itemize}
-	\item a
-\end{itemize}
-All unengaged men propose to their most-preferred woman (even if the woman is already "engaged" )
-\begin{itemize}
-	\item b
-\end{itemize}
-If a woman prefers this man over her current temporary partner, they become unengaged and the woman and new man become "engaged".
-This process is repeated until everyone is engaged.
-
-\paragraph{In the end}
-\begin{itemize}
-	\item Everyone gets married.
-\end{itemize}
-There can't be a people unengaged.\newline 
-\begin{itemize}
-	\item The marriages are stable.
-\end{itemize}
-Say, we have a woman and man that both have their partners, Let's call them Mary and John.
-When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner. 
 
 \chapter{System Design}
 
@@ -513,18 +428,31 @@ Compared the given password with the stored hashed password and validated if it 
 
 \newpage
 \section{Components}
+
 \begin{itemize}
 	\item Registration
 \end{itemize}
-\begin{center}    
-	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/Register.png}
-\end{center}
-TALK ABOUT REGISTRATION
+
+User Registration allows the users to access the application, for the registration to be valid, both username and summoner name (in-game name) must be available. For additional security, password length must be longer than six characters, and the user's password is also encrypted using a python library: bcrypt \cite{bcrypt}.
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/Register.png}
+	\caption{Registration}
+	\label{tikz:reg}
+\end{figure}
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/UsernameTaken.png}
+	\caption{Username Taken}
+	\label{tikz:taken}
+\end{figure}
 
 \begin{center}    
 	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/UsernameTaken.png}
 \end{center}
-TALK ABOUT username taken
+
 
 \begin{center}    
 	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/RequiredFields.png}
@@ -673,13 +601,44 @@ When a match reaches its maximum amount of participants, all the participants fo
 \end{table}
 
 \section{Algorithms}
-For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm.
+For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm, for the system to work, I first needed the ratings of each participant for a given match. The results I got when accessing Riot's API were presented in this format:\hfill \break
+\begin{minted}{json}
+	{
+	"leagueId": "50bd22e7-16e5-4fe1-bc4a-e364d2a6b124",
+	"queueType": "RANKED_SOLO_5x5",
+	"tier": "GOLD",
+	"rank": "III",
+	"summonerId": "<id>",
+	"summonerName": "<Username>",
+	"leaguePoints": 50,
+	"wins": 40,
+	"losses": 24,
+	}
+\end{minted}
 
-I wanted to further improve the Elo System in order to generate more balanced teams.\newline
-To achieve this, I calculated the growth rate \cite{d2010production} for players, this growth rate determined how long it took for a given player to achieve that rating, if player $a$ got the same rating as player $b$ in a shorter period of time, then it is assumed that player $a$ is performing better than player $b$.
+The $rank$ and $tier$ is the players rating, I normalized this rating into its integer equivalent, by comparing it to a table I created of constant values.
+Since the $rank$ given is in roman numeral format, I created a function which converted roman numerals to integers and then combined the $tier$ with the $rank$ into one string.\hfill \break
 
+Example, $tier: "GOLD"$, $ rank: "III"$ is then converted to $GOLD3$
 
+\newpage
+Once the players rating retrieved from Riot Games API converted into one string, I could then compare it to the table of constant values which represents ratings as integer values.
 
+\begin{minted}{python}
+[
+	"BRONZE4": 100,
+	"BRONZE3": 200,
+	...
+	"SILVER4": 500,
+	...
+	"GOLD4": 900,
+	"GOLD3": 1000
+]
+\end{minted}
+\hfill \break
+This procedure occurs every time a user registers with the application; The reasoning behind this is to try and minimize the time needed for the matchmaking system to form teams.\hfill \break
+I wanted to improve the Matchmaking system to generate more balanced teams.
+To achieve this, I calculated the growth rate \cite{d2010production} for players; this growth rate determined how long it took for a given player to reach that rating, if player $a$ got the same rank as player $b$ in a shorter period, then it is assumed that player $a$ is performing better than player $b$.
 
 \begin{figure}[H]
 	\centering
@@ -697,45 +656,93 @@ ylabel={Rating}
 	\label{tikz:growth}
 \end{figure}
 
-
+\newpage
 Say we have player $a$ with a rating $RP$ and an initial rating $RS$.
 We can calculate growth rate $g$ with: 
-\[ g = \frac{\frac{(RP - RS)}{RS} \times 100}{n} \]
-Where $n$ is the amount of games played to receive that rank.
+\[ g = \frac{\frac{(RP - RS)}{RS} \times 100}{n} \] 
+Where $n$ is the amount of games played to receive that rank.\hfill \break
+Then to calculate the players new rating $NR$ we just add the growth rate and current rating.
+\[ NR = \frac{\frac{(RP - RS)}{RS} \times 100}{n} + RP \]
 
-This growth rate is used in cases when trying to matchmake multiple players with the exact same rating.
-If we had four players with the exact same rating of 1500, we can match them depending on their growth rate.
+This growth rate is used in cases when trying to matchmake multiple players with the same rating.\hfill
 
-\[ player A = \frac{\frac{(1500 - 1000)}{1000} \times 100}{15} = 3.3 \]
-\[ player B = \frac{\frac{(1500 - 1000)}{1000} \times 100}{50} = 1.0 \]
-\[ player C = \frac{\frac{(1500 - 1000)}{1000} \times 100}{30} = 1.6 \]
-\[ player D = \frac{\frac{(1500 - 1000)}{1000} \times 100}{26} = 1.9 \]
+\paragraph{For Example:} If we had four players with the same rating of 900 but they each got that rating in a different amount of games, we can match them based on their rating + growth rate.
+
+\[ player A = \frac{\frac{(900 - 500)}{500} \times 100}{15} + 900 = 905.3 \]
+\[ player B = \frac{\frac{(900 - 500)}{500} \times 100}{50} + 900 = 901.6 \]
+\[ player C = \frac{\frac{(900 - 500)}{500} \times 100}{30} + 900 = 902.6 \]
+\[ player D = \frac{\frac{(900 - 500)}{500} \times 100}{26} + 900 = 903.1 \]
+
+Therefore, we would match $player A$ vs $player D$ and $player B$ vs $player C$
+
+\subsection{The Elo System}
+The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
+\[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
+\[ R_n = R_o + K(S_a - E_a) \]
 
 
-\paragraph{updating user on login}
+{\raggedright The size of the score change is determined by a dynamic K value. Initially, this K value is big (30 for their first 30 games) resulting in rapid changes in Elo. This is so a player can quickly find his or her correct place in the ranking system. As the number of games increases the K value is reduced to prevent dramatic changes in Elo.}\newline
+\cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
+\paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
+
+\subsection{Gale Shapely Algorithm}
+The Gale-Shapely algorithm \cite{dubins1981machiavelli} is an algorithm for the stable matching problem. \cite{gale1985some}
+
+
+David Gale and Lloyd Shapley proved that \cite{gale1962college}, for an equal number of men and women, it is possible to make all marriages stable. 
+
+\paragraph{}
+The algorithm involves different rounds.
+
+\begin{itemize}
+	\item Round 1
+\end{itemize}
+All single men propose to the woman he favours most.
+\begin{itemize}
+	\item Round 2
+\end{itemize}
+Each woman is then temporarily taken by the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
+\paragraph{In each following round:}
+\begin{itemize}
+	\item a
+\end{itemize}
+All unengaged men propose to their most-preferred woman (even if the woman is already "engaged" )
+\begin{itemize}
+	\item b
+\end{itemize}
+If a woman prefers this man over her current temporary partner, they become unengaged and the woman and new man become "engaged".
+This process is repeated until everyone is engaged.
+
+\paragraph{In the end}
+\begin{itemize}
+	\item Everyone gets married.
+\end{itemize}
+There can't be a people unengaged.\newline 
+\begin{itemize}
+	\item The marriages are stable.
+\end{itemize}
+Say, we have a woman and man that both have their partners, Let's call them Mary and John.
+When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner. 
+
 \newpage
 \section{Microservices}
 \begin{center}    
 	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/Microservice.png}
 \end{center}
-Microservices is an architecture style which separates the system into individual services that build a cohesive system. \cite{alshuqayran2016systematic} I used this architecture style for communication integration. I created a service for communication with Riot Games API and a different service for communication with the applications API, both these services then communicated with the projects database for further usage during development. This style provided portability \cite{dragoni2017microservices} since each service was loosely coupled \cite{salah2016evolution}, meaning I could access these classes independently, not only did this provide a more fluent workflow, it made life a lot easier when conducting tests.
+Microservices is an architecture style which separates the system into individual services that build a cohesive system. \cite{alshuqayran2016systematic} I used this architecture style for communication integration. I created a service for connection with Riot Games API and different service for communication with the applications API, both these services then communicated with the projects database for further usage during development. This style provided portability \cite{dragoni2017microservices} since each service was loosely coupled \cite{salah2016evolution}, meaning I could access these classes independently, not only did this give a more fluent workflow, it made life a lot easier when conducting tests.
 Companies like Netflix \cite{bukoski2018we} make use of microservices to allow their teams to "build and push at comfortable speeds".
 \subsection{Communicating Data}
 To retrieve data from the database and display it on the angular web application, I used Observable Requests
-\paragraph{talk about heroku deployment}
-\paragraph{Deployment}
-\paragraph{Workflow}
-\paragraph{talk about web design}
 
 \chapter{System Evaluation}
 \section{Limitations}
 \subsection{Limited Data Access}
-One of the main limitations of this project is not being able to gain access to data for custom games. The main aim of this project was to automate the process of managing custom matches and not being able to gain access to the outcome of these matches within Riots API, indicated that someone or something is responsible for determining the outcome of a match. to remedy this, each game has an administrator, he/she is responsible for confirming the outcome of a match, although this can raise multiple potential problems. I can not think of another way to combat this issue.
+One of the main limitations of this project is not being able to gain access to data for custom games. The main aim of this project was to automate the process of managing custom matches and not being able to gain access to the outcome of these matches within Riots API, indicated that someone or something is responsible for determining the result of a game. To remedy this, the application creates an administrator based on the organiser of the match, he/she is responsible for confirming the outcome of a game, although this can raise multiple potential problems. I can not think of another way to combat this issue.
 \newpage
 \subsection{API Key}
 The API key to access Riot Games API changed every day, this meant each day I was working on the project, I'd have to regenerate a new API key. After I created a new API key, I could not access the API immediately, I would have to wait a while before being able to access it again. The only way to get a static API key is to submit your application for review by Riot Games and hope they approve, this was also an extra limitation as they would not accept applications currently in development. Therefore, there was no way for me to receive a static API key. Although this is not a significant limitation, it's more of a minor inconvenience.
 \subsection{Tournament Codes}
-Riot Games can supply tournament codes, which would have given me the capabilities of creating private custom games. This would have suited the system a lot because I could then gain access to information about these games and their outcomes. To only way to receive these tournament codes, was to make the custom matches made through my system a prized event, meaning the winners of a match would receive some form of prize.
+Riot Games can supply tournament codes, which would have given me the capabilities of creating custom games where the player needs a key to access. Gaining access to tournament codes would have suited the system a lot because I could then gain access to information about these games and their outcomes, meaning the application's process of managing matches would be automated other than creating and signing up. The only way to receive these tournament codes was to make the custom matches on the application, prized events, meaning the winners of a match would receive some form of prize. Although this is a minor drawback, I still created a workaround which can be a temporary solution until I acquire a production API key.
 \section{Vulnerabilities}
 When migrating the database over to PostgreSQL, I stumbled upon a vulnerability in how I was handling requests and insertions in my database. My queries were not parameterized meaning attackers could potentially harm my database, by deleting tables or even releasing sensitive information. This is commonly referred to as SQL Injection. 
 
@@ -773,15 +780,12 @@ To ensure my system was robust I conducted multiple types of tests, including:
 Theses tests were responsible for testing various different components of the project, unit tests were added to test individual components, I tried to emulate how a real-world user would use the system through automated tests.\newline
 Incorporating multiple tests allowed me to discover errors that may not have been found. Testing at multiple layers of the application ensured that the system was robust.
 \chapter{Conclusion}
-About three pages.
-
-
-I set out to develop an application that could automate the organisation of custom matches with the intent of making it more manageable for people to run their events, focusing on the end goal and researching various concepts related to this application enabled me to achieve this goal. This project was no simple task but yet it was very enjoyable and valuable, I feel I've got more insight on how real-world applications are developed.  Although I could not automate the process of accessing match outcomes which I discussed above, I consider the alternative solution a viable option. In the future, I aim to submit this application to Riot Game's API for review so I can gain access to tournament codes, which will open up more oppurtunities for me to scale this application. Being in a group of friends and acquaintances that also play similar games futher motivated me to develop this system.
+I set out to develop an application that could automate the organisation of custom matches with the intent of making it more manageable for people to run their events, focusing on the end goal and researching various concepts related to this application enabled me to achieve this goal. This project was no simple task, but yet it was satisfying and valuable; I feel I've got more insight into how real-world applications are developed.  Although I could not automate the process of accessing match outcomes which I discussed above, I consider the alternative solution a viable option. In the future, I aim to submit this application to Riot Game's API for review so I can gain access to tournament codes, which opens up more opportunities for me to scale this application. Being in a group of friends and acquaintances that also play similar games motivated me to develop this system.
 
 
 \subsection{Opportunities}
-Throughout development and on completion, I discovered potential opportunities, including an API for custom online events, such as matches and tournaments. Instead of being restricted to the web application, people could integrate this API into their application or system. I could develop a python package with the implementation of the Elo System, this would be a good resource for developers who are creating their own game and require some form of rating system for their players.
-I could potentially scale this application by incorporating multiple online game platforms, which would greatly increase the size of the platform and similar concepts of matchmaking will still be applicable. I'd incorporate a tournament system in the style of knockout stages, this would further increase the competitive environment.
+Throughout development and on completion, I discovered potential opportunities, including an API for custom online events, such as matches and tournaments. Instead of being restricted to the web application, people could integrate this API into their application or system. I could develop a python package with the implementation of the Elo System; this would be a useful resource for developers who are creating their own game and require some form of rating system for their players.
+I could potentially scale this application by incorporating multiple online game platforms, which would significantly increase the size of the platform, and similar concepts of matchmaking are still applicable. I'd incorporate a tournament system in the style of knockout stages; this would further increase the competitive environment.
 
 \subsection{What would I do differently?}
 
@@ -794,5 +798,5 @@ In hindseight, there are various things I would have done differently:
 	\item Test more and Test early, I only started testing towards the end of development which was very tricky, if I were to develop this application again, I would incorporate tests for any new element that was added.
 \end{itemize}
 
-If I was to rework some components of this application, the user authentication system would be the first. Instead of using my own authentication system, I would integrate a third-party system. I would do this from a security standpoint, the benefits of using a third-party system is that they would handle all the authentication processes for me whilst also being secure. Firebase provides this functionality, which is convenient because it is the same platform that the frontend of this application is deployed on. This would also go hand-in-hand with the possible public API that I mentioned above because I could separate the sensitive information with the public information.
+If I were to rework some components of this application, the user authentication system would be the first. Instead of using my authentication system, I would integrate a third-party system. I would do this from a security standpoint; the benefits of using a third-party system is that they would handle all the authentication processes for me while also being secure. Firebase provides this functionality, which is convenient because it is the same platform that the frontend of this application is deployed. The third-party authentication would also go hand-in-hand with the possible public API that I mentioned above because I could separate the sensitive information with the public information.
 

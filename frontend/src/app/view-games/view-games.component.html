@@ -21,22 +21,20 @@
 
         
     </div>
-    <div class="card text-center" style="width: 18rem;" *ngFor="let game of game  | filter:searchText">
+    <div class="card text-center" style="width: 18rem;" *ngFor="let game of game | filter:searchText; index as i">
         <img src="https://wallpaperaccess.com/full/628500.jpg"
             class="card-img-top" alt="...">
         <div class="card-body">
             <!-- <h5 class="card-title">{{game.matchName}}</h5> -->
-            <h5 class="card-title">{{game.match_name}}</h5>
-            <h5 class="card-title">{{game.match_type}}</h5>
+            <h5 class="card-title">{{game.match_name.toUpperCase()}}</h5>
+            <h6 class="card-title">{{game.match_type.toUpperCase()}}</h6>
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <i class="fa fa-user-circle-o"></i> 5/10
-                </li>
-                <li class="list-group-item">
                     <i class="fa fa-calendar"></i> {{game.date}}
 
-                    <i class="fa fa-clock-o"></i> {{game.time}} <span class="badge badge-primary">Primary</span>
+                    <i class="fa fa-clock-o"></i> {{game.time}} <span class="{{badges[i]}}">{{game_times[i]}}</span>
+                
                 </li>
                 <li class="list-group-item"><a href="match/{{game.match_uuid}}" class="btn btn-primary">Join</a></li>
             </ul>

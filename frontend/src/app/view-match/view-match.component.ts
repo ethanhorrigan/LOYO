@@ -37,7 +37,16 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   daysUntil: string;
   badge: string = 'badge badge-primary';
 
+  list: [string, string];
 
+  /* team vars */
+  team_one: string[] = [];
+
+  p1t1: string;
+  p2t1: string;
+  p3t1: string;
+  p4t1: string;
+  p5t1: string;
 
   public matchDate: string;
   public matchDetails: Games[];
@@ -164,6 +173,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     this.userService.getParticipants(this.matchId).subscribe(data => {
       console.log(data.participants)
       this.participants = data.participants;
+      this.getPlayerCount();
     });
   }
 
@@ -171,6 +181,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   getPlayerCount() {
     this.userService.getParticipantCount(this.matchId).subscribe(data => {
       this.playerCount = Number(data);
+
+      if(this.playerCount == 10) {
+        this.beginMM();
+      }
     });
   }
   
@@ -181,30 +195,33 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
      * returns a sorted match of particpants sorted by team ? 
      */
     
-    if(this.playerCount == 9 && this.doMM == false) {
+    if(this.playerCount == 10 && this.doMM == false) {
+    
     this.userService.getMM(this.matchId).subscribe(data => {
       this.finalMatch = data.final_match;
-      console.log(this.finalMatch[0].team1[0]);
+
+      console.log(this.finalMatch[0].team1);
+      console.log(this.finalMatch[0].team2);
+      console.log(this.finalMatch[0].team1[1]);
+      console.log(this.finalMatch[0].team1[2]);
+
+      for (let index = 0; index < 5; index++) {
+        this.team_one[index] = this.finalMatch[0].team1[index];
+        
+      }
+      this.p1t1 = this.finalMatch[0].team1[0];
+      this.p2t1 = this.finalMatch[0].team1[1];
+      this.p3t1 = this.finalMatch[0].team1[2];
+      console.log(this.p1t1);
+      
+      this.p4t1 = this.finalMatch[0].team1[3];
+      this.p5t1 = this.finalMatch[0].team1[4];
+
 
       this.doMM = true;
     });
   }
   }
-
-  getOutcome() {
-    /**
-     * Outcome needs to update values for all participants
-     * so outcome needs:
-     * the MatchID
-     * Participants []
-     * and the actual outcome of the game
-     * 
-     * 
-     * only update values for
-     *  winning team participants.
-     */
-  }
-
 
   onAdminSubmit() {
     console.log("im in");
@@ -220,27 +237,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       losing_team: this.losingTeam
     }
 
-    this.userService.updateFinalMatch(fmatch).subscribe(data => {
-      console.log(data);
-      
-    });
-
-    
-    //when the admin submits, it should called the update user stats..
-    // To do so i need a service to do a post request to the database.
-    // i need to set submitted to false
-    // if match is closed, then submitted is false
-    // close the game and display the outcome
-
-    // i need the value of the winning team , where winnning is 1
-    // i also need the value of the losing team, where losing is 0
-
-    // set each players value to its outcome
-    //update both players 
+    this.userService.updateFinalMatch(fmatch).subscribe(data => {});
   }
 
   onTeamChange(event: any) {
-    //howtf does this work
 
     console.log(event.value);
     

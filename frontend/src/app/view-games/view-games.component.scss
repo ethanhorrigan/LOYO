@@ -1,7 +1,11 @@
 .card {
-    margin: 15px;
+    margin: 2rem;
     display: inline-block; /* make blocks inline-block */
     box-shadow: -5px 5px 25px 0px rgba(0,0,0,0.75);
+}
+
+.no-gutters {
+    margin-left: 10rem !important;
 }
 
 .col-6 {
