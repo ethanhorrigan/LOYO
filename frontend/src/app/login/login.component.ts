@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
                     console.log(response);
                     if(response == "true") {
                         this.invalid = false;
+                        location.reload();
                         this.router.navigate([this.returnUrl]);
                     }
                     if(response == "false") {
@@ -102,5 +103,6 @@ export class LoginComponent implements OnInit {
                 error => {
                     this.loading = false;
                 });
+                
     }
 }

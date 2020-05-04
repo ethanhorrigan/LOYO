@@ -24,6 +24,11 @@ The features included in the web application are a registration system, login sy
 
 \chapter{Context}
 The project aims to provide a service for people to create and manage custom matches for online games. These types of games are usually referred to as pick-up games, which are games that are randomly initiated by a group of players. These types of games are not professional style games nor are they casual. They're somewhere in between. The main objective is to create a web application for users to interact where they can sign up and create or participate in custom games, the application will handle the process of matchmaking players to teams and track progress using a point system.
+\section{Skill-Based Matchmaking}
+The fundamental purpose of skill-based matchmaking is that a game is enjoyable for all participating players. \cite{graepel2006ranking} If the outcome of a match is uncertain, then participating teams have a fair chance of winning. A game is said to be balanced when both sides have an equal opportunity of winning, and there is little variation between the worst and best players on a team. Being paired against opponents with more or less skill-level can ruin the experience for both parties involved \cite{alman2017theoretical}. Therefore, defeating the fundamental purpose of matchmaking. We can determine players skill-levels by supplying every player with a rating which is a measurement of their skill. There are many systems available to decide on a players rating. The Elo system by Arpad Elo which calculates relative skill levels of players in games such as chess. The Glicko2 System \cite{glickman2012example}, which is as an enhancement of the Elo system, intended to measure rating reliability. TrueSkill is another system for rating players; TrueSkill is designed for games with multiple players, such as team games.
+The system used in the project is the Elo rating system. The Elo system \cite{pelanek2016applications} was developed initially for rating chess players, now it is commonly used for ranking players in many online games. Players can quickly find his/her ranking in a game using this system. When updating a players rating, it does not increase at a constant rate, the value at which it increases depends on the skill level of its opponent if a player is matched up against someone with a relatively lower rating, then the rating for the player would not increase as much as if he/she was matched against a player of similar rank. In my opinion, this system introduces fairness.\newline
+Based off player ratings mentioned above, we can use these ratings to match players in team-based games, I will discuss in further detail on how the matchmaking system was designed in sections below.
+The purpose of this platform is because many groups or communities of players like to have competition between each other but, organising these friendly matches can be a nuisance, whether gathering players to form a match or even attempting to balance teams, this is where the matchmaking system comes in with the aim to avoid these time-consuming actions by providing a platform that handles these operations for the user.
 \section{Competitive Gaming}
 Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. In essence, its a competitive way of playing computer games. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).\newline
 
@@ -33,23 +38,20 @@ This project will focus on providing a platform for players to manage competitiv
 Within the game, players have different game modes which they can play
 (Draft Mode and Ranked Mode). Players can receive a rank when playing in ranked mode meaning players are matched up against opponents with similar skill levels. When searching for a game, players join a queue and the system tries to create a lobby of 10 random players of similar skill levels. Custom lobbies can also be created allowing people to form a lobby of players where players ranks are inconsequential. This allows players to have complete control over the lobby (who goes onto what team). My application will manage these custom games through matchmaking instead of people deciding on who goes where which can be a nuisance and inefficient.
 
-
-\section{Skill-Based Matchmaking}
-The fundamental purpose of skill-based matchmaking is that a game is enjoyable for all participating players. \cite{graepel2006ranking} If the outcome of a match is uncertain, then participating teams have a fair chance of winning. A game is said to be balanced when both teams have an equal opportunity of winning, and there is little variation between the worst and best players on a team. Being paired against opponents with more or less skill-level can ruin the experience for both parties involved \cite{alman2017theoretical}. Therefore, defeating the fundamental purpose of matchmaking. We can determine players skill-levels by supplying every player with a rating which is a measurement of their skill. There are many systems available to determine a players rating. The Elo system by Arpad Elo which calculates relative skill levels of players in games such as chess. The Glicko2 System \cite{glickman2012example}, which is as an enhancement of the Elo system, intended to measure rating reliability. TrueSkill is another system for rating players; TrueSkill is designed for games with multiple players, such as team games.
-The system used in the project is the Elo rating system. The Elo system \cite{pelanek2016applications} was originally developed for rating chess players, now it is commonly used for ranking players in many online games. Players can quickly find his/her ranking in a game using this system. When updating a players rating, it does not increase at a constant rate, the value at which it increases depends on the skill level of its opponent if a player is matched up against someone with a relatively lower rating, then the rating for the player would not increase as much as if he/she was matched against a player of similar rating. In my opinion, this system introduces fairness.\newline
-Based off player ratings mentioned above, we can use these ratings to match players in team-based games, I will discuss in further detail on how the matchmaking system was designed in sections below.
-The purpose of this platform is because many groups or communities of players like to have competition between each other but, organising these friendly matches can be a nuisance, whether gathering players to form a match or even attempting to balance teams, this is where the matchmaking system comes in with the aim to avoid these time-consuming actions by providing a platform that handles these operations for the user.
-
 \section{Project Objectives}
-Based off of the two sections above, I aim to develop a web application for users to manage custom matches and bypass the time-consuming process of managing custom matches. I wanted to explore new technologies and concepts that I was not familiar with. I also wanted to develop something I'm interested in. Many ideas and concepts were discussed with my supervisor when trying to figure out what to develop. I ended up settling with this idea, as it felt like something I could incorporate multiple technologies and unfamiliar concepts with.\newline
+The project aims to develop a web application allowing users to create and manage their custom game event. The core objective of this project is to try to eliminate the inefficiency and unpredictability of managing player-made games through the use of matchmaking. For the system to be practical, I aim to implement various features to enable users to manage their games effectively.
+Users will be allowed to register an account with the application enabling them to decide when matches take place or even participate in events themselves. \hfill \break
+I will gather data on the user's in-game information to join with the data of the application to generate relatable information to make the matchmaking system more reliable. When registering, users link their in-game username which is used to gather more information about the player. This information will be updated every time the user logs into the app, ensuring that their details are up-to-date. \hfill \break
+Users will be able to create matches and view matches that have been created by other users. With the intention of building a community of like-minded players. \hfill \break
+If someone is particularly interested in a game, they can join that match which will add them to a participants list, once this list reaches maximum capacity, teams will be formed based on their ratings. \hfill \break
+After a game has ended, players earn points, the amount of points they receive is based on the rating of their opponents. A leaderboard system will enable users to track how much points they have accumulated and also allows them to track their performance. \hfill \break
+The project aims to be accessible and easy to understand to ensure a smooth experience for the user. I will discuss in further detail below, on how I designed and implemented this system.
 
-Initially, I had very little knowledge of how rating systems and matchmaking worked. I will discuss how I studied and implemented these concepts into my project in the technology review section. Once I had a clear idea on what I wanted to develop, I began studying various frameworks, platforms and technologies that would be appropriate to use throughout the project. Since I wanted this to be a web application, I could narrow down the frameworks I wanted to use. The main options that stood out to me were Angular, React or Vue. I opted for Angular since this framework came packed with features, the documentation was easy to follow and the internet had a lot of resources for learning this framework.
 
 
 \chapter{Methodology}
 \section{Development Methodology}
 The development methodology used throughout the development of the project was Extreme Programming (XP), Extreme Programming is an agile software development framework that aims to deliver higher quality software. Similar to most Agile approaches, Extreme Programming allows for releases in short development sprints, XP also ensured that the app was fault-free because of continuous testing. XP follows simplicity and communication. Before development started, project meetings were established with my supervisor; these early meetings consisted of brainstorming and considering project ideas. During this period, I researched various technologies that could provide use throughout project development. Once the objectives of the project were understood, I divided what needed to be done into iterations, each week I met with my supervisor to discuss what part of the project is currently in development and listened to any feedback. This style of development allowed me to stick to the plan and see changes to the application each week.
-\section{Research Methodology}
 \section{Testing}
 I used various testing techniques throughout the project, unit testing, end-to-end testing and automated testing were among the main testing types I used. I implemented the functionality of client-side elements before conducting tests; therefore, I could test the system as a whole. Jasmine and Karma was the framework used to test the functionality of web components, pythons unittest for back-end unit testing and automated tests for how the application worked at a user level.
 
@@ -429,71 +431,74 @@ Compared the given password with the stored hashed password and validated if it 
 \paragraph{Project API} is responsible for the communication of data throughout the entire project, it consists of queries and functions for storing and accessing the data in the database.
 
 \newpage
-\section{Components}
+\section{UI Components}
 
-\begin{itemize}
-	\item Registration
-\end{itemize}
+\subsection{Registration}
 
-User Registration allows the users to access the application, for the registration to be valid, both username and summoner name (in-game name) must be available. For additional security, password length must be longer than six characters, and the user's password is also encrypted using a python library: bcrypt \cite{bcrypt}.
+User Registration allows the users to access the application, for the registration to be valid, both username and summoner name (in-game name) must be available, username and in-game name are required fields, check figure \ref{tikz:fields}. For additional security, password length must be longer than six characters, as seen in figure \ref{tikz:taken}, the user's password is also encrypted using a python library: bcrypt \cite{bcrypt}.
 
 \begin{figure}[H]	
 	\centering
 	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/Register.png}
 	\caption{Registration}
 	\label{tikz:reg}
-\end{figure}
-
-\begin{figure}[H]	
 	\centering
 	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/UsernameTaken.png}
 	\caption{Username Taken}
 	\label{tikz:taken}
+	\centering
+	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/RequiredFields.png}
+	\caption{Required Fields}
+	\label{tikz:fields}
 \end{figure}
 
-\begin{center}    
-	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/UsernameTaken.png}
-\end{center}
-
-
-\begin{center}    
-	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/RequiredFields.png}
-\end{center}
-TALK ABOUT required fields
 
 \newpage
-\begin{itemize}
-	\item User Authentication
-\end{itemize}
-\begin{center}    
+\subsection{User Authentication}
+
+\begin{figure}[H]	
+	\centering
 	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/Login.png}
-\end{center}
-TALK ABOUT Log in
-
-\begin{center}    
+	\caption{User Login}
+	\label{tikz:login}
+	\centering
 	\includegraphics[width=\textwidth/2,height=\textheight,keepaspectratio]{img/LoggedIn.png}
-\end{center}
-TALK ABOUT already logged in
+	\caption{Logged In}
+	\label{tikz:loggedin}
+\end{figure}
 
-\begin{center}    
+User Authentication is responsible for verifying that the user exists and checks if the credentials entered are correct. When the user attempts to log in, the system checks the username to confirm that the user is not already logged in. The client sends a request to the server which first, verifies that the user exits and then the system compares the password entered with the password stored in the database. The user gains access if all the steps mentioned above are acceptable.\hfill \break
+The authentication system stores the username in local storage \cite{casario2011html5}; local storage saves key and value pairs in a web browser. Local storage has no expiration date; meaning the user will remain logged in until they log out of the application. Local storage allowed username references throughout the web pages of the application. The system can use the username currently stored in local storage to access more information on that user, like their in-game name or total games.
+
+\subsection{Available Games}
+
+
+\begin{figure}[H]	
+	\centering
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/ViewGames.png}
-\end{center}
-TALK ABOUT view games
-
-\begin{center}    
+	\caption{Games View}
+	\label{tikz:viewgames}
+	\centering
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/SearchGames.png}
-\end{center}
-TALK ABOUT search games
+	\caption{Searching for a game}
+	\label{tikz:searchgame}
+\end{figure}
+The available games page contains all the available matches which a user can view or join. The client sends a request to the server to retrieve games that are currently open to the public. If a player wants to find a specific game, they can use the search bar which filters the games to the user's search query, as shown in figure \ref{tikz:searchgame}.
 
+
+\subsection{Matches}
+
+The matches page contains details for a specific game; When a game is created, the server generates a universally unique identifier (UUID) for each game to distinguish between them. The UUID is used for generating unique pages for every game that is created. We can use python's UUID to achieve this; the function generates a UUID from a host ID, sequence number, and the current time \cite{pythonuuid}. \hfill \break
+The matches page displays the time and dates for when the match will take place and the current players that have joined that match. When the number of participants reaches a capacity of 10 players, the matchmaking system will form teams based on the participants and their rating.
 \begin{center}    
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/ViewMatch.png}
 \end{center}
-TALK ABOUT view match
 
+\subsection{Leaderboards}
+The leaderboards page tracks the information of the user based on the games they have played using this platform; it displays their total points, total wins and total losses. The users are placed on the leaderboards based on the number of points they have accumulated. The leadboards aim to generate a competitive environment for the players and also allow players to track their progress, making it easier for players to manage their games.
 \begin{center}    
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/Leaderboards.png}
 \end{center}
-TALK ABOUT leaderboards
 
 \newpage
 \section{Database Design}
@@ -733,8 +738,44 @@ When the algorithm is finished, both Mary and John can't prefer each other over 
 \end{center}
 Microservices is an architecture style which separates the system into individual services that build a cohesive system. \cite{alshuqayran2016systematic} I used this architecture style for communication integration. I created a service for connection with Riot Games API and different service for communication with the applications API, both these services then communicated with the projects database for further usage during development. This style provided portability \cite{dragoni2017microservices} since each service was loosely coupled \cite{salah2016evolution}, meaning I could access these classes independently, not only did this give a more fluent workflow, it made life a lot easier when conducting tests.
 Companies like Netflix \cite{bukoski2018we} make use of microservices to allow their teams to "build and push at comfortable speeds".
-\subsection{Communicating Data}
-To retrieve data from the database and display it on the angular web application, I used Observable Requests
+\newpage
+\subsection{Data Communication}
+Interfacing with Riot Games API was vital for the system to function, Riot's API stored the user's in-game details which were needed to gain information on player ratings, players usernames and players in-game statistics.\hfill \break 
+Riotwatcher \cite{riotwatcher}; a python wrapper for riot games API was used to perform requests to Riots API.\hfill \break
+For Example, to retrieve players the total amount of games, we would execute this function:
+\begin{minted}{sql}
+def get_total_games(self):
+	account_id = Summoner.get_account_id(self)
+	wins = watcher.league.by_summoner(my_region, account_id)
+	total_games = wins[0]['wins'] + wins[0]['losses']
+	return total_games
+\end{minted}
+We store similar data like the players rating and various other information in the database of the application, with this information in the application's database allowed for further manipulation and usage throughout the project, such as the matchmaking system. Without external API's like Riot's API, the application would not fully work as intended, without player ratings the matchmaking system would be very inaccurate due to the fact we would have to predict player ratings to some extent.\hfill \break 
+The functionality of accessing API's was kept generalized as possible to future proof it allowing more game platforms to be added.\hfill \break 
+\bigskip
+
+\subsection{Limiting}
+Retrieving the player's details from riot's API is only performed once during registration, and updated each time a user logs in, the reason for this is to limit the number of calls made to riot's API due to its rate-limiting restrictions; rate-limiting manages the volume of incoming and outgoing traffic to or from a network \cite{raghavan2007cloud}. For example, riots API service allows 100 requests/minute. If the number of requests exceeds that limit, then an error will occur.
+
+\newpage
+\section{Testing Design}
+When designing tests for the application, the main objective was to cover the system at the internal logic level and user level. Software tests identified errors and the quality of the software \cite{nidhra2012black} to produce a robust system. Two different approaches were used to test the application, white-box testing and black-box testing. 
+\begin{itemize}
+	\item White-box testing: A detailed investigation of internal logic and structure of the code. In white-box testing, a tester must have full knowledge of the source code.
+	\item Black-box testing: A testing approach without having any knowledge of the software's internal workings, it examines components of the application at the user level.
+\end{itemize}
+
+The core testing frameworks used throughout the project were Jasmine, Protractor, Python's Unit Test and Selenium. 
+\subsection{Front-end Testing}
+When testing the front-end of the application, we use white-box and black-box testing approaches. The test cases written in protractor performed end-to-end tests (e2e).e2e tests simulate real user scenarios and the flow of the system. e2e tests verified that the elements of the web pages displayed accurately and that the intention was correct.
+Here is an example of an e2e test case which verifies that the heading on the given page is correct.
+\begin{minted}{javascript}
+it('should open create page', () => {
+	page.navigateToPage(browser.baseUrl);
+	page.getCreateButton();
+	expect(browser.getCurrentUrl()).toMatch('/creategame')
+});
+\end{minted} 
 
 \chapter{System Evaluation}
 \section{Limitations}
@@ -745,6 +786,14 @@ One of the main limitations of this project is not being able to gain access to 
 The API key to access Riot Games API changed every day, this meant each day I was working on the project, I'd have to regenerate a new API key. After I created a new API key, I could not access the API immediately, I would have to wait a while before being able to access it again. The only way to get a static API key is to submit your application for review by Riot Games and hope they approve, this was also an extra limitation as they would not accept applications currently in development. Therefore, there was no way for me to receive a static API key. Although this is not a significant limitation, it's more of a minor inconvenience.
 \subsection{Tournament Codes}
 Riot Games can supply tournament codes, which would have given me the capabilities of creating custom games where the player needs a key to access. Gaining access to tournament codes would have suited the system a lot because I could then gain access to information about these games and their outcomes, meaning the application's process of managing matches would be automated other than creating and signing up. The only way to receive these tournament codes was to make the custom matches on the application, prized events, meaning the winners of a match would receive some form of prize. Although this is a minor drawback, I still created a workaround which can be a temporary solution until I acquire a production API key.
+\subsection{Software Dependent}
+Software reliability is defined as the probability of failure-free software development for a named period in a specified environment \cite{huang2007assessment}. Since this project is a service for online games, the application depends on third-party software such as riot games API to function, and will only operate when the third-party software is also working. 
+
+For example, if the game servers go down for a period, then nobody can use this application because the servers are down, denying them access to play the game. The best option for this would be to combine multiple online games into the app instead of being restricted to just one, genres like first-person shooters and strategy games could effortlessly be implemented because they follow universal rating systems. Adding more games to the platform would ensure that the project will always have some form of usability.\hfill \break
+
+Another reason this project is software dependent is because of its use of external API's.
+Third-party API's always change, meaning this application has to match any changes the third-party API makes. Functionality can be also be refactored or deprecated, possibly remodelling the purpose of its intended use. \hfill \break
+Alternatives like web scraping are additional options I could use to obtain data on players in-game details. Web scraping is a process of automatic data collection from the internet, commonly in website pages using markup languages such as HTML \cite{slamet2018web}. Although web scraping might seem like a viable option, the web sites that I could gather data from may also be reliant on third-party software which circles back to the dilemma stated above.
 \section{Vulnerabilities}
 When migrating the database over to PostgreSQL, I stumbled upon a vulnerability in how I was handling requests and insertions in my database. My queries were not parameterized meaning attackers could potentially harm my database, by deleting tables or even releasing sensitive information. This is commonly referred to as SQL Injection. 
 
@@ -791,12 +840,12 @@ I could potentially scale this application by incorporating multiple online game
 
 \subsection{What would I do differently?}
 
-In hindseight, there are various things I would have done differently:
+In hindsight, there are various things I would have done differently:
 \begin{itemize}
-	\item Use some form of project managment from the very beginning.
+	\item Use some form of project management from the very beginning.
 	\item Travis CI for continuous integration, which would help greatly with developing and testing in smaller increments and also automate parts of the development process by managing deployments.
 	\item Deploy at the Beginning.
-	\item Decide on a database before even starting development, I was unsure if i should have used an SQL database or a NoSQL database, I trialed both and in the end I chose SQL, I could have saved some valuble time if I decided on a database at the very beginning.
+	\item Decide on a database before even starting development, I was unsure if i should have used an SQL database or a NoSQL database, I auditioned both and in the end I chose SQL, I could have saved some valuable time if I decided on a database at the very beginning.
 	\item Test more and Test early, I only started testing towards the end of development which was very tricky, if I were to develop this application again, I would incorporate tests for any new element that was added.
 \end{itemize}
 

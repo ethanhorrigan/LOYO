@@ -492,7 +492,7 @@ class CreateMatch(Resource):
         return request.json
     def get(self):
         cursor = connection.cursor()
-        query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches")
+        query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches order by date desc")
         cursor.execute(query)
         columns = [desc[0] for desc in cursor.description]
         result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
