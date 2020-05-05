@@ -18,7 +18,8 @@ MMR_QUERY = "select mmr from ranks where rank=%s"
 GET_TEAM = 'SELECT team1, team2, winning_team, losing_team FROM final_match WHERE match_uuid=%s'
 UPDATE_TEAM = 'UPDATE final_match SET winning_team=%s, losing_team=%s where match_uuid=%s'
 GET_LOSING_TEAM = ' team1 FROM final_match WHERE match_uuid=%s'
-
+GET_MATCH_IDS = 'select match_uuid from participants where username=%s'
+GET_MATCH = 'Select match_uuid, match_name, match_type, date, time, admin, outcome from matches where match_uuid=%s'
 UPDATE_OUTCOME = 'UPDATE participants SET outcome=%s WHERE summoner_name=%s AND match_uuid=%s'
 WINNING_TEAM = 'SELECT * from final_match WHERE match_uuid=%s'
 SUCCESS = json.dumps({'success':True}), 200, {'ContentType':'application/json'}

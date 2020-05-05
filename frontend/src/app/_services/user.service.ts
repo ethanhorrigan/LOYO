@@ -84,6 +84,10 @@ export class UserService {
         return this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/admin/${matchId}`);
     }
 
+    getUpcomingGames(username: string) {
+        return this.http.get<GameResponse>(`https://limitless-fjord-64117.herokuapp.com/mygames/${username}`)
+    }
+
     updateFinalMatch(fmatch: UpdateFinalMatch) {
         return this.http.post('http://127.0.0.1:5002/finalmatch', fmatch);
     }

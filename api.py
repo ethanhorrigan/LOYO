@@ -633,6 +633,32 @@ class PlayerAdmin(Resource):
             cursor.close()
         return response
 
+class MyUpcomingGames(Resource):
+    def get(self, username):
+        result = None
+        game_list = []
+        columns = []
+        cursor = connection.cursor()
+        try:
+            query = (constants.GET_MATCH_IDS)
+            param = [username]
+            cursor.execute(query, param)
+            result = cursor.fetchall()
+            count = 0
+            for id in result:
+                mid = result[count][0]
+                query = (constants.GET_MATCH)
+                param = [mid]
+                cursor.execute(query, param)
+                game_list.append(cursor.fetchall()[0])
+                # columns.append([desc[0] for desc in cursor.description])
+                count += 1
+        except psycopg2.Error as error:
+            print('Error getting data: Upcoming Games')
+        finally:
+            connection.commit()
+            cursor.close()
+        return game_list 
 class Finalmatch(Resource):
     def post(self):
         response = None
@@ -837,6 +863,7 @@ api.add_resource(GetParticipantCount, '/getparticipantcount/<_match_uuid>')
 api.add_resource(UpdateRating, '/updatescore/<_match_uuid>')
 api.add_resource(PlayerAdmin, '/admin/<match_id>')
 api.add_resource(Finalmatch, '/finalmatch')
+api.add_resource(MyUpcomingGames, '/mygames/<username>')
 
 
 if __name__ == '__main__':
