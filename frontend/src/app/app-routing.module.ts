@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'match/:matchId', component: ViewMatchComponent},
   { path: 'mygames/:user', component: MygamesComponent},
-  { path: 'profile/:profileId', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: 'mygames/:user', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'tournament', component: TournamentComponent},
   { path: '**', component: ViewGamesComponent }, // Wildward Route
 ];

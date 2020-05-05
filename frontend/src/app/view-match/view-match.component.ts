@@ -7,6 +7,7 @@ import { AuthenticationService } from '../_services/authentication.service';
 import { tap, map, first } from 'rxjs/operators';
 import { resolve } from 'url';
 import { HttpClient } from '@angular/common/http';
+import { LeaderboardsComponent } from '../leaderboards/leaderboards.component';
 
 @Component({
   selector: 'app-view-match',
@@ -43,6 +44,8 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   /* team vars */
   team_one: string[] = [];
   team_two: string[] = [];
+  team_one_mmr: number;
+  team_two_mmr: number;
 
   p1t1: string;
   p2t1: string;
@@ -95,6 +98,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     });
   }
 
+
   getMatch() {
     this.userService.getMatch(this.matchId).subscribe(data =>  {
       this.matchDetails = data.games;
@@ -105,13 +109,19 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   }
 
   calculateDays(matchDate: string) {
-    let year = matchDate.substr(0, 4);
-    let month = matchDate.substr(5, 2);
+    console.log(matchDate);
+    
+    let year = matchDate.substr(6, 4);
+    let month = matchDate.substr(3, 2);
     if(month.startsWith('0')) {
       month = month.replace('0', '');
     }
-    let day = matchDate.substr(8,2);
-
+    let day = matchDate.substr(0,2);
+    if(day.startsWith('0')) {
+      day = day.replace('0', '');
+    }
+    console.log(day, month, year);
+    
 
     const currentMonth = (new Date().getUTCMonth()+ 1).toString();
     const currentDay = new Date().getDate();
@@ -121,12 +131,21 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       daysUntil = Number(day) - currentDay;
     }
     let result = null;
-    if(daysUntil == 1) {
+
+    if(currentMonth < month) {
+      console.log('IN');
+      
+      daysUntil = Number(month) - Number(currentMonth);
+      result = "IN "+daysUntil+" MONTHS"
+      this.badge = 'badge badge-warning';
+    }
+
+    if(daysUntil == 1 && currentMonth == month) {
       result = "IN "+daysUntil+" DAY";
       this.badge = 'badge badge-primary';
     }
     
-    else {
+    else if(daysUntil > 1 && currentMonth == month) {
       result = "IN "+daysUntil+" DAYS";
       this.badge = 'badge badge-primary';
     }
@@ -211,9 +230,14 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.p4t1 = this.finalMatch[0].team1[3];
       this.p5t1 = this.finalMatch[0].team1[4];
 
+      //this.mmrForTeam1();
       this.doMM = true;
     });
   }
+  }
+
+  mmrForTeam1() {
+    //todo
   }
 
   getMatchStatus() {

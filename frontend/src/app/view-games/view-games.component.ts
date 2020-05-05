@@ -47,10 +47,7 @@ export class ViewGamesComponent implements OnInit {
   getGames() {
     this.http.get<GameResponse>("https://limitless-fjord-64117.herokuapp.com/create").subscribe(data => {
       this.game = data.games;
-      let date = this.game[9].date.replace('-', '');
-      console.log(date);
       this.calculateDays(this.game);
-      console.log(this.game);
     });
   }
 
@@ -58,18 +55,23 @@ export class ViewGamesComponent implements OnInit {
     let until = null;
     match.forEach(element => {
       element.date;
-      let year = element.date.substr(0, 4);
-      let month = element.date.substr(5, 2);
+
+      console.log(element.date);
+      
+      let year = element.date.substr(6, 4);
+      console.log(year);
+      
+      let month = element.date.substr(3, 2);
       if(month.startsWith('0')) {
         month = month.replace('0', '');
       }
-      let day = element.date.substr(8,2);
-
+      console.log(month);
       
-    // console.log(year);
-    // console.log(month);
-    // console.log(day);
+      let day = element.date.substr(0,2);
 
+      if(day.startsWith('0')) {
+        day = day.replace('0', '');
+      }
     
     const currentMonth = (new Date().getUTCMonth()+ 1).toString();
     const currentDay = new Date().getDate();
@@ -81,14 +83,25 @@ export class ViewGamesComponent implements OnInit {
       console.log(daysUntil);
       
     }
+
     let result = null;
     let badge = null;
-    if(daysUntil == 1) {
+
+    if(currentMonth < month) {
+      console.log('IN');
+      
+      daysUntil = Number(month) - Number(currentMonth);
+      result = "IN "+daysUntil+" MONTHS"
+      badge = 'badge badge-warning';
+    }
+    
+
+    if(daysUntil == 1 && currentMonth == month) {
       result = "IN "+daysUntil+" DAY";
       badge = 'badge badge-primary';
     }
     
-    else {
+    else if(daysUntil > 1 && currentMonth == month) {
       result = "IN "+daysUntil+" DAYS";
       badge = 'badge badge-primary';
     }
@@ -104,9 +117,6 @@ export class ViewGamesComponent implements OnInit {
       this.badges.push(badge);
     }
     });
-
-
-    console.log(this.game_times[0]);
 
 
     

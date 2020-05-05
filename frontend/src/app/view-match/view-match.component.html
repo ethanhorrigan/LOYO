@@ -2,13 +2,14 @@
   <div class="container details" *ngFor="let game of matchDetails; index as i;">
     <div class="row">
       <div class="col-md-8">
-        <h2>{{matchName}}</h2>
-        <h6>Mode: {{game.match_type}}</h6>
+        <h2>{{matchName.toUpperCase()}}</h2>
+        <h6>Mode: {{game.match_type.toUpperCase()}}</h6>
         <h6>Admin: {{game.admin}}</h6>
       </div>
       <div class="col-md-4">
-        <h3 class="game-time">{{game.date}} @ {{game.time}}<div><span class="{{badge}}">{{daysUntil}}</span></div></h3>
-        
+        <h3 class="game-time">{{game.date}} @ {{game.time}}<div><span class="{{badge}}">{{daysUntil}}</span></div>
+        </h3>
+
       </div>
     </div>
 
@@ -69,6 +70,21 @@
           <p>Team 2</p>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm mmr">
+          <h5 class="mmr-h5"><span class="text-success mr-2 role"> Average MMR: </span>1000</h5>
+        </div>
+
+        <div class="col-sm">
+          
+        </div>
+
+        <div class="col-sm mmr">
+          <h5 class="mmr-h5"><span class="text-success mr-2 role"> Average MMR: </span>1000</h5>
+        </div>
+      </div>
+      
       <div class="row">
         <div class="col-sm">
           <div>
@@ -76,17 +92,17 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">TOP</span>
-                    <h5 class="card-title">{{team_one[0]}}</h5>
+                    <span class="text-success mr-2 role">TOP</span>
+                    <h5 class="card-title s-name">{{team_one[0]}}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-sm">
-          
+
         </div>
         <div class="col-sm">
           <div>
@@ -94,8 +110,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">TOP</span>
-                    <h5 class="card-title">{{team_two[0]}}</h5>
+                    <span class="text-success mr-2 role">TOP</span>
+                    <h5 class="card-title s-name">{{team_two[0]}}</h5>
                   </div>
                 </div>
               </div>
@@ -111,17 +127,17 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">JUNGLE</span>
-                    <h5 class="card-title">{{team_one[1]}}</h5>
+                    <span class="text-success mr-2 role">JUNGLE</span>
+                    <h5 class="card-title s-name">{{team_one[1]}}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-sm">
-          
+
         </div>
         <div class="col-sm">
           <div>
@@ -129,8 +145,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">JUNGLE</span>
-                    <h5 class="card-title">{{team_two[1]}}</h5>
+                    <span class="text-success mr-2 role">JUNGLE</span>
+                    <h5 class="card-title s-name">{{team_two[1]}}</h5>
                   </div>
                 </div>
               </div>
@@ -146,15 +162,15 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">MID</span>
-                    <h5 class="card-title">{{team_one[2]}}</h5>
+                    <span class="text-success mr-2 role">MID</span>
+                    <h5 class="card-title s-name">{{team_one[2]}}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-sm">
           <p> VS </p>
         </div>
@@ -164,8 +180,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">MID</span>
-                    <h5 class="card-title">{{team_two[2]}}</h5>
+                    <span class="text-success mr-2 role">MID</span>
+                    <h5 class="card-title s-name">{{team_two[2]}}</h5>
                   </div>
                 </div>
               </div>
@@ -181,17 +197,17 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">ADC</span>
-                    <h5 class="card-title">{{team_one[3]}}</h5>
+                    <span class="text-success mr-2 role">ADC</span>
+                    <h5 class="card-title s-name">{{team_one[3]}}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-sm">
-          
+
         </div>
         <div class="col-sm">
           <div>
@@ -199,8 +215,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">ADC</span>
-                    <h5 class="card-title">{{team_two[3]}}</h5>
+                    <span class="text-success mr-2 role">ADC</span>
+                    <h5 class="card-title s-name">{{team_two[3]}}</h5>
                   </div>
                 </div>
               </div>
@@ -216,17 +232,17 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">SUPPORT</span>
-                    <h5 class="card-title">{{team_one[4]}}</h5>
+                    <span class="text-success mr-2 role">SUPPORT</span>
+                    <h5 class="card-title s-name">{{team_one[4]}}</h5>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-sm">
-          
+
         </div>
         <div class="col-sm">
           <div>
@@ -234,8 +250,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col">
-                    <span class="text-success mr-2">SUPPORT</span>
-                    <h5 class="card-title">{{team_two[4]}}</h5>
+                    <span class="text-success mr-2 role role">SUPPORT</span>
+                    <h5 class="card-title s-name">{{team_two[4]}}</h5>
                   </div>
                 </div>
               </div>
@@ -244,14 +260,16 @@
         </div>
       </div>
 
-      
-      
+
+
+
     </div>
+  </div>
 
-    <div class="container">
-      <div class="row admin" *ngIf="admin && status=='ONGOING'">
-        <h4>Please select who won:</h4>
-        <div class="outcome-selector">
+  <div class="container">
+    <div class="row admin" *ngIf="admin && status=='ONGOING'">
+      <h4>Please select who won:</h4>
+      <div class="outcome-selector">
         <div class="team-option">
           <mat-radio-group [(ngModel)]="selection">
             <mat-radio-button value="team1" (change)="onTeamChange($event)">Team 1</mat-radio-button>
@@ -265,6 +283,6 @@
           <p class="outcome-error" *ngIf="selection == undefined && submitted">NO TEAM SELECTED.</p>
           <button mat-raised-button color="accent" (click)="onAdminSubmit()">Submit</button>
         </div>
-        </div>
       </div>
     </div>
+  </div>

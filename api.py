@@ -492,7 +492,7 @@ class CreateMatch(Resource):
         return request.json
     def get(self):
         cursor = connection.cursor()
-        query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches order by date desc")
+        query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches order by date asc")
         cursor.execute(query)
         columns = [desc[0] for desc in cursor.description]
         result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
@@ -535,20 +535,17 @@ class AddToMatch(Resource):
     def post(self):
         _username = request.json['username']
         _match_uuid = request.json['match_uuid']
+
         cursor = connection.cursor()
-        user_query = ("SELECT summoner_name, player_icon, mmr from users where user_name= %s")
+        user_query = ("SELECT summoner_name, player_icon, mmr from users where user_name=%s")
         user_param = [_username]
 
         cursor.execute(user_query, user_param)
-        result = cursor.fetchall()[0]
-        _summoner_name = result[0]
-        _player_icon = result[1]
-        _mmr = result[2]
-        print(_summoner_name)
-        print(_player_icon)
+        result = cursor.fetchall()
+        _summoner_name = result[0][0]
+        _player_icon = result[0][1]
+        _mmr = result[0][2]
 
-        print(_username)
-        print(_match_uuid)
         # # check the participant db first before inserting
         check_query=("SELECT COUNT(summoner_name) FROM participants where summoner_name=%s AND match_uuid=%s")
         check_param=[_summoner_name, _match_uuid]
@@ -556,8 +553,6 @@ class AddToMatch(Resource):
         check_result = cursor.fetchall()
         print(check_result[0][0])
 
-        # Not breaking into the if statement for some reason?
-        # not adding ??
         if check_result[0][0] == 0:
             p_query = ("insert into participants values(%s, %s, %s, %s, %s)")
             p_param = (_match_uuid, _username, _summoner_name, _player_icon, _mmr)

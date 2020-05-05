@@ -1,5 +1,5 @@
 
-h2, label, input, p {
+h2, label, p {
     color: white;
 }
 
@@ -48,6 +48,22 @@ select {
     color: red;
 }
 
+.form-control {
+    color: black;
+}
+
+::ng-deep .mat-button-wrapper {
+    color: white !important;
+}
+
+::ng-deep .mat-calendar-body-selected {
+    background-color: #3fb0b5;
+    color: #fff;
+}
+
+::ng-deep .mat-input-element {
+  
+}
 .main-form {
     margin: 0 auto;
     width: 500px;
