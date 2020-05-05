@@ -266,7 +266,7 @@ class PlayerStandings(Resource):
 
         cursor = connection.cursor()
 
-        cursor.execute("SELECT summoner_name, user_name, rank, mmr, wins, losses, primary_role, player_icon, points FROM users ORDER BY wins DESC")
+        cursor.execute("SELECT summoner_name, user_name, rank, mmr, wins, losses, primary_role, player_icon, points FROM users ORDER BY points DESC")
         # cursor.execute("select array_to_json(array_agg(row_to_json(t))) from (select summoner_name, wins, losses, rank, primary_role from users) t")
         # https://stackoverflow.com/questions/10252247/how-do-i-get-a-list-of-column-names-from-a-psycopg2-cursor/46000207#46000207
         columns = [desc[0] for desc in cursor.description]

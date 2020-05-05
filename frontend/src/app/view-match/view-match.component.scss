@@ -3,12 +3,12 @@ p, h2, h3, h6{
 }
 
 .col-md-8 {
-    border: 1px solid white;
+    //border: 1px solid white;
     text-align: center;
 }
 
 .col-md-4 {
-    border: 1px solid white;
+    //border: 1px solid white;
 }
 
 .participant {
@@ -18,13 +18,15 @@ p, h2, h3, h6{
 }
 
 .col-sm {
-    margin: 25px auto;
+    margin: 0.2rem;
+    width: 250px;
+    padding: 0.5rem;
 }
 
 .player-icon {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 25%;
 }
 .card {
     background-color: #09263b;
@@ -35,7 +37,8 @@ p, h2, h3, h6{
 .card-title {
     color: white;
     text-align: center;
-    font-size: 1rem;
+    font-size: 12px;
+    width: 100%;
 }
 
 .card-body {
@@ -103,4 +106,10 @@ box-shadow: -15px 15px 35px 8px rgba(0,0,0,0.75);
 ::ng-deep .mat-radio-outer-circle {
     border-color: white;
     color: white !important;
+}
+
+.participants-hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
 }

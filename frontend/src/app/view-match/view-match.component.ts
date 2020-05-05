@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ViewGamesComponent } from '../view-games/view-games.component';
 import { UserService } from '../_services/user.service';
 import { Games, Participants, NewParticipant, FinalMatchResponse, FinalMatch, UpdateFinalMatch } from '../_models/team';
@@ -59,6 +59,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private http: HttpClient,
+    private router: Router,
     private auth: AuthenticationService) { 
       this.user = this.auth.getUserInStorage();
       
@@ -153,7 +154,10 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
 
     this.userService.addPlayerToMatch(participant).subscribe(data => {
-      location.reload();
+      if(data == 'Added') {
+        location.reload();
+        this.getMatchStatus();
+      }
     }); 
     
     
@@ -172,6 +176,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.playerCount = Number(data);
 
       if(this.playerCount == 10) {
+        this.max=true;
         this.beginMM();
       }
     });

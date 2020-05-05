@@ -12,6 +12,8 @@
       </div>
     </div>
 
+    <hr class="participants-hr">
+
     <div class="row justify-content-center outcome">
       <div class="col-md-8 ">
         <h6>Outcome: {{game.outcome}}</h6>
@@ -25,12 +27,13 @@
       <div class="row">
         <div class="col-sm">
           <p>Participants</p>
+          <hr class="participants-hr">
         </div>
       </div>
       <div class="row p">
         <div class="col-sm" *ngFor="let p of participants; let i=index">
-          <div style="width: 250px;">
-            <div class="card card-stats mb-4 mb-lg-0">
+          <div style="width: 200px;">
+            <div class="card">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
