@@ -12,8 +12,9 @@ import { Games } from 'src/app/_models/team';
 export class MygamesComponent implements OnInit {
 
   user: string = this.auth.getUserInStorage();
-  public games: Games[];
-  noGames: boolean = true;
+  public upcomingGames: any[] = [];
+  public finishedGames: any[] = [];
+  noGames: boolean = false;
 
 
   constructor(
@@ -23,11 +24,26 @@ export class MygamesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getUpcomingGames();
   }
 
   getUpcomingGames() {
     this.service.getUpcomingGames(this.user).subscribe(g => {
-      this.games = g.games;
+      
+      g.forEach(element => {
+        if(element[6] == "PENDING") {
+          this.upcomingGames.push(element);
+        }
+
+        if(element[6] == "FINISHED") {
+          this.finishedGames.push(element);
+        }
+      });
+
+      if(this.upcomingGames.length == 0) {
+        console.log('no games');
+        this.noGames = true;
+      }
     });
   }
 }

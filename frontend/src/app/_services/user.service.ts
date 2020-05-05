@@ -85,7 +85,7 @@ export class UserService {
     }
 
     getUpcomingGames(username: string) {
-        return this.http.get<GameResponse>(`https://limitless-fjord-64117.herokuapp.com/mygames/${username}`)
+        return this.http.get<any>(`https://limitless-fjord-64117.herokuapp.com/mygames/${username}`)
     }
 
     updateFinalMatch(fmatch: UpdateFinalMatch) {

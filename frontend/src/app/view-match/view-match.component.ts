@@ -41,6 +41,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
   /* team vars */
   team_one: string[] = [];
+  team_two: string[] = [];
 
   p1t1: string;
   p2t1: string;
@@ -207,8 +208,12 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
 
       for (let index = 0; index < 5; index++) {
         this.team_one[index] = this.finalMatch[0].team1[index];
-        
       }
+
+      for (let index = 0; index < 5; index++) {
+        this.team_two[index] = this.finalMatch[0].team2[index];
+      }
+
       this.p1t1 = this.finalMatch[0].team1[0];
       this.p2t1 = this.finalMatch[0].team1[1];
       this.p3t1 = this.finalMatch[0].team1[2];

@@ -3,45 +3,33 @@
         <div class="mygames-outer">
             <div class="my-games-body">
                 <h1 class="joined">Joined Games </h1>
-                <h2 class="upcoming">Upcoming Games </h2>
-                <div class="no-games" *ngIf="!noGames">
-                    <p>Looks like you don't have any upcoming games!</p>
-                    <a href="https://battlefy.com/browse" class="css-1xojhsb7 css-18zqz54">Join Games!</a>
+                <h2 class="upcoming">Upcoming Games ({{upcomingGames.length}}) </h2>
+                <div class="no-games">
+                    <ul class="ul-games" *ngFor="let ugame of upcomingGames; let i=index">
+                        <div class="past-games">
+                            <div class="past-games-container">
+                                <h4 class="css-1aqwat24 css-1r7yzkv">{{ugame[1]}}</h4>
+                                <p class="css-1aqwat26 css-us2lwj">{{ugame[3]}} @ {{ugame[4]}}</p>
+                                <p class="css-1aqwat26 css-us2lwj">By {{ugame[5]}}</p>
+                            </div>
+                                <a target="_blank" href="/match/{{ugame[0]}}" class="go-game">
+                                    Go to Game
+                                </a>
+                        </div>
+                    </ul>
+                    <p *ngIf="noGames">Looks like you don't have any upcoming games!</p>
+                    <a *ngIf="noGames" href="https://battlefy.com/browse" class="css-1xojhsb7 css-18zqz54">Join Games!</a>
                 </div>
-                <h2 class="completed">Past Games (1)</h2>
-                <ul class="ul-games">
+                <h2 class="completed">Past Games ({{finishedGames.length}})</h2>
+                <ul class="ul-games" *ngFor="let game of finishedGames; let i=index">
                     <div class="past-games">
                         <div class="past-games-container">
-                            <h4 class="css-1aqwat24 css-1r7yzkv">ICE Winter Bash</h4>
-                            <p class="css-1aqwat26 css-us2lwj">13/10/2019</p>
-                            <p class="css-1aqwat26 css-us2lwj">By <a href="/irish-collegiate-esports" target="_parent"
-                                    rel="noopener noreferrer" class="css-1aqwat25 css-dlrf5z">Irish Collegiate
-                                    Esports</a></p>
+                            <h4 class="css-1aqwat24 css-1r7yzkv">{{game[1]}}</h4>
+                            <p class="css-1aqwat26 css-us2lwj">{{game[3]}}</p>
+                            <p class="css-1aqwat26 css-us2lwj">By {{game[5]}}</p>
                         </div>
-                            <a href="/creategame" class="go-game">
+                            <a target="_blank" href="/match/{{game[0]}}" class="go-game">
                                 Go to Game
-                                <!-- <button mat-raised-button color="accent" class="goto-game">
-                                    <i class="fa fa-plus"></i>
-                                    Create
-                                </button> -->
-                            </a>
-                    </div>
-                </ul>
-                <ul class="ul-games">
-                    <div class="past-games">
-                        <div class="past-games-container">
-                            <h4 class="css-1aqwat24 css-1r7yzkv">ICE Winter Bash</h4>
-                            <p class="css-1aqwat26 css-us2lwj">13/10/2019</p>
-                            <p class="css-1aqwat26 css-us2lwj">By <a href="/irish-collegiate-esports" target="_parent"
-                                    rel="noopener noreferrer" class="css-1aqwat25 css-dlrf5z">Irish Collegiate
-                                    Esports</a></p>
-                        </div>
-                            <a href="/creategame" class="go-game">
-                                Go to Game
-                                <!-- <button mat-raised-button color="accent" class="goto-game">
-                                    <i class="fa fa-plus"></i>
-                                    Create
-                                </button> -->
                             </a>
                     </div>
                 </ul>

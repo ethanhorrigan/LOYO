@@ -672,8 +672,15 @@ class Finalmatch(Resource):
         team1_index = 1
         team2_index = 2
 
+        _outcome = 'FINISHED'
+
         cursor = connection.cursor()
         try:
+            # set the match to finished
+            query = (constants.CLOSE_MATCH)
+            param = [_outcome, _match_uuid]
+            cursor.execute(query, param)
+
             query = (constants.UPDATE_TEAM)
             param = [_winning_team, _losing_team, _match_uuid]
             cursor.execute(query, param)
@@ -800,6 +807,8 @@ class MatchMaking(Resource):
         Returns:
         Match ready teams.
         """    
+
+
         # Param Variables
         # _match_uuid = request.json['match_uuid']
         matching_state = True # Set matching state to true
@@ -808,42 +817,52 @@ class MatchMaking(Resource):
         team_2 = []
         cursor = connection.cursor()
         
+        query = (constants.MATCH_STATUS)
+        param = ['ONGOING', _match_uuid]
+        cursor.execute(query, param)
+        mcount = cursor.fetchall()
+        print(mcount[0][0])
+
         p_query = ("SELECT summoner_name from participants where match_uuid=%s order by mmr desc")
         p_param = [_match_uuid]
         cursor.execute(p_query, p_param)
 
         results = cursor.fetchall() # Get the players currently in the lobby.
         count = 0
-        while matching_state:
-            _summoner_name_1 = results[count][0]
-            count+=1
-            _summoner_name_2 = results[count][0]
-            # conn.execute("insert into Match values")
-            team_1.append(_summoner_name_1)
-            team_2.append(_summoner_name_2)
-            # m_one_query = ("insert into final_match values(%s, %s, %s)")
-            # m_one_values = (_match_uuid, _summoner_name_1, uuid)
-            # cursor.execute(m_one_query, m_one_values)
+        if(mcount == 0):
+            while matching_state:
+                _summoner_name_1 = results[count][0]
+                count+=1
+                _summoner_name_2 = results[count][0]
+                # conn.execute("insert into Match values")
+                team_1.append(_summoner_name_1)
+                team_2.append(_summoner_name_2)
+                # m_one_query = ("insert into final_match values(%s, %s, %s)")
+                # m_one_values = (_match_uuid, _summoner_name_1, uuid)
+                # cursor.execute(m_one_query, m_one_values)
 
-            # m_two_query = ("insert into Match values(%s, %s, %s)")
-            # m_two_values = (1, _summoner_name_2, uuid)
-            # cursor.execute(m_two_query, m_two_values)
-            # conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
-            # connection.commit()
-            count +=1
-            if(count == 10):
-                fm_query = ("INSERT into final_match values(%s, %s, %s)")
-                fm_param = [_match_uuid, team_1, team_2]
-                cursor.execute(fm_query, fm_param)
-                matching_state = False
+                # m_two_query = ("insert into Match values(%s, %s, %s)")
+                # m_two_values = (1, _summoner_name_2, uuid)
+                # cursor.execute(m_two_query, m_two_values)
+                # conn.execute("insert into Match values('{0}', '{1}', '{2}')".format(2, _summoner_name_2, uuid))
+                # connection.commit()
+                count +=1
+                if(count == 10):
+                    fm_query = ("INSERT into final_match values(%s, %s, %s)")
+                    fm_param = [_match_uuid, team_1, team_2]
+                    cursor.execute(fm_query, fm_param)
+                    query = (constants.CLOSE_MATCH)
+                    param = ['ONGOING', _match_uuid]
+                    cursor.execute(query, param)
+                    matching_state = False
             
             # Sort the Match Table
-            match_query = ("select match_uuid, team1, team2 FROM final_match where match_uuid=%s")
-            match_param = [_match_uuid]
-            cursor.execute(match_query, match_param)
-            connection.commit()
-            columns = [desc[0] for desc in cursor.description]
-            result = {'final_match': [dict(zip(columns, row)) for row in cursor.fetchall()]}
+        match_query = ("select match_uuid, team1, team2 FROM final_match where match_uuid=%s")
+        match_param = [_match_uuid]
+        cursor.execute(match_query, match_param)
+        connection.commit()
+        columns = [desc[0] for desc in cursor.description]
+        result = {'final_match': [dict(zip(columns, row)) for row in cursor.fetchall()]}
         return result
 
 api.add_resource(Players, '/players')  # Route_1
