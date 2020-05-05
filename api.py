@@ -833,8 +833,8 @@ class MatchMaking(Resource):
         team_2 = []
         cursor = connection.cursor()
         
-        query = (constants.MATCH_STATUS)
-        param = ['ONGOING', _match_uuid]
+        query = (constants.GET_MATCH_STATUS)
+        param = [_match_uuid]
         cursor.execute(query, param)
         mcount = cursor.fetchall()
         print(mcount[0][0])
@@ -845,7 +845,7 @@ class MatchMaking(Resource):
 
         results = cursor.fetchall() # Get the players currently in the lobby.
         count = 0
-        if(mcount[0][0] == 0):
+        if(mcount[0][0] == 'PENDING'):
             while matching_state:
                 _summoner_name_1 = results[count][0]
                 count+=1

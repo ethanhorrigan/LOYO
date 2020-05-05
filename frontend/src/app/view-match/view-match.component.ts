@@ -72,16 +72,8 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     }
 
    ngOnInit() {
-     
-    console.log(this.admin);
-
-    
     this.getMatch();
-
     this.getParticipants();
-
-    
-
   }
 
   checkAdmin() {
@@ -119,19 +111,13 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     }
     let day = matchDate.substr(8,2);
 
-    console.log(year);
-    console.log(month);
-    console.log(day);
 
     const currentMonth = (new Date().getUTCMonth()+ 1).toString();
     const currentDay = new Date().getDate();
-    console.log('currentMonth:', currentMonth);
     let daysUntil = null;
 
     if(currentMonth == month) {
       daysUntil = Number(day) - currentDay;
-      console.log(daysUntil);
-      
     }
     let result = null;
     if(daysUntil == 1) {
@@ -150,7 +136,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     }
 
     
-    console.log(matchDate);
     return result;
   }
 
@@ -170,11 +155,12 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     this.userService.addPlayerToMatch(participant).subscribe(data => {
       location.reload();
     }); 
+    
+    
   }
 
   getParticipants() {
     this.userService.getParticipants(this.matchId).subscribe(data => {
-      console.log(data.participants)
       this.participants = data.participants;
       this.getPlayerCount();
     });
@@ -199,14 +185,11 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
      */
     
     if(this.playerCount == 10 && this.doMM == false) {
-    
+      console.log("im in mm");
+      
     this.userService.getMM(this.matchId).subscribe(data => {
       this.finalMatch = data.final_match;
 
-      console.log(this.finalMatch[0].team1);
-      console.log(this.finalMatch[0].team2);
-      console.log(this.finalMatch[0].team1[1]);
-      console.log(this.finalMatch[0].team1[2]);
 
       for (let index = 0; index < 5; index++) {
         this.team_one[index] = this.finalMatch[0].team1[index];
@@ -219,11 +202,9 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.p1t1 = this.finalMatch[0].team1[0];
       this.p2t1 = this.finalMatch[0].team1[1];
       this.p3t1 = this.finalMatch[0].team1[2];
-      console.log(this.p1t1);
       
       this.p4t1 = this.finalMatch[0].team1[3];
       this.p5t1 = this.finalMatch[0].team1[4];
-
 
       this.doMM = true;
     });
@@ -238,8 +219,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   }
 
   onAdminSubmit() {
-    console.log("im in");
-    
     this.submitted = true;
     if(this.selection == null || this.selection == undefined) {
       return;
@@ -251,12 +230,14 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       losing_team: this.losingTeam
     }
 
-    this.userService.updateFinalMatch(fmatch).subscribe(data => {});
+    this.userService.updateFinalMatch(fmatch).subscribe(data => {
+      location.reload();
+    });
+
   }
 
   onTeamChange(event: any) {
 
-    console.log(event.value);
     
     this.selection = event.value;
 
@@ -278,8 +259,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.losingTeam = team_1;
     }
 
-    console.log('Winning Team: ', this.winningTeam);
-    console.log('Losing Team: ', this.losingTeam);
     
   }
   
