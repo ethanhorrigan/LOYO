@@ -89,7 +89,11 @@ export class UserService {
     }
 
     updateFinalMatch(fmatch: UpdateFinalMatch) {
-        return this.http.post('http://127.0.0.1:5002/finalmatch', fmatch);
+        return this.http.post('https://limitless-fjord-64117.herokuapp.com/finalmatch', fmatch);
+    }
+
+    getMatchStatus(matchId: string) {
+        return this.http.get<string>(`https://limitless-fjord-64117.herokuapp.com/matchstatus/${matchId}`);
     }
 
 }

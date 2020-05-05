@@ -659,6 +659,22 @@ class MyUpcomingGames(Resource):
             connection.commit()
             cursor.close()
         return game_list 
+class MatchStatus(Resource):
+    def get(self, match_id):
+        result = None
+        cursor = connection.cursor()
+        try:
+            query = (constants.GET_MATCH_STATUS)
+            param = [match_id]
+            cursor.execute(query, param);
+            result = cursor.fetchall()[0][0]
+        except psycopg2.Error as error:
+            result = 'error getting match status..'
+        finally:
+            connection.commit()
+            cursor.close()
+
+        return result
 class Finalmatch(Resource):
     def post(self):
         response = None
@@ -881,6 +897,7 @@ api.add_resource(GetParticipants, '/getparticipants/<_match_id>')
 api.add_resource(GetParticipantCount, '/getparticipantcount/<_match_uuid>')
 api.add_resource(UpdateRating, '/updatescore/<_match_uuid>')
 api.add_resource(PlayerAdmin, '/admin/<match_id>')
+api.add_resource(MatchStatus, '/matchstatus/<match_id>')
 api.add_resource(Finalmatch, '/finalmatch')
 api.add_resource(MyUpcomingGames, '/mygames/<username>')
 

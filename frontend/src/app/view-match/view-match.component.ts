@@ -32,6 +32,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   winningTeam: string;
   losingTeam: string;
   selection:string;
+  status:string;
 
   /* UI Display vars */
   daysUntil: string;
@@ -66,6 +67,7 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       });
 
       this.getAdmin();
+      this.getMatchStatus();
       
     }
 
@@ -226,6 +228,13 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
       this.doMM = true;
     });
   }
+  }
+
+  getMatchStatus() {
+    this.userService.getMatchStatus(this.matchId).subscribe(data => {
+      this.status = data;
+      console.log(this.status);
+    });
   }
 
   onAdminSubmit() {

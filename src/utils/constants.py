@@ -24,4 +24,5 @@ UPDATE_OUTCOME = 'UPDATE participants SET outcome=%s WHERE summoner_name=%s AND 
 WINNING_TEAM = 'SELECT * from final_match WHERE match_uuid=%s'
 CLOSE_MATCH = 'update matches set outcome=%s where match_uuid =%s';
 MATCH_STATUS = 'select count(*) from matches where outcome=%s and match_uuid=%s';
+GET_MATCH_STATUS = 'select outcome from matches where match_uuid=%s'
 SUCCESS = json.dumps({'success':True}), 200, {'ContentType':'application/json'}
