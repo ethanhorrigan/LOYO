@@ -8,7 +8,7 @@
                     <ul class="ul-games" *ngFor="let ugame of upcomingGames; let i=index">
                         <div class="past-games">
                             <div class="past-games-container">
-                                <h4 class="game-name">{{ugame[1]}}</h4>
+                                <h4 class="game-name">{{ugame[1].toUpperCase()}}</h4>
                                 <p class="game-time">{{ugame[3]}} @ {{ugame[4]}}</p>
                                 <p class="created-by">By {{ugame[5]}}</p>
                             </div>

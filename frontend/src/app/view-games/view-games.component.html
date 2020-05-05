@@ -26,8 +26,12 @@
             class="card-img-top" alt="...">
         <div class="card-body">
             <!-- <h5 class="card-title">{{game.matchName}}</h5> -->
+            <p class="card-title game-type">{{game.match_type.toUpperCase()}}</p>
+            <p class="card-title game-type">EUW</p>
+            <p class="card-title game-type">LEAGUE OF LEGENDS</p>
+            <hr class="card-hr">
             <h5 class="card-title game-title">{{game.match_name.toUpperCase()}}</h5>
-            <h6 class="card-title">{{game.match_type.toUpperCase()}}</h6>
+            
 
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
@@ -36,7 +40,7 @@
                     <i class="fa fa-clock-o"></i> {{game.time}} <span class="{{badges[i]}}">{{game_times[i]}}</span>
                 
                 </li>
-                <li class="list-group-item"><a href="match/{{game.match_uuid}}" class="btn btn-primary">Join</a></li>
+                <li class="list-group-item li-button"><a href="match/{{game.match_uuid}}" class="btn btn-primary">Join</a></li>
             </ul>
         </div>
     </div>

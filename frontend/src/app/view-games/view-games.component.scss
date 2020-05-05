@@ -2,15 +2,54 @@
     margin: 2rem;
     display: inline-block; /* make blocks inline-block */
     box-shadow: -5px 5px 25px 0px rgba(0,0,0,0.75);
+    background-color: #09263b;
+    border-radius: 0.75rem;
+}
+
+body {
+    color: white;
 }
 
 .game-title {
     height: 60px;
+    color:#e8e8e8;
+}
+
+.card-hr {
+    padding: unset;
+    background-color:#e8e8e8;
+    margin: unset;
+    margin: 0.25rem;
+}
+.game-type {
+    color:#e8e8e8;
+    border-radius: 15px;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    border: solid 1px #28303f;
+    padding: 0 10px;
+    margin: 0.25rem;
+    line-height: 2;
+    display:inline;
+}
+
+.list-group-item {
+    background-color: #09263b !important;
+    color: white;
+    padding: 0.25rem;
 }
 .no-gutters {
     margin-left: 10rem !important;
 }
+i {
+    padding: .25rem;
+}
 
+li-button {
+    padding: unset;
+    margin: unset;
+}
 .col-6 {
     // background-color: white;
     // border: 1px solid red;
