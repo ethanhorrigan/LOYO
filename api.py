@@ -829,7 +829,7 @@ class MatchMaking(Resource):
 
         results = cursor.fetchall() # Get the players currently in the lobby.
         count = 0
-        if(mcount == 0):
+        if(mcount[0][0] == 0):
             while matching_state:
                 _summoner_name_1 = results[count][0]
                 count+=1
