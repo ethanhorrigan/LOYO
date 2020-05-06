@@ -30,18 +30,20 @@ The system used in the project is the Elo rating system. The Elo system \cite{pe
 Based off player ratings mentioned above, we can use these ratings to match players in team-based games, I will discuss in further detail on how the matchmaking system was designed in sections below.
 The purpose of this platform is because many groups or communities of players like to have competition between each other but, organising these friendly matches can be a nuisance, whether gathering players to form a match or even attempting to balance teams, this is where the matchmaking system comes in with the aim to avoid these time-consuming actions by providing a platform that handles these operations for the user.
 \section{Competitive Gaming}
-Competitive gaming often referred to as esports, which can be defined as \cite{sjoblom2019esports} “a form of sports where the primary aspects of the sport are facilitated by electronic systems; the input of players and teams, as well as the output of the esports system, are mediated by human-computer interfaces”. In essence, its a competitive way of playing computer games. This can be compared to 'traditional' sports where players compete amongst each other in a competitive environment. Like sports has its types (Football, Rugby etc..), games have its genres (e.g. First Person Shooter, MOBA, Strategy etc..).\newline
+Competitive gaming often referred to as esports, can be described as "a form of sports where electronic systems facilitate the primary aspects of the sport;" \cite{sjoblom2019esports}. In essence, it is a collective term to describe a competitive way of playing computer games. Competitive gaming is comparable to traditional sports; when a person enjoys a sport, they can join a team and compete against other teams. If a person enjoys an online game, they might seek opportunities to play competitively. Traditional sports have their sub-types like Football and Rugby, similar to online games where games are organised with specific genres. Such as Multiplayer Online Battle Arenas (e.g. League of Legends, Dota 2), First-Person Shooters (e.g. Counter-Strike: Global Offensive) or Sports Games (e.g. FIFA). Therefore, forming many sub-cultures within; similarly to traditional sports. The reasons why people consume competitive games is the same reason why people consume traditional games, for personal enjoyment.
 
-
-This project will focus on providing a platform for players to manage competitive matches for the popular Multiplayer Online Battle Arena (MOBA), League of Legends.\newline
-
+This project aims to help players that want to form teams and play competitively, essentially providing a community of like-minded players who seek a competitive environment.
+\subsection{Custom Matches}
+For clarity, the game that this application focuses on is League of Legends.
 Within the game, players have different game modes which they can play
-(Draft Mode and Ranked Mode). Players can receive a rank when playing in ranked mode meaning players are matched up against opponents with similar skill levels. When searching for a game, players join a queue and the system tries to create a lobby of 10 random players of similar skill levels. Custom lobbies can also be created allowing people to form a lobby of players where players ranks are inconsequential. This allows players to have complete control over the lobby (who goes onto what team). My application will manage these custom games through matchmaking instead of people deciding on who goes where which can be a nuisance and inefficient.
+(Draft Mode and Ranked Mode). Players receive a rank when playing in ranked mode, which determines their skill-level, allowing players to be matched against opponents of similar skill. When searching for a game, players join a queue, and the system tries to create a lobby of ten random players of similar skill levels. This technique is common across most online multiplayer games. Custom lobbies can also be created, allowing people to form a lobby of players where ranks are irrelevant. Custom lobbies allow players to have complete control over the match they want to create, meaning team members can be swapped around if necessary. When using custom lobbies for competitive matches, attempting to balance teams can become an issue. 
+Because players are responsible for deciding on team members, some players may not agree with the teams that are formed, resulting in disputes amongst the players.
+The purpose of this application is to nullify the issue of balancing teams for custom games through matchmaking, instead of people manually deciding who goes on what team, which can be a nuisance and inefficient. The application will form teams based on the ratings of its participants.
 
 \section{Project Objectives}
 The project aims to develop a web application allowing users to create and manage their custom game event. The core objective of this project is to try to eliminate the inefficiency and unpredictability of managing player-made games through the use of matchmaking. For the system to be practical, I aim to implement various features to enable users to manage their games effectively.
 Users will be allowed to register an account with the application enabling them to decide when matches take place or even participate in events themselves. \hfill \break
-I will gather data on the user's in-game information to join with the data of the application to generate relatable information to make the matchmaking system more reliable. When registering, users link their in-game username which is used to gather more information about the player. This information will be updated every time the user logs into the app, ensuring that their details are up-to-date. \hfill \break
+I will gather data on the user's in-game information to join with the data of the application to generate relatable information to make the matchmaking system more reliable. When registering, users link their in-game username which is used to gather more information about the player. This information will be updated every time the user logs into the app, ensuring that their details are up-to-date.
 Users will be able to create matches and view matches that have been created by other users. With the intention of building a community of like-minded players. \hfill \break
 If someone is particularly interested in a game, they can join that match which will add them to a participants list, once this list reaches maximum capacity, teams will be formed based on their ratings. \hfill \break
 After a game has ended, players earn points, the amount of points they receive is based on the rating of their opponents. A leaderboard system will enable users to track how much points they have accumulated and also allows them to track their performance. \hfill \break
@@ -100,24 +102,9 @@ Since I wanted to experience new technologies and had already used the MEAN stac
 I opted for a flask server, I chose flask for multiple reasons, some of them being: it supports all SQL and NoSQL databases, and because I was unsure at the beginning of what database I should use, this feature stood out to me.
 Flask classifies as a micro-framework. Micro-frameworks are usually frameworks with little to no dependencies to external libraries \cite{aboutflask}; they lack most of the functionality which is typical to expect in your regular web application framework, for example, they do not provide authentication or authorization. Although this seems like a reason to not use flask, it meant I had creative freedom on what I wanted to add, and I could learn how functions like user authentication or authorization worked by implementing them myself. \hfill \break
 \subsection{Database}
-The primary development environment used throughout the project was Visual Studio Code, The main reasons why I chose this environment is because it supports browser debugging, Git control, syntax highlighting, intelligent code completion and for its customisability. Both front-end and back-end of the project were developed in this environment.
-I used Angular which is an open-source web application framework led by the Angular Team at Google. The reasoning behind choosing Angular is because I wanted the project to be a web application as compared to a hybrid application, Angular seemed to be the most viable framework for this application. Through angular, I could write the functionality of the front-end using typescript, which is then compiled down to javascript. Typescript is more structured then Javascript which I preferred.
-When researching options for the database server, the two main options were python and flask or using MEAN stack (Mongo, Express.js, Angular and Node). I wanted the database to be a relational instead of using a NoSQL database, so a NoSQL database did not suit. I also wanted to use a technology that I'm not familiar with. So I opted for Python and Flask.
-\par
+When deciding on which database to use, we have to determine what type of data is being stored and what way will the data be accessed. A relational database suited this application because of the connection between the application's data and players in-game data. During the beginning of development, an SQLite database was used. We use SQLite to figure out what tables were needed and also what columns were needed in each table. Essentially, SQLite was used to audition the data model for the entire application. SQLite is a serverless and file-based database, meaning the setup was simple and did not require a server to operate. Using SQLite meant we could focus on how the database was formed before developing a server. Although SQLite was used for the initial stages of development, it was not a viable option for a scalable web application. SQLite is a serverless database, meaning we cannot access it from another machine unless manually transferred. SQLite also offers no user management, which is not optimal. Therefore, PostgreSQL was used in production. Migrating from SQLite to PostgreSQL was a simple process because both are relational databases. The extensibility of the PostgreSQL meant the application could be scaled up. PostgreSQL also features parallel queries, and asynchronous commits meaning multiple users could read and write to the database at the same time. PostgreSQL provides security with the user administration which also allowed for future scalability. With the factors mentioned, PostgreSQL is a very suitable database for the project.
 
 
-\begin{figure}
-	\centering
-	\begin{tikzpicture}[node distance=6cm]
-	\node (a) [rect] {Github};
-	\node (b) [rect, below of=a] {Server (Flask)};
-	\node (c) [oval, right of=b] {Client (Angular)};
-	\draw [line] (a) -- (c);
-	\draw [line] (b) -- (c);
-	\end{tikzpicture}
-	\caption{Nice pictures}
-	\label{tikz:graphs2}
-\end{figure}
 
 
 \chapter{Technology Review}
@@ -222,11 +209,11 @@ PostgreSQL (Postgres) is a Relational Database Management System (RDBMS).
 	\label{table:Matches}
 \end{table}
 \section{PgAdmin and DBeaver}
-TALK ABOUT DBeaver
-PgAdmin \cite{pgadmin} is a database management tool for PostgreSQL. It simplifies the creation, maintenance, and use of database objects through a user interface. I used pgAdmin for database maintenance and to get a visual representation of data that was stored in my database. I linked the local and deployment PostgreSQL database to pgAdmin making both easily accessible for development.
+PgAdmin \cite{pgadmin} is a database management tool for PostgreSQL. It simplifies the creation, maintenance, and use of database objects through a user interface. We use pgAdmin for database maintenance and to get a visual representation of data that was stored in the project's database. Both local and deployment PostgreSQL database's are linked to pgAdmin, making both accessible for development. \hfill \break
+DBeaver was also used as a database management tool. DBeaver differed to pgAdmin because it was a desktop application and PgAdmin is used through a web browser.We can access the database faster because there was no set-up time, meaning the database's credentials did not have to be entered every time DBeaver was launched. DBeaver also allowed for the saving of queries, meaning we store procedures which were regularly used throughout development.
 \section{Heroku}
-Heroku \cite{heroku} is a Free Cloud Application Platform. The Flask Server and PostgreSQL Database were both deployed on Heroku. Heroku runs applications in "dynos" which are basically just virtual computers. I created a branch on GitHub specifically for Heroku, so every time I made a new commit to GitHub, Heroku would automatically build. This allowed me to develop alot more efficiently because I did not have to start up the server each time and changes to server were automatically built, deployed and ran on each git push. 
-\paragraph{Setup:} to setup Heroku for my server. I had to give it a requirments file, which contains all the servers dependencies. This is so Heroku can set up an enviroment to run the server.
+Heroku \cite{heroku} is a Free Cloud Application Platform. The Flask Server and PostgreSQL Database were both deployed on Heroku. Heroku runs applications in "dynos" which are basically just virtual computers. I created a branch on GitHub specifically for Heroku, so every time I made a new commit to GitHub, Heroku would automatically build. This allowed me to develop alot more efficiently because I did not have to start up the server each time and changes to server were automatically built, deployed and ran on each git push. \hfill \break
+To setup Heroku for my server. I had to give it a requirments file, which contains all the servers dependencies. This is so Heroku can set up an enviroment to run the server.
 \begin{minted}{text}
 riotwatcher==2.7.1
 Flask_Cors==3.0.8
@@ -278,23 +265,27 @@ def get_account_id(self):
 player_details = watcher.summoner.by_name(my_region, self)
 return player_details['accountId']
 \end{minted}
-\newpage
+
 Working example of a GET request to retrieve match details.
 \begin{minted}{python}
 class GetMatch(Resource):
 def get (self, _match_uuid):
 cursor = connection.cursor()
-query = ("Select match_uuid, match_name, match_type, date, time, admin, outcome from matches WHERE match_uuid =%s")
+query = 
+("Select match_uuid, match_name, match_type, date, time, admin, outcome 
+FROM matches 
+WHERE match_uuid =%s")
 query_param = [_match_uuid]
- cursor.execute(query, query_param)
+cursor.execute(query, query_param)
 columns = [desc[0] for desc in cursor.description]
 result = {'games': [dict(zip(columns, row)) for row in cursor.fetchall()]}
 return result
 \end{minted}
 
-
+\newpage
 \section{RiotWatcher}
-RiotWatcher is a Python wrapper for Riot Games API, RiotWatcher supports a simple rate limiter. This \cite{dealcisco} rate limiter will try to stop you from making too many requests to Riot Games API. I used RiotWatcher to access players in-game data and then store relevant data in my database to be used throughout the project. Here is a working example of retrieving a players ID number and verify if the player exists in Riot Games database.
+RiotWatcher is a Python wrapper for Riot Games API, RiotWatcher supports a simple rate limiter. This rate limiter \cite{dealcisco} will try to prevent too many requests to Riot Games API. We use RiotWatcher to access players in-game statistics and then store relevant data in the projects database for further use throughout the project. 
+Accessing data from Riot Games API plays a pivotal role in the project; it contained players in-game ratings which is vital for the matchmaking and point system to function correctly. Here is a working example of retrieving a players ID number and verify if the player exists in Riot Games database.
 \begin{minted}{python}
 from riotwatcher import RiotWatcher, ApiError
 
@@ -312,7 +303,7 @@ def get_player_details(self):
 \end{minted}
 \newpage
 \section{Postman}
-Postman \cite{postman} is a platform for Application Programming Interface (API) development. I used Postman to perform CRUD operations (Create, Read, Update, Delete) on Riot Games API and the projects API. I created collections of each request so I could easily test each operation before implementing into the projects front end. When the project was deployed, I ran the same tests but used the projects deployment URL.
+Postman \cite{postman} is a platform for Application Programming Interface (API) development. We use postman as a testing routine to perform CRUD operations (Create, Read, Update, Delete) to Riot Games API and the projects API. Using postman, we can ensure that the HTTP requests were functioning as intended before integrating HTTP requests on the front-end of the application. Using postman's collections feature, we create a collection of each request for re-usability purposes throughout the development of the application. A collection was made up for both the projects API and Riot Games API.
 \section{Jasmine}
 Jasmine \cite{jasmine} is a behaviour-driven development framework for testing JavaScript code. Jasmine is a set of functions that perform unit tests. You give a function and what the result should be. These unit test cases \cite{elbaum2006carving} focuses on the individual components of the project. Jasmine was mainly used to test static components, e.g. buttons, form fields, titles etc..
 \paragraph{Example:} validating user input field on the registration component
@@ -370,6 +361,34 @@ Selenium is a web testing tool which uses scripts to automate tests directly wit
 \includegraphics[width=10cm,height=5.3cm,keepaspectratio]{img/Selenium.png}
 \end{center}
 
+\subsection{The Elo System}
+The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
+\[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
+\[ R_n = R_o + K(S_a - E_a) \]
+
+
+{\raggedright The size of the score change is determined by a dynamic K value. Initially, this K value is big (30 for their first 30 games) resulting in rapid changes in Elo. This is so a player can quickly find his or her correct place in the ranking system. As the number of games increases the K value is reduced to prevent dramatic changes in Elo.}\newline
+\cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
+\paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\hfill \break
+The Elo System was used to determine how much points the player received in the points system. Instead of points increasing at a constant value, the number of points a player receives depends on the skill level of their opponents.
+
+\subsection{Gale Shapely Algorithm}
+The Gale-Shapely algorithm \cite{dubins1981machiavelli} is an algorithm for the stable matching problem. \cite{gale1985some}
+David Gale and Lloyd Shapley proved that \cite{gale1962college}, for an equal number of men and women, it is possible to make all marriages stable. 
+
+\paragraph{}
+The algorithm involves different rounds.
+1) All single men propose to the woman he favours most. 2) Each woman is then temporarily taken by the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
+\paragraph{In each following round:}
+1) All unengaged men propose to their most-preferred woman (even if the woman is already "engaged")
+2) If a woman prefers this man over her current temporary partner, they become unengaged and the woman and new man become "engaged".
+This process is repeated until everyone is engaged.
+
+\paragraph{In the end}
+Everyone gets married and each marriage is stable. \hfill \break
+Say, we have a woman and man that both have their partners, Let's call them Mary and John.
+When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner.\hfill
+We use concepts from the gale-shapely algorithm in the matchmaking system, precisely the idea of preferences.
 
 \chapter{System Design}
 
@@ -494,6 +513,7 @@ The matches page displays the time and dates for when the match will take place 
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/ViewMatch.png}
 \end{center}
 
+\newpage
 \subsection{Leaderboards}
 The leaderboards page tracks the information of the user based on the games they have played using this platform; it displays their total points, total wins and total losses. The users are placed on the leaderboards based on the number of points they have accumulated. The leadboards aim to generate a competitive environment for the players and also allow players to track their progress, making it easier for players to manage their games.
 \begin{center}    
@@ -607,11 +627,11 @@ When a match reaches its maximum amount of participants, all the participants fo
 	\caption{The final match table.}
 \end{table}
 
-\section{Algorithms}
-For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm, for the system to work, I first needed the ratings of each participant for a given match. The results I got when accessing Riot's API were presented in this format:\hfill \break
+\section{Matchmaking and Point System}
+\subsection{Matchmaking System}
+For the matchmaking system, I used the Elo System and adapted concepts from the Gale-Shapley algorithm, for the system to work, I first needed the ratings of each participant for a given match. The results I got when accessing Riot's API were presented in this format:
 \begin{minted}{json}
 	{
-	"leagueId": "50bd22e7-16e5-4fe1-bc4a-e364d2a6b124",
 	"queueType": "RANKED_SOLO_5x5",
 	"tier": "GOLD",
 	"rank": "III",
@@ -628,7 +648,6 @@ Since the $rank$ given is in roman numeral format, I created a function which co
 
 Example, $tier: "GOLD"$, $ rank: "III"$ is then converted to $GOLD3$
 
-\newpage
 Once the players rating retrieved from Riot Games API converted into one string, I could then compare it to the table of constant values which represents ratings as integer values.
 
 \begin{minted}{python}
@@ -665,7 +684,7 @@ ylabel={Rating}
 
 \newpage
 Say we have player $a$ with a rating $RP$ and an initial rating $RS$.
-We can calculate growth rate $g$ with: 
+We can calculate growth rate $g$ with \cite{growth}: 
 \[ g = \frac{\frac{(RP - RS)}{RS} \times 100}{n} \] 
 Where $n$ is the amount of games played to receive that rank.\hfill \break
 Then to calculate the players new rating $NR$ we just add the growth rate and current rating.
@@ -680,56 +699,31 @@ This growth rate is used in cases when trying to matchmake multiple players with
 \[ player C = \frac{\frac{(900 - 500)}{500} \times 100}{30} + 900 = 902.6 \]
 \[ player D = \frac{\frac{(900 - 500)}{500} \times 100}{26} + 900 = 903.1 \]
 
-Therefore, we would match $player A$ vs $player D$ and $player B$ vs $player C$
+\newpage
+Now that we have player ratings established, we can now use these ratings when matchmaking. When a player joins a game, that player joins a list of participants. If we have a match of two teams made up of five players each, then the capacity for this match is ten. When the length of participants reaches its capacity, matchmaking starts. 
+We sort participants by their rating which naturally orders them by preference as seen in figure \ref{tikz:sortedparticipants}.
 
-\subsection{The Elo System}
-The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
-\[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
-\[ R_n = R_o + K(S_a - E_a) \]
-
-
-{\raggedright The size of the score change is determined by a dynamic K value. Initially, this K value is big (30 for their first 30 games) resulting in rapid changes in Elo. This is so a player can quickly find his or her correct place in the ranking system. As the number of games increases the K value is reduced to prevent dramatic changes in Elo.}\newline
-\cite{glickmanrating} The value K used to take on the values 32, 24 or 16, depending on a player’s pre-event rating. K Factor can also be defined through this equation, where $N_i$ is the effective number of games, and m is the number of games the player completed in the game.
-\paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\vfill
-
-\subsection{Gale Shapely Algorithm}
-The Gale-Shapely algorithm \cite{dubins1981machiavelli} is an algorithm for the stable matching problem. \cite{gale1985some}
-
-
-David Gale and Lloyd Shapley proved that \cite{gale1962college}, for an equal number of men and women, it is possible to make all marriages stable. 
-
-\paragraph{}
-The algorithm involves different rounds.
-
-\begin{itemize}
-	\item Round 1
-\end{itemize}
-All single men propose to the woman he favours most.
-\begin{itemize}
-	\item Round 2
-\end{itemize}
-Each woman is then temporarily taken by the suitor she most prefers so far, and that suitor is likewise provisionally engaged to her.
-\paragraph{In each following round:}
-\begin{itemize}
-	\item a
-\end{itemize}
-All unengaged men propose to their most-preferred woman (even if the woman is already "engaged" )
-\begin{itemize}
-	\item b
-\end{itemize}
-If a woman prefers this man over her current temporary partner, they become unengaged and the woman and new man become "engaged".
-This process is repeated until everyone is engaged.
-
-\paragraph{In the end}
-\begin{itemize}
-	\item Everyone gets married.
-\end{itemize}
-There can't be a people unengaged.\newline 
-\begin{itemize}
-	\item The marriages are stable.
-\end{itemize}
-Say, we have a woman and man that both have their partners, Let's call them Mary and John.
-When the algorithm is finished, both Mary and John can't prefer each other over their current partners. If John prefers Mary to his current partner, he must have already proposed to Mary before he proposed to his current partner. If Mary accepted his proposal, yet is not married to him at the end, she must have gone for someone she prefers more and therefore doesn't like John more than her current partner. 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ll}
+		\toprule
+		Player & Rating \\
+		\midrule
+		P1     & 1903   \\
+		P2     & 1902   \\
+		P3     & 1208   \\
+		P4     & 1205   \\
+		P5     & 1100   \\
+		P6     & 800    \\
+		P7     & 609    \\
+		P8     & 601    \\
+		P9     & 500    \\
+		P10    & 400    \\ 
+		\bottomrule    
+	\end{tabular}
+	\caption{Sorted Participants}
+	\label{tikz:sortedparticipants}
+\end{table}
 
 \newpage
 \section{Microservices}
@@ -739,23 +733,48 @@ When the algorithm is finished, both Mary and John can't prefer each other over 
 Microservices is an architecture style which separates the system into individual services that build a cohesive system. \cite{alshuqayran2016systematic} I used this architecture style for communication integration. I created a service for connection with Riot Games API and different service for communication with the applications API, both these services then communicated with the projects database for further usage during development. This style provided portability \cite{dragoni2017microservices} since each service was loosely coupled \cite{salah2016evolution}, meaning I could access these classes independently, not only did this give a more fluent workflow, it made life a lot easier when conducting tests.
 Companies like Netflix \cite{bukoski2018we} make use of microservices to allow their teams to "build and push at comfortable speeds".
 \newpage
+
 \subsection{Data Communication}
+\begin{figure}[H]
+	\centering      
+	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/Communication.png}
+	\caption{Communication}
+	\label{tikz:communication}
+\end{figure}
 Interfacing with Riot Games API was vital for the system to function, Riot's API stored the user's in-game details which were needed to gain information on player ratings, players usernames and players in-game statistics.\hfill \break 
 Riotwatcher \cite{riotwatcher}; a python wrapper for riot games API was used to perform requests to Riots API.\hfill \break
 For Example, to retrieve players the total amount of games, we would execute this function:
 \begin{minted}{sql}
 def get_total_games(self):
-	account_id = Summoner.get_account_id(self)
-	wins = watcher.league.by_summoner(my_region, account_id)
-	total_games = wins[0]['wins'] + wins[0]['losses']
-	return total_games
+account_id = Summoner.get_account_id(self)
+wins = watcher.league.by_summoner(my_region, account_id)
+total_games = wins[0]['wins'] + wins[0]['losses']
+return total_games
 \end{minted}
 We store similar data like the players rating and various other information in the database of the application, with this information in the application's database allowed for further manipulation and usage throughout the project, such as the matchmaking system. Without external API's like Riot's API, the application would not fully work as intended, without player ratings the matchmaking system would be very inaccurate due to the fact we would have to predict player ratings to some extent.\hfill \break 
 The functionality of accessing API's was kept generalized as possible to future proof it allowing more game platforms to be added.\hfill \break 
-\bigskip
+\newpage
 
-\subsection{Limiting}
-Retrieving the player's details from riot's API is only performed once during registration, and updated each time a user logs in, the reason for this is to limit the number of calls made to riot's API due to its rate-limiting restrictions; rate-limiting manages the volume of incoming and outgoing traffic to or from a network \cite{raghavan2007cloud}. For example, riots API service allows 100 requests/minute. If the number of requests exceeds that limit, then an error will occur.
+Retrieving the player's details from riot's API is only performed once during registration and user login. The reason for this is to limit the number of requests made to riot's API due to its rate-limiting restrictions. Rate-limiting manages the volume of incoming and outgoing traffic to or from a network \cite{raghavan2007cloud}. For example, riots API service allows 100 requests/minute. If the number of requests exceeds that limit, then an error will occur. Only requesting player's details upon registration and login meant that their information is up-to-date.\hfill \break
+To access the data stored through the web application, we use observables \cite{rxjs}. We use observables because they are asynchronous, meaning that multiple users can be managed at a time.\hfill \break
+To set up a route for the web application to communicate, we establish the type of request and the type of response.
+\begin{minted}{javascript}
+getParticipants(matchId: string) {
+ return this.http.get<Participants>
+ (`this.deploy_url +/getparticipants/${matchId}`);
+}
+\end{minted}
+
+
+Then we can subscribe to that route to retrieve the information
+\begin{minted}{javascript}
+getParticipants() {
+ this.userService.getParticipants(this.matchId).subscribe(data => {
+ this.participants = data.participants;
+ this.getPlayerCount();
+});
+}
+\end{minted}
 
 \newpage
 \section{Testing Design}
@@ -775,7 +794,24 @@ it('should open create page', () => {
 	page.getCreateButton();
 	expect(browser.getCurrentUrl()).toMatch('/creategame')
 });
-\end{minted} 
+\end{minted}
+
+We also perform unit tests which test individual parts of the web application. Front-end unit tests were generally carried out before e2e tests to ensure that each component works individually before testing how these components operate together.
+
+\newpage
+Here is an example of a unit test case which checks the username on registration.
+\begin{minted}{javascript}
+it('should validate username', () => {
+	const nameInput = component.registerForm.controls.username;
+	
+	expect(nameInput.valid).toBeFalsy();
+	
+	nameInput.setValue('TestName');
+	expect(nameInput.valid).toBeTruthy();
+});
+\end{minted}
+
+Automated browser tests were performed using selenium when testing at user-level (Black-box testing). Using the selenium browser extension, we can manually record how a user would interact with the system. When recording selenium tests, a new browser window will open on the applications base URL, we then interact with the page, and all the actions will be recorded. Automated tests were normally used when adding new components. \hfill \break
 
 \chapter{System Evaluation}
 \section{Limitations}
@@ -790,8 +826,7 @@ Software dependent can be described as a piece of software that relies on anothe
 
 For example, if the game servers go down for a period, then nobody can use this application because the servers are down, denying them access to play the game. The best option for game server downtime would be to combine multiple online games into the app instead of being restricted to just one. Adding genres like first-person shooters and strategy games could be implemented because they follow standard rating systems. Adding more games to the platform would ensure that the project will always have some form of usability.\hfill \break
 
-Another reason this project is software dependent is because of its use of external API's.
-Third-party API's always change, meaning this application has to match any changes the third-party API makes. Functionality can also be refactored or deprecated, possibly remodelling the purpose of its intended use. \hfill \break
+Third-party API's always change, meaning this application has to match any changes the third-party API makes. Functionality can also be refactored or deprecated, possibly changing the purpose of its intended use. \hfill \break
 Alternatives like web scraping are additional options I could use to obtain data on players in-game details. Web scraping is a process of automatic data collection from the internet, commonly in website pages using markup languages such as HTML \cite{slamet2018web}. Although web scraping might seem like a viable option, web sites that we gather data from may also be reliant on third-party software. Which circles back to the dilemma stated above.
 \section{Vulnerabilities}
 When migrating the database over to PostgreSQL, I stumbled upon a vulnerability in how I was handling requests and insertions in my database. My queries were not parameterized meaning attackers could potentially harm my database, by deleting tables or even releasing sensitive information. This is commonly referred to as SQL Injection. 
@@ -830,8 +865,6 @@ To ensure my system was robust I conducted multiple types of tests, including:
 Theses tests were responsible for testing various different components of the project, unit tests were added to test individual components, I tried to emulate how a real-world user would use the system through automated tests.\newline
 Incorporating multiple tests allowed me to discover errors that may not have been found. Testing at multiple layers of the application ensured that the system was robust.
 \chapter{Conclusion}
-I set out to develop an application that could automate the organisation of custom matches with the intent of making it more manageable for people to run their events, focusing on the end goal and researching various concepts related to this application enabled me to achieve this goal. This project was no simple task, but yet it was satisfying and valuable; I feel I've got more insight into how real-world applications are developed.  Although I could not automate the process of accessing match outcomes which I discussed above, I consider the alternative solution a viable option. In the future, I aim to submit this application to Riot Game's API for review so I can gain access to tournament codes, which opens up more opportunities for me to scale this application. Being in a group of friends and acquaintances that also play similar games motivated me to develop this system.
-
 
 \subsection{Opportunities}
 Throughout development and on completion, I discovered potential opportunities, including an API for custom online events, such as matches and tournaments. Instead of being restricted to the web application, people could integrate this API into their application or system. I could develop a python package with the implementation of the Elo System; this would be a useful resource for developers who are creating their own game and require some form of rating system for their players.
@@ -848,5 +881,23 @@ In hindsight, there are various things I would have done differently:
 	\item Test more and Test early, I only started testing towards the end of development which was very tricky, if I were to develop this application again, I would incorporate tests for any new element that was added.
 \end{itemize}
 
-If I were to rework some components of this application, the user authentication system would be the first. Instead of using my authentication system, I would integrate a third-party system. I would do this from a security standpoint; the benefits of using a third-party system is that they would handle all the authentication processes for me while also being secure. Firebase provides this functionality, which is convenient because it is the same platform that the frontend of this application is deployed. The third-party authentication would also go hand-in-hand with the possible public API that I mentioned above because I could separate the sensitive information with the public information.
+If I were to rework some components of this application, the user authentication system would be the first. Instead of using my authentication system, I would integrate a third-party system. I would do this from a security standpoint; the benefits of using a third-party system is that they would handle all the authentication processes for the application while also being secure. Firebase provides this functionality, which is convenient because it is the same platform that the front-end of this application is deployed. The third-party authentication would also go hand-in-hand with the possible public API that I mentioned above because I could separate the sensitive information with the public information. \hfill \bigbreak
 
+\subsection{Discoveries}
+Matchmaking in online multiplayer games is essential for player enjoyment, but there are methods in which people can manipulate matchmaking to favour them when getting matched against opponents, this is a well-known tactic in the online gaming community referred to as \textit{Smurfing}. Smurfing can be described as a player using a secondary account to hide his or her true identity to gain an advantage by playing against weaker opponents. \cite{hippe2017evaluation}. Since a lot of multiplayer games are free-to-play, which allows people to create new accounts when they wish, increases to the continuous problem of smurfing. Although there is no system in place to resolve this ongoing issue, there are potential solutions. IP address bans are commonly used when players violate a game's code of conduct, a similar approach could be taken on players that are smurfing, instead of giving a rating based off an account, game companies could possibly give players a rating based on their IP address, albeit this possible solution may have its issues too, like people changing their IP address. The alternative would be to give player ratings based on their hardware ID \cite{weinberg1999hardware}. This essentially means to assign ratings based on the hardware identification of their machine. This hardware ID solution seems like the most viable option, but for example, if a player upgrades or changes his/her machine completely, then his rank in-game would essentially reset.
+
+\subsection{Outcomes}
+I set out to develop an application that could automate the organisation of custom matches with the intent of making it more manageable for people to run their events. Focusing on the end goal and researching various concepts related to this application enabled me to achieve this goal. Although I could not automate the process of accessing match outcomes which I discussed above, I consider the alternative solution a viable option. In the future, I aim to submit this application to Riot Game's API for review so I can gain access to tournament codes. Which opens up more opportunities for me to scale this application.\hfill \break
+I learned a lot throughout the entire process of building this application, some of the main outcomes include:
+
+\paragraph{Learning outcomes}
+\begin{itemize}
+	\item The power of project management.
+	\item Software testing is a vital part of developing a robust system.
+	\item Software practices, such as deployment and API development.
+	\item A better understanding of how online multiplayer games function.
+	\item How to translate algorithms and equations into code.	
+	\item How to ask better questions to solve problems.  
+\end{itemize}
+
+This project was not a straightforward task, yet it was satisfying and valuable; I feel I've got more insight into how real-world applications are developed. Developing a production-ready project from start to finish thought me the importance of project management and software testing. I've learned that each stage from research, development, testing and deployment all play an essential role in producing real-world software.

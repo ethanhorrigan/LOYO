@@ -56,7 +56,9 @@ class Matchmake:
         team1 = None
 
         for team in teams:
+            
             if abs(team.mmr - avg_mmr) < best:
+                print(team.mmr)
                 team1 = team
                 best = abs(team.mmr - avg_mmr)
         teams.remove(team1)
@@ -69,7 +71,7 @@ class Matchmake:
                     continue
                 else:
                     team2 = current_team
-                    best_delta = abs(current_team.mmr - avg_mmr)
+                    best = abs(current_team.mmr - avg_mmr)
 
         # print(team2.player1.player_name)
         # print(team2)
