@@ -358,7 +358,7 @@ class UpdateUser(Resource):
         mp = [_rank]
         cursor.execute(mq, mp)
         _mmr = cursor.fetchall()[0][0]
-        _mmr = _mmr + abs(r.calculate_growth_rate(_mmr, _total_games))
+        _mmr = _mmr + abs(self, r.calculate_growth_rate(_mmr, _total_games))
         _player_icon = Summoner.get_player_icon(_summoner_name)
         _total_games = Summoner.get_total_games(_summoner_name)
 
