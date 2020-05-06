@@ -64,7 +64,7 @@ export class UserService {
     }
 
     addPlayerToMatch(user: NewParticipant) {
-        return this.http.post(this.local_url +`/addtomatch`, user);
+        return this.http.post(this.deploy_url +`/addtomatch`, user);
     }
 
     getParticipants(matchId: string) {

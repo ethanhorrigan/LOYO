@@ -14,6 +14,7 @@ from uuidcreator import UUIDGenerator
 import urllib.parse as urlparse
 import src.utils.constants as constants
 from src.matchmaking.elo import Elo
+from src.matchmaking.matchmake import Summoners, Matchmake
 import src.rating.rating as r
 
 app = Flask(__name__)
@@ -351,12 +352,13 @@ class UpdateUser(Resource):
 
         _account_id = Summoner.get_account_id(_summoner_name)
         _rank = Summoner.get_rank_string(self, _summoner_name)
+        _total_games = Summoner.get_total_games(_summoner_name)
         print(_rank)
         mq = constants.MMR_QUERY
         mp = [_rank]
         cursor.execute(mq, mp)
         _mmr = cursor.fetchall()[0][0]
-
+        _mmr = _mmr + Elo.calculate_growth_rate(_mmr, _total_games)
         _player_icon = Summoner.get_player_icon(_summoner_name)
         _total_games = Summoner.get_total_games(_summoner_name)
 
@@ -806,6 +808,33 @@ class UpdateRating(Resource):
         connection.commit()
 
         return result
+class MM2(Resource):
+    def get(self, match_id):
+        players = []
+        cursor = connection.cursor()
+        p_query = ("SELECT summoner_name, mmr from participants where match_uuid=%s order by mmr desc")
+        p_param = [match_id]
+        cursor.execute(p_query, p_param)
+        response = cursor.fetchall()
+        for player in response:
+            ply = Summoners(player[0], player[1])
+            players.append(ply)
+        # print(players[0].player_name)
+        teams = Matchmake.matchmake(self, players)
+        print(teams[0].player1.player_name)
+        print(teams[0].player2.player_name)
+        print(teams[0].player3.player_name)
+        print(teams[0].player4.player_name)
+        print(teams[0].player5.player_name)
+        print(teams[0].mmr)
+        print('vs')
+        print(teams[1].player1.player_name)
+        print(teams[1].player2.player_name)
+        print(teams[1].player3.player_name)
+        print(teams[1].player4.player_name)
+        print(teams[1].player5.player_name)
+        print(teams[1].mmr)
+        return response
 class MatchMaking(Resource):
     def get(self, _match_uuid):
         """
@@ -895,6 +924,7 @@ api.add_resource(PlayerAdmin, '/admin/<match_id>')
 api.add_resource(MatchStatus, '/matchstatus/<match_id>')
 api.add_resource(Finalmatch, '/finalmatch')
 api.add_resource(MyUpcomingGames, '/mygames/<username>')
+api.add_resource(MM2, '/mm2/<match_id>')
 
 
 if __name__ == '__main__':
