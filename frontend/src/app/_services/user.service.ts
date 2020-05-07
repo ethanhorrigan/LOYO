@@ -19,7 +19,6 @@ export class UserService {
 
     getAll() {
         return this.http.get<User[]>(`https://limitless-fjord-64117.herokuapp.com/users/users`);
-        //return this.http.get<User[]>(this.deploy_url + '/users/users')
     }
 
     addToLobby(tempUser: TempUser) {
@@ -30,22 +29,9 @@ export class UserService {
         return this.http.get(`https://limitless-fjord-64117.herokuapp.com/lobby`);
     }
 
-
-    // getGames() {
-    //     return this.http.get<Game[]>(`https://limitless-fjord-64117.herokuapp.com/create`);
-    // }
-
-    // register(user: User) {
-    //     console.log(user);
-    //     return this.http.post(`http://127.0.0.1:5002/users`, user);
-    // }
-
     register(user: User) {
-        console.log(user);
-        ///return this.http.post(`https://limitless-fjord-64117.herokuapp.com/users`, user);
         return this.http.post(this.deploy_url + '/users', user);
     }
-    //https://limitless-fjord-64117.herokuapp.com/
 
     delete(id: number) {
         return this.http.delete(`https://limitless-fjord-64117.herokuapp.com/users/${id}`);
@@ -71,7 +57,6 @@ export class UserService {
         return this.http.get<ParticipantsResponse>(`https://limitless-fjord-64117.herokuapp.com/getparticipants/${matchId}`);
     }
 
-    
     getMM(matchId: string) {
         return this.http.get<FinalMatchResponse>(`https://limitless-fjord-64117.herokuapp.com/mm/${matchId}`);
     }

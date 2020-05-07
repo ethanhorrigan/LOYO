@@ -361,7 +361,8 @@ Selenium is a web testing tool which uses scripts to automate tests directly wit
 \includegraphics[width=10cm,height=5.3cm,keepaspectratio]{img/Selenium.png}
 \end{center}
 
-\subsection{The Elo System}
+\section{The Elo System}
+\label{elosystem}
 The Elo rating system, developed by Arpad Elo, is used for calculating relative skill levels of players in games such as chess.\cite{glickman1999rating} A rating is a number normally between 0 and 3000, this number changes depending on the outcomes of games. When a players rating is unknown, the score for a player is assumed to be:
 \[ E_a = \frac{1}{1+10\frac{E_a-E_b}{400}} \] \cite{pelanek2014application} A player's change in rating is calculated by the following formula where ${S_a}$ is the result of the game (${Win = 1}$ and $Loss = 0$), $R_o$ is the old rating and $R_n$ is the new rating.
 \[ R_n = R_o + K(S_a - E_a) \]
@@ -372,7 +373,8 @@ The Elo rating system, developed by Arpad Elo, is used for calculating relative 
 \paragraph{Example} If Player $E_a$ has a rating of 1200 and Player $E_b$ has a rating of 1000 with both having a K value of 30, Player $E_a$ is expected to win. If Player $E_b$ wins, the rating for player $E_b$ will increase more compared to if $E_a$ won because its rating is higher.\hfill \break
 The Elo System was used to determine how much points the player received in the points system. Instead of points increasing at a constant value, the number of points a player receives depends on the skill level of their opponents.
 
-\subsection{Gale Shapely Algorithm}
+
+\section{Gale Shapely Algorithm}
 The Gale-Shapely algorithm \cite{dubins1981machiavelli} is an algorithm for the stable matching problem. \cite{gale1985some}
 David Gale and Lloyd Shapley proved that \cite{gale1962college}, for an equal number of men and women, it is possible to make all marriages stable. 
 
@@ -406,7 +408,7 @@ We use concepts from the gale-shapely algorithm in the matchmaking system, preci
 \section{API Procedures}
 
 \paragraph{Extracting data from Riot Games API}
-This part of the API was responsible for retrieving players in-game data from Riot Games API which I could then further manipulate and store within my own database.
+This part of the API was responsible for retrieving players in-game data from Riot Games API; we need to interact with this API because it contains essential information needed for the matchmaking and point system. This data is then stored in the projects PostgreSQL database meaning we could access player's information through the projects database instead.
 \begin{itemize}
 	\item Account ID
 \end{itemize}
@@ -726,6 +728,38 @@ We sort participants by their rating which naturally orders them by preference a
 \end{table}
 
 \newpage
+\subsection{Point System}
+When players win a match, they receive points, the number of points they acquire depends on the rating of their opponents. \hfill \break
+Say we have team $a$ versus team $b$, team $a$ have a higher total rating meaning they are expected to win, so if team $b$ wins, they will receive more points because they are the "underdogs". Whereas if team $a$ won, they would not receive as many points because they were expected to win. \hfill \break
+Using the Elo System as mentioned in section \ref{elosystem}, we can calculate how much points player earn.\hfill \break
+First, we calculate the expected result between the two teams.
+\begin{minted}{python}
+def expect_result(self):     
+ Ea = 1 / (1 + 10**( (self.losers_rating - self.player_rating) /400))
+return Ea
+\end{minted}
+
+Then we calculate their new rating (we just use this value to determine how much points they earn).
+
+\begin{minted}{python}
+def calculate_new_rating(self):
+ expected_rating = self.expect_result()
+ k = self.k_factor() # Constant value of 30
+ new_rating = self.player_rating + k * (1 - expected_rating)
+ new_rating = str(new_rating).split('.')[0]
+return int(new_rating)
+\end{minted}
+
+Finally, to determine how much points they earn, we subtract their new rating from their current rating.
+
+\begin{minted}{python}
+def update_points(self):    
+ updated_rating = self.calculate_new_rating()
+ points = updated_rating - self.player_rating
+return points
+\end{minted}
+
+\newpage
 \section{Microservices}
 \begin{center}    
 	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{img/Microservice.png}
@@ -812,6 +846,25 @@ it('should validate username', () => {
 \end{minted}
 
 Automated browser tests were performed using selenium when testing at user-level (Black-box testing). Using the selenium browser extension, we can manually record how a user would interact with the system. When recording selenium tests, a new browser window will open on the applications base URL, we then interact with the page, and all the actions will be recorded. Automated tests were normally used when adding new components. \hfill \break
+
+Here is an example of a selenium test case in figure \ref{tikz:seleniumtc} which simulates the login functionality.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ll}
+		\toprule
+		Command & Target \\
+		\midrule
+		click  & linkText=Login   						\\
+		click  & css=.form-group:nth-child(1)   		\\
+		type   & css=.form-group:nth-child(1) Ethan   	\\
+		click  & css=.ng-untouched   					\\
+		type   & css=.form-group:nth-child(1) testpw	\\
+		click  & css=.btn-primary    					\\
+		\bottomrule    
+	\end{tabular}
+	\caption{Selenium Test Case}
+	\label{tikz:seleniumtc}
+\end{table}
 
 \chapter{System Evaluation}
 \section{Limitations}
@@ -900,4 +953,18 @@ I learned a lot throughout the entire process of building this application, some
 	\item How to ask better questions to solve problems.  
 \end{itemize}
 
-This project was not a straightforward task, yet it was satisfying and valuable; I feel I've got more insight into how real-world applications are developed. Developing a production-ready project from start to finish thought me the importance of project management and software testing. I've learned that each stage from research, development, testing and deployment all play an essential role in producing real-world software.
+This project was not a straightforward task, yet it was valuable; I feel I've got more insight into how real-world applications are developed. Developing a production-ready project from start to finish thought me the importance of project management and software testing. I've learned that each stage from research, development, testing and deployment all play an essential role in producing real-world software.
+
+\appendix
+\chapter{Github}
+
+The project repository can be found here: [\href{https://github.com/ethanhorrigan/LOYO}{Github Repo}] \hfill \bigbreak
+\raggedright Manual link:
+\url{https://github.com/ethanhorrigan/LOYO}
+
+\section{Installation}
+
+Clone the repository
+\begin{minted}{bash}
+git clone https://github.com/ethanhorrigan/LOYO.git
+\end{minted}
