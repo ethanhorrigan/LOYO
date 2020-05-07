@@ -14,6 +14,7 @@ Simply click on the picture to open the screencast video or https://www.youtube.
 ![Arch](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/MainArchitecture.png)
 
 
+
 ## Setup
 - **Clone**
     - Clone this repo to your local machine using:
