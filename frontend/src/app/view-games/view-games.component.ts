@@ -27,7 +27,6 @@ export class ViewGamesComponent implements OnInit {
 
   ngOnInit() {
     this.getGames();
-   // this.gameTimes();
   }
 
   date: Date = new Date();
@@ -38,9 +37,7 @@ export class ViewGamesComponent implements OnInit {
    */
   gameTimes() {
     for (let index = 0; index < this.game.length; index++) {
-      console.log(this.game[index].date);
-      //this.dates.push(this.game[index].date);
-      
+
     }
   }
 

@@ -5,14 +5,6 @@ A Service for users to Create, Manage & Participate in Online Custom Games. With
 ![Arch](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/MainArchitecture.png)
 
 
-### Setup
-## Features
-- Point System using in an implementation of the Elo System
-- Matchmaking System to provide fairness when creating teams.
-- User Registration & Authentication.
-
-
-
 ## Setup
 - **Clone**
     - 👯 Clone this repo to your local machine using:
@@ -54,21 +46,7 @@ $ python loyo_python_test.py
 
 ---
 
-
-
-## Average MMR
-
-![MMR](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/research/MMR.PNG)
-
-## TO-DO
-- Create Request for updating players game outcome
-- begin matchmaking when enough participants 
-- add option for admin ONLY to determine game outcome
-- update players values accordingly
-- only show games on page where outcome is pending
-
 ## Change Log
-
 - 29/01/2020 - Changed Database from SQLIte to MongoDB
 - 30/01/2020 - Connected to monogoDB through mongoose
 - 31/01/2020 - Refactored all tables in the database

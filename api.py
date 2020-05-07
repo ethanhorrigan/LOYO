@@ -32,8 +32,6 @@ try:
 
     connection = psycopg2.connect(user=constants.USER, password=constants.DB_PASSWORD, host=constants.HOST, port=constants.PORT, database=constants.DATABASE)
 
-
-    # connection = psycopg2.connect(user = "postgres", password = "horrigan902", host = "127.0.0.1", port ="5432", database = "loyo_db")
     cursor = connection.cursor(cursor_factory=RealDictCursor)
 
     # print(connection.get_dsn_parameteres())
@@ -203,8 +201,6 @@ class Summoner():
             diff = abs(player2 - player1)
         return diff
 
-# print(Summoner.get_match_id('Yupouvit'))
-
 class PasswordSetup:
     def create_password(self, pw):
         """
@@ -296,7 +292,6 @@ class Lobby(Resource):
         cursor.execute(role_query, param)
         # _primary_role = cursor.fetchall()
         _primary_role = cursor.fetchall()[0][0]
-        print(_primary_role)
 
         connection.commit()
 
@@ -353,7 +348,6 @@ class UpdateUser(Resource):
         _account_id = Summoner.get_account_id(_summoner_name)
         _rank = Summoner.get_rank_string(self, _summoner_name)
         _total_games = Summoner.get_total_games(_summoner_name)
-        print(_rank)
         mq = constants.MMR_QUERY
         mp = [_rank]
         cursor.execute(mq, mp)
@@ -418,7 +412,6 @@ class Users(Resource):
         qResult = cursor.fetchall()
         status = ""
         if qResult[0][0] > 0:
-            print("Username Taken")
             status = "UT"
 
         query2 = ("select COUNT(summoner_name) from Users where summoner_name= %s")
@@ -426,7 +419,6 @@ class Users(Resource):
         cursor.execute(query2, param2)
 
         qResult2 = cursor.fetchall()
-        print(qResult2[0][0])
         if qResult2[0][0] > 0:
             status = "ST"
 
@@ -721,7 +713,6 @@ class Finalmatch(Resource):
                 query = (constants.UPDATE_OUTCOME)
                 param = [0, name, _match_uuid]
                 cursor.execute(query, param)
-                print(name)
                 
             UpdateRating.post(self, _match_uuid)
             #print(result[0][0][1])
