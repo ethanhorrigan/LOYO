@@ -56,16 +56,13 @@ export class ViewGamesComponent implements OnInit {
     match.forEach(element => {
       element.date;
 
-      console.log(element.date);
       
       let year = element.date.substr(6, 4);
-      console.log(year);
       
       let month = element.date.substr(3, 2);
       if(month.startsWith('0')) {
         month = month.replace('0', '');
       }
-      console.log(month);
       
       let day = element.date.substr(0,2);
 
@@ -75,21 +72,16 @@ export class ViewGamesComponent implements OnInit {
     
     const currentMonth = (new Date().getUTCMonth()+ 1).toString();
     const currentDay = new Date().getDate();
-    console.log('currentMonth:', currentMonth);
     let daysUntil = null;
 
     if(currentMonth == month) {
       daysUntil = Number(day) - currentDay;
-      console.log(daysUntil);
-      
     }
 
     let result = null;
     let badge = null;
 
     if(currentMonth < month) {
-      console.log('IN');
-      
       daysUntil = Number(month) - Number(currentMonth);
       result = "IN "+daysUntil+" MONTHS"
       badge = 'badge badge-warning';
@@ -111,17 +103,11 @@ export class ViewGamesComponent implements OnInit {
       badge = 'badge badge-danger';
     }
 
-    console.log(result);
     if(result != null || result != undefined) {
       this.game_times.push(result);
       this.badges.push(badge);
     }
     });
-
-
-    
-    // console.log(matchDate);
-   // return result;
   }
 
 }

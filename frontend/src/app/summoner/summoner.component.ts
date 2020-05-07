@@ -4,7 +4,6 @@ import { HttpClient } from "@angular/common/http";
 import { debug } from 'util';
 import { Summoner } from "./Summoner";
 import { PlayersResponse } from "./PlayerResponse";
-import { APIServiceService } from '../apiservice.service';
 
 @Component({
   selector: 'app-summoner',
@@ -18,15 +17,12 @@ export class SummonerComponent implements OnInit {
   public summoners: Summoner[];
 
   constructor(
-    private apiService: APIServiceService,
     private http: HttpClient
   ) { }
 
   ngOnInit() {
     this.http.get<PlayersResponse>(this.url).subscribe(result  => {
       this.summoners = result.players;
-      console.log(result);
-      console.log(this.summoners);
     }, error => console.error(error));
     
   }

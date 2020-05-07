@@ -28,8 +28,7 @@ export class AuthenticationService {
             if(user == true) {
                 localStorage.setItem('currentUser', username);
                 this.updateDetails(username).subscribe (res => {
-                    console.log("request succesfull.");
-                    
+
                 }, error => {
                     console.error("error during request");
                 });

@@ -59,12 +59,6 @@ describe('workspace-project App', () => {
     expect(browser.getCurrentUrl()).toMatch('/profile/Ben');
   });
 
-  //set up tests for registration
-  //set up tests for login
-  //set up tests for view games
-  //set up tests for view match
-  //set up tests for leaderboards
-
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);

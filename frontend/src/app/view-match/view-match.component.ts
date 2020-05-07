@@ -109,7 +109,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   }
 
   calculateDays(matchDate: string) {
-    console.log(matchDate);
     
     let year = matchDate.substr(6, 4);
     let month = matchDate.substr(3, 2);
@@ -120,7 +119,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     if(day.startsWith('0')) {
       day = day.replace('0', '');
     }
-    console.log(day, month, year);
     
 
     const currentMonth = (new Date().getUTCMonth()+ 1).toString();
@@ -133,7 +131,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
     let result = null;
 
     if(currentMonth < month) {
-      console.log('IN');
       
       daysUntil = Number(month) - Number(currentMonth);
       result = "IN "+daysUntil+" MONTHS"
@@ -209,7 +206,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
      */
     
     if(this.playerCount == 10 && this.doMM == false) {
-      console.log("im in mm");
       
     this.userService.getMM(this.matchId).subscribe(data => {
       this.finalMatch = data.final_match;
@@ -243,7 +239,6 @@ export class ViewMatchComponent implements OnInit, OnDestroy {
   getMatchStatus() {
     this.userService.getMatchStatus(this.matchId).subscribe(data => {
       this.status = data;
-      console.log(this.status);
     });
   }
 

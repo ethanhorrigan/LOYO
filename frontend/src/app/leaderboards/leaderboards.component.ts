@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Summoner } from '../summoner/Summoner';
-import { APIServiceService } from '../apiservice.service';
 import { HttpClient } from '@angular/common/http';
 import { PlayersResponse } from '../summoner/PlayerResponse';
 
@@ -16,7 +15,6 @@ export class LeaderboardsComponent implements OnInit {
   public summoners: Summoner[];
 
   constructor(
-    private apiService: APIServiceService,
     private http: HttpClient
   ) { }
 

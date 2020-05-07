@@ -41,7 +41,6 @@ export class MygamesComponent implements OnInit {
       });
 
       if(this.upcomingGames.length == 0) {
-        console.log('no games');
         this.noGames = true;
       }
     });

@@ -72,7 +72,6 @@ export class RegisterComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
-            console.log("error in register form");
             return;
         }
         this.loading = true;
@@ -83,18 +82,14 @@ export class RegisterComponent implements OnInit {
                 data => {
                     if (data == "UT") {
                         this.usernameTaken = true;
-                        console.log("Username Taken: " + this.usernameTaken)
                     }
 
                     if (data == "ST") {
                         this.summonerTaken = true;
-                        console.log("Summoner Name Taken: " + this.usernameTaken)
                     }
                     if (data == "OK") {
-                        console.log("Data is ok")
                         this.router.navigate(['/login']);
                     }
-                    console.log(data);
                 },
                 error => {
                     this.loading = false;

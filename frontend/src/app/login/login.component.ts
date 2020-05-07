@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         private authenticationService: AuthenticationService,
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
+        if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }
@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-        console.log(this.authenticationService.getUserInStorage())
-        if(this.authenticationService.getUserInStorage() == null) {
+
+        if (this.authenticationService.getUserInStorage() == null) {
             this.loggedIn = false;
         }
         // get return url from route parameters or default to '/'
@@ -48,26 +48,6 @@ export class LoginComponent implements OnInit {
 
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
-
-    // onSubmit() {
-    //     this.submitted = true;
-
-    //     // stop here if form is invalid
-    //     if (this.loginForm.invalid) {
-    //         return;
-    //     }
-
-    //     this.loading = true;
-    //     this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //         .pipe(first())
-    //         .subscribe(
-    //             data => {
-    //                 this.router.navigate([this.returnUrl]);
-    //             },
-    //             error => {
-    //                 this.loading = false;
-    //             });
-    // }
 
     onSubmit() {
         this.submitted = true;
@@ -87,9 +67,7 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    //
-                    let response = JSON.stringify(data);
-                    console.log(response);
+                    const response = JSON.stringify(data);
                     if(response == "true") {
                         this.invalid = false;
                         location.reload();

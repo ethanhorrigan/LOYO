@@ -107,7 +107,11 @@
               "e2e/tsconfig.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/_helpers/**",
+              "**/_models/**",
+              "**/_services/**",
+              "**/*app.component.ts"
             ]
           }
         },

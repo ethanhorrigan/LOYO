@@ -74,13 +74,11 @@ export class CreateGameComponent implements OnInit {
     if(day < 10) {
       day = '0' + day;
     }   
-    console.log(day);
     
     let month = this.f.date.value.getMonth() + 1;
     if(month < 10) {
       month = '0' + month;
     }
-    console.log(month);
     
     const year = this.f.date.value.getFullYear();
     return day + '-' + month + '-' + year;
@@ -99,7 +97,6 @@ export class CreateGameComponent implements OnInit {
 
   onDateChange(event: any) {
     this.date = event.value;
-    console.log(this.date);
   }
 
 
