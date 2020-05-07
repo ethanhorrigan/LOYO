@@ -3,16 +3,16 @@
 \chapter*{About this project}
 \paragraph{Abstract}
 
-This project aims to offer a platform for players to create, manage and compete in competitive online matches. The system is a web application where a user can interact with to create and manage games .\newline The demand for this application is due to how inconvenient it is for an individual to manage custom matches, determining which player goes on what team is time-consuming and very inefficient. This application will automate the process of deciding which player goes on which team through matchmaking. A point system and leaderboard are also provided to produce a competitive environment. How players gain points depends on the outcome of a match and the skill level of their opponents. Users will be able to create an account and log in, allowing them to use the system by viewing and joining public matches or creating their own match for others to join. I hope to develop a cohesive and robust system with a fluent user interface that aims towards people who enjoy a competitive setting and want an extra layer to their gaming experience.
+This project aims to offer a platform for players to create, manage and compete in competitive online matches. The system is a web application where a user can interact with to create and manage games .\newline The demand for this application is due to how inconvenient it is for an individual to manage custom matches, determining which player goes on what team is time-consuming and very inefficient. This application will automate the process of deciding which player goes on which team through matchmaking. A point system and leaderboard are also provided to produce a competitive environment. How players gain points depends on the outcome of a match and the skill level of their opponents. Users will be able to create an account and log in, allowing them to use the system by viewing and joining public matches or creating their own match for others to join. The application will be a cohesive and robust system with a fluent user interface that aims towards people who enjoy a competitive setting and want an extra layer to their gaming experience.
 \paragraph{Authors}
 Ethan Horrigan
 
 
 \chapter{Introduction}
-In recent years, the competitive online gaming industry (esports) has seen a substantial rise in popularity. \cite{sjoblom2019esports} The estimated global esports audience in 2017 was previously estimated at 335 million people, generating revenue of more than \$900 million with an expected increase of more than \$1600 million in 2021. Yuri Seo and Sang-Uk Jung \cite{seo2016beyond} outlined why people play or enjoy watching competitive games, the main factors include entertainment and to gain a better understanding of a game. People who enjoy competitive gaming can often take part in custom matches of their own, commonly referred to as pick-up games; this is when a group of players form teams and play amongst themselves in a friendly competitive setting. The players involved are responsible for picking the teams and rules for these types of games, more often then not, this leads to unfair matches. This project aims to provide a service for players to manage their pick-up game events and handle the process of matchmaking. The matchmaking system will form balanced teams by fulfilling these two characteristics fairness and uniformity: both sides have a relatively equal chance, and there is little variation between the best and worst players in the match \cite{alman2017theoretical}. I will discuss how the matchmaking system works in more detail below. Users can create a schedule, which will allow the users to determine when an event will take place. When a game has ended players are awarded points, the amount of points they receive depends on the skill level of their opponents. A leaderboard system will track the points they have acquired, allowing players to view their performance in these custom matches.
+In recent years, the competitive online gaming industry (esports) has seen a substantial rise in popularity. \cite{sjoblom2019esports} The estimated global esports audience in 2017 was previously estimated at 335 million people, generating revenue of more than \$900 million with an expected increase of more than \$1600 million in 2021. Yuri Seo and Sang-Uk Jung \cite{seo2016beyond} outlined why people play or enjoy watching competitive games, the main factors include entertainment and to gain a better understanding of a game. People who enjoy competitive gaming can often take part in custom matches of their own, commonly referred to as pick-up games; this is when a group of players form teams and play amongst themselves in a friendly competitive setting. The players involved are responsible for picking the teams and rules for these types of games, more often then not, this leads to unfair matches. This project aims to provide a service for players to manage their pick-up game events and handle the process of matchmaking. The matchmaking system will form balanced teams by fulfilling these two characteristics fairness and uniformity: both sides have a relatively equal chance, and there is little variation between the best and worst players in the match \cite{alman2017theoretical}. The matchmaking system will be discussed in more detail below. Users can create a schedule, which will allow the users to determine when an event will take place. When a game has ended players are awarded points, the amount of points they receive depends on the skill level of their opponents. A leaderboard system will track the points they have acquired, allowing players to view their performance in these custom matches.
 \newpage
-To develop this system, I needed to connect various technologies and allow communication between them. I used Angular as the front-end for the application, where I could design the user interface and communicate with the back-end server to display information. I used Flask for the server and API (Application Programming Interface) this controlled the data communication between the database and the web application.
-The features included in the web application are a registration system, login system, leaderboards, match creation, matches page and match display. Then the server-side of the app was responsible for the matchmaking and point system algorithms.
+To develop this system, we needed to connect various technologies and allow communication between them. Angular is used as the front-end for the application, where we can design the user interface and communicate with the back-end server to display information. Flask is used for the server and API (Application Programming Interface) this controlled the data communication between the database and the web application.
+The features included in the web application are a registration system, login system, leaderboards, match creation, matches page and match display. Then the server-side of the app was responsible for database management, the matchmaking system and point system algorithms.
 
 \chapter{Summary}
 \paragraph{Context:} here I explain how to the idea for the project came about, I highlight the reasons why this application was made and its core uses.
@@ -21,6 +21,7 @@ The features included in the web application are a registration system, login sy
 \paragraph{System Design:} I show how the overall system architecture is designed and implemented. I divide the architecture into individual sections and explain the relationships between databases, platforms and deployment services.
 \paragraph{System Evaluation:} I discuss how the overall system works, how I tested the system for performance, the outcome of the project and the limitations that I encountered throughout development.
 \paragraph{Conclusion:} I summarise the project and evaluation.
+\paragraph{Appendix:} Contains the GitHub link and installation instructions.
 
 \chapter{Context}
 The project aims to provide a service for people to create and manage custom matches for online games. These types of games are usually referred to as pick-up games, which are games that are randomly initiated by a group of players. These types of games are not professional style games nor are they casual. They're somewhere in between. The main objective is to create a web application for users to interact where they can sign up and create or participate in custom games, the application will handle the process of matchmaking players to teams and track progress using a point system.
@@ -41,13 +42,13 @@ Because players are responsible for deciding on team members, some players may n
 The purpose of this application is to nullify the issue of balancing teams for custom games through matchmaking, instead of people manually deciding who goes on what team, which can be a nuisance and inefficient. The application will form teams based on the ratings of its participants.
 
 \section{Project Objectives}
-The project aims to develop a web application allowing users to create and manage their custom game event. The core objective of this project is to try to eliminate the inefficiency and unpredictability of managing player-made games through the use of matchmaking. For the system to be practical, I aim to implement various features to enable users to manage their games effectively.
+The project aims to develop a web application allowing users to create and manage their custom game event. The core objective of this project is to try to eliminate the inefficiency of managing player-made games through the use of matchmaking. For the system to be practical, We aim to implement various features to enable users to manage their games effectively.
 Users will be allowed to register an account with the application enabling them to decide when matches take place or even participate in events themselves. \hfill \break
-I will gather data on the user's in-game information to join with the data of the application to generate relatable information to make the matchmaking system more reliable. When registering, users link their in-game username which is used to gather more information about the player. This information will be updated every time the user logs into the app, ensuring that their details are up-to-date.
-Users will be able to create matches and view matches that have been created by other users. With the intention of building a community of like-minded players. \hfill \break
+We gather data on the user's in-game information to join with the data of the application to generate relatable information to make the matchmaking system more reliable. When registering, users link their in-game username which is used to gather more information about the player. This information will be updated every time the user logs into the app, ensuring that their details are up-to-date.
+Users will be able to create matches and view matches that have been created by other users, to build a community of like-minded players. \hfill \break
 If someone is particularly interested in a game, they can join that match which will add them to a participants list, once this list reaches maximum capacity, teams will be formed based on their ratings. \hfill \break
 After a game has ended, players earn points, the amount of points they receive is based on the rating of their opponents. A leaderboard system will enable users to track how much points they have accumulated and also allows them to track their performance. \hfill \break
-The project aims to be accessible and easy to understand to ensure a smooth experience for the user. I will discuss in further detail below, on how I designed and implemented this system.
+The project aims to be accessible and easy to understand to ensure a smooth experience for the user. The implementation and design of the system will be discussed in detail below.
 
 
 
@@ -81,7 +82,7 @@ The first test case satisfied these inputs and then the second test case took th
 \paragraph{}
 I also performed Automated Tests when adding new features, this enabled me to conduct tests that I would normally do manually, e.g. testing the login system. I installed Selenium \cite{selenium} as a browser extension and manually recording various tests, I could run these tests whenever I was testing a new feature, this saved a lot of manual typing and navigating which can add up over time.
 \section{Project Management and Source Control}
-GitHub was used for source control and project management. Initially, I was using Trello for task management but this quickly became complicated to associate updates with unfinished tasks of the project. Therefore I changed the projects task management to GitHub’s Issues section. I posted issues for any viable element that needed to be implemented into the project and when one of these elements were complete I would close the corresponding issue on GitHub. Each issue was categorized with tags depending on the type. These tags include:
+GitHub was used for source control and project management. Initially, I was using Trello for task management but this quickly became complicated to associate updates with unfinished tasks of the project. Therefore I changed the projects task management to GitHub’s Issues section. I posted issues for any viable element that needed to be implemented into the project and when one of these elements were complete I would close the corresponding issue on GitHub. Each issue was categorised with tags depending on the type. These tags include:
 \begin{itemize}
 	\item To-do: Tasks that have yet to be implemented.
 	\item Tests: Types of tests that have been or need to be carried out.
@@ -100,7 +101,7 @@ With the factors discussed, Angular seemed like the right choice for this applic
 \subsection{Back-end}
 Since I wanted to experience new technologies and had already used the MEAN stack before, I had the option to either use Flask or Django; which are both web application frameworks in Python. A web framework is a combination of packages or modules that make life easier when building scalable, reliable, and maintainable web applications. Frameworks often promote code reuse for common HTTP operations and aim to automate the burden associated with everyday activities performed in web development \cite{rengglib2004seaside}. \hfill \break
 I opted for a flask server, I chose flask for multiple reasons, some of them being: it supports all SQL and NoSQL databases, and because I was unsure at the beginning of what database I should use, this feature stood out to me.
-Flask classifies as a micro-framework. Micro-frameworks are usually frameworks with little to no dependencies to external libraries \cite{aboutflask}; they lack most of the functionality which is typical to expect in your regular web application framework, for example, they do not provide authentication or authorization. Although this seems like a reason to not use flask, it meant I had creative freedom on what I wanted to add, and I could learn how functions like user authentication or authorization worked by implementing them myself. \hfill \break
+Flask classifies as a micro-framework. Micro-frameworks are usually frameworks with little to no dependencies to external libraries \cite{aboutflask}; they lack most of the functionality which is typical to expect in your regular web application framework, for example, they do not provide authentication or authorisation. Although this seems like a reason to not use flask, it meant I had creative freedom on what I wanted to add, and I could learn how functions like user authentication or authorization worked by implementing them myself. \hfill \break
 \subsection{Database}
 When deciding on which database to use, we have to determine what type of data is being stored and what way will the data be accessed. A relational database suited this application because of the connection between the application's data and players in-game data. During the beginning of development, an SQLite database was used. We use SQLite to figure out what tables were needed and also what columns were needed in each table. Essentially, SQLite was used to audition the data model for the entire application. SQLite is a serverless and file-based database, meaning the setup was simple and did not require a server to operate. Using SQLite meant we could focus on how the database was formed before developing a server. Although SQLite was used for the initial stages of development, it was not a viable option for a scalable web application. SQLite is a serverless database, meaning we cannot access it from another machine unless manually transferred. SQLite also offers no user management, which is not optimal. Therefore, PostgreSQL was used in production. Migrating from SQLite to PostgreSQL was a simple process because both are relational databases. The extensibility of the PostgreSQL meant the application could be scaled up. PostgreSQL also features parallel queries, and asynchronous commits meaning multiple users could read and write to the database at the same time. PostgreSQL provides security with the user administration which also allowed for future scalability. With the factors mentioned, PostgreSQL is a very suitable database for the project.
 
@@ -515,6 +516,15 @@ The matches page displays the time and dates for when the match will take place 
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/ViewMatch.png}
 \end{center}
 
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{img/FinalMatch.png}
+	\caption{Final Match}
+	\label{tikz:finalmatch}
+\end{figure}
+
+When the number of participants reaches the amount needed to start a game, matchmaking starts instantly, and teams are formed as seen in figure \ref{tikz:finalmatch}. \newline
+The ability to validate who won the match is only visible to the creator of the match (Admin).
 \newpage
 \subsection{Leaderboards}
 The leaderboards page tracks the information of the user based on the games they have played using this platform; it displays their total points, total wins and total losses. The users are placed on the leaderboards based on the number of points they have accumulated. The leadboards aim to generate a competitive environment for the players and also allow players to track their progress, making it easier for players to manage their games.
@@ -645,7 +655,7 @@ For the matchmaking system, I used the Elo System and adapted concepts from the 
 	}
 \end{minted}
 
-The $rank$ and $tier$ is the players rating, I normalized this rating into its integer equivalent, by comparing it to a table I created of constant values.
+The $rank$ and $tier$ is the players rating, I normalised this rating into its integer equivalent, by comparing it to a table I created of constant values.
 Since the $rank$ given is in roman numeral format, I created a function which converted roman numerals to integers and then combined the $tier$ with the $rank$ into one string.\hfill \break
 
 Example, $tier: "GOLD"$, $ rank: "III"$ is then converted to $GOLD3$
@@ -727,6 +737,47 @@ We sort participants by their rating which naturally orders them by preference a
 	\label{tikz:sortedparticipants}
 \end{table}
 
+We then calculate the average mmr (matchmaking rating) of all participants (summoners)
+
+\begin{minted}{python}
+def calc_mmr(summoners):
+ for s in summoners:
+ total = total + s.mmr
+ return total / len(summoners)
+\end{minted}
+
+Using combinations in the itertools library \cite{bernard2016iterators}, we can evaluate the number of possible teams.
+We setup an initial high value $b = 10000$ so we can figure out which team in possible teams to deal with first. For each team in possible teams, we can determine the best team using:
+
+\begin{minted}{python}
+for team in possible_teams:
+ if abs(team.mmr - avg_mmr) < b:
+ 	team1 = team
+	b = abs(team.mmr - avg_mmr)
+possible_teams.remove(team1)
+\end{minted}
+
+This step is repeated for team two, but we skip any teams where players overlap.
+\begin{minted}{python}
+def check_overlap(team1, team2):
+"""Checks if a player is already in a team.
+
+Arguments:
+team1 list -- list of summoners on team1
+team2 list -- list of summoners on team2
+
+Returns:
+boolean -- true if player is in team else false
+"""    
+for player1 in team1.player_list:
+ for player2 in team2.player_list:
+  if player1 == player2:
+   return True
+return False
+\end{minted}
+
+Although this method is slower then just putting every other player on team 2 based on a sorted list. The method stated above presents more accurate results, meaning more balanced teams.  
+
 \newpage
 \subsection{Point System}
 When players win a match, they receive points, the number of points they acquire depends on the rating of their opponents. \hfill \break
@@ -786,7 +837,7 @@ total_games = wins[0]['wins'] + wins[0]['losses']
 return total_games
 \end{minted}
 We store similar data like the players rating and various other information in the database of the application, with this information in the application's database allowed for further manipulation and usage throughout the project, such as the matchmaking system. Without external API's like Riot's API, the application would not fully work as intended, without player ratings the matchmaking system would be very inaccurate due to the fact we would have to predict player ratings to some extent.\hfill \break 
-The functionality of accessing API's was kept generalized as possible to future proof it allowing more game platforms to be added.\hfill \break 
+The functionality of accessing API's was kept generalised as possible to future proof it allowing more game platforms to be added.\hfill \break 
 \newpage
 
 Retrieving the player's details from riot's API is only performed once during registration and user login. The reason for this is to limit the number of requests made to riot's API due to its rate-limiting restrictions. Rate-limiting manages the volume of incoming and outgoing traffic to or from a network \cite{raghavan2007cloud}. For example, riots API service allows 100 requests/minute. If the number of requests exceeds that limit, then an error will occur. Only requesting player's details upon registration and login meant that their information is up-to-date.\hfill \break
@@ -866,7 +917,23 @@ Here is an example of a selenium test case in figure \ref{tikz:seleniumtc} which
 	\label{tikz:seleniumtc}
 \end{table}
 
+Testing the back-end and its containing functionality, we use postman because requests that were made also tested functionality of the matchmaking and point system.
+
 \chapter{System Evaluation}
+\section{Robustness}
+To ensure the system was robust I conducted multiple types of tests, including:
+
+\begin{itemize}
+	\item Back-end Unit Testing.
+	\item Front-End Unit Testing.
+	\item e2e Testing.
+	\item Automated Testing.
+\end{itemize}
+
+Theses tests were responsible for testing various components of the project; unit tests were integrated to test individual components, we try to emulate how a real-world user would use the system through automated tests.\newline
+Incorporating multiple tests allows for the more natural discovery of errors that may have been overlooked. 
+When using testing techniques like e2e testing and automated browser testing, we can visually see through the web browser what elements were being tested. Testing ensured we did not neglect any part of the system and guaranteed the application is robust.
+Using different testing techniques like unit testing and automated testing meant that we could examine all areas of the application, assuring that everything is operating as designed. 
 \section{Limitations}
 \subsection{Limited Data Access}
 One of the main limitations of this project is not being able to gain access to data for custom games. The main aim of this project was to automate the process of managing custom matches and not being able to gain access to the outcome of these matches within Riots API, indicated that someone or something is responsible for determining the result of a game. To remedy this, the application creates an administrator based on the organiser of the match, he/she is responsible for confirming the outcome of a game, although this can raise multiple potential problems. I can not think of another way to combat this issue.
@@ -891,6 +958,7 @@ The types of attacks that could have been performed on my old procedures are cal
 SELECT username FROM users WHERE login=john; drop table users;
 \end{minted}
 
+\newpage
 After executing the above query, the database will recognise the semicolon (';') which determines the end of the first query, the second query is the injected query which would destroy the table, removing any valuable data within.
 
 \paragraph{}
@@ -905,18 +973,8 @@ I also assured the only data that the user could enter were alphanumeric charact
 
 Writing Secure Code\cite{howard2003writing} by Michael Howard and David LeBlanc is an interesting read that provides good practices for writing secure code and SQL queries.
 
-\section{Robustness}
-To ensure my system was robust I conducted multiple types of tests, including:
 
-\begin{itemize}
-	\item Back-end Unit Testing.
-	\item Front-End Unit Testing.
-	\item e2e Testing.
-	\item Automated Testing.
-\end{itemize}
 
-Theses tests were responsible for testing various different components of the project, unit tests were added to test individual components, I tried to emulate how a real-world user would use the system through automated tests.\newline
-Incorporating multiple tests allowed me to discover errors that may not have been found. Testing at multiple layers of the application ensured that the system was robust.
 \chapter{Conclusion}
 
 \subsection{Opportunities}
@@ -985,6 +1043,7 @@ Install Angular CLI (Note: Node may have to be installed [\href{https://nodejs.o
 
 NOTE: Packages may have to be installed.
 \begin{minted}{bash}
+	cd frontend/
 	npm install
 \end{minted}
 
@@ -1008,7 +1067,6 @@ e2e Testing
 	ng e2e
 \end{minted}
 
-\section{Usage}
 When signing up to the application, the summoner name field, must be an actual in-game name, here are a couple of valid summoner-names to use on registration:
 \begin{minted}{bash}
 Megekko
@@ -1016,5 +1074,4 @@ TThorin
 Tripcat
 RainyNight
 \end{minted}
-
 

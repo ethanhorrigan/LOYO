@@ -32,7 +32,7 @@ Simply click on the picture to open the screencast video or https://www.youtube.
     
     - Install Angular CLI (Note: Node may have to be installed: [NodeJS](https://nodejs.org/en/)
 
-    ```pip3 install -r requirements.txt```
+    ```npm install -g @angular/cli```
 
     - NOTE: Packages may have to be installed.
 
@@ -44,6 +44,7 @@ Simply click on the picture to open the screencast video or https://www.youtube.
 - **Running**
 
     ```cd frontend/```
+
     ```ng serve --open```
 
 - **Testing**
@@ -61,6 +62,7 @@ Simply click on the picture to open the screencast video or https://www.youtube.
     - Build
 
     ```cd frontend/```
+    
     ```ng build --prod --aot```
     
     - Deploy

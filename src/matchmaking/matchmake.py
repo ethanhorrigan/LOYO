@@ -1,15 +1,31 @@
 from itertools import combinations
 import random
-from riotwatcher import RiotWatcher, ApiError
 
 
 def calc_mmr(summoners):
+    """Calculates mmr for all summoners in the participants list.
+
+    Arguments:
+        summoners list[Summoners] -- List of summoners containing name and mmr.
+
+    Returns:
+        int -- average mmr (matchmaking rating)
+    """    
     total = 0
     for s in summoners:
         total = total + s.mmr
     return total / len(summoners)
 
 def check_overlap(team1, team2):
+    """Checks if a player is already in a team.
+
+    Arguments:
+        team1 list -- list of summoners on team1
+        team2 list -- list of summoners on team2
+
+    Returns:
+        boolean -- true if player is in team else false
+    """    
     for player1 in team1.player_list:
         for player2 in team2.player_list:
             if player1 == player2:
@@ -73,7 +89,5 @@ class Matchmake:
                     team2 = current_team
                     best = abs(current_team.mmr - avg_mmr)
 
-        # print(team2.player1.player_name)
-        # print(team2)
         teams = team1, team2
         return teams
