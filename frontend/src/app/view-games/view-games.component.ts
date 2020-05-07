@@ -3,6 +3,7 @@ import { UserService } from '../_services/user.service';
 import { Games, GameResponse } from '../_models/team';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-view-games',
@@ -71,17 +72,31 @@ export class ViewGamesComponent implements OnInit {
     const currentDay = new Date().getDate();
     let daysUntil = null;
 
-    if(currentMonth == month) {
-      daysUntil = Number(day) - currentDay;
-    }
+
 
     let result = null;
     let badge = null;
 
-    if(currentMonth < month) {
+    if(currentMonth == month) {
+      console.log('yeet');
+      
+      daysUntil = Number(day) - currentDay;
+    }
+
+    if(currentMonth != month) {
       daysUntil = Number(month) - Number(currentMonth);
       result = "IN "+daysUntil+" MONTHS"
       badge = 'badge badge-warning';
+    }
+
+    if(Number(day) === currentDay) {
+      result = "ON TODAY";
+      badge = 'badge badge-success';
+    }
+
+    if(currentMonth == month && currentDay > Number(day)) {
+      result = "GAME FINISHED";
+      badge = 'badge badge-danger';
     }
     
 

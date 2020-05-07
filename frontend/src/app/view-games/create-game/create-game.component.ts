@@ -6,6 +6,7 @@ import { Games } from 'src/app/_models/team';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { first } from 'rxjs/operators';
 import { MAT_DATE_LOCALE, DateAdapter } from '@angular/material/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-game',
@@ -37,6 +38,7 @@ export class CreateGameComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private userService: UserService,
+    private router: Router,
     private authService: AuthenticationService,
     private dateAdapter: DateAdapter<Date>) { 
       this.dateAdapter.setLocale('en-GB'); 
@@ -86,11 +88,20 @@ export class CreateGameComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
+
+    if(this.createForm.invalid) {
+      return;
+    }
+    
     this.loading = true;
 
     this.game = new Games(this.f.matchName.value, this.f.matchType.value, this.d, this.f.time.value, this.user);
     
     this.userService.createMatch(this.game).pipe(first()).subscribe(data => {
+      this.router.navigate(['/']);
+    },
+    error => {
       this.loading = false;
     });
   }

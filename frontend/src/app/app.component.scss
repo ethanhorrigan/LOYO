@@ -28,6 +28,7 @@ mat-icon {
 .sidebar-icon {
     color:#7e838c;
 }
+
 .sidebar-item {
     display:-webkit-flex;
     display:flex;
@@ -39,7 +40,11 @@ mat-icon {
     text-decoration: none;
     gap:normal;
     line-height: 20.86px;
-    margin: 10rem;
+    margin: 8rem;
+    @media (min-width: 320px) { margin: 3rem; }
+    @media (min-width: 768px) { margin: 5rem; }
+    @media (min-width: 992px) { margin: 6rem; }
+    @media (min-width: 1200px) { margin: 8rem; }
 }
 ::ng-deep .tooltip-lb {
     font-size: 1.25rem;

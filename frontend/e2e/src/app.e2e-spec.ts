@@ -40,9 +40,9 @@ describe('workspace-project App', () => {
     expect(browser.getCurrentUrl()).toMatch('/viewgames');
   });
 
-  it('should open match page bb32763e7b6911ea95df02cd8b447e6d', () => {
-    page.navigateToPage('/match/bb32763e7b6911ea95df02cd8b447e6d');
-    expect(browser.getCurrentUrl()).toMatch('/match/bb32763e7b6911ea95df02cd8b447e6d');
+  it('should open match page', () => {
+    page.navigateToPage('/match/8e8c2fb2906d11eab67376772c75888d');
+    expect(browser.getCurrentUrl()).toMatch('/match/8e8c2fb2906d11eab67376772c75888d');
   });
 
   it('should open leaderboards', () => {
@@ -55,8 +55,8 @@ describe('workspace-project App', () => {
     page.enterUsername();
     page.enterPassword();
     page.clickLogin();
-    page.navigateToPage('/profile/Ben');
-    expect(browser.getCurrentUrl()).toMatch('/profile/Ben');
+    page.navigateToPage('/mygames/Ben');
+    expect(browser.getCurrentUrl()).toMatch('/mygames/Ben');
   });
 
   afterEach(async () => {

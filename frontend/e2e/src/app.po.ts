@@ -32,4 +32,6 @@ export class AppPage {
   clickLogin() {
     return element(by.xpath('/html/body/app-root/div[2]/ng-component/div/div/div/form/div[3]/button')).click() as Promise<any>;
   }
+
+
 }
