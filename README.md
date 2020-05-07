@@ -16,42 +16,55 @@ Simply click on the picture to open the screencast video or https://www.youtube.
 
 ## Setup
 - **Clone**
-    - 👯 Clone this repo to your local machine using:
+    - Clone this repo to your local machine using:
 
     ```git clone https://github.com/ethanhorrigan/LOYO.git```
 
+- **Install**
 
-## Build
+    - Install Python Packages:
 
- > The build artifacts will be stored in the `dist/` directory.
+    ```pip install -r requirements.txt```
+    - If using Python3:
 
- ```shell
-$ ng build
-```
+    ```pip3 install -r requirements.txt```
+    
+    - Install Angular CLI (Note: Node may have to be installed: [NodeJS](https://nodejs.org/en/)
 
-## Running unit tests
+    ```pip3 install -r requirements.txt```
 
-> To execute unit tests via [Karma](https://karma-runner.github.io)
+    - NOTE: Packages may have to be installed.
 
- ```shell
-$ ng test
-```
+    ```cd frontend/```
 
-## Running end-to-end tests
+    ```npm install```
 
-To execute the end-to-end tests via [Protractor](http://www.protractortest.org/)
+## Running & Testing 
+- **Running**
 
- ```shell
-$ ng e2e
-```
+    ```cd frontend/```
+    ```ng serve --open```
 
-## Tests 
+- **Testing**
 
-> Unit Test Server
+    - Unit Tests:
 
-```shell
-$ python loyo_python_test.py
-```
+    ```ng test```
+
+    - e2e Tests:
+
+    ```ng e2e```
+
+- **Build & Deploy**
+
+    - Build
+
+    ```cd frontend/```
+    ```ng build --prod --aot```
+    
+    - Deploy
+
+    ```firebase deploy```  
 
 ---
 
