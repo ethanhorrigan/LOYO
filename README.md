@@ -10,6 +10,7 @@ A Service for users to Create, Manage & Participate in Online Custom Games. With
 ## Screencast
 [![screencast](https://img.youtube.com/vi/vccfBFOMI0I/0.jpg)](https://www.youtube.com/watch?v=vccfBFOMI0I)
 
+Simply click on the picture to open the screencast video or https://www.youtube.com/watch?v=vccfBFOMI0I
 ![Arch](https://github.com/ethanhorrigan/Applied-Project-Minor-Dissertation/blob/master/img/MainArchitecture.png)
 
 
