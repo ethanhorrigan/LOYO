@@ -1,4 +1,9 @@
 
+
+<p align="center">
+  <img width="250" height="250" src="https://i.imgur.com/zW8EOj9.png">
+</p>
+
 # Applied Project & Minor Dissertation
 A Service for users to Create, Manage & Participate in Online Custom Games. With a Matchmkaing System and an Integrated Point System, This service allows users to manage their events.
 
