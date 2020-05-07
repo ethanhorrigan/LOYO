@@ -20,10 +20,8 @@ import src.rating.rating as r
 app = Flask(__name__)
 api = Api(app)
 
-watcher = RiotWatcher(constants.RIOT_API_KEY)
+# watcher = RiotWatcher(constants.RIOT_API_KEY)
 
-QUEUE_TYPE = 'RANKED_SOLO_5x5'
-my_region = 'euw1'
 
 
 CORS(app) # To solve the CORS issue when making HTTP Requests
@@ -44,6 +42,25 @@ try:
 except (Exception, psycopg2.Error) as error:
     print ("Error while connecting to PostgreSQL", error)
 
+
+
+class APIKey:
+    def update_api_key():
+        result = None
+        cursor = connection.cursor()  
+        try:
+            query = (constants.API_KEY)
+            cursor.execute(query)
+            result = cursor.fetchall()[0][0]
+        except psycopg2.Error as error:
+            result = 'error getting key'
+        finally:
+            return result
+
+key = APIKey.update_api_key()
+watcher = RiotWatcher(key)
+QUEUE_TYPE = 'RANKED_SOLO_5x5'
+my_region = 'euw1'
 
 class Summoner():
     def get_account_id(self):
@@ -648,6 +665,7 @@ class MyUpcomingGames(Resource):
             connection.commit()
             cursor.close()
         return game_list 
+
 class MatchStatus(Resource):
     def get(self, match_id):
         result = None

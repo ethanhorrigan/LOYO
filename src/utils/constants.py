@@ -11,6 +11,7 @@ PORT = "5432"
 
 RIOT_API_KEY = 'RGAPI-6e63a0aa-3424-485f-95b0-c0bef8f46027'
 
+API_KEY = 'select api_key from key'
 ADMIN_QUERY = 'select admin from matches where match_uuid=%s'
 GET_SUMMONER_NAME = 'select summoner_name from users where user_name=%s'
 UPDATE_SUMMOMER = 'Update users set account_id=%s, rank=%s, mmr=%s, player_icon=%s, total_games=%s where user_name=%s'
