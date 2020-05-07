@@ -455,7 +455,7 @@ class Users(Resource):
 
             cursor.execute(r_query, r_values)
 
-            initial_query = ("Update users set wins = 0, losses = 0 where user_name = %s")
+            initial_query = ("Update users set wins = 0, losses = 0, points=0 where user_name = %s")
             initial_param = [Username]
             cursor.execute(initial_query, initial_param)
             connection.commit()
