@@ -5,7 +5,7 @@ conn = connect(
 dbname = "loyo_db",
 user = "postgres",
 host = "localhost",
-password = "horrigan902"
+password = "dbpw"
 )
 
 # object type: psycopg2.extensions.connection
